@@ -364,29 +364,29 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       size: {
         small: {
           border: {
-            radius: `${baseSpacing * 0.312}px`,
+            radius: `${baseSpacing * 0.25}px`, // 4px
           },
           pad: {
-            vertical: `${baseSpacing / 4 - borderWidth}px`, // 4px
+            vertical: `${baseSpacing / (1.618 * 2) - borderWidth}px`, // 4px
             horizontal: `${baseSpacing - borderWidth * 2}px`, // 20px,
           },
         },
         medium: {
           border: {
-            radius: `${baseSpacing * 0.312}px`, // 18px
+            radius: `${baseSpacing * 0.312}px`, // 5px
           },
           pad: {
-            vertical: `${baseSpacing / 4 - borderWidth}px`, // 4px
-            horizontal: `${baseSpacing - borderWidth}px`, // 22px
+            vertical: `${baseSpacing / 1.618 - borderWidth}px`,
+            horizontal: `${baseSpacing - borderWidth * 1.4}px`,
           },
         },
         large: {
           border: {
-            radius: `${baseSpacing * 0.312}px`, // 24px
+            radius: `${baseSpacing * 0.4}px`, // 24px
           },
           pad: {
-            vertical: `${baseSpacing / 4 + borderWidth}px`, // 8px
-            horizontal: `${baseSpacing + borderWidth * 4}px`, // 32px,
+            vertical: `${baseSpacing / (1.618 / 2) + borderWidth}px`, // 8px
+            horizontal: `${baseSpacing * 2.8 - borderWidth}px`, // 32px,
           },
         },
       },
@@ -465,8 +465,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       //   secondary: {},
       // },
       padding: {
-        vertical: `${baseSpacing / 1.6}px`,
-        horizontal: `${baseSpacing * 1.4}px`,
+        vertical: `${baseSpacing / 1.618 - borderWidth}px`,
+        horizontal: `${baseSpacing - borderWidth * 1.4}px`,
       },
       transition: {
         timing: 'ease-in-out',
