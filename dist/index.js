@@ -621,16 +621,38 @@ var generate = function generate(baseSpacing, scale) {
       },
       size: baseSpacing + "px",
       toggle: {
-        // background: undefined
+        background: {
+          light: 'accent-2'
+        },
+        size: baseSpacing * 2.3125 + "px",
         color: {
           dark: '#d9d9d9',
-          light: '#d9d9d9'
+          light: 'white'
         },
-        knob: {// extend: undefined,
+        knob: {
+          background: {
+            light: 'white'
+          },
+          color: {
+            light: 'white'
+          },
+          extend: {
+            top: '2px',
+            left: '2px',
+            width: baseSpacing * 0.937 + "px",
+            height: baseSpacing * 0.937 + "px",
+            background: colors.white
+          }
         },
         radius: baseSpacing + "px",
-        size: baseSpacing * 2 + "px" // extend: undefined,
-
+        extend: function extend(_ref) {
+          var checked = _ref.checked;
+          return {
+            height: baseSpacing * 1.187 + "px",
+            border: 'none',
+            background: checked ? accentColors[0] : accentColors[1]
+          };
+        }
       }
     },
     clock: {
