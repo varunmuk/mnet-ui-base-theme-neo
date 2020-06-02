@@ -123,7 +123,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     maxWidth: `${baseSpacing * (baseFontSize + factor * fontScale)}px`,
   });
 
-  const borderWidth = 2;
+  const borderWidth = 0;
   const controlBorderWidth = 1;
 
   const result = {
@@ -397,15 +397,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       color: { dark: undefined, light: undefined },
       default: {
-        background: 'light-3',
-        border: {
-          color: { dark: 'light-3', light: 'light-3' },
-        },
+        background: 'transparent',
+        border: 'none',
         // color: undefined,
-        // padding: {
-        //   vertical: undefined,
-        //   horizontal: undefined,
-        // },
+        padding: {
+          vertical: '0',
+          horizontal: '0',
+        },
         // extend: undefined,
       },
       primary: {
@@ -426,6 +424,18 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: { dark: 'accent-2', light: 'accent-2' },
         },
         color: 'white',
+        // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        // extend: undefined,
+      },
+      tertiary: {
+        background: 'light-3',
+        border: {
+          color: { dark: 'light-3', light: 'light-3' },
+        },
+        // color: 'white',
         // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,

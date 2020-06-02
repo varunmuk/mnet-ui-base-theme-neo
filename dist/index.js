@@ -143,7 +143,7 @@ var generate = function generate(baseSpacing, scale) {
     };
   };
 
-  var borderWidth = 2;
+  var borderWidth = 0;
   var controlBorderWidth = 1;
   var result = {
     global: {
@@ -268,7 +268,7 @@ var generate = function generate(baseSpacing, scale) {
         // 24
         large: baseSpacing + "px",
         // 48
-        xlarge: baseSpacing + "px",
+        xlarge: baseSpacing * 2 + "px",
         // 96
         responsiveBreakpoint: 'small'
       },
@@ -340,7 +340,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       spacing: baseSpacing + "px",
       size: {
-        xxsmall: baseSpacing * 2 + "px",
+        xxsmall: baseSpacing * 2.2 + "px",
         // 48
         xsmall: baseSpacing * 4 + "px",
         // 96
@@ -466,18 +466,13 @@ var generate = function generate(baseSpacing, scale) {
         light: undefined
       },
       "default": {
-        background: 'light-3',
-        border: {
-          color: {
-            dark: 'light-3',
-            light: 'light-3'
-          }
-        } // color: undefined,
-        // padding: {
-        //   vertical: undefined,
-        //   horizontal: undefined,
-        // },
-        // extend: undefined,
+        background: 'transparent',
+        border: 'none',
+        // color: undefined,
+        padding: {
+          vertical: '0',
+          horizontal: '0'
+        } // extend: undefined,
 
       },
       primary: {
@@ -504,6 +499,21 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         color: 'white' // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        // extend: undefined,
+
+      },
+      tertiary: {
+        background: 'light-3',
+        border: {
+          color: {
+            dark: 'light-3',
+            light: 'light-3'
+          }
+        } // color: 'white',
+        // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
