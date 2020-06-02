@@ -222,7 +222,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         small: `${baseSpacing / 4}px`, // 12
         medium: `${baseSpacing / 2}px`, // 24
         large: `${baseSpacing}px`, // 48
-        xlarge: `${baseSpacing}px`, // 96
+        xlarge: `${baseSpacing * 2}px`, // 96
         responsiveBreakpoint: 'small',
       },
       elevation: {
@@ -296,7 +296,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       spacing: `${baseSpacing}px`,
       size: {
-        xxsmall: `${baseSpacing * 2}px`, // 48
+        xxsmall: `${baseSpacing * 2.2}px`, // 48
         xsmall: `${baseSpacing * 4}px`, // 96
         small: `${baseSpacing * 8}px`, // 192
         medium: `${baseSpacing * 16}px`, // 384
@@ -710,6 +710,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             // family: undefined,
             // weight: undefined,
           },
+          xsmall: { ...fontSizing(2) },
           small: { ...fontSizing(4) },
           medium: { ...fontSizing(8) },
           large: { ...fontSizing(16) },

@@ -256,7 +256,7 @@ export var generate = function generate(baseSpacing, scale) {
         // 24
         large: baseSpacing + "px",
         // 48
-        xlarge: baseSpacing + "px",
+        xlarge: baseSpacing * 2 + "px",
         // 96
         responsiveBreakpoint: 'small'
       },
@@ -328,7 +328,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       spacing: baseSpacing + "px",
       size: {
-        xxsmall: baseSpacing * 2 + "px",
+        xxsmall: baseSpacing * 2.2 + "px",
         // 48
         xsmall: baseSpacing * 4 + "px",
         // 96
@@ -814,6 +814,7 @@ export var generate = function generate(baseSpacing, scale) {
           font: {// family: undefined,
             // weight: undefined,
           },
+          xsmall: _extends({}, fontSizing(2)),
           small: _extends({}, fontSizing(4)),
           medium: _extends({}, fontSizing(8)),
           large: _extends({}, fontSizing(16)),

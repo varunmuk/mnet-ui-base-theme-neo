@@ -826,6 +826,7 @@ var generate = function generate(baseSpacing, scale) {
           font: {// family: undefined,
             // weight: undefined,
           },
+          xsmall: _extends({}, fontSizing(2)),
           small: _extends({}, fontSizing(4)),
           medium: _extends({}, fontSizing(8)),
           large: _extends({}, fontSizing(16)),
