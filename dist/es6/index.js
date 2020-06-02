@@ -411,10 +411,11 @@ export var generate = function generate(baseSpacing, scale) {
       size: {
         small: {
           border: {
-            radius: baseSpacing * 0.312 + "px"
+            radius: baseSpacing * 0.25 + "px" // 4px
+
           },
           pad: {
-            vertical: baseSpacing / 4 - borderWidth + "px",
+            vertical: baseSpacing / (1.618 * 2) - borderWidth + "px",
             // 4px
             horizontal: baseSpacing - borderWidth * 2 + "px" // 20px,
 
@@ -422,25 +423,23 @@ export var generate = function generate(baseSpacing, scale) {
         },
         medium: {
           border: {
-            radius: baseSpacing * 0.312 + "px" // 18px
+            radius: baseSpacing * 0.312 + "px" // 5px
 
           },
           pad: {
-            vertical: baseSpacing / 4 - borderWidth + "px",
-            // 4px
-            horizontal: baseSpacing - borderWidth + "px" // 22px
-
+            vertical: baseSpacing / 1.618 - borderWidth + "px",
+            horizontal: baseSpacing - borderWidth * 1.4 + "px"
           }
         },
         large: {
           border: {
-            radius: baseSpacing * 0.312 + "px" // 24px
+            radius: baseSpacing * 0.4 + "px" // 24px
 
           },
           pad: {
-            vertical: baseSpacing / 4 + borderWidth + "px",
+            vertical: baseSpacing / (1.618 / 2) + borderWidth + "px",
             // 8px
-            horizontal: baseSpacing + borderWidth * 4 + "px" // 32px,
+            horizontal: baseSpacing * 2.8 - borderWidth + "px" // 32px,
 
           }
         }
@@ -535,8 +534,8 @@ export var generate = function generate(baseSpacing, scale) {
       //   secondary: {},
       // },
       padding: {
-        vertical: baseSpacing / 1.6 + "px",
-        horizontal: baseSpacing * 1.4 + "px"
+        vertical: baseSpacing / 1.618 - borderWidth + "px",
+        horizontal: baseSpacing - borderWidth * 1.4 + "px"
       },
       transition: {
         timing: 'ease-in-out',
@@ -610,16 +609,38 @@ export var generate = function generate(baseSpacing, scale) {
       },
       size: baseSpacing + "px",
       toggle: {
-        // background: undefined
+        background: {
+          light: 'accent-2'
+        },
+        size: baseSpacing * 2.3125 + "px",
         color: {
           dark: '#d9d9d9',
-          light: '#d9d9d9'
+          light: 'white'
         },
-        knob: {// extend: undefined,
+        knob: {
+          background: {
+            light: 'white'
+          },
+          color: {
+            light: 'white'
+          },
+          extend: {
+            top: '2px',
+            left: '2px',
+            width: baseSpacing * 0.937 + "px",
+            height: baseSpacing * 0.937 + "px",
+            background: colors.white
+          }
         },
         radius: baseSpacing + "px",
-        size: baseSpacing * 2 + "px" // extend: undefined,
-
+        extend: function extend(_ref) {
+          var checked = _ref.checked;
+          return {
+            height: baseSpacing * 1.187 + "px",
+            border: 'none',
+            background: checked ? accentColors[0] : accentColors[1]
+          };
+        }
       }
     },
     clock: {
