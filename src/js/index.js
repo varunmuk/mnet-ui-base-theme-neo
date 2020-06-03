@@ -58,7 +58,7 @@ const colors = {
   black: '#000000',
   border: {
     dark: rgba(255, 255, 255, 0.33),
-    light: '#E8E7E7',
+    light: '#DEDEDE',
   },
   brand: brandColor,
   control: {
@@ -889,10 +889,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
     },
     select: {
-      // background: undefined,
-      background: 'dark-2',
+      background: 'white',
       container: {
-        // extend: undefined,
+        extend: props => ({
+          borderColor: normalizeColor('border', props.theme),
+        }),
       },
       control: {
         // extend: undefined,
@@ -902,10 +903,18 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         container: {
           align: 'start',
           pad: 'small',
+          round: 'false',
         },
         text: {
           margin: 'none',
         },
+      },
+      icons: {
+        color: 'icon',
+        margin: 'none',
+        pad: 'small',
+        background: 'background-contrast',
+        // extend: {},
       },
       // searchInput: undefined,
       step: 20,

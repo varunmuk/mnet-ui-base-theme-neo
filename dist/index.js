@@ -65,7 +65,7 @@ var colors = {
   black: '#000000',
   border: {
     dark: (0, _polished.rgba)(255, 255, 255, 0.33),
-    light: '#E8E7E7'
+    light: '#DEDEDE'
   },
   brand: brandColor,
   control: {
@@ -1009,8 +1009,7 @@ var generate = function generate(baseSpacing, scale) {
 
     },
     select: {
-      // background: undefined,
-      background: 'dark-2',
+      background: 'white',
       container: {// extend: undefined,
       },
       control: {// extend: undefined,
@@ -1019,11 +1018,19 @@ var generate = function generate(baseSpacing, scale) {
       options: {
         container: {
           align: 'start',
-          pad: 'small'
+          pad: 'small',
+          round: 'false'
         },
         text: {
           margin: 'none'
         }
+      },
+      icons: {
+        color: 'icon',
+        margin: 'none',
+        pad: 'small',
+        background: 'background-contrast' // extend: {},
+
       },
       // searchInput: undefined,
       step: 20
