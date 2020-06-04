@@ -733,7 +733,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // round: undefined,
     },
     mnet: {
-      // extend: undefined
+      extend: css`
+      & *:focus {
+        outline: none;
+      }
+    `,
     },
     heading: {
       font: {

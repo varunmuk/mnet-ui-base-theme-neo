@@ -1,5 +1,15 @@
-function _templateObject() {
+function _templateObject2() {
   var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n      & *:focus {\n        outline: none;\n      }\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -847,7 +857,8 @@ export var generate = function generate(baseSpacing, scale) {
       } // round: undefined,
 
     },
-    mnet: {// extend: undefined
+    mnet: {
+      extend: css(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -991,7 +1002,7 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: css(_templateObject(), function (props) {
+        color: css(_templateObject2(), function (props) {
           return rgba(normalizeColor('border', props.theme), 0.2);
         })
       },
