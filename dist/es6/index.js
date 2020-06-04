@@ -292,7 +292,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       font: _extends({}, fontSizing(0), {
         // face: undefined,
-        family: '\'Open Sans\', sans-serif'
+        family: "'Open Sans', sans-serif"
       }),
       hover: {
         background: {
@@ -826,12 +826,24 @@ export var generate = function generate(baseSpacing, scale) {
       },
       label: {
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: 'large',
+          horizontal: '0'
         }
       },
       margin: {
         bottom: 'small'
+      },
+      // round: undefined,
+      extend: function extend(_ref2) {
+        var direction = _ref2.direction,
+            align = _ref2.align;
+        return {
+          'flex-direction': direction,
+          'align-items': align,
+          label: {
+            'min-width': baseSpacing * 10 + "px"
+          }
+        };
       } // round: undefined,
 
     },
@@ -1136,8 +1148,14 @@ export var generate = function generate(baseSpacing, scale) {
     textArea: {// extend: undefined,
       // disabled: { opacity: undefined },
     },
-    textInput: {// extend: undefined,
+    textInput: {
+      container: {
+        extend: {
+          width: baseSpacing * 14.5 + "px"
+        }
+      } // extend: undefined,
       // disabled: { opacity: undefined },
+
     }
   };
   return deepFreeze(result);

@@ -98,9 +98,10 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) => array.forEach((color, index) => {
-  colors[`${prefix}-${index + 1}`] = color;
-});
+const colorArray = (array, prefix) =>
+  array.forEach((color, index) => {
+    colors[`${prefix}-${index + 1}`] = color;
+  });
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -115,7 +116,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = factor => ({
+  const fontSizing = (factor) => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -258,7 +259,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       font: {
         ...fontSizing(0),
         // face: undefined,
-        family: '\'Open Sans\', sans-serif',
+        family: "'Open Sans', sans-serif",
       },
       hover: {
         background: {
@@ -272,10 +273,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       input: {
         padding: {
-          horizontal: `${parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)}px`,
-          vertical: `${parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)}px`,
+          horizontal: `${
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
+          }px`,
+          vertical: `${
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
+          }px`,
         },
         font: {
           // size: undefined,
@@ -714,9 +719,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         margin: { vertical: 'xsmall', horizontal: 'small' },
       },
       label: {
-        margin: { vertical: 'xsmall', horizontal: 'small' },
+        margin: { vertical: 'large', horizontal: '0' },
       },
       margin: { bottom: 'small' },
+      // round: undefined,
+      extend: ({ direction, align }) => ({
+        'flex-direction': direction,
+        'align-items': align,
+        label: {
+          'min-width': `${baseSpacing * 10}px`,
+        },
+      }),
       // round: undefined,
     },
     mnet: {
@@ -871,7 +884,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -891,7 +904,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: props => ({
+        extend: (props) => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
@@ -1020,6 +1033,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // disabled: { opacity: undefined },
     },
     textInput: {
+      container: {
+        extend: {
+          width: `${baseSpacing * 14.5}px`,
+        },
+      },
       // extend: undefined,
       // disabled: { opacity: undefined },
     },
