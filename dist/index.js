@@ -15,8 +15,18 @@ var _colors = require("mnet-ui-base/utils/colors");
 
 var _mixins = require("mnet-ui-base/utils/mixins");
 
-function _templateObject() {
+function _templateObject2() {
   var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n      & *:focus {\n        outline: none;\n      }\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -859,7 +869,8 @@ var generate = function generate(baseSpacing, scale) {
       } // round: undefined,
 
     },
-    mnet: {// extend: undefined
+    mnet: {
+      extend: (0, _styledComponents.css)(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -1003,7 +1014,7 @@ var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: (0, _styledComponents.css)(_templateObject(), function (props) {
+        color: (0, _styledComponents.css)(_templateObject2(), function (props) {
           return (0, _polished.rgba)((0, _colors.normalizeColor)('border', props.theme), 0.2);
         })
       },
