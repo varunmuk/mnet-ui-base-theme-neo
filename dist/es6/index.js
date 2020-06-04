@@ -9,7 +9,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n      & *:focus {\n        outline: none;\n      }\n    "]);
+  var data = _taggedTemplateLiteralLoose(["\n      :focus {\n        outline: none;\n      }\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -858,7 +858,7 @@ export var generate = function generate(baseSpacing, scale) {
 
     },
     mnet: {
-      extend: css(_templateObject())
+      global: css(_templateObject())
     },
     heading: {
       font: {// family: undefined

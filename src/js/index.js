@@ -732,8 +732,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // round: undefined,
     },
     mnet: {
-      extend: css`
-      & *:focus {
+      global: css`
+      :focus {
         outline: none;
       }
     `,
