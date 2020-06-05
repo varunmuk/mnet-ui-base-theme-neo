@@ -268,17 +268,17 @@ var generate = function generate(baseSpacing, scale) {
         none: '0px',
         hair: '1px',
         // for Chart
-        xxsmall: baseSpacing / 16 + "px",
+        xxsmall: baseSpacing / (1.618 * 8) + "px",
         // 3
-        xsmall: baseSpacing / 8 + "px",
+        xsmall: baseSpacing / (1.618 * 4) + "px",
         // 6
-        small: baseSpacing / 4 + "px",
+        small: baseSpacing / (1.618 * 2) + "px",
         // 12
-        medium: baseSpacing / 2 + "px",
+        medium: baseSpacing / 1.618 + "px",
         // 24
         large: baseSpacing + "px",
         // 48
-        xlarge: baseSpacing * 2 + "px",
+        xlarge: baseSpacing * 1.618 + "px",
         // 96
         responsiveBreakpoint: 'small'
       },
@@ -329,7 +329,7 @@ var generate = function generate(baseSpacing, scale) {
       input: {
         padding: {
           horizontal: (0, _mixins.parseMetricToNum)(baseSpacing / 2 + "px") - (0, _mixins.parseMetricToNum)(controlBorderWidth + "px") + "px",
-          vertical: (0, _mixins.parseMetricToNum)(baseSpacing / 2 + "px") - (0, _mixins.parseMetricToNum)(controlBorderWidth + "px") + "px"
+          vertical: (0, _mixins.parseMetricToNum)(baseSpacing / 1.618 + "px") - (0, _mixins.parseMetricToNum)(controlBorderWidth + "px") + "px"
         },
         font: {
           // size: undefined,
@@ -435,35 +435,31 @@ var generate = function generate(baseSpacing, scale) {
           border: {
             radius: baseSpacing * 0.25 + "px" // 4px
 
-          },
-          pad: {
-            vertical: baseSpacing / (1.618 * 2) - borderWidth + "px",
-            // 4px
-            horizontal: baseSpacing - borderWidth * 2 + "px" // 20px,
+          } // pad: {
+          //   vertical: `${baseSpacing / (1.618 * 2) - borderWidth}px`, // 4px
+          //   horizontal: `${baseSpacing - borderWidth * 2}px`, // 20px,
+          // },
 
-          }
         },
         medium: {
           border: {
             radius: baseSpacing * 0.312 + "px" // 5px
 
-          },
-          pad: {
-            vertical: baseSpacing / 1.618 - borderWidth + "px",
-            horizontal: baseSpacing - borderWidth * 1.4 + "px"
-          }
+          } // pad: {
+          //   vertical: `${baseSpacing / 1.618 - borderWidth}px`,
+          //   horizontal: `${baseSpacing - borderWidth * 1.4}px`,
+          // },
+
         },
         large: {
           border: {
             radius: baseSpacing * 0.4 + "px" // 24px
 
-          },
-          pad: {
-            vertical: baseSpacing / (1.618 / 2) + borderWidth + "px",
-            // 8px
-            horizontal: baseSpacing * 2.8 - borderWidth + "px" // 32px,
+          } // pad: {
+          //   vertical: `${baseSpacing / (1.618 / 2) + borderWidth}px`, // 8px
+          //   horizontal: `${baseSpacing * 2.8 - borderWidth}px`, // 32px,
+          // },
 
-          }
         }
       },
       border: {
