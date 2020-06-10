@@ -71,7 +71,7 @@ const colors = {
   'graph-2': 'neutral-2',
   'graph-3': 'neutral-3',
   'graph-4': 'neutral-4',
-  placeholder: '#e0e4ee',
+  placeholder: 'dark-5',
   selected: 'dark-2',
   text: {
     dark: '#f8f8f8',
@@ -98,9 +98,10 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) => array.forEach((color, index) => {
-  colors[`${prefix}-${index + 1}`] = color;
-});
+const colorArray = (array, prefix) =>
+  array.forEach((color, index) => {
+    colors[`${prefix}-${index + 1}`] = color;
+  });
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -115,7 +116,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = factor => ({
+  const fontSizing = (factor) => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -273,12 +274,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -733,10 +734,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     mnet: {
       global: css`
-      :focus {
-        outline: none;
-      }
-    `,
+        :focus {
+          outline: none;
+        }
+      `,
     },
     heading: {
       font: {
@@ -887,7 +888,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -907,7 +908,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: props => ({
+        extend: (props) => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
@@ -937,7 +938,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     tab: {
       active: {
-        color: 'text',
+        color: 'dark-3',
         // background: undefined,
       },
       // background: undefined,
@@ -946,50 +947,53 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         size: 'small',
         color: {
           dark: 'brand',
-          light: 'brand',
+          light: 'white',
         },
         active: {
           color: {
             dark: 'white',
-            light: 'black',
+            light: 'accent-3',
           },
         },
         hover: {
           color: {
             dark: 'white',
-            light: 'black',
+            light: 'white',
           },
           // extend: undefined,
         },
       },
-      color: 'control',
+      color: 'dark-4',
       // extend: undefined,
       hover: {
         // background: undefined,
         // extend: undefined,
         color: {
           dark: 'white',
-          light: 'black',
+          light: 'dark-3',
         },
       },
       margin: {
-        vertical: 'xxsmall',
+        top: 'large',
         horizontal: 'small',
       },
       pad: {
-        bottom: 'xsmall',
+        bottom: 'large',
       },
     },
     tabs: {
       // background: undefined,
       // extend: undefined,
-      // gap: undefined,
+      gap: 'large',
       header: {
         // background: undefined,
-        // extend: undefined,
+        extend: {
+          'padding-left': `${baseSpacing * 1.2}px`,
+          'border-bottom': `1px solid #E8E7E7 `,
+        },
       },
       panel: {
-        // extend: undefined,
+        extend: {},
       },
     },
     table: {

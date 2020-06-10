@@ -9,7 +9,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n      :focus {\n        outline: none;\n      }\n    "]);
+  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -77,7 +77,7 @@ var colors = {
   'graph-2': 'neutral-2',
   'graph-3': 'neutral-3',
   'graph-4': 'neutral-4',
-  placeholder: '#e0e4ee',
+  placeholder: 'dark-5',
   selected: 'dark-2',
   text: {
     dark: '#f8f8f8',
@@ -1049,7 +1049,7 @@ export var generate = function generate(baseSpacing, scale) {
     },
     tab: {
       active: {
-        color: 'text' // background: undefined,
+        color: 'dark-3' // background: undefined,
 
       },
       // background: undefined,
@@ -1058,48 +1058,53 @@ export var generate = function generate(baseSpacing, scale) {
         size: 'small',
         color: {
           dark: 'brand',
-          light: 'brand'
+          light: 'white'
         },
         active: {
           color: {
             dark: 'white',
-            light: 'black'
+            light: 'accent-3'
           }
         },
         hover: {
           color: {
             dark: 'white',
-            light: 'black'
+            light: 'white'
           } // extend: undefined,
 
         }
       },
-      color: 'control',
+      color: 'dark-4',
       // extend: undefined,
       hover: {
         // background: undefined,
         // extend: undefined,
         color: {
           dark: 'white',
-          light: 'black'
+          light: 'dark-3'
         }
       },
       margin: {
-        vertical: 'xxsmall',
+        top: 'large',
         horizontal: 'small'
       },
       pad: {
-        bottom: 'xsmall'
+        bottom: 'large'
       }
     },
     tabs: {
       // background: undefined,
       // extend: undefined,
-      // gap: undefined,
-      header: {// background: undefined,
-        // extend: undefined,
+      gap: 'large',
+      header: {
+        // background: undefined,
+        extend: {
+          'padding-left': baseSpacing * 1.2 + "px",
+          'border-bottom': "1px solid #E8E7E7 "
+        }
       },
-      panel: {// extend: undefined,
+      panel: {
+        extend: {}
       }
     },
     table: {
