@@ -1112,7 +1112,7 @@ var generate = function generate(baseSpacing, scale) {
         // background: undefined,
         extend: {
           'padding-left': baseSpacing * 1.2 + "px",
-          'border-bottom': "1px solid #E8E7E7 "
+          'border-bottom': '1px solid #E8E7E7 '
         }
       },
       panel: {

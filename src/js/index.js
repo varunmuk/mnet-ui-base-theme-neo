@@ -98,10 +98,9 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) =>
-  array.forEach((color, index) => {
-    colors[`${prefix}-${index + 1}`] = color;
-  });
+const colorArray = (array, prefix) => array.forEach((color, index) => {
+  colors[`${prefix}-${index + 1}`] = color;
+});
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -116,7 +115,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = (factor) => ({
+  const fontSizing = factor => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -230,7 +229,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         light: {
           none: 'none',
           xsmall: '0px 1px 2px rgba(0, 0, 0, 0.02)',
-          small: '0px 2px 4px rgba(0, 0, 0, 0.02)',
+          small: '0px 1px 5px 0px rgba(217,217,217,1)',
           medium: '0px 4px 8px rgba(0, 0, 0, 0.02)',
           large: '0px 8px 16px rgba(0, 0, 0, 0.02)',
           xlarge: '0px 12px 24px rgba(0, 0, 0, 0.02)',
@@ -274,12 +273,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`) -
-            parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`)
+            - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`) -
-            parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`)
+            - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -888,7 +887,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -908,7 +907,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: (props) => ({
+        extend: props => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
@@ -989,7 +988,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // background: undefined,
         extend: {
           'padding-left': `${baseSpacing * 1.2}px`,
-          'border-bottom': `1px solid #E8E7E7 `,
+          'border-bottom': '1px solid #E8E7E7 ',
         },
       },
       panel: {

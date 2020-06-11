@@ -274,7 +274,7 @@ export var generate = function generate(baseSpacing, scale) {
         light: {
           none: 'none',
           xsmall: '0px 1px 2px rgba(0, 0, 0, 0.02)',
-          small: '0px 2px 4px rgba(0, 0, 0, 0.02)',
+          small: '0px 1px 5px 0px rgba(217,217,217,1)',
           medium: '0px 4px 8px rgba(0, 0, 0, 0.02)',
           large: '0px 8px 16px rgba(0, 0, 0, 0.02)',
           xlarge: '0px 12px 24px rgba(0, 0, 0, 0.02)'
@@ -1100,7 +1100,7 @@ export var generate = function generate(baseSpacing, scale) {
         // background: undefined,
         extend: {
           'padding-left': baseSpacing * 1.2 + "px",
-          'border-bottom': "1px solid #E8E7E7 "
+          'border-bottom': '1px solid #E8E7E7 '
         }
       },
       panel: {
