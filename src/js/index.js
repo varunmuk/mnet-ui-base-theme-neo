@@ -36,6 +36,7 @@ const lightColors = [
   '#e1e3ef',
   '#dfdfdf',
   '#DADADA',
+  '#F5F7FD',
 ];
 const focusColor = '#B1C2FE';
 
@@ -72,7 +73,7 @@ const colors = {
   'graph-3': 'neutral-3',
   'graph-4': 'neutral-4',
   placeholder: 'dark-5',
-  selected: 'dark-2',
+  selected: 'light-7',
   text: {
     dark: '#f8f8f8',
     light: '#898EA2',
@@ -98,9 +99,10 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) => array.forEach((color, index) => {
-  colors[`${prefix}-${index + 1}`] = color;
-});
+const colorArray = (array, prefix) =>
+  array.forEach((color, index) => {
+    colors[`${prefix}-${index + 1}`] = color;
+  });
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -115,7 +117,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = factor => ({
+  const fontSizing = (factor) => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -209,10 +211,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       drop: {
         background: '#ffffff',
         border: {
-          radius: '0px',
+          radius: '4px',
         },
-        shadowSize: 'small',
         zIndex: '20',
+        extend: {
+          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
+          button: {
+            'border-bottom': '1px solid #D9DBE5',
+          },
+        },
       },
       edgeSize: {
         none: '0px',
@@ -273,12 +280,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -295,8 +302,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         weak: 0.1,
       },
       selected: {
-        background: 'selected',
-        color: 'white',
+        background: 'light-7',
+        color: 'dark-3',
       },
       spacing: `${baseSpacing}px`,
       size: {
@@ -887,7 +894,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -907,12 +914,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: props => ({
+        extend: (props) => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
       control: {
-        // extend: undefined,
+        extend: undefined,
         // open: undefined,
       },
       options: {
@@ -922,7 +929,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           round: 'false',
         },
         text: {
-          margin: 'none',
+          margin: 'small',
         },
       },
       icons: {

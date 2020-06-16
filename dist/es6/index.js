@@ -43,7 +43,7 @@ var statusColors = {
   disabled: '#CCCCCC'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD'];
 var focusColor = '#B1C2FE';
 var colors = {
   active: '#FFFDE3',
@@ -78,7 +78,7 @@ var colors = {
   'graph-3': 'neutral-3',
   'graph-4': 'neutral-4',
   placeholder: 'dark-5',
-  selected: 'dark-2',
+  selected: 'light-7',
   text: {
     dark: '#f8f8f8',
     light: '#898EA2'
@@ -247,10 +247,15 @@ export var generate = function generate(baseSpacing, scale) {
       drop: {
         background: '#ffffff',
         border: {
-          radius: '0px'
+          radius: '4px'
         },
-        shadowSize: 'small',
-        zIndex: '20'
+        zIndex: '20',
+        extend: {
+          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
+          button: {
+            'border-bottom': '1px solid #D9DBE5'
+          }
+        }
       },
       edgeSize: {
         none: '0px',
@@ -333,8 +338,8 @@ export var generate = function generate(baseSpacing, scale) {
         weak: 0.1
       },
       selected: {
-        background: 'selected',
-        color: 'white'
+        background: 'light-7',
+        color: 'dark-3'
       },
       spacing: baseSpacing + "px",
       size: {
@@ -1024,8 +1029,9 @@ export var generate = function generate(baseSpacing, scale) {
           };
         }
       },
-      control: {// extend: undefined,
-        // open: undefined,
+      control: {
+        extend: undefined // open: undefined,
+
       },
       options: {
         container: {
@@ -1034,7 +1040,7 @@ export var generate = function generate(baseSpacing, scale) {
           round: 'false'
         },
         text: {
-          margin: 'none'
+          margin: 'small'
         }
       },
       icons: {
