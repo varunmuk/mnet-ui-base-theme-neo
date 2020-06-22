@@ -1104,7 +1104,8 @@ var generate = function generate(baseSpacing, scale) {
       },
       margin: {
         top: 'large',
-        horizontal: 'small'
+        horizontal: 'small',
+        bottom: 'none'
       },
       pad: {
         bottom: 'large'

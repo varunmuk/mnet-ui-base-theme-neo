@@ -1055,13 +1055,14 @@ export var generate = function generate(baseSpacing, scale) {
     },
     tab: {
       active: {
-        color: 'dark-3' // background: undefined,
+        color: 'dark-3',
+        weight: 600 // background: undefined,
 
       },
       // background: undefined,
       border: {
         side: 'bottom',
-        size: 'small',
+        size: 'medium',
         color: {
           dark: 'brand',
           light: 'white'
@@ -1092,7 +1093,8 @@ export var generate = function generate(baseSpacing, scale) {
       },
       margin: {
         top: 'large',
-        horizontal: 'small'
+        horizontal: 'small',
+        bottom: 'none'
       },
       pad: {
         bottom: 'large'

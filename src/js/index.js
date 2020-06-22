@@ -99,10 +99,9 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) =>
-  array.forEach((color, index) => {
-    colors[`${prefix}-${index + 1}`] = color;
-  });
+const colorArray = (array, prefix) => array.forEach((color, index) => {
+  colors[`${prefix}-${index + 1}`] = color;
+});
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -117,7 +116,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = (factor) => ({
+  const fontSizing = factor => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -280,12 +279,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`) -
-            parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`)
+            - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`) -
-            parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`)
+            - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -894,7 +893,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -914,7 +913,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: (props) => ({
+        extend: props => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
@@ -945,12 +944,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     tab: {
       active: {
         color: 'dark-3',
+        weight: 600,
         // background: undefined,
       },
       // background: undefined,
       border: {
         side: 'bottom',
-        size: 'small',
+        size: 'medium',
         color: {
           dark: 'brand',
           light: 'white',
@@ -982,6 +982,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       margin: {
         top: 'large',
         horizontal: 'small',
+        bottom: 'none',
       },
       pad: {
         bottom: 'large',
