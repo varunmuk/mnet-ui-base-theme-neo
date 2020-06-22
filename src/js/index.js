@@ -673,7 +673,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     // },
     formField: {
       border: {
-        color: 'border',
+        color: 'none',
         error: {
           color: {
             dark: 'white',
@@ -735,7 +735,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           'min-width': `${baseSpacing * 10}px`,
         },
       }),
-      // round: undefined,
+      round: 'small',
     },
     mnet: {
       global: css`
@@ -918,8 +918,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         }),
       },
       control: {
-        extend: undefined,
         // open: undefined,
+        extend: {
+          border: '1px solid #DEDEDE',
+        },
       },
       options: {
         container: {
@@ -1047,13 +1049,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // disabled: { opacity: undefined },
     },
     textInput: {
-      container: {
-        extend: {
-          width: `${baseSpacing * 14.5}px`,
-        },
-      },
-      // extend: undefined,
       // disabled: { opacity: undefined },
+      extend: {
+        'padding-left': `${baseSpacing}px`,
+        'box-shadow': 'none',
+      },
     },
   };
 

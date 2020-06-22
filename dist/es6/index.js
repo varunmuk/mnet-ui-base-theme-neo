@@ -779,7 +779,7 @@ export var generate = function generate(baseSpacing, scale) {
     // },
     formField: {
       border: {
-        color: 'border',
+        color: 'none',
         error: {
           color: {
             dark: 'white',
@@ -855,8 +855,8 @@ export var generate = function generate(baseSpacing, scale) {
             'min-width': baseSpacing * 10 + "px"
           }
         };
-      } // round: undefined,
-
+      },
+      round: 'small'
     },
     mnet: {
       global: css(_templateObject())
@@ -1030,8 +1030,10 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       control: {
-        extend: undefined // open: undefined,
-
+        // open: undefined,
+        extend: {
+          border: '1px solid #DEDEDE'
+        }
       },
       options: {
         container: {
@@ -1169,13 +1171,11 @@ export var generate = function generate(baseSpacing, scale) {
       // disabled: { opacity: undefined },
     },
     textInput: {
-      container: {
-        extend: {
-          width: baseSpacing * 14.5 + "px"
-        }
-      } // extend: undefined,
       // disabled: { opacity: undefined },
-
+      extend: {
+        'padding-left': baseSpacing + "px",
+        'box-shadow': 'none'
+      }
     }
   };
   return deepFreeze(result);
