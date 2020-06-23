@@ -99,9 +99,10 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) => array.forEach((color, index) => {
-  colors[`${prefix}-${index + 1}`] = color;
-});
+const colorArray = (array, prefix) =>
+  array.forEach((color, index) => {
+    colors[`${prefix}-${index + 1}`] = color;
+  });
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -116,7 +117,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = factor => ({
+  const fontSizing = (factor) => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -279,12 +280,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -673,7 +674,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     // },
     formField: {
       border: {
-        color: 'none',
+        color: 'border',
         error: {
           color: {
             dark: 'white',
@@ -686,6 +687,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       content: {
         pad: 'small',
+        width: `${baseSpacing * 15}px`,
       },
       disabled: {
         background: {
@@ -709,7 +711,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
       error: {
         color: 'status-critical',
-        margin: { vertical: 'xsmall', horizontal: 'small' },
+        margin: { vertical: 'medium', horizontal: 'none' },
         // background: undefined,
       },
       // extend: undefined,
@@ -721,20 +723,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       info: {
         color: 'text-xweak',
-        margin: { vertical: 'xsmall', horizontal: 'small' },
+        margin: { vertical: 'large', horizontal: 'medium' },
       },
       label: {
         margin: { vertical: 'large', horizontal: '0' },
+        width: `${baseSpacing * 10}px`,
       },
       margin: { bottom: 'small' },
       // round: undefined,
-      extend: ({ direction, align }) => ({
-        'flex-direction': direction,
-        'align-items': align,
-        label: {
-          'min-width': `${baseSpacing * 10}px`,
+      extend: {
+        button: {
+          border: 'none',
         },
-      }),
+      },
       round: 'small',
     },
     mnet: {
@@ -893,7 +894,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -913,7 +914,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: props => ({
+        extend: (props) => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },

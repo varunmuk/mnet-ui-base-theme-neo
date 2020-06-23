@@ -803,7 +803,8 @@ var generate = function generate(baseSpacing, scale) {
         size: 'xsmall'
       },
       content: {
-        pad: 'small'
+        pad: 'small',
+        width: '300px'
       },
       disabled: {
         background: {
@@ -828,8 +829,8 @@ var generate = function generate(baseSpacing, scale) {
       error: {
         color: 'status-critical',
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: 'medium',
+          horizontal: 'none'
         } // background: undefined,
 
       },
@@ -851,24 +852,19 @@ var generate = function generate(baseSpacing, scale) {
         margin: {
           vertical: 'large',
           horizontal: '0'
-        }
+        },
+        width: baseSpacing * 10 + "px"
       },
       margin: {
         bottom: 'small'
       },
       // round: undefined,
-      extend: function extend(_ref2) {
-        var direction = _ref2.direction,
-            align = _ref2.align;
-        return {
-          'flex-direction': direction,
-          'align-items': align,
-          label: {
-            'min-width': baseSpacing * 10 + "px"
-          }
-        };
-      } // round: undefined,
-
+      extend: {
+        button: {
+          border: 'none'
+        }
+      },
+      round: 'small'
     },
     mnet: {
       global: (0, _styledComponents.css)(_templateObject())
@@ -1042,8 +1038,10 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       control: {
-        extend: undefined // open: undefined,
-
+        // open: undefined,
+        extend: {
+          border: '1px solid #DEDEDE'
+        }
       },
       options: {
         container: {
@@ -1067,13 +1065,14 @@ var generate = function generate(baseSpacing, scale) {
     },
     tab: {
       active: {
-        color: 'dark-3' // background: undefined,
+        color: 'dark-3',
+        weight: 600 // background: undefined,
 
       },
       // background: undefined,
       border: {
         side: 'bottom',
-        size: 'small',
+        size: 'medium',
         color: {
           dark: 'brand',
           light: 'white'
@@ -1180,13 +1179,11 @@ var generate = function generate(baseSpacing, scale) {
       // disabled: { opacity: undefined },
     },
     textInput: {
-      container: {
-        extend: {
-          width: baseSpacing * 14.5 + "px"
-        }
-      } // extend: undefined,
       // disabled: { opacity: undefined },
-
+      extend: {
+        'padding-left': baseSpacing + "px",
+        'box-shadow': 'none'
+      }
     }
   };
   return (0, _object.deepFreeze)(result);

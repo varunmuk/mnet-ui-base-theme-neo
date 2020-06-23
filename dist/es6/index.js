@@ -779,7 +779,7 @@ export var generate = function generate(baseSpacing, scale) {
     // },
     formField: {
       border: {
-        color: 'none',
+        color: 'border',
         error: {
           color: {
             dark: 'white',
@@ -791,7 +791,8 @@ export var generate = function generate(baseSpacing, scale) {
         size: 'xsmall'
       },
       content: {
-        pad: 'small'
+        pad: 'small',
+        width: baseSpacing * 15 + "px"
       },
       disabled: {
         background: {
@@ -816,8 +817,8 @@ export var generate = function generate(baseSpacing, scale) {
       error: {
         color: 'status-critical',
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: 'medium',
+          horizontal: 'none'
         } // background: undefined,
 
       },
@@ -831,30 +832,25 @@ export var generate = function generate(baseSpacing, scale) {
       info: {
         color: 'text-xweak',
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: 'large',
+          horizontal: 'medium'
         }
       },
       label: {
         margin: {
           vertical: 'large',
           horizontal: '0'
-        }
+        },
+        width: baseSpacing * 10 + "px"
       },
       margin: {
         bottom: 'small'
       },
       // round: undefined,
-      extend: function extend(_ref2) {
-        var direction = _ref2.direction,
-            align = _ref2.align;
-        return {
-          'flex-direction': direction,
-          'align-items': align,
-          label: {
-            'min-width': baseSpacing * 10 + "px"
-          }
-        };
+      extend: {
+        button: {
+          border: 'none'
+        }
       },
       round: 'small'
     },
