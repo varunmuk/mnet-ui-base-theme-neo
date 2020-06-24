@@ -873,6 +873,9 @@ export var generate = function generate(baseSpacing, scale) {
         button: {
           flex: 1,
           border: 'none'
+        },
+        input: {
+          border: 'none'
         }
       },
       round: 'small'

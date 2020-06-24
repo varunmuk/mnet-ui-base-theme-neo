@@ -752,6 +752,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           flex: 1,
           border: 'none',
         },
+        input: {
+          border: 'none',
+        },
       },
       round: 'small',
     },

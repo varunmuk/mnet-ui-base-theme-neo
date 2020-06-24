@@ -856,8 +856,7 @@ var generate = function generate(baseSpacing, scale) {
         margin: {
           vertical: 'large',
           horizontal: '0'
-        },
-        width: baseSpacing * 10 + "px"
+        }
       },
       margin: {
         bottom: 'small'
