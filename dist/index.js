@@ -804,7 +804,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       content: {
         pad: 'small',
-        width: '300px'
+        width: baseSpacing * 15 + "px"
       },
       disabled: {
         background: {
@@ -844,8 +844,12 @@ var generate = function generate(baseSpacing, scale) {
       info: {
         color: 'text-xweak',
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: '0',
+          left: 'medium'
+        },
+        extend: {
+          position: 'relative',
+          top: '3px'
         }
       },
       label: {
@@ -858,9 +862,28 @@ var generate = function generate(baseSpacing, scale) {
       margin: {
         bottom: 'small'
       },
+      postfix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: {
+          horizontal: 'medium',
+          vertical: 'medium'
+        }
+      },
+      prefix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: {
+          horizontal: 'medium',
+          vertical: 'medium'
+        }
+      },
       // round: undefined,
       extend: {
         button: {
+          flex: 1,
           border: 'none'
         }
       },

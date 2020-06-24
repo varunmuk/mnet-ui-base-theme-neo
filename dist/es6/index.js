@@ -832,8 +832,12 @@ export var generate = function generate(baseSpacing, scale) {
       info: {
         color: 'text-xweak',
         margin: {
-          vertical: 'large',
-          horizontal: 'medium'
+          vertical: '0',
+          left: 'medium'
+        },
+        extend: {
+          position: 'relative',
+          top: '3px'
         }
       },
       label: {
@@ -846,9 +850,28 @@ export var generate = function generate(baseSpacing, scale) {
       margin: {
         bottom: 'small'
       },
+      postfix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: {
+          horizontal: 'medium',
+          vertical: 'medium'
+        }
+      },
+      prefix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: {
+          horizontal: 'medium',
+          vertical: 'medium'
+        }
+      },
       // round: undefined,
       extend: {
         button: {
+          flex: 1,
           border: 'none'
         }
       },

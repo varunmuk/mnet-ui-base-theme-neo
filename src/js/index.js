@@ -723,16 +723,33 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       info: {
         color: 'text-xweak',
-        margin: { vertical: 'large', horizontal: 'medium' },
+        margin: { vertical: '0', left: 'medium' },
+        extend: {
+          position: 'relative',
+          top: '3px',
+        },
       },
       label: {
         margin: { vertical: 'large', horizontal: '0' },
         width: `${baseSpacing * 10}px`,
       },
       margin: { bottom: 'small' },
+      postfix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: { horizontal: 'medium', vertical: 'medium' },
+      },
+      prefix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: { horizontal: 'medium', vertical: 'medium' },
+      },
       // round: undefined,
       extend: {
         button: {
+          flex: 1,
           border: 'none',
         },
       },
