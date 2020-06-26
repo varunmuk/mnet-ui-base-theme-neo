@@ -687,7 +687,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       content: {
         pad: 'small',
-        width: `${baseSpacing * 15}px`,
       },
       disabled: {
         background: {
@@ -731,7 +730,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       label: {
         margin: { vertical: 'large', horizontal: '0' },
-        width: `${baseSpacing * 10}px`,
       },
       margin: { bottom: 'small' },
       postfix: {
@@ -1074,6 +1072,21 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       extend: {
         'padding-left': `${baseSpacing}px`,
         'box-shadow': 'none',
+      },
+    },
+    pagination: {
+      background: 'white',
+      round: 'small',
+      border: {
+        color: 'dark-6',
+      },
+      pad: 'xlarge',
+      active: {
+        color: '#e7eaf1',
+      },
+      icon: {
+        bgColor: 'light-2',
+        pad: 'xsmall',
       },
     },
   };

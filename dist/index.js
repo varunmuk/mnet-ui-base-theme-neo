@@ -409,7 +409,11 @@ var generate = function generate(baseSpacing, scale) {
         light: 'brand'
       },
       hover: {
-        textDecoration: 'underline' // fontWeight: undefined,
+        textDecoration: 'underline',
+        color: {
+          dark: 'brand',
+          light: 'brand'
+        } // fontWeight: undefined,
         // extend: undefined,
 
       } // extend: undefined,
@@ -803,8 +807,7 @@ var generate = function generate(baseSpacing, scale) {
         size: 'xsmall'
       },
       content: {
-        pad: 'small',
-        width: baseSpacing * 15 + "px"
+        pad: 'small'
       },
       disabled: {
         background: {
@@ -883,6 +886,9 @@ var generate = function generate(baseSpacing, scale) {
       extend: {
         button: {
           flex: 1,
+          border: 'none'
+        },
+        input: {
           border: 'none'
         }
       },
@@ -1205,6 +1211,21 @@ var generate = function generate(baseSpacing, scale) {
       extend: {
         'padding-left': baseSpacing + "px",
         'box-shadow': 'none'
+      }
+    },
+    pagination: {
+      background: 'white',
+      round: 'small',
+      border: {
+        color: 'dark-6'
+      },
+      pad: 'xlarge',
+      active: {
+        color: '#e7eaf1'
+      },
+      icon: {
+        bgColor: 'light-2',
+        pad: 'xsmall'
       }
     }
   };
