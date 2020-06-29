@@ -1211,6 +1211,12 @@ export var generate = function generate(baseSpacing, scale) {
         bgColor: 'light-2',
         pad: 'xsmall'
       }
+    },
+    tooptip: {
+      background: 'dark-1',
+      color: 'white',
+      tipSize: '5px',
+      round: 'small'
     }
   };
   return deepFreeze(result);

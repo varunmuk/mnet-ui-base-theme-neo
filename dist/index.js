@@ -409,11 +409,7 @@ var generate = function generate(baseSpacing, scale) {
         light: 'brand'
       },
       hover: {
-        textDecoration: 'underline',
-        color: {
-          dark: 'brand',
-          light: 'brand'
-        } // fontWeight: undefined,
+        textDecoration: 'underline' // fontWeight: undefined,
         // extend: undefined,
 
       } // extend: undefined,
