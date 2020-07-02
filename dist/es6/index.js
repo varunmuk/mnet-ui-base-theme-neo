@@ -1053,7 +1053,44 @@ export var generate = function generate(baseSpacing, scale) {
 
       },
       // searchInput: undefined,
-      step: 20
+      step: 20,
+      multiselect: {
+        checkbox: {
+          margin: {
+            horizontal: 'medium' // extend: undefined,
+
+          }
+        },
+        displayContainer: {
+          wrapper: {
+            pad: 'medium',
+            direction: 'row' // extend: undefined,
+
+          },
+          option: {
+            background: 'brand',
+            round: 'small',
+            pad: {
+              vertical: 'small',
+              horizontal: 'medium'
+            },
+            margin: 'small',
+            direction: 'row',
+            align: 'center'
+          },
+          icon: {
+            size: 'small',
+            color: 'white'
+          }
+        },
+        controls: {
+          wrapper: {// extend: undefined,
+          },
+          button: {
+            margin: 'small'
+          }
+        }
+      }
     },
     tab: {
       active: {
