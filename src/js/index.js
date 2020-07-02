@@ -670,7 +670,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     // },
     formField: {
       border: {
-        color: 'none',
+        color: 'border',
         error: {
           color: {
             dark: 'white',
@@ -706,7 +706,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
       error: {
         color: 'status-critical',
-        margin: { vertical: 'xsmall', horizontal: 'small' },
+        margin: { vertical: 'medium', horizontal: 'none' },
         // background: undefined,
       },
       // extend: undefined,
@@ -718,20 +718,38 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       info: {
         color: 'text-xweak',
-        margin: { vertical: 'xsmall', horizontal: 'small' },
+        margin: { vertical: '0', left: 'medium' },
+        extend: {
+          position: 'relative',
+          top: '3px',
+        },
       },
       label: {
         margin: { vertical: 'large', horizontal: '0' },
       },
       margin: { bottom: 'small' },
+      postfix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: { horizontal: 'medium', vertical: 'medium' },
+      },
+      prefix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: { horizontal: 'medium', vertical: 'medium' },
+      },
       // round: undefined,
-      extend: ({ direction, align }) => ({
-        'flex-direction': direction,
-        'align-items': align,
-        label: {
-          'min-width': `${baseSpacing * 10}px`,
+      extend: {
+        button: {
+          flex: 1,
+          border: 'none',
         },
-      }),
+        input: {
+          border: 'none',
+        },
+      },
       round: 'small',
     },
     mnet: {
@@ -1141,6 +1159,27 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         'padding-left': `${baseSpacing}px`,
         'box-shadow': 'none',
       },
+    },
+    pagination: {
+      background: 'white',
+      round: 'small',
+      border: {
+        color: 'dark-6',
+      },
+      pad: 'xlarge',
+      active: {
+        color: '#e7eaf1',
+      },
+      icon: {
+        bgColor: 'light-2',
+        pad: 'xsmall',
+      },
+    },
+    tooptip: {
+      background: 'dark-1',
+      color: 'white',
+      tipSize: '5px',
+      round: 'small',
     },
   };
 

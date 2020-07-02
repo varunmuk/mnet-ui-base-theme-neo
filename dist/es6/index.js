@@ -251,10 +251,7 @@ export var generate = function generate(baseSpacing, scale) {
         },
         zIndex: '20',
         extend: {
-          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
-          button: {
-            'border-bottom': '1px solid #D9DBE5'
-          }
+          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)'
         }
       },
       edgeSize: {
@@ -779,7 +776,7 @@ export var generate = function generate(baseSpacing, scale) {
     // },
     formField: {
       border: {
-        color: 'none',
+        color: 'border',
         error: {
           color: {
             dark: 'white',
@@ -816,8 +813,8 @@ export var generate = function generate(baseSpacing, scale) {
       error: {
         color: 'status-critical',
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: 'medium',
+          horizontal: 'none'
         } // background: undefined,
 
       },
@@ -831,8 +828,12 @@ export var generate = function generate(baseSpacing, scale) {
       info: {
         color: 'text-xweak',
         margin: {
-          vertical: 'xsmall',
-          horizontal: 'small'
+          vertical: '0',
+          left: 'medium'
+        },
+        extend: {
+          position: 'relative',
+          top: '3px'
         }
       },
       label: {
@@ -844,17 +845,33 @@ export var generate = function generate(baseSpacing, scale) {
       margin: {
         bottom: 'small'
       },
+      postfix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: {
+          horizontal: 'medium',
+          vertical: 'medium'
+        }
+      },
+      prefix: {
+        color: 'white',
+        background: 'background-contrast',
+        justify: 'center',
+        pad: {
+          horizontal: 'medium',
+          vertical: 'medium'
+        }
+      },
       // round: undefined,
-      extend: function extend(_ref2) {
-        var direction = _ref2.direction,
-            align = _ref2.align;
-        return {
-          'flex-direction': direction,
-          'align-items': align,
-          label: {
-            'min-width': baseSpacing * 10 + "px"
-          }
-        };
+      extend: {
+        button: {
+          flex: 1,
+          border: 'none'
+        },
+        input: {
+          border: 'none'
+        }
       },
       round: 'small'
     },
@@ -964,6 +981,95 @@ export var generate = function generate(baseSpacing, scale) {
       // extend: undefined,
 
     },
+    multiselect: {
+      checkbox: {
+        box: {
+          margin: {
+            horizontal: 'medium' // extend: undefined,
+
+          }
+        },
+        checkmark: {
+          size: baseSpacing + "px",
+          color: 'white'
+        },
+        check: {
+          height: baseSpacing + "px",
+          width: baseSpacing + "px",
+          margin: 'auto',
+          round: 'xsmall',
+          align: 'center',
+          active: {
+            background: 'accent-3',
+            border: 'light-6'
+          }
+        }
+      },
+      chips: {
+        wrapper: {
+          pad: 'medium',
+          direction: 'row' // extend: undefined,
+
+        },
+        option: {
+          background: 'light-3',
+          round: 'small',
+          pad: {
+            vertical: 'small',
+            horizontal: 'medium'
+          },
+          margin: 'small',
+          direction: 'row',
+          align: 'center'
+        },
+        label: {
+          color: 'dark-3',
+          size: 'medium',
+          weight: 600,
+          margin: {
+            right: 'small'
+          }
+        },
+        icon: {
+          size: 'small',
+          color: 'dark-3'
+        },
+        clear: {
+          color: 'accent-2',
+          size: 'small'
+        }
+      },
+      controls: {
+        wrapper: {
+          pad: 'medium',
+          direction: 'row' // extend: undefined,
+
+        },
+        button: {
+          margin: 'small'
+        }
+      },
+      searchbox: {
+        container: {
+          height: 'xxsmall',
+          direction: 'row',
+          align: 'center',
+          background: 'light-2',
+          pad: {
+            right: 'medium',
+            vertical: 'small'
+          }
+        },
+        placeholder: {
+          color: 'dark-5',
+          size: 'medium'
+        },
+        icon: {
+          size: 'small',
+          color: 'dark-3'
+        }
+      }
+    },
     paragraph: {
       small: _extends({}, fontSizing(-1)),
       medium: _extends({}, fontSizing(0)),
@@ -1039,7 +1145,11 @@ export var generate = function generate(baseSpacing, scale) {
         container: {
           align: 'start',
           pad: 'small',
-          round: 'false'
+          round: 'false',
+          border: {
+            side: 'bottom',
+            color: '#D9DBE5'
+          }
         },
         text: {
           margin: 'small'
@@ -1053,44 +1163,7 @@ export var generate = function generate(baseSpacing, scale) {
 
       },
       // searchInput: undefined,
-      step: 20,
-      multiselect: {
-        checkbox: {
-          margin: {
-            horizontal: 'medium' // extend: undefined,
-
-          }
-        },
-        displayContainer: {
-          wrapper: {
-            pad: 'medium',
-            direction: 'row' // extend: undefined,
-
-          },
-          option: {
-            background: 'brand',
-            round: 'small',
-            pad: {
-              vertical: 'small',
-              horizontal: 'medium'
-            },
-            margin: 'small',
-            direction: 'row',
-            align: 'center'
-          },
-          icon: {
-            size: 'small',
-            color: 'white'
-          }
-        },
-        controls: {
-          wrapper: {// extend: undefined,
-          },
-          button: {
-            margin: 'small'
-          }
-        }
-      }
+      step: 20
     },
     tab: {
       active: {
@@ -1213,6 +1286,27 @@ export var generate = function generate(baseSpacing, scale) {
         'padding-left': baseSpacing + "px",
         'box-shadow': 'none'
       }
+    },
+    pagination: {
+      background: 'white',
+      round: 'small',
+      border: {
+        color: 'dark-6'
+      },
+      pad: 'xlarge',
+      active: {
+        color: '#e7eaf1'
+      },
+      icon: {
+        bgColor: 'light-2',
+        pad: 'xsmall'
+      }
+    },
+    tooptip: {
+      background: 'dark-1',
+      color: 'white',
+      tipSize: '5px',
+      round: 'small'
     }
   };
   return deepFreeze(result);
