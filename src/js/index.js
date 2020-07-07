@@ -107,7 +107,7 @@ colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
 colorArray(lightColors, 'light');
 colorArray(neutralColors, 'neutral');
-Object.keys(statusColors).forEach((color) => {
+Object.keys(statusColors).forEach(color => {
   colors[`status-${color}`] = statusColors[color];
 });
 
@@ -867,26 +867,44 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // extend: undefined,
     },
     multiselect: {
+      option: {
+        width: 'full',
+        direction: 'row',
+        justify: 'between',
+        pad: { horizontal: 'medium' },
+      },
       checkbox: {
         box: {
           margin: {
-            horizontal: 'medium',
+            right: 'medium',
             // extend: undefined,
           },
         },
         checkmark: {
-          size: `${baseSpacing}px`,
+          size: `${baseSpacing * 1.2}px`,
           color: 'white',
         },
         check: {
-          height: `${baseSpacing}px`,
-          width: `${baseSpacing}px`,
+          height: `${baseSpacing * 1.2}px`,
+          width: `${baseSpacing * 1.2}px`,
           margin: 'auto',
-          round: 'xsmall',
+          round: 'small',
           align: 'center',
-          active: {
-            background: 'accent-3',
-            border: 'light-6',
+          background: 'white',
+          border: { color: 'light-6' },
+          extend: props => {
+            const getBackground = () => {
+              switch (props.isExcluded) {
+                case null: return accentColors[2];
+                case false: return '#38C18B';
+                case true: return '#FC564F';
+                default: return accentColors[2];
+              }
+            };
+            return ({
+              background: props.active ? getBackground() : 'white',
+              'border-color': props.active ? 'transparent' : lightColors[5],
+            });
           },
         },
       },
@@ -894,7 +912,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         wrapper: {
           pad: 'medium',
           direction: 'row',
-          // extend: undefined,
+          extend: props => ({
+            padding: props.twoColumnLayout ? 0 : `${baseSpacing / 1.618}px`,
+          }),
         },
         option: {
           background: 'light-3',
@@ -906,6 +926,20 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: 'small',
           direction: 'row',
           align: 'center',
+          extend: props => ({
+            width: props.twoColumnLayout ? '100%' : 'auto',
+            margin: props.twoColumnLayout
+              ? 0 : `${baseSpacing / (1.618 * 2)}px`,
+            background: props.twoColumnLayout ? 'white' : lightColors[2],
+            padding: props.twoColumnLayout ? `${baseSpacing / 1.618}px`
+              : `${baseSpacing / (1.618 * 2)}px ${baseSpacing / 1.618}px`,
+            'border-radius': props.twoColumnLayout
+              ? 0 : `${baseSpacing / (1.618 * 2)}px`,
+            'border-bottom': props.twoColumnLayout
+              ? '1px solid #D9DBE5' : 'none',
+            'justify-content': props.twoColumnLayout
+              ? 'space-between' : 'flex-start',
+          }),
         },
         label: {
           color: 'dark-3',
@@ -913,6 +947,18 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           weight: 600,
           margin: {
             right: 'small',
+          },
+          extend: props => {
+            const getTextColor = () => {
+              switch (props.isExcluded) {
+                case false: return '#38C18B';
+                case true: return '#FC564F';
+                default: return darkColors[2];
+              }
+            };
+            return ({
+              color: getTextColor(),
+            });
           },
         },
         icon: {
@@ -941,6 +987,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           align: 'center',
           background: 'light-2',
           pad: { right: 'medium', vertical: 'small' },
+          extend: props => ({
+            background: props.layout === 'double-column'
+              ? 'white' : lightColors[1],
+            'flex-direction': props.layout === 'double-column'
+              ? 'row-reverse' : 'row',
+            'padding-left': props.layout === 'double-column'
+              ? `${baseSpacing / 1.618}px` : 0,
+            'border-bottom': props.layout === 'double-column'
+              ? '1px solid #D9DBE5' : 'none',
+          }),
         },
         placeholder: {
           color: 'dark-5',
@@ -949,6 +1005,26 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         icon: {
           size: 'small',
           color: 'dark-3',
+        },
+      },
+      rightPanel: {
+        border: '#D9DBE5',
+        incExcHeader: {
+          box: {
+            direction: 'row',
+            justify: 'between',
+            pad: 'medium',
+            background: 'background-back',
+            border: {
+              side: 'bottom',
+              color: '#D9DBE5',
+            },
+          },
+          text: {
+            color: 'accent-2',
+            size: 'medium',
+            weight: 600,
+          },
         },
       },
     },
