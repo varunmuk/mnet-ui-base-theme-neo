@@ -99,9 +99,10 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) => array.forEach((color, index) => {
-  colors[`${prefix}-${index + 1}`] = color;
-});
+const colorArray = (array, prefix) =>
+  array.forEach((color, index) => {
+    colors[`${prefix}-${index + 1}`] = color;
+  });
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
@@ -116,7 +117,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = factor => ({
+  const fontSizing = (factor) => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -276,12 +277,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -951,6 +952,30 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'dark-3',
         },
       },
+      custom: {
+        wrapper: {
+          direction: 'row',
+        },
+        textAreaWrap: {
+          border: { side: 'right' },
+          pad: 'large',
+        },
+        label: {
+          weight: 600,
+        },
+        textAreaContainer: {
+          width: 'medium',
+          height: 'medium',
+          margin: { vertical: 'medium' },
+        },
+        actions: {
+          wrapper: {
+            direction: 'row',
+            margin: { vertical: 'small' },
+            gap: 'medium',
+          },
+        },
+      },
     },
     paragraph: {
       small: { ...fontSizing(-1) },
@@ -994,7 +1019,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -1014,7 +1039,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     select: {
       background: 'white',
       container: {
-        extend: props => ({
+        extend: (props) => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },

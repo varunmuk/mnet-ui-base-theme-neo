@@ -42,7 +42,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 (0, _googleFonts.add)({
   'Open Sans': true
 });
-var brandColor = '#E15151';
+var brandColor = 'pink';
 var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
@@ -1079,6 +1079,36 @@ var generate = function generate(baseSpacing, scale) {
         icon: {
           size: 'small',
           color: 'dark-3'
+        }
+      },
+      custom: {
+        wrapper: {
+          direction: 'row'
+        },
+        textAreaWrap: {
+          border: {
+            side: 'right'
+          },
+          pad: 'large'
+        },
+        label: {
+          weight: 600
+        },
+        textAreaContainer: {
+          width: 'medium',
+          height: 'medium',
+          margin: {
+            vertical: 'medium'
+          }
+        },
+        actions: {
+          wrapper: {
+            direction: 'row',
+            margin: {
+              vertical: 'small'
+            },
+            gap: 'medium'
+          }
         }
       }
     },
