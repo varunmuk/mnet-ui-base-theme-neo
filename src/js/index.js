@@ -914,6 +914,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           direction: 'row',
           extend: props => ({
             padding: props.twoColumnLayout ? 0 : `${baseSpacing / 1.618}px`,
+            'border-bottom': props.twoColumnLayout
+              ? 'none' : '1px solid #D9DBE5',
           }),
         },
         option: {
@@ -1089,6 +1091,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     select: {
       background: 'white',
+      activeColor: lightColors[4],
       container: {
         extend: props => ({
           borderColor: normalizeColor('border', props.theme),

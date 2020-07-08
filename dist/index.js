@@ -1053,7 +1053,8 @@ var generate = function generate(baseSpacing, scale) {
           direction: 'row',
           extend: function extend(props) {
             return {
-              padding: props.twoColumnLayout ? 0 : baseSpacing / 1.618 + "px"
+              padding: props.twoColumnLayout ? 0 : baseSpacing / 1.618 + "px",
+              'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5'
             };
           }
         },
@@ -1231,6 +1232,7 @@ var generate = function generate(baseSpacing, scale) {
     },
     select: {
       background: 'white',
+      activeColor: lightColors[4],
       container: {
         extend: function extend(props) {
           return {
