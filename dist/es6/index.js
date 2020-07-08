@@ -1160,6 +1160,36 @@ export var generate = function generate(baseSpacing, scale) {
             weight: 600
           }
         }
+      },
+      custom: {
+        wrapper: {
+          direction: 'row'
+        },
+        textAreaWrap: {
+          border: {
+            side: 'right'
+          },
+          pad: 'large'
+        },
+        label: {
+          weight: 600
+        },
+        textAreaContainer: {
+          width: 'medium',
+          height: 'medium',
+          margin: {
+            vertical: 'medium'
+          }
+        },
+        actions: {
+          wrapper: {
+            direction: 'row',
+            margin: {
+              vertical: 'small'
+            },
+            gap: 'medium'
+          }
+        }
       }
     },
     paragraph: {
