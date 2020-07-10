@@ -1194,11 +1194,14 @@ var generate = function generate(baseSpacing, scale) {
         },
         actions: {
           wrapper: {
-            direction: 'row',
+            direction: 'column',
             margin: {
               vertical: 'small'
             },
-            gap: 'medium'
+            gap: 'medium',
+            height: {
+              min: 'auto'
+            }
           }
         }
       }

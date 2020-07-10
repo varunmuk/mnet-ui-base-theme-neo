@@ -1062,6 +1062,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             direction: 'row',
             margin: { vertical: 'small' },
             gap: 'medium',
+            height: { min: 'auto' },
           },
         },
       },

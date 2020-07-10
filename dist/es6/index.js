@@ -1186,7 +1186,10 @@ export var generate = function generate(baseSpacing, scale) {
             margin: {
               vertical: 'small'
             },
-            gap: 'medium'
+            gap: 'medium',
+            height: {
+              min: 'auto'
+            }
           }
         }
       }
