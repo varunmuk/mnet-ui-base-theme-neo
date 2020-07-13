@@ -1118,7 +1118,10 @@ var generate = function generate(baseSpacing, scale) {
       controls: {
         wrapper: {
           pad: 'medium',
-          direction: 'row' // extend: undefined,
+          direction: 'row',
+          height: {
+            min: 'auto'
+          } // extend: undefined,
 
         },
         button: {
@@ -1127,7 +1130,10 @@ var generate = function generate(baseSpacing, scale) {
       },
       searchbox: {
         container: {
-          height: 'xxsmall',
+          height: {
+            min: 'xxsmall',
+            max: 'xxsmall'
+          },
           direction: 'row',
           align: 'center',
           background: 'light-2',
@@ -1195,7 +1201,7 @@ var generate = function generate(baseSpacing, scale) {
         },
         actions: {
           wrapper: {
-            direction: 'column',
+            direction: 'row',
             margin: {
               vertical: 'small'
             },

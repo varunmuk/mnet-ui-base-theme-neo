@@ -988,6 +988,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         wrapper: {
           pad: 'medium',
           direction: 'row',
+          height: {
+            min: 'auto',
+          },
           // extend: undefined,
         },
         button: {
@@ -996,7 +999,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       searchbox: {
         container: {
-          height: 'xxsmall',
+          height: {
+            min: 'xxsmall',
+            max: 'xxsmall',
+          },
           direction: 'row',
           align: 'center',
           background: 'light-2',
