@@ -1,6 +1,7 @@
 import { rgba } from 'polished';
 import { css } from 'styled-components';
 import { add as addGoogleFont } from 'google-fonts';
+import { Neo } from 'mnet-icons';
 
 import { deepFreeze } from 'mnet-ui-base/utils/object';
 import { normalizeColor } from 'mnet-ui-base/utils/colors';
@@ -1303,6 +1304,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       color: 'white',
       tipSize: '5px',
       round: 'small',
+    },
+    changelog: {
+      colors: {
+        primary: 'accent-1',
+      },
+      icons: {
+        up: p => <Neo icon="up" {...p} />,
+        down: p => <Neo icon="down" {...p} />,
+        changeArrow: p => <Neo icon="right" {...p} />,
+        close: p => <Neo icon="close" {...p} />,
+      },
     },
   };
 

@@ -13,9 +13,10 @@
     "url": "https://github.com/sabarnix/mnet-ui-base-theme-neo.git"
   },
   "peerDependencies": {
-    "mnet-ui-base": "sabarnix/mnet-ui-base#release",
+    "mnet-ui-base": "https://github.com/mnet-ui/mnet-ui-base#release",
     "polished": "^3.4.1",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0",
+    "mnet-icons": "git+ssh://git@tree.mn:saumik.s/mnet-icons.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
