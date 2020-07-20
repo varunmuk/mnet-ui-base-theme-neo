@@ -9,6 +9,8 @@ var _styledComponents = require("styled-components");
 
 var _googleFonts = require("google-fonts");
 
+var _mnetIcons = require("mnet-icons");
+
 var _object = require("mnet-ui-base/utils/object");
 
 var _colors = require("mnet-ui-base/utils/colors");
@@ -39,6 +41,10 @@ function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.s
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var Up = _mnetIcons.NeoComponents.Up,
+    Down = _mnetIcons.NeoComponents.Down,
+    Close = _mnetIcons.NeoComponents.Close,
+    ArrowDown = _mnetIcons.NeoComponents.ArrowDown;
 (0, _googleFonts.add)({
   'Open Sans': true
 });
@@ -1451,6 +1457,17 @@ var generate = function generate(baseSpacing, scale) {
       color: 'white',
       tipSize: '5px',
       round: 'small'
+    },
+    changelog: {
+      colors: {
+        primary: 'accent-1'
+      },
+      icons: {
+        up: Up,
+        down: Down,
+        changeArrow: ArrowDown,
+        close: Close
+      }
     }
   };
   return (0, _object.deepFreeze)(result);

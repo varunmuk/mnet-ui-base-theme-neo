@@ -1,11 +1,15 @@
 import { rgba } from 'polished';
 import { css } from 'styled-components';
 import { add as addGoogleFont } from 'google-fonts';
-import { Neo } from 'mnet-icons';
+import { NeoComponents } from 'mnet-icons';
 
 import { deepFreeze } from 'mnet-ui-base/utils/object';
 import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
+
+const {
+  Up, Down, Close, ArrowDown,
+} = NeoComponents;
 
 addGoogleFont({
   'Open Sans': true,
@@ -1310,10 +1314,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         primary: 'accent-1',
       },
       icons: {
-        up: p => <Neo icon="up" {...p} />,
-        down: p => <Neo icon="down" {...p} />,
-        changeArrow: p => <Neo icon="right" {...p} />,
-        close: p => <Neo icon="close" {...p} />,
+        up: Up,
+        down: Down,
+        changeArrow: ArrowDown,
+        close: Close,
       },
     },
   };

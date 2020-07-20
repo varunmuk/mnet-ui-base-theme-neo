@@ -25,9 +25,14 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import { rgba } from 'polished';
 import { css } from 'styled-components';
 import { add as addGoogleFont } from 'google-fonts';
+import { NeoComponents } from 'mnet-icons';
 import { deepFreeze } from 'mnet-ui-base/utils/object';
 import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
+var Up = NeoComponents.Up,
+    Down = NeoComponents.Down,
+    Close = NeoComponents.Close,
+    ArrowDown = NeoComponents.ArrowDown;
 addGoogleFont({
   'Open Sans': true
 });
@@ -1439,6 +1444,17 @@ export var generate = function generate(baseSpacing, scale) {
       color: 'white',
       tipSize: '5px',
       round: 'small'
+    },
+    changelog: {
+      colors: {
+        primary: 'accent-1'
+      },
+      icons: {
+        up: Up,
+        down: Down,
+        changeArrow: ArrowDown,
+        close: Close
+      }
     }
   };
   return deepFreeze(result);
