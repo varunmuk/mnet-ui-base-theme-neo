@@ -7,9 +7,7 @@ import { deepFreeze } from 'mnet-ui-base/utils/object';
 import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 
-const {
-  Up, Down, Close, ArrowDown,
-} = NeoComponents;
+const { Up, Down, Close, ArrowDown, TickCircle, Error } = NeoComponents;
 
 addGoogleFont({
   'Open Sans': true,
@@ -20,9 +18,9 @@ const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
 const neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 const statusColors = {
   critical: '#e35e59',
-  error: '#e35e59',
+  error: '#FFECEC',
   warning: '#FFAA15',
-  ok: '#44b88d',
+  ok: '#DFFFF2',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC',
 };
@@ -104,15 +102,16 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) => array.forEach((color, index) => {
-  colors[`${prefix}-${index + 1}`] = color;
-});
+const colorArray = (array, prefix) =>
+  array.forEach((color, index) => {
+    colors[`${prefix}-${index + 1}`] = color;
+  });
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
 colorArray(lightColors, 'light');
 colorArray(neutralColors, 'neutral');
-Object.keys(statusColors).forEach(color => {
+Object.keys(statusColors).forEach((color) => {
   colors[`status-${color}`] = statusColors[color];
 });
 
@@ -121,7 +120,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = factor => ({
+  const fontSizing = (factor) => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -281,12 +280,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`)
-            - parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`) -
+            parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -897,7 +896,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           align: 'center',
           background: 'white',
           border: { color: 'light-6' },
-          extend: props => {
+          extend: (props) => {
             const getBackground = () => {
               switch (props.isExcluded) {
                 case null:
@@ -921,10 +920,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         wrapper: {
           pad: 'medium',
           direction: 'row',
-          extend: props => ({
+          extend: (props) => ({
             padding: props.twoColumnLayout ? 0 : `${baseSpacing / 1.618}px`,
             'border-bottom': props.twoColumnLayout
-              ? 'none' : '1px solid #D9DBE5',
+              ? 'none'
+              : '1px solid #D9DBE5',
           }),
         },
         option: {
@@ -937,7 +937,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: 'small',
           direction: 'row',
           align: 'center',
-          extend: props => ({
+          extend: (props) => ({
             width: props.twoColumnLayout ? '100%' : 'auto',
             margin: props.twoColumnLayout
               ? 0
@@ -964,7 +964,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: {
             right: 'small',
           },
-          extend: props => {
+          extend: (props) => {
             const getTextColor = () => {
               switch (props.isExcluded) {
                 case false:
@@ -1012,7 +1012,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           align: 'center',
           background: 'light-2',
           pad: { right: 'medium', vertical: 'small' },
-          extend: props => ({
+          extend: (props) => ({
             background:
               props.layout === 'double-column' ? 'white' : lightColors[1],
             'flex-direction':
@@ -1121,7 +1121,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -1142,7 +1142,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       background: 'white',
       activeColor: lightColors[4],
       container: {
-        extend: props => ({
+        extend: (props) => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
@@ -1308,6 +1308,63 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       color: 'white',
       tipSize: '5px',
       round: 'small',
+    },
+    notification: {
+      toast: {
+        closeIcon: Close,
+        position: 'top-right',
+        zIndex: 999,
+        icon: {
+          size: 'xlarge',
+          default: TickCircle,
+          ok: TickCircle,
+          error: Error,
+        },
+        text: {
+          default: {
+            weight: 600,
+          },
+          ok: {
+            color: '#38C18B',
+            weight: 600,
+            margin: { horizontal: 'small' },
+          },
+          error: {
+            color: '#E9716C',
+            weight: 600,
+            margin: { horizontal: 'small' },
+          },
+        },
+        default: {
+          background: 'dark-1',
+          // border: {},
+          size: 'medium',
+          align: 'center',
+          direction: 'row',
+          gap: 'medium',
+          justify: 'between',
+          round: 'small',
+          elevation: 'medium',
+          pad: { vertical: 'medium', horizontal: 'medium' },
+          margin: { vertical: 'small', horizontal: 'large' },
+        },
+        ok: {
+          background: 'status-ok',
+          // text: {},
+        },
+        critical: {
+          background: 'status-critical',
+          // text: {},
+        },
+        error: {
+          background: 'status-error',
+          // text: {},
+        },
+        warning: {
+          background: 'status-warning',
+          // text: {},
+        },
+      },
     },
     changelog: {
       colors: {

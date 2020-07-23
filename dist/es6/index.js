@@ -32,7 +32,9 @@ import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 var Up = NeoComponents.Up,
     Down = NeoComponents.Down,
     Close = NeoComponents.Close,
-    ArrowDown = NeoComponents.ArrowDown;
+    ArrowDown = NeoComponents.ArrowDown,
+    TickCircle = NeoComponents.TickCircle,
+    Error = NeoComponents.Error;
 addGoogleFont({
   'Open Sans': true
 });
@@ -41,9 +43,9 @@ var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
   critical: '#e35e59',
-  error: '#e35e59',
+  error: '#FFECEC',
   warning: '#FFAA15',
-  ok: '#44b88d',
+  ok: '#DFFFF2',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC'
 };
@@ -1444,6 +1446,73 @@ export var generate = function generate(baseSpacing, scale) {
       color: 'white',
       tipSize: '5px',
       round: 'small'
+    },
+    notification: {
+      toast: {
+        closeIcon: Close,
+        position: 'top-right',
+        zIndex: 999,
+        icon: {
+          size: 'xlarge',
+          "default": TickCircle,
+          ok: TickCircle,
+          error: Error
+        },
+        text: {
+          "default": {
+            weight: 600
+          },
+          ok: {
+            color: '#38C18B',
+            weight: 600,
+            margin: {
+              horizontal: 'small'
+            }
+          },
+          error: {
+            color: '#E9716C',
+            weight: 600,
+            margin: {
+              horizontal: 'small'
+            }
+          }
+        },
+        "default": {
+          background: 'dark-1',
+          // border: {},
+          size: 'medium',
+          align: 'center',
+          direction: 'row',
+          gap: 'medium',
+          justify: 'between',
+          round: 'small',
+          elevation: 'medium',
+          pad: {
+            vertical: 'medium',
+            horizontal: 'medium'
+          },
+          margin: {
+            vertical: 'small',
+            horizontal: 'large'
+          }
+        },
+        ok: {
+          background: 'status-ok' // text: {},
+
+        },
+        critical: {
+          background: 'status-critical' // text: {},
+
+        },
+        error: {
+          background: 'status-error' // text: {},
+
+        },
+        warning: {
+          background: 'status-warning' // text: {},
+
+        }
+      }
     },
     changelog: {
       colors: {
