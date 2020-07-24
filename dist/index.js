@@ -1529,7 +1529,7 @@ var generate = function generate(baseSpacing, scale) {
     },
     changelog: {
       colors: {
-        primary: 'accent-1'
+        primary: 'accent-3'
       },
       icons: {
         up: Up,

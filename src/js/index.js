@@ -1368,7 +1368,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     changelog: {
       colors: {
-        primary: 'accent-1',
+        primary: 'accent-3',
       },
       icons: {
         up: Up,
