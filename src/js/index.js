@@ -710,7 +710,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
       error: {
         color: 'status-critical',
-        margin: { vertical: 'medium', horizontal: 'none' },
+        margin: { vertical: 'xsmall', horizontal: 'none' },
         // background: undefined,
       },
       // extend: undefined,

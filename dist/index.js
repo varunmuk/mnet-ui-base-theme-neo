@@ -833,7 +833,7 @@ var generate = function generate(baseSpacing, scale) {
       error: {
         color: 'status-critical',
         margin: {
-          vertical: 'medium',
+          vertical: 'xsmall',
           horizontal: 'none'
         } // background: undefined,
 
