@@ -220,7 +220,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         zIndex: '20',
         extend: {
           'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
-          bottom: `${1.5 * baseSpacing}px`,
+          // bottom: `${1.5 * baseSpacing}px`,
         },
       },
       edgeSize: {
