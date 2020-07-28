@@ -258,7 +258,8 @@ export var generate = function generate(baseSpacing, scale) {
         },
         zIndex: '20',
         extend: {
-          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)'
+          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
+          bottom: 1.5 * baseSpacing + "px"
         }
       },
       edgeSize: {

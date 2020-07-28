@@ -7,7 +7,9 @@ import { deepFreeze } from 'mnet-ui-base/utils/object';
 import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 
-const { Up, Down, Close, ArrowDown, TickCircle, Error } = NeoComponents;
+const {
+  Up, Down, Close, ArrowDown, TickCircle, Error,
+} = NeoComponents;
 
 addGoogleFont({
   'Open Sans': true,
@@ -102,16 +104,15 @@ const colors = {
   white: '#FFFFFF',
 };
 
-const colorArray = (array, prefix) =>
-  array.forEach((color, index) => {
-    colors[`${prefix}-${index + 1}`] = color;
-  });
+const colorArray = (array, prefix) => array.forEach((color, index) => {
+  colors[`${prefix}-${index + 1}`] = color;
+});
 
 colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
 colorArray(lightColors, 'light');
 colorArray(neutralColors, 'neutral');
-Object.keys(statusColors).forEach((color) => {
+Object.keys(statusColors).forEach(color => {
   colors[`status-${color}`] = statusColors[color];
 });
 
@@ -120,7 +121,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
   const baseFontSize = baseSpacing * 0.75; // 12
   const fontScale = baseSpacing / scale; // 16
 
-  const fontSizing = (factor) => ({
+  const fontSizing = factor => ({
     size: `${baseFontSize + factor * fontScale}px`,
     height: `${baseSpacing + factor * fontScale}px`,
     // maxWidth chosen to be ~50 characters wide
@@ -219,6 +220,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         zIndex: '20',
         extend: {
           'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
+          bottom: `${1.5 * baseSpacing}px`,
         },
       },
       edgeSize: {
@@ -280,12 +282,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       input: {
         padding: {
           horizontal: `${
-            parseMetricToNum(`${baseSpacing / 2}px`) -
-            parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 2}px`)
+            - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`) -
-            parseMetricToNum(`${controlBorderWidth}px`)
+            parseMetricToNum(`${baseSpacing / 1.618}px`)
+            - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },
         font: {
@@ -896,7 +898,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           align: 'center',
           background: 'white',
           border: { color: 'light-6' },
-          extend: (props) => {
+          extend: props => {
             const getBackground = () => {
               switch (props.isExcluded) {
                 case null:
@@ -920,7 +922,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         wrapper: {
           pad: 'medium',
           direction: 'row',
-          extend: (props) => ({
+          extend: props => ({
             padding: props.twoColumnLayout ? 0 : `${baseSpacing / 1.618}px`,
             'border-bottom': props.twoColumnLayout
               ? 'none'
@@ -937,7 +939,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: 'small',
           direction: 'row',
           align: 'center',
-          extend: (props) => ({
+          extend: props => ({
             width: props.twoColumnLayout ? '100%' : 'auto',
             margin: props.twoColumnLayout
               ? 0
@@ -964,7 +966,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: {
             right: 'small',
           },
-          extend: (props) => {
+          extend: props => {
             const getTextColor = () => {
               switch (props.isExcluded) {
                 case false:
@@ -1012,7 +1014,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           align: 'center',
           background: 'light-2',
           pad: { right: 'medium', vertical: 'small' },
-          extend: (props) => ({
+          extend: props => ({
             background:
               props.layout === 'double-column' ? 'white' : lightColors[1],
             'flex-direction':
@@ -1121,7 +1123,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       track: {
         height: '4px',
         color: css`
-          ${(props) => rgba(normalizeColor('border', props.theme), 0.2)};
+          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
         `,
       },
       thumb: {
@@ -1142,7 +1144,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       background: 'white',
       activeColor: lightColors[4],
       container: {
-        extend: (props) => ({
+        extend: props => ({
           borderColor: normalizeColor('border', props.theme),
         }),
       },
