@@ -1423,7 +1423,7 @@ export var generate = function generate(baseSpacing, scale) {
     textInput: {
       // disabled: { opacity: undefined },
       extend: {
-        'padding-left': baseSpacing + "px",
+        // 'padding-left': `${baseSpacing}px`,
         'box-shadow': 'none'
       }
     },
