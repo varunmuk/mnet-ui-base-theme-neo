@@ -1453,6 +1453,7 @@ export var generate = function generate(baseSpacing, scale) {
         closeIcon: Close,
         position: 'top-right',
         zIndex: 999,
+        width: '60%',
         icon: {
           size: 'xlarge',
           "default": TickCircle,

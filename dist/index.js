@@ -1436,7 +1436,7 @@ var generate = function generate(baseSpacing, scale) {
     textInput: {
       // disabled: { opacity: undefined },
       extend: {
-        'padding-left': baseSpacing + "px",
+        // 'padding-left': `${baseSpacing}px`,
         'box-shadow': 'none'
       }
     },
@@ -1466,6 +1466,7 @@ var generate = function generate(baseSpacing, scale) {
         closeIcon: Close,
         position: 'top-right',
         zIndex: 999,
+        width: '60%',
         icon: {
           size: 'xlarge',
           "default": TickCircle,

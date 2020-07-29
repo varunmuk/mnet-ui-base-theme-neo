@@ -1315,6 +1315,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         closeIcon: Close,
         position: 'top-right',
         zIndex: 999,
+        width: '60%',
         icon: {
           size: 'xlarge',
           default: TickCircle,
