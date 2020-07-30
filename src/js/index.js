@@ -1068,6 +1068,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         textAreaContainer: {
           width: 'medium',
           height: 'medium',
+          minHeight: '140px',
           margin: { vertical: 'medium' },
         },
         actions: {
@@ -1279,7 +1280,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       xxlarge: { ...fontSizing(4) },
     },
     textArea: {
-      // extend: undefined,
+      extend: {
+        border: 'none',
+        'box-shadow': 'none',
+      },
       // disabled: { opacity: undefined },
     },
     textInput: {

@@ -1191,6 +1191,7 @@ export var generate = function generate(baseSpacing, scale) {
         textAreaContainer: {
           width: 'medium',
           height: 'medium',
+          minHeight: '140px',
           margin: {
             vertical: 'medium'
           }
@@ -1417,8 +1418,12 @@ export var generate = function generate(baseSpacing, scale) {
       xlarge: _extends({}, fontSizing(2)),
       xxlarge: _extends({}, fontSizing(4))
     },
-    textArea: {// extend: undefined,
-      // disabled: { opacity: undefined },
+    textArea: {
+      extend: {
+        border: 'none',
+        'box-shadow': 'none'
+      } // disabled: { opacity: undefined },
+
     },
     textInput: {
       // disabled: { opacity: undefined },
