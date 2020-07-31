@@ -32,7 +32,7 @@ import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 var Up = NeoComponents.Up,
     Down = NeoComponents.Down,
     Close = NeoComponents.Close,
-    ArrowDown = NeoComponents.ArrowDown,
+    LongArrowDown = NeoComponents.LongArrowDown,
     TickCircle = NeoComponents.TickCircle,
     Error = NeoComponents.Error;
 addGoogleFont({
@@ -1528,7 +1528,7 @@ export var generate = function generate(baseSpacing, scale) {
       icons: {
         up: Up,
         down: Down,
-        changeArrow: ArrowDown,
+        changeArrow: LongArrowDown,
         close: Close
       }
     }

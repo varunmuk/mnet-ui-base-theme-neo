@@ -44,7 +44,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 var Up = _mnetIcons.NeoComponents.Up,
     Down = _mnetIcons.NeoComponents.Down,
     Close = _mnetIcons.NeoComponents.Close,
-    ArrowDown = _mnetIcons.NeoComponents.ArrowDown,
+    LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
     Error = _mnetIcons.NeoComponents.Error;
 (0, _googleFonts.add)({
@@ -1541,7 +1541,7 @@ var generate = function generate(baseSpacing, scale) {
       icons: {
         up: Up,
         down: Down,
-        changeArrow: ArrowDown,
+        changeArrow: LongArrowDown,
         close: Close
       }
     }
