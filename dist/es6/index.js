@@ -307,7 +307,7 @@ export var generate = function generate(baseSpacing, scale) {
         // outline: { color: undefined, size: undefined },
         shadow: {
           color: 'focus',
-          size: '2px'
+          size: '1px'
         }
       },
       font: _extends({}, fontSizing(0), {

@@ -261,7 +261,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // outline: { color: undefined, size: undefined },
         shadow: {
           color: 'focus',
-          size: '2px',
+          size: '1px',
         },
       },
       font: {
