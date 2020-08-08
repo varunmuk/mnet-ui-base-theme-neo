@@ -56,7 +56,7 @@ var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
   critical: '#e35e59',
   error: '#FFECEC',
-  warning: '#FFAA15',
+  warning: '#AB7113',
   ok: '#DFFFF2',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC'
