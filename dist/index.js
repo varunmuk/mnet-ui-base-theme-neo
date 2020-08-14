@@ -1003,6 +1003,51 @@ var generate = function generate(baseSpacing, scale) {
       // extend: undefined,
 
     },
+    modalpopup: {
+      container: {
+        width: 'large'
+      },
+      title: {
+        wrapper: {
+          pad: {
+            horizontal: 'large',
+            vertical: 'small'
+          },
+          border: {
+            side: 'bottom',
+            color: 'dark-6'
+          }
+        },
+        text: {
+          level: 3,
+          size: 'small',
+          color: 'dark-3'
+        }
+      },
+      message: {
+        wrapper: {
+          pad: 'large'
+        },
+        text: {
+          size: 'medium',
+          color: 'dark-3'
+        }
+      },
+      buttons: {
+        wrapper: {
+          pad: {
+            horizontal: 'large',
+            bottom: 'large'
+          },
+          direction: 'row'
+        },
+        button: {
+          margin: {
+            right: 'medium'
+          }
+        }
+      }
+    },
     multiselect: {
       option: {
         width: 'full',
@@ -1234,31 +1279,40 @@ var generate = function generate(baseSpacing, scale) {
     radioButton: {
       border: {
         color: {
-          dark: 'rgba(255, 255, 255, 0.5)',
-          light: 'rgba(0, 0, 0, 0.15)'
+          dark: 'dark-6',
+          light: 'dark-6'
         },
-        width: '2px'
+        width: '3px'
       },
       check: {
-        radius: '100%' // color: { dark: undefined, light: undefined },
-        // extend: undefined,
+        radius: '100%',
+        color: {
+          dark: 'accent-3',
+          light: 'accent-3'
+        } // extend: undefined,
 
       },
       hover: {
         border: {
           color: {
-            dark: 'white',
-            light: 'black'
+            dark: 'accent-3',
+            light: 'accent-3'
           }
         }
       },
-      icon: {// size: undefined,
-        // extend: undefined,
+      icon: {
+        // size: undefined,
+        extend: {
+          display: 'none'
+        }
       },
       icons: {// circle: undefined,
       },
       gap: 'small',
-      size: baseSpacing + "px"
+      size: baseSpacing + "px",
+      extend: {
+        'margin-right': baseSpacing + "px"
+      }
     },
     rangeInput: {
       track: {
