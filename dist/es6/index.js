@@ -996,10 +996,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       title: {
         wrapper: {
-          pad: {
-            horizontal: 'large',
-            vertical: 'small'
-          },
+          pad: 'large',
           border: {
             side: 'bottom',
             color: 'dark-6'
@@ -1017,14 +1014,18 @@ export var generate = function generate(baseSpacing, scale) {
         },
         text: {
           size: 'medium',
-          color: 'dark-3'
+          color: 'dark-3',
+          style: {
+            lineHeight: baseSpacing * 1.25 + "px"
+          }
         }
       },
       buttons: {
         wrapper: {
           pad: {
             horizontal: 'large',
-            bottom: 'large'
+            bottom: 'large',
+            top: 'medium'
           },
           direction: 'row'
         },

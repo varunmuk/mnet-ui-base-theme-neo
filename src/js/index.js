@@ -879,10 +879,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       title: {
         wrapper: {
-          pad: {
-            horizontal: 'large',
-            vertical: 'small',
-          },
+          pad: 'large',
           border: {
             side: 'bottom',
             color: 'dark-6',
@@ -901,6 +898,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         text: {
           size: 'medium',
           color: 'dark-3',
+          style: {
+            lineHeight: `${baseSpacing * 1.25}px`,
+          },
         },
       },
       buttons: {
@@ -908,6 +908,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           pad: {
             horizontal: 'large',
             bottom: 'large',
+            top: 'medium',
           },
           direction: 'row',
         },
