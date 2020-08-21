@@ -287,7 +287,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
           vertical: `${
-            parseMetricToNum(`${baseSpacing / 1.618}px`)
+            parseMetricToNum(`${baseSpacing / 1.418}px`)
             - parseMetricToNum(`${controlBorderWidth}px`)
           }px`,
         },

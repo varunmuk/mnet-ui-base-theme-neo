@@ -341,7 +341,7 @@ var generate = function generate(baseSpacing, scale) {
       input: {
         padding: {
           horizontal: (0, _mixins.parseMetricToNum)(baseSpacing / 2 + "px") - (0, _mixins.parseMetricToNum)(controlBorderWidth + "px") + "px",
-          vertical: (0, _mixins.parseMetricToNum)(baseSpacing / 1.618 + "px") - (0, _mixins.parseMetricToNum)(controlBorderWidth + "px") + "px"
+          vertical: (0, _mixins.parseMetricToNum)(baseSpacing / 1.418 + "px") - (0, _mixins.parseMetricToNum)(controlBorderWidth + "px") + "px"
         },
         font: {
           // size: undefined,

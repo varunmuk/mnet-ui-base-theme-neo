@@ -328,7 +328,7 @@ export var generate = function generate(baseSpacing, scale) {
       input: {
         padding: {
           horizontal: parseMetricToNum(baseSpacing / 2 + "px") - parseMetricToNum(controlBorderWidth + "px") + "px",
-          vertical: parseMetricToNum(baseSpacing / 1.618 + "px") - parseMetricToNum(controlBorderWidth + "px") + "px"
+          vertical: parseMetricToNum(baseSpacing / 1.418 + "px") - parseMetricToNum(controlBorderWidth + "px") + "px"
         },
         font: {
           // size: undefined,
