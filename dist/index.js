@@ -1528,6 +1528,7 @@ var generate = function generate(baseSpacing, scale) {
         position: 'top-right',
         zIndex: 999,
         width: '60%',
+        timeout: 2000,
         icon: {
           size: 'xlarge',
           "default": TickCircle,
