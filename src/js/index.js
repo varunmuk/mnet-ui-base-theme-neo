@@ -1368,6 +1368,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       color: 'white',
       tipSize: '5px',
       round: 'small',
+      maxWidth: '20%',
     },
     notification: {
       toast: {

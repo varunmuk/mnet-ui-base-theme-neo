@@ -1507,7 +1507,8 @@ export var generate = function generate(baseSpacing, scale) {
       background: 'dark-1',
       color: 'white',
       tipSize: '5px',
-      round: 'small'
+      round: 'small',
+      maxWidth: '20%'
     },
     notification: {
       toast: {
