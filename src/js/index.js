@@ -10,7 +10,7 @@ import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 const { Up, Down, Close, LongArrowDown, TickCircle, Error } = NeoComponents;
 
 addGoogleFont({
-  'Open Sans': true,
+  'Open Sans': ['400', '600', '700'],
 });
 
 const brandColor = '#E15151';
