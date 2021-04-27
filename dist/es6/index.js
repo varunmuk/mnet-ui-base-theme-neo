@@ -36,7 +36,7 @@ var Up = NeoComponents.Up,
     TickCircle = NeoComponents.TickCircle,
     Error = NeoComponents.Error;
 addGoogleFont({
-  'Open Sans': true
+  'Open Sans': ['400', '600', '700']
 });
 var brandColor = '#E15151';
 var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];

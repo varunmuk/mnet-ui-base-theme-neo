@@ -48,7 +48,7 @@ var Up = _mnetIcons.NeoComponents.Up,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
     Error = _mnetIcons.NeoComponents.Error;
 (0, _googleFonts.add)({
-  'Open Sans': true
+  'Open Sans': ['400', '600', '700']
 });
 var brandColor = '#E15151';
 var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
