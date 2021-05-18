@@ -1490,7 +1490,10 @@ export var generate = function generate(baseSpacing, scale) {
       color: 'white',
       tipSize: '5px',
       round: 'small',
-      maxWidth: '20%'
+      maxWidth: '20%',
+      dropProps: {
+        left: 'right'
+      }
     },
     notification: {
       toast: {

@@ -1369,6 +1369,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       tipSize: '5px',
       round: 'small',
       maxWidth: '20%',
+      dropProps: {
+        left: 'right',
+      },
     },
     notification: {
       toast: {
