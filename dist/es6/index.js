@@ -769,10 +769,7 @@ export var generate = function generate(baseSpacing, scale) {
       border: {
         color: 'border',
         error: {
-          color: {
-            dark: 'white',
-            light: 'status-critical'
-          }
+          color: statusColors.critical
         },
         position: 'inner',
         side: 'all',
@@ -1028,6 +1025,7 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       checkbox: {
+        type: 'check',
         box: {
           margin: {
             right: 'medium' // extend: undefined,
@@ -1044,7 +1042,8 @@ export var generate = function generate(baseSpacing, scale) {
           margin: 'auto',
           round: 'small',
           align: 'center',
-          background: 'white',
+          // background: 'white',
+          background: 'inherit',
           border: {
             color: 'light-6'
           },
@@ -1070,6 +1069,16 @@ export var generate = function generate(baseSpacing, scale) {
               'border-color': props.active ? 'transparent' : lightColors[5]
             };
           }
+        },
+        include: {
+          background: 'accent-1',
+          color: 'white',
+          check: 'check'
+        },
+        exclude: {
+          background: 'red',
+          color: 'white',
+          check: 'close'
         }
       },
       chips: {
@@ -1140,7 +1149,21 @@ export var generate = function generate(baseSpacing, scale) {
           size: 'small'
         }
       },
+      labelWrap: {
+        pad: {
+          left: 'medium',
+          vertical: 'small'
+        }
+      },
       controls: {
+        label: {
+          include: {
+            color: 'accent-1'
+          },
+          exclude: {
+            color: 'brand'
+          }
+        },
         wrapper: {
           pad: 'medium',
           direction: 'row',
@@ -1176,7 +1199,8 @@ export var generate = function generate(baseSpacing, scale) {
           }
         },
         placeholder: {
-          color: 'dark-5',
+          color: 'dark-4',
+          weight: 600,
           size: 'medium'
         },
         icon: {
@@ -1190,12 +1214,23 @@ export var generate = function generate(baseSpacing, scale) {
           box: {
             direction: 'row',
             justify: 'between',
-            pad: 'medium',
+            pad: 'large',
             background: 'background-back',
             border: {
               side: 'bottom',
               color: '#D9DBE5'
             }
+          },
+          count: {
+            margin: {
+              left: 'small'
+            },
+            background: 'brand',
+            round: 'medium',
+            pad: {
+              horizontal: 'medium'
+            },
+            justify: 'center'
           },
           text: {
             color: 'accent-2',
@@ -1206,13 +1241,20 @@ export var generate = function generate(baseSpacing, scale) {
       },
       custom: {
         wrapper: {
-          direction: 'row'
+          direction: 'row',
+          width: 'large'
         },
         textAreaWrap: {
           border: {
             side: 'right'
           },
-          pad: 'large'
+          pad: 'large',
+          fill: true,
+          extend: {
+            textarea: {
+              minHeight: '140px'
+            }
+          }
         },
         label: {
           weight: 600
@@ -1228,15 +1270,35 @@ export var generate = function generate(baseSpacing, scale) {
         actions: {
           wrapper: {
             direction: 'row',
-            margin: {
-              vertical: 'small'
-            },
-            gap: 'medium',
             height: {
               min: 'auto'
-            }
+            },
+            pad: 'small',
+            margin: 'xsmall',
+            gap: 'xxsmall'
           }
         }
+      },
+      icons: {
+        include: {
+          icon: false
+        },
+        exclude: {
+          icon: false
+        }
+      },
+      includeBtn: {
+        primary: true,
+        color: 'accent-1',
+        showIcon: false
+      },
+      excludeBtn: {
+        primary: true,
+        color: 'brand',
+        showIcon: false
+      },
+      container: {
+        width: 'large'
       }
     },
     paragraph: {
