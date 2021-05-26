@@ -1026,6 +1026,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       checkbox: {
         type: 'check',
+        showUnSelected: false,
         box: {
           margin: {
             right: 'medium' // extend: undefined,
@@ -1555,6 +1556,10 @@ export var generate = function generate(baseSpacing, scale) {
       maxWidth: '20%',
       dropProps: {
         left: 'right'
+      },
+      pad: {
+        horizontal: 'large',
+        vertical: 'medium'
       }
     },
     notification: {

@@ -924,6 +924,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       checkbox: {
         type: 'check',
+        showUnSelected: false,
         box: {
           margin: {
             right: 'medium',
@@ -1428,6 +1429,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       maxWidth: '20%',
       dropProps: {
         left: 'right',
+      },
+      pad: {
+        horizontal: 'large',
+        vertical: 'medium',
       },
     },
     notification: {
