@@ -1,22 +1,4 @@
-function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -787,10 +769,7 @@ export var generate = function generate(baseSpacing, scale) {
       border: {
         color: 'border',
         error: {
-          color: {
-            dark: 'white',
-            light: 'status-critical'
-          }
+          color: statusColors.critical
         },
         position: 'inner',
         side: 'all',
@@ -885,7 +864,7 @@ export var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: css(_templateObject())
+      global: css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
     },
     heading: {
       font: {// family: undefined
@@ -1046,6 +1025,8 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       checkbox: {
+        type: 'check',
+        showUnSelected: false,
         box: {
           margin: {
             right: 'medium' // extend: undefined,
@@ -1062,7 +1043,8 @@ export var generate = function generate(baseSpacing, scale) {
           margin: 'auto',
           round: 'small',
           align: 'center',
-          background: 'white',
+          // background: 'white',
+          background: 'inherit',
           border: {
             color: 'light-6'
           },
@@ -1088,6 +1070,16 @@ export var generate = function generate(baseSpacing, scale) {
               'border-color': props.active ? 'transparent' : lightColors[5]
             };
           }
+        },
+        include: {
+          background: 'accent-1',
+          color: 'white',
+          check: 'check'
+        },
+        exclude: {
+          background: 'red',
+          color: 'white',
+          check: 'close'
         }
       },
       chips: {
@@ -1158,7 +1150,21 @@ export var generate = function generate(baseSpacing, scale) {
           size: 'small'
         }
       },
+      labelWrap: {
+        pad: {
+          left: 'medium',
+          vertical: 'small'
+        }
+      },
       controls: {
+        label: {
+          include: {
+            color: 'accent-1'
+          },
+          exclude: {
+            color: 'brand'
+          }
+        },
         wrapper: {
           pad: 'medium',
           direction: 'row',
@@ -1194,7 +1200,8 @@ export var generate = function generate(baseSpacing, scale) {
           }
         },
         placeholder: {
-          color: 'dark-5',
+          color: 'dark-4',
+          weight: 600,
           size: 'medium'
         },
         icon: {
@@ -1208,12 +1215,23 @@ export var generate = function generate(baseSpacing, scale) {
           box: {
             direction: 'row',
             justify: 'between',
-            pad: 'medium',
+            pad: 'large',
             background: 'background-back',
             border: {
               side: 'bottom',
               color: '#D9DBE5'
             }
+          },
+          count: {
+            margin: {
+              left: 'small'
+            },
+            background: 'brand',
+            round: 'medium',
+            pad: {
+              horizontal: 'medium'
+            },
+            justify: 'center'
           },
           text: {
             color: 'accent-2',
@@ -1224,13 +1242,20 @@ export var generate = function generate(baseSpacing, scale) {
       },
       custom: {
         wrapper: {
-          direction: 'row'
+          direction: 'row',
+          width: 'large'
         },
         textAreaWrap: {
           border: {
             side: 'right'
           },
-          pad: 'large'
+          pad: 'large',
+          fill: true,
+          extend: {
+            textarea: {
+              minHeight: '140px'
+            }
+          }
         },
         label: {
           weight: 600
@@ -1246,15 +1271,35 @@ export var generate = function generate(baseSpacing, scale) {
         actions: {
           wrapper: {
             direction: 'row',
-            margin: {
-              vertical: 'small'
-            },
-            gap: 'medium',
             height: {
               min: 'auto'
-            }
+            },
+            pad: 'small',
+            margin: 'xsmall',
+            gap: 'xxsmall'
           }
         }
+      },
+      icons: {
+        include: {
+          icon: false
+        },
+        exclude: {
+          icon: false
+        }
+      },
+      includeBtn: {
+        primary: true,
+        color: 'accent-1',
+        showIcon: false
+      },
+      excludeBtn: {
+        primary: true,
+        color: 'brand',
+        showIcon: false
+      },
+      container: {
+        width: 'large'
       }
     },
     paragraph: {
@@ -1305,7 +1350,7 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: css(_templateObject2(), function (props) {
+        color: css(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
           return rgba(normalizeColor('border', props.theme), 0.2);
         })
       },
@@ -1508,7 +1553,14 @@ export var generate = function generate(baseSpacing, scale) {
       color: 'white',
       tipSize: '5px',
       round: 'small',
-      maxWidth: '20%'
+      maxWidth: '20%',
+      dropProps: {
+        left: 'right'
+      },
+      pad: {
+        horizontal: 'large',
+        vertical: 'medium'
+      }
     },
     notification: {
       toast: {

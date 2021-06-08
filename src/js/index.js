@@ -678,10 +678,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       border: {
         color: 'border',
         error: {
-          color: {
-            dark: 'white',
-            light: 'status-critical',
-          },
+          color: statusColors.critical,
         },
         position: 'inner',
         side: 'all',
@@ -926,6 +923,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         pad: { horizontal: 'medium' },
       },
       checkbox: {
+        type: 'check',
+        showUnSelected: false,
         box: {
           margin: {
             right: 'medium',
@@ -942,9 +941,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: 'auto',
           round: 'small',
           align: 'center',
-          background: 'white',
+          // background: 'white',
+          background: 'inherit',
           border: { color: 'light-6' },
-          extend: (props) => {
+          extend: props => {
             const getBackground = () => {
               switch (props.isExcluded) {
                 case null:
@@ -962,6 +962,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               'border-color': props.active ? 'transparent' : lightColors[5],
             };
           },
+        },
+        include: {
+          background: 'accent-1',
+          color: 'white',
+          check: 'check',
+        },
+        exclude: {
+          background: 'red',
+          color: 'white',
+          check: 'close',
         },
       },
       chips: {
@@ -1037,7 +1047,18 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           size: 'small',
         },
       },
+      labelWrap: {
+        pad: { left: 'medium', vertical: 'small' },
+      },
       controls: {
+        label: {
+          include: {
+            color: 'accent-1',
+          },
+          exclude: {
+            color: 'brand',
+          },
+        },
         wrapper: {
           pad: 'medium',
           direction: 'row',
@@ -1072,7 +1093,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           }),
         },
         placeholder: {
-          color: 'dark-5',
+          color: 'dark-4',
+          weight: 600,
           size: 'medium',
         },
         icon: {
@@ -1086,12 +1108,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           box: {
             direction: 'row',
             justify: 'between',
-            pad: 'medium',
+            pad: 'large',
             background: 'background-back',
             border: {
               side: 'bottom',
               color: '#D9DBE5',
             },
+          },
+          count: {
+            margin: { left: 'small' },
+            background: 'brand',
+            round: 'medium',
+            pad: { horizontal: 'medium' },
+            justify: 'center',
           },
           text: {
             color: 'accent-2',
@@ -1104,10 +1133,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       custom: {
         wrapper: {
           direction: 'row',
+          width: 'large',
         },
         textAreaWrap: {
           border: { side: 'right' },
           pad: 'large',
+          fill: true,
+          extend: {
+            textarea: {
+              minHeight: '140px',
+            },
+          },
         },
         label: {
           weight: 600,
@@ -1121,11 +1157,33 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         actions: {
           wrapper: {
             direction: 'row',
-            margin: { vertical: 'small' },
-            gap: 'medium',
             height: { min: 'auto' },
+            pad: 'small',
+            margin: 'xsmall',
+            gap: 'xxsmall',
           },
         },
+      },
+      icons: {
+        include: {
+          icon: false,
+        },
+        exclude: {
+          icon: false,
+        },
+      },
+      includeBtn: {
+        primary: true,
+        color: 'accent-1',
+        showIcon: false,
+      },
+      excludeBtn: {
+        primary: true,
+        color: 'brand',
+        showIcon: false,
+      },
+      container: {
+        width: 'large',
       },
     },
     paragraph: {
@@ -1369,6 +1427,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       tipSize: '5px',
       round: 'small',
       maxWidth: '20%',
+      dropProps: {
+        left: 'right',
+      },
+      pad: {
+        horizontal: 'large',
+        vertical: 'medium',
+      },
     },
     notification: {
       toast: {
