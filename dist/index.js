@@ -1057,7 +1057,6 @@ var generate = function generate(baseSpacing, scale) {
           round: 'small',
           align: 'center',
           // background: 'white',
-          background: 'inherit',
           border: {
             color: 'light-6'
           },
