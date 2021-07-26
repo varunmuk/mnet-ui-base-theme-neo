@@ -942,7 +942,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           round: 'small',
           align: 'center',
           // background: 'white',
-          background: 'inherit',
           border: { color: 'light-6' },
           extend: props => {
             const getBackground = () => {
