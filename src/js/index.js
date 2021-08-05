@@ -1173,12 +1173,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       includeBtn: {
         primary: true,
-        color: 'white',
+        style: {
+          background: 'accent-1',
+        },
         showIcon: false,
       },
       excludeBtn: {
         primary: true,
-        color: 'white',
+        style: {
+          background: 'brand',
+        },
         showIcon: false,
       },
       container: {
