@@ -1290,14 +1290,14 @@ export var generate = function generate(baseSpacing, scale) {
       includeBtn: {
         primary: true,
         style: {
-          background: 'accent-1'
+          background: accentColors[0]
         },
         showIcon: false
       },
       excludeBtn: {
         primary: true,
         style: {
-          background: 'brand'
+          background: brandColor
         },
         showIcon: false
       },
