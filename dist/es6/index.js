@@ -1289,12 +1289,12 @@ export var generate = function generate(baseSpacing, scale) {
       },
       includeBtn: {
         primary: true,
-        color: 'accent-1',
+        color: 'white',
         showIcon: false
       },
       excludeBtn: {
         primary: true,
-        color: 'brand',
+        color: 'white',
         showIcon: false
       },
       container: {
