@@ -426,11 +426,11 @@ export var generate = function generate(baseSpacing, scale) {
           border: {
             radius: baseSpacing * 0.312 + "px" // 5px
 
-          } // pad: {
-          //   vertical: `${baseSpacing / 1.618 - borderWidth}px`,
-          //   horizontal: `${baseSpacing - borderWidth * 1.4}px`,
-          // },
-
+          },
+          pad: {
+            vertical: baseSpacing / 1.618 - borderWidth + "px",
+            horizontal: baseSpacing - borderWidth * 1.4 + "px"
+          }
         },
         large: {
           border: {
@@ -803,6 +803,9 @@ export var generate = function generate(baseSpacing, scale) {
         margin: {
           vertical: 'xsmall',
           horizontal: 'none'
+        },
+        style: {
+          position: 'absolute'
         } // background: undefined,
 
       },
