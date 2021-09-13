@@ -841,7 +841,10 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       label: {
-        margin: 'none'
+        margin: {
+          vertical: 'large',
+          horizontal: '0'
+        }
       },
       margin: {
         bottom: 'small'
