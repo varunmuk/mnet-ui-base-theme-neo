@@ -1563,7 +1563,8 @@ export var generate = function generate(baseSpacing, scale) {
       pad: {
         horizontal: 'large',
         vertical: 'medium'
-      }
+      },
+      showArrow: true
     },
     notification: {
       toast: {

@@ -1440,6 +1440,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         horizontal: 'large',
         vertical: 'medium',
       },
+      showArrow: true,
     },
     notification: {
       toast: {
