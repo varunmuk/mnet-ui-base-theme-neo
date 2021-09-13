@@ -840,7 +840,9 @@ var generate = function generate(baseSpacing, scale) {
           top: '3px'
         }
       },
-      label: {},
+      label: {
+        margin: 'none'
+      },
       margin: {
         bottom: 'small'
       },
