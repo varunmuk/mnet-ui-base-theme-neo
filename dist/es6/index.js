@@ -829,7 +829,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       label: {
         margin: {
-          vertical: 'large',
+          vertical: 'medium',
           horizontal: '0'
         }
       },
