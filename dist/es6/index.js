@@ -827,12 +827,7 @@ export var generate = function generate(baseSpacing, scale) {
           top: '3px'
         }
       },
-      label: {
-        margin: {
-          vertical: 'large',
-          horizontal: '0'
-        }
-      },
+      label: {},
       margin: {
         bottom: 'small'
       },

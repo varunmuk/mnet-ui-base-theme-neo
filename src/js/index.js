@@ -730,9 +730,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           top: '3px',
         },
       },
-      label: {
-        margin: { vertical: 'large', horizontal: '0' },
-      },
+      label: {},
       margin: { bottom: 'small' },
       postfix: {
         color: 'white',
