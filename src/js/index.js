@@ -731,7 +731,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       label: {
-        margin: { vertical: 'medium', horizontal: '0' },
+        margin: 'none',
       },
       margin: { bottom: 'small' },
       postfix: {
