@@ -388,10 +388,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           border: {
             radius: `${baseSpacing * 0.312}px`, // 5px
           },
-          // pad: {
-          //   vertical: `${baseSpacing / 1.618 - borderWidth}px`,
-          //   horizontal: `${baseSpacing - borderWidth * 1.4}px`,
-          // },
+          pad: {
+            vertical: `${baseSpacing / 1.618 - borderWidth}px`,
+            horizontal: `${baseSpacing - borderWidth * 1.4}px`,
+          },
         },
         large: {
           border: {
@@ -710,6 +710,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       error: {
         color: 'status-critical',
         margin: { vertical: 'xsmall', horizontal: 'none' },
+        style: {
+          position: 'absolute',
+        },
         // background: undefined,
       },
       // extend: undefined,
@@ -728,7 +731,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       label: {
-        margin: { vertical: 'large', horizontal: '0' },
+        margin: 'none',
       },
       margin: { bottom: 'small' },
       postfix: {
@@ -1173,12 +1176,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       includeBtn: {
         primary: true,
-        color: 'accent-1',
+        style: {
+          background: accentColors[0],
+        },
         showIcon: false,
       },
       excludeBtn: {
         primary: true,
-        color: 'brand',
+        style: {
+          background: brandColor,
+        },
         showIcon: false,
       },
       container: {
@@ -1433,6 +1440,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         horizontal: 'large',
         vertical: 'medium',
       },
+      showArrow: true,
     },
     notification: {
       toast: {

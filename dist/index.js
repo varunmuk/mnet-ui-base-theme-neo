@@ -439,11 +439,11 @@ var generate = function generate(baseSpacing, scale) {
           border: {
             radius: baseSpacing * 0.312 + "px" // 5px
 
-          } // pad: {
-          //   vertical: `${baseSpacing / 1.618 - borderWidth}px`,
-          //   horizontal: `${baseSpacing - borderWidth * 1.4}px`,
-          // },
-
+          },
+          pad: {
+            vertical: baseSpacing / 1.618 - borderWidth + "px",
+            horizontal: baseSpacing - borderWidth * 1.4 + "px"
+          }
         },
         large: {
           border: {
@@ -816,6 +816,9 @@ var generate = function generate(baseSpacing, scale) {
         margin: {
           vertical: 'xsmall',
           horizontal: 'none'
+        },
+        style: {
+          position: 'absolute'
         } // background: undefined,
 
       },
@@ -838,10 +841,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       label: {
-        margin: {
-          vertical: 'large',
-          horizontal: '0'
-        }
+        margin: 'none'
       },
       margin: {
         bottom: 'small'
@@ -1302,12 +1302,16 @@ var generate = function generate(baseSpacing, scale) {
       },
       includeBtn: {
         primary: true,
-        color: 'accent-1',
+        style: {
+          background: accentColors[0]
+        },
         showIcon: false
       },
       excludeBtn: {
         primary: true,
-        color: 'brand',
+        style: {
+          background: brandColor
+        },
         showIcon: false
       },
       container: {
@@ -1572,7 +1576,8 @@ var generate = function generate(baseSpacing, scale) {
       pad: {
         horizontal: 'large',
         vertical: 'medium'
-      }
+      },
+      showArrow: true
     },
     notification: {
       toast: {
