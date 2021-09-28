@@ -1446,7 +1446,10 @@ var generate = function generate(baseSpacing, scale) {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: 'small',
+        pad: {
+          vertical: baseSpacing / 2.13 + "px",
+          right: baseSpacing / 2.13 + "px"
+        },
         background: 'background-contrast' // extend: {},
 
       },

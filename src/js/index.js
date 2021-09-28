@@ -1291,7 +1291,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: 'small',
+        pad: {
+          vertical: `${baseSpacing / 2.13}px`,
+          right: `${baseSpacing / 2.13}px`,
+        },
         background: 'background-contrast',
         // extend: {},
       },
