@@ -1,6 +1,10 @@
 "use strict";
 
 exports.__esModule = true;
+var _exportNames = {
+  generate: true,
+  neo: true
+};
 exports.neo = exports.generate = void 0;
 
 var _polished = require("polished");
@@ -17,7 +21,33 @@ var _colors = require("mnet-ui-base/utils/colors");
 
 var _mixins = require("mnet-ui-base/utils/mixins");
 
-var _templateObject, _templateObject2;
+var _themeOverride = require("./themeOverride");
+
+Object.keys(_themeOverride).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  exports[key] = _themeOverride[key];
+});
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -877,7 +907,7 @@ var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: (0, _styledComponents.css)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
+      global: (0, _styledComponents.css)(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -1366,7 +1396,7 @@ var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
+        color: (0, _styledComponents.css)(_templateObject2(), function (props) {
           return (0, _polished.rgba)((0, _colors.normalizeColor)('border', props.theme), 0.2);
         })
       },
