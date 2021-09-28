@@ -153,7 +153,7 @@ export const themeOverride = {
         },
       },
       placeholder: {
-        color: 'dark-3',
+        color: 'dark-4',
         weight: 400,
         size: 'medium',
       },
