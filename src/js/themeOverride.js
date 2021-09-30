@@ -35,7 +35,7 @@ export const themeOverride = {
     icons: {
       background: 'transparent',
       pad: {
-        vertical: `${baseSpacing / 2.13}px`,
+        vertical: `${baseSpacing / 2.67}px`,
         right: 'large',
       },
       size: 'medium',
