@@ -9,7 +9,9 @@ var _utils = require("mnet-ui-base/utils");
 
 var Info = _mnetIcons.NeoComponents.Info,
     Success = _mnetIcons.NeoComponents.Success,
-    Block = _mnetIcons.NeoComponents.Block;
+    Block = _mnetIcons.NeoComponents.Block,
+    Up = _mnetIcons.NeoComponents.Up,
+    Down = _mnetIcons.NeoComponents.Down;
 var baseSpacing = 16;
 var darkColors = [];
 darkColors[2] = '#575F7D';
@@ -41,10 +43,13 @@ var themeOverride = {
     icons: {
       background: 'transparent',
       pad: {
-        vertical: baseSpacing / 2.13 + "px",
+        vertical: baseSpacing / 1.52 + "px",
         right: 'large'
       },
-      size: 'medium'
+      size: 'large',
+      color: 'dark-3',
+      up: Up,
+      down: Down
     }
   },
   textArea: {
@@ -124,7 +129,7 @@ var themeOverride = {
         }
       },
       label: {
-        color: 'dark-1',
+        color: 'dark-3',
         weight: 400,
         extend: {}
       },
@@ -139,6 +144,9 @@ var themeOverride = {
         alignSelf: 'end',
         weight: '600',
         height: "" + baseSpacing * 1.875
+      },
+      icon: {
+        size: baseSpacing / 2.28 + "px"
       }
     },
     searchbox: {
@@ -186,7 +194,11 @@ var themeOverride = {
           weight: '400'
         },
         count: {
-          background: 'light-4'
+          background: 'light-4',
+          round: 'small',
+          pad: {
+            horizontal: 'small'
+          }
         }
       }
     },

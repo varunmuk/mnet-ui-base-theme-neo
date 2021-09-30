@@ -1421,8 +1421,11 @@ export var generate = function generate(baseSpacing, scale) {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: baseSpacing / 2.13 + "px",
-        background: 'background-contrast' // extend: {},
+        pad: baseSpacing / 1.52 + "px",
+        background: 'background-contrast',
+        size: 'large',
+        up: Up,
+        down: Down // extend: {},
 
       },
       // searchInput: undefined,

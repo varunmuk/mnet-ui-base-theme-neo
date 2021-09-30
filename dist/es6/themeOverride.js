@@ -2,7 +2,9 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
     Success = NeoComponents.Success,
-    Block = NeoComponents.Block;
+    Block = NeoComponents.Block,
+    Up = NeoComponents.Up,
+    Down = NeoComponents.Down;
 var baseSpacing = 16;
 var darkColors = [];
 darkColors[2] = '#575F7D';
@@ -34,10 +36,13 @@ export var themeOverride = {
     icons: {
       background: 'transparent',
       pad: {
-        vertical: baseSpacing / 2.13 + "px",
+        vertical: baseSpacing / 1.52 + "px",
         right: 'large'
       },
-      size: 'medium'
+      size: 'large',
+      color: 'dark-3',
+      up: Up,
+      down: Down
     }
   },
   textArea: {
@@ -117,7 +122,7 @@ export var themeOverride = {
         }
       },
       label: {
-        color: 'dark-1',
+        color: 'dark-3',
         weight: 400,
         extend: {}
       },
@@ -132,6 +137,9 @@ export var themeOverride = {
         alignSelf: 'end',
         weight: '600',
         height: "" + baseSpacing * 1.875
+      },
+      icon: {
+        size: baseSpacing / 2.28 + "px"
       }
     },
     searchbox: {
@@ -179,7 +187,11 @@ export var themeOverride = {
           weight: '400'
         },
         count: {
-          background: 'light-4'
+          background: 'light-4',
+          round: 'small',
+          pad: {
+            horizontal: 'small'
+          }
         }
       }
     },
