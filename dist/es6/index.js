@@ -1421,7 +1421,7 @@ export var generate = function generate(baseSpacing, scale) {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: baseSpacing / 2.67 + "px",
+        pad: baseSpacing / 2.13 + "px",
         background: 'background-contrast' // extend: {},
 
       },

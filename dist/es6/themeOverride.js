@@ -34,7 +34,7 @@ export var themeOverride = {
     icons: {
       background: 'transparent',
       pad: {
-        vertical: baseSpacing / 2.67 + "px",
+        vertical: baseSpacing / 2.13 + "px",
         right: 'large'
       },
       size: 'medium'
