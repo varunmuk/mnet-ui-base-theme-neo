@@ -1,4 +1,22 @@
-var _templateObject, _templateObject2;
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -864,7 +882,7 @@ export var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
+      global: css(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -1353,7 +1371,7 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: css(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
+        color: css(_templateObject2(), function (props) {
           return rgba(normalizeColor('border', props.theme), 0.2);
         })
       },
@@ -1403,7 +1421,7 @@ export var generate = function generate(baseSpacing, scale) {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: 'small',
+        pad: baseSpacing / 2.67 + "px",
         background: 'background-contrast' // extend: {},
 
       },
@@ -1650,3 +1668,4 @@ export var generate = function generate(baseSpacing, scale) {
   return deepFreeze(result);
 };
 export var neo = generate(16);
+export * from './themeOverride';
