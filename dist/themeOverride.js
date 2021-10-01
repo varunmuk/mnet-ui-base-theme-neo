@@ -7,6 +7,8 @@ var _mnetIcons = require("mnet-icons");
 
 var _utils = require("mnet-ui-base/utils");
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var Info = _mnetIcons.NeoComponents.Info,
     Success = _mnetIcons.NeoComponents.Success,
     Block = _mnetIcons.NeoComponents.Block,
@@ -271,6 +273,30 @@ var themeOverride = {
           reverse = _ref.reverse,
           icon = _ref.icon,
           theme = _ref.theme;
+      return _extends({
+        paddingTop: baseSpacing / 1.78 + "px",
+        paddingBottom: baseSpacing / 1.78 + "px",
+        boxShadow: 'none',
+        height: '100%',
+        borderBottomWidth: '2px',
+        fontWeight: 400,
+        color: "" + (0, _utils.normalizeColor)('dark-3', theme),
+        paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
+        border: !plain && "1px solid " + (0, _utils.normalizeColor)('dark-6', theme)
+      }, focus ? {
+        borderColor: 'transparent',
+        borderBottom: "2px solid " + (0, _utils.normalizeColor)('accent-3', theme),
+        background: "" + (0, _utils.normalizeColor)('background-back', theme),
+        borderBottomRightRadius: '0px',
+        borderBottomLeftRadius: '0px'
+      } : {});
+    },
+    _extend: function _extend(_ref2) {
+      var plain = _ref2.plain,
+          focus = _ref2.focus,
+          reverse = _ref2.reverse,
+          icon = _ref2.icon,
+          theme = _ref2.theme;
       return "\n        padding-top: " + baseSpacing / 1.78 + "px;\n        padding-bottom: " + baseSpacing / 1.78 + "px;\n        box-shadow: none;\n        height: 100%;\n        border-bottom-width: 2px;\n        font-weight: 400;\n        color: " + (0, _utils.normalizeColor)('dark-3', theme) + ";\n        " + (!reverse && icon && "padding-left: " + baseSpacing / 0.64 + "px;") + "\n        " + (!plain && "border: 1px solid " + (0, _utils.normalizeColor)('dark-6', theme) + ";") + "\n        " + (focus && "border-color: transparent;\n        border-bottom: 2px solid " + (0, _utils.normalizeColor)('accent-3', theme) + ";\n        background: " + (0, _utils.normalizeColor)('background-back', theme) + ";\n        border-bottom-right-radius: 0px;\n        border-bottom-left-radius: 0px;");
     },
     border: {

@@ -250,6 +250,26 @@ export const themeOverride = {
     },
     extend: ({
       plain, focus, reverse, icon, theme,
+    }) => ({
+      paddingTop: `${baseSpacing / 1.78}px`,
+      paddingBottom: `${baseSpacing / 1.78}px`,
+      boxShadow: 'none',
+      height: '100%',
+      borderBottomWidth: '2px',
+      fontWeight: 400,
+      color: `${normalizeColor('dark-3', theme)}`,
+      paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
+      border: !plain && `1px solid ${normalizeColor('dark-6', theme)}`,
+      ...(focus ? {
+        borderColor: 'transparent',
+        borderBottom: `2px solid ${normalizeColor('accent-3', theme)}`,
+        background: `${normalizeColor('background-back', theme)}`,
+        borderBottomRightRadius: '0px',
+        borderBottomLeftRadius: '0px',
+      } : {}),
+    }),
+    _extend: ({
+      plain, focus, reverse, icon, theme,
     }) => `
         padding-top: ${baseSpacing / 1.78}px;
         padding-bottom: ${baseSpacing / 1.78}px;
