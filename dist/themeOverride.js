@@ -46,7 +46,7 @@ var themeOverride = {
       background: 'transparent',
       pad: {
         vertical: baseSpacing / 2.13 + "px",
-        right: 'small'
+        right: 'medium'
       },
       size: 'medium'
     }
