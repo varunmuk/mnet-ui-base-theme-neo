@@ -603,9 +603,7 @@ export var generate = function generate(baseSpacing, scale) {
             borderRadius: '2px',
             color: 'white'
           };
-        },
-        radius: '4px',
-        thickness: '4px'
+        }
       },
       color: {
         dark: undefined,

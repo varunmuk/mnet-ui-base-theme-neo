@@ -546,8 +546,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           borderRadius: '2px',
           color: 'white',
         }),
-        radius: '4px',
-        thickness: '4px',
       },
       color: { dark: undefined, light: 'white' },
       // extend: undefined,
