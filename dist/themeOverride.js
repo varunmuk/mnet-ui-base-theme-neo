@@ -36,14 +36,15 @@ var themeOverride = {
       extend: {
         input: {
           color: darkColors[2],
-          fontWeight: 400
+          fontWeight: 400,
+          padding: baseSpacing / 1.68 + "px"
         }
       }
     },
     icons: {
       background: 'transparent',
       pad: {
-        vertical: baseSpacing / 1.52 + "px",
+        vertical: baseSpacing / 2.67 + "px",
         right: 'large'
       },
       size: 'large',

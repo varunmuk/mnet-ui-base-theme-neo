@@ -1272,6 +1272,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // open: undefined,
         extend: {
           border: '1px solid #DEDEDE',
+          input: {
+            color: darkColors[3],
+          },
         },
       },
       options: {
@@ -1291,12 +1294,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: `${baseSpacing / 1.52}px`,
+        pad: `${baseSpacing / 1.6}px`,
         background: 'background-contrast',
-        size: 'large',
-        up: Up,
-        down: Down,
-        // extend: {},
+        size: `${baseSpacing / 0.94}px`,
       },
       // searchInput: undefined,
       step: 20,
