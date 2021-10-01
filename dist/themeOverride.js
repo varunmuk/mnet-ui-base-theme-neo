@@ -21,6 +21,9 @@ var themeOverride = {
   global: {
     focus: {
       shadow: 'none'
+    },
+    colors: {
+      brand: 'accent-3'
     }
   },
   button: {
