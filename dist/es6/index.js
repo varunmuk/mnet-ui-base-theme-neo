@@ -16,9 +16,7 @@ var Up = NeoComponents.Up,
     Close = NeoComponents.Close,
     LongArrowDown = NeoComponents.LongArrowDown,
     TickCircle = NeoComponents.TickCircle,
-    Error = NeoComponents.Error,
-    Tick = NeoComponents.Tick;
-Tick.notSvg = true;
+    Error = NeoComponents.Error;
 addGoogleFont({
   'Open Sans': ['400', '600', '700']
 });
@@ -597,22 +595,11 @@ export var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        extend: function extend(props) {
-          return {
-            background: props.checked && normalizeColor('accent-3', props.theme),
-            border: props.checked && 'unset',
-            boxShadow: 'unset',
-            borderRadius: '2px',
-            color: 'white'
-          };
-        },
+        // extend: undefined,
         radius: '4px',
         thickness: '4px'
       },
-      color: {
-        dark: undefined,
-        light: 'white'
-      },
+      // color: { dark: undefined, light: undefined },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -623,13 +610,11 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {
-        size: 'large' // extend: undefined,
-
+      icon: {// size: undefined,
+        // extend: undefined,
       },
-      icons: {
-        checked: Tick // indeterminate: undefined,
-
+      icons: {// checked: undefined,
+        // indeterminate: undefined,
       },
       size: baseSpacing + "px",
       toggle: {

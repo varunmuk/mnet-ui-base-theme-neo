@@ -1,8 +1,10 @@
 import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 
-const { Info, Success, Block } = NeoComponents;
-
+const {
+  Info, Success, Block, Tick,
+} = NeoComponents;
+Tick.notSvg = true;
 const baseSpacing = 16;
 const darkColors = [];
 darkColors[2] = '#575F7D';
@@ -82,9 +84,17 @@ export const themeOverride = {
         check: 'subtract',
       },
       check: {
+        extend: props => ({
+          background: props.checked && normalizeColor('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white',
+        }),
         justify: 'center',
         background: 'white',
       },
+      color: { dark: undefined, light: 'white' },
       label: {
         margin: {
           bottom: 'none',

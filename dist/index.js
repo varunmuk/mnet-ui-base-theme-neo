@@ -41,9 +41,7 @@ var Up = _mnetIcons.NeoComponents.Up,
     Close = _mnetIcons.NeoComponents.Close,
     LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Error = _mnetIcons.NeoComponents.Error,
-    Tick = _mnetIcons.NeoComponents.Tick;
-Tick.notSvg = true;
+    Error = _mnetIcons.NeoComponents.Error;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
@@ -623,22 +621,11 @@ var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        extend: function extend(props) {
-          return {
-            background: props.checked && (0, _colors.normalizeColor)('accent-3', props.theme),
-            border: props.checked && 'unset',
-            boxShadow: 'unset',
-            borderRadius: '2px',
-            color: 'white'
-          };
-        },
+        // extend: undefined,
         radius: '4px',
         thickness: '4px'
       },
-      color: {
-        dark: undefined,
-        light: 'white'
-      },
+      // color: { dark: undefined, light: undefined },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -649,13 +636,11 @@ var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {
-        size: 'large' // extend: undefined,
-
+      icon: {// size: undefined,
+        // extend: undefined,
       },
-      icons: {
-        checked: Tick // indeterminate: undefined,
-
+      icons: {// checked: undefined,
+        // indeterminate: undefined,
       },
       size: baseSpacing + "px",
       toggle: {

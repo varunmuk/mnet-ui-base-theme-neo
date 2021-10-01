@@ -2,7 +2,9 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
     Success = NeoComponents.Success,
-    Block = NeoComponents.Block;
+    Block = NeoComponents.Block,
+    Tick = NeoComponents.Tick;
+Tick.notSvg = true;
 var baseSpacing = 16;
 var darkColors = [];
 darkColors[2] = '#575F7D';
@@ -81,8 +83,21 @@ export var themeOverride = {
         check: 'subtract'
       },
       check: {
+        extend: function extend(props) {
+          return {
+            background: props.checked && normalizeColor('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        },
         justify: 'center',
         background: 'white'
+      },
+      color: {
+        dark: undefined,
+        light: 'white'
       },
       label: {
         margin: {

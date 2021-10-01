@@ -9,7 +9,9 @@ var _utils = require("mnet-ui-base/utils");
 
 var Info = _mnetIcons.NeoComponents.Info,
     Success = _mnetIcons.NeoComponents.Success,
-    Block = _mnetIcons.NeoComponents.Block;
+    Block = _mnetIcons.NeoComponents.Block,
+    Tick = _mnetIcons.NeoComponents.Tick;
+Tick.notSvg = true;
 var baseSpacing = 16;
 var darkColors = [];
 darkColors[2] = '#575F7D';
@@ -88,8 +90,21 @@ var themeOverride = {
         check: 'subtract'
       },
       check: {
+        extend: function extend(props) {
+          return {
+            background: props.checked && (0, _utils.normalizeColor)('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        },
         justify: 'center',
         background: 'white'
+      },
+      color: {
+        dark: undefined,
+        light: 'white'
       },
       label: {
         margin: {
