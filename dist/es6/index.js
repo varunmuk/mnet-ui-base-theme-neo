@@ -600,7 +600,7 @@ export var generate = function generate(baseSpacing, scale) {
         extend: function extend(props) {
           return {
             background: props.checked && normalizeColor('accent-3', props.theme),
-            border: 'unset',
+            border: props.checked && 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
             color: 'white'
