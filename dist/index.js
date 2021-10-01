@@ -623,11 +623,16 @@ var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        // extend: undefined,
+        extend: {
+          background: 'accent-3'
+        },
         radius: '4px',
         thickness: '4px'
       },
-      // color: { dark: undefined, light: undefined },
+      color: {
+        dark: undefined,
+        light: 'white'
+      },
       // extend: undefined,
       // gap: undefined
       hover: {
