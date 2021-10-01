@@ -8,7 +8,7 @@ import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 
 const {
-  Up, Down, Close, LongArrowDown, TickCircle, Error, Tick
+  Up, Down, Close, LongArrowDown, TickCircle, Error, Tick,
 } = NeoComponents;
 
 Tick.notSvg = true;
@@ -541,9 +541,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: '2px',
       },
       check: {
-        extend: {
-          background: 'accent-3',
-        },
+        extend: ({ checked }) => `
+          ${checked && `background-color: ${props => normalizeColor('accent-3', props.theme)};`}
+          border: unset;
+          box-shadow: unset;
+          border-radius: 2px;
+          color: white;
+        `,
         radius: '4px',
         thickness: '4px',
       },
