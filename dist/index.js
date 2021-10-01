@@ -41,7 +41,9 @@ var Up = _mnetIcons.NeoComponents.Up,
     Close = _mnetIcons.NeoComponents.Close,
     LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Error = _mnetIcons.NeoComponents.Error;
+    Error = _mnetIcons.NeoComponents.Error,
+    Tick = _mnetIcons.NeoComponents.Tick;
+Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
@@ -649,8 +651,9 @@ var generate = function generate(baseSpacing, scale) {
         size: 'large' // extend: undefined,
 
       },
-      icons: {// checked: undefined,
-        // indeterminate: undefined,
+      icons: {
+        checked: Tick // indeterminate: undefined,
+
       },
       size: baseSpacing + "px",
       toggle: {

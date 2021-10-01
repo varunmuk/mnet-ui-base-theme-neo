@@ -16,7 +16,9 @@ var Up = NeoComponents.Up,
     Close = NeoComponents.Close,
     LongArrowDown = NeoComponents.LongArrowDown,
     TickCircle = NeoComponents.TickCircle,
-    Error = NeoComponents.Error;
+    Error = NeoComponents.Error,
+    Tick = NeoComponents.Tick;
+Tick.notSvg = true;
 addGoogleFont({
   'Open Sans': ['400', '600', '700']
 });
@@ -623,8 +625,9 @@ export var generate = function generate(baseSpacing, scale) {
         size: 'large' // extend: undefined,
 
       },
-      icons: {// checked: undefined,
-        // indeterminate: undefined,
+      icons: {
+        checked: Tick // indeterminate: undefined,
+
       },
       size: baseSpacing + "px",
       toggle: {
