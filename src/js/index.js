@@ -8,8 +8,10 @@ import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 
 const {
-  Up, Down, Close, LongArrowDown, TickCircle, Error,
+  Up, Down, Close, LongArrowDown, TickCircle, Error, Tick
 } = NeoComponents;
+
+Tick.notSvg = true;
 
 addGoogleFont({
   'Open Sans': ['400', '600', '700'],
@@ -559,7 +561,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // extend: undefined,
       },
       icons: {
-        // checked: undefined,
+        checked: Tick,
         // indeterminate: undefined,
       },
       size: `${baseSpacing}px`,
