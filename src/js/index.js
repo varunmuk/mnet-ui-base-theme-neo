@@ -539,11 +539,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: '2px',
       },
       check: {
-        // extend: undefined,
+        extend: props => ({
+          background: props.checked && normalizeColor('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white',
+        }),
         radius: '4px',
         thickness: '4px',
       },
-      // color: { dark: undefined, light: undefined },
+      color: { dark: undefined, light: 'white' },
       // extend: undefined,
       // gap: undefined
       hover: {
