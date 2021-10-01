@@ -542,7 +542,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       check: {
         extend: props => ({
-          background: normalizeColor('accent-3', props.theme),
+          background: props.checked && normalizeColor('accent-3', props.theme),
           border: 'unset',
           boxShadow: 'unset',
           borderRadius: '2px',
@@ -563,7 +563,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icon: {
-        // size: undefined,
+        size: 'large',
         // extend: undefined,
       },
       icons: {

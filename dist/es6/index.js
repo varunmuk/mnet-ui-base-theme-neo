@@ -599,7 +599,7 @@ export var generate = function generate(baseSpacing, scale) {
       check: {
         extend: function extend(props) {
           return {
-            background: normalizeColor('accent-3', props.theme),
+            background: props.checked && normalizeColor('accent-3', props.theme),
             border: 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
@@ -623,8 +623,9 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {// size: undefined,
-        // extend: undefined,
+      icon: {
+        size: 'large' // extend: undefined,
+
       },
       icons: {
         checked: Tick // indeterminate: undefined,
