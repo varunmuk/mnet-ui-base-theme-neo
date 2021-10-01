@@ -541,13 +541,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: '2px',
       },
       check: {
-        extend: ({ checked }) => `
-          ${checked && `background-color: ${props => normalizeColor('accent-3', props.theme)};`}
-          border: unset;
-          box-shadow: unset;
-          border-radius: 2px;
-          color: white;
-        `,
+        extend: props => ({
+          background: normalizeColor('accent-3', props.theme),
+          border: 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white',
+        }),
         radius: '4px',
         thickness: '4px',
       },

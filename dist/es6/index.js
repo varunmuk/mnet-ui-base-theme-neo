@@ -597,11 +597,14 @@ export var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        extend: function extend(_ref) {
-          var checked = _ref.checked;
-          return "\n          " + (checked && "background-color: " + function (props) {
-            return normalizeColor('accent-3', props.theme);
-          } + ";") + "\n          border: unset;\n          box-shadow: unset;\n          border-radius: 2px;\n          color: white;\n        ";
+        extend: function extend(props) {
+          return {
+            background: normalizeColor('accent-3', props.theme),
+            border: 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
         },
         radius: '4px',
         thickness: '4px'
@@ -653,8 +656,8 @@ export var generate = function generate(baseSpacing, scale) {
           }
         },
         radius: baseSpacing + "px",
-        extend: function extend(_ref2) {
-          var checked = _ref2.checked;
+        extend: function extend(_ref) {
+          var checked = _ref.checked;
           return {
             height: baseSpacing * 1.187 + "px",
             border: 'none',
