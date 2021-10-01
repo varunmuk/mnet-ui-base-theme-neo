@@ -140,14 +140,14 @@ var themeOverride = {
           side: 'top',
           color: 'light-3'
         },
-        color: 'dark-1',
+        color: 'dark-3',
         size: 'medium',
         alignSelf: 'end',
         weight: '600',
         height: "" + baseSpacing * 1.875
       },
       icon: {
-        size: baseSpacing / 2.28 + "px"
+        size: baseSpacing / 1.78 + "px"
       }
     },
     searchbox: {
@@ -190,7 +190,7 @@ var themeOverride = {
           }
         },
         text: {
-          color: 'dark-1',
+          color: 'dark-3',
           size: 'medium',
           weight: '400'
         },
