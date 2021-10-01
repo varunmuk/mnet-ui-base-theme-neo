@@ -619,8 +619,9 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {// size: undefined,
-        // extend: undefined,
+      icon: {
+        size: 'large' // extend: undefined,
+
       },
       icons: {// checked: undefined,
         // indeterminate: undefined,
