@@ -1401,7 +1401,10 @@ export var generate = function generate(baseSpacing, scale) {
       control: {
         // open: undefined,
         extend: {
-          border: '1px solid #DEDEDE'
+          border: '1px solid #DEDEDE',
+          input: {
+            color: darkColors[3]
+          }
         }
       },
       options: {
@@ -1421,9 +1424,9 @@ export var generate = function generate(baseSpacing, scale) {
       icons: {
         color: 'icon',
         margin: 'none',
-        pad: baseSpacing / 2.13 + "px",
-        background: 'background-contrast' // extend: {},
-
+        pad: baseSpacing / 1.6 + "px",
+        background: 'background-contrast',
+        size: baseSpacing / 0.94 + "px"
       },
       // searchInput: undefined,
       step: 20

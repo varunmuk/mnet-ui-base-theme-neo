@@ -2,7 +2,9 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
     Success = NeoComponents.Success,
-    Block = NeoComponents.Block;
+    Block = NeoComponents.Block,
+    Up = NeoComponents.Up,
+    Down = NeoComponents.Down;
 var baseSpacing = 16;
 var darkColors = [];
 darkColors[2] = '#575F7D';
@@ -27,17 +29,21 @@ export var themeOverride = {
       extend: {
         input: {
           color: darkColors[2],
-          fontWeight: 400
+          fontWeight: 400,
+          padding: baseSpacing / 1.68 + "px"
         }
       }
     },
     icons: {
       background: 'transparent',
       pad: {
-        vertical: baseSpacing / 2.13 + "px",
+        vertical: baseSpacing / 2.67 + "px",
         right: 'large'
       },
-      size: 'medium'
+      size: 'large',
+      color: 'dark-3',
+      up: Up,
+      down: Down
     }
   },
   textArea: {
@@ -117,7 +123,7 @@ export var themeOverride = {
         }
       },
       label: {
-        color: 'dark-1',
+        color: 'dark-3',
         weight: 400,
         extend: {}
       },
@@ -127,11 +133,14 @@ export var themeOverride = {
           side: 'top',
           color: 'light-3'
         },
-        color: 'dark-1',
+        color: 'dark-3',
         size: 'medium',
         alignSelf: 'end',
         weight: '600',
         height: "" + baseSpacing * 1.875
+      },
+      icon: {
+        size: baseSpacing / 1.78 + "px"
       }
     },
     searchbox: {
@@ -174,12 +183,16 @@ export var themeOverride = {
           }
         },
         text: {
-          color: 'dark-1',
+          color: 'dark-3',
           size: 'medium',
           weight: '400'
         },
         count: {
-          background: 'light-4'
+          background: 'light-4',
+          round: 'small',
+          pad: {
+            horizontal: 'small'
+          }
         }
       }
     },

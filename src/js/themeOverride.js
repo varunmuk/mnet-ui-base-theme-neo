@@ -1,7 +1,9 @@
 import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 
-const { Info, Success, Block } = NeoComponents;
+const {
+  Info, Success, Block, Up, Down,
+} = NeoComponents;
 
 const baseSpacing = 16;
 const darkColors = [];
@@ -29,16 +31,20 @@ export const themeOverride = {
         input: {
           color: darkColors[2],
           fontWeight: 400,
+          padding: `${baseSpacing / 1.68}px`,
         },
       },
     },
     icons: {
       background: 'transparent',
       pad: {
-        vertical: `${baseSpacing / 2.13}px`,
+        vertical: `${baseSpacing / 2.67}px`,
         right: 'large',
       },
-      size: 'medium',
+      size: 'large',
+      color: 'dark-3',
+      up: Up,
+      down: Down,
     },
   },
   textArea: {
@@ -112,7 +118,7 @@ export const themeOverride = {
         }),
       },
       label: {
-        color: 'dark-1',
+        color: 'dark-3',
         weight: 400,
         extend: {},
       },
@@ -122,11 +128,14 @@ export const themeOverride = {
           side: 'top',
           color: 'light-3',
         },
-        color: 'dark-1',
+        color: 'dark-3',
         size: 'medium',
         alignSelf: 'end',
         weight: '600',
         height: `${baseSpacing * 1.875}`,
+      },
+      icon: {
+        size: `${baseSpacing / 1.78}px`,
       },
     },
     searchbox: {
@@ -169,12 +178,16 @@ export const themeOverride = {
           },
         },
         text: {
-          color: 'dark-1',
+          color: 'dark-3',
           size: 'medium',
           weight: '400',
         },
         count: {
           background: 'light-4',
+          round: 'small',
+          pad: {
+            horizontal: 'small',
+          },
         },
       },
     },
