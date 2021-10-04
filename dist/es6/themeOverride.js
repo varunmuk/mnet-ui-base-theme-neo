@@ -279,7 +279,7 @@ export var themeOverride = {
         fontWeight: 400,
         color: "" + normalizeColor('dark-3', theme),
         paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
-        border: !plain && "1px solid " + normalizeColor('dark-6', theme)
+        borderColor: !plain && "" + normalizeColor('dark-6', theme)
       }, focus ? {
         borderColor: 'transparent',
         borderBottom: "2px solid " + (!readOnly && normalizeColor('accent-3', theme)),
