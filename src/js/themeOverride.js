@@ -16,6 +16,7 @@ export const themeOverride = {
     },
     colors: {
       brand: 'accent-3',
+      placeholder: 'dark-2',
     },
   },
   button: {

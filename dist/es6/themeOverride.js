@@ -16,7 +16,8 @@ export var themeOverride = {
       shadow: 'none'
     },
     colors: {
-      brand: 'accent-3'
+      brand: 'accent-3',
+      placeholder: 'dark-2'
     }
   },
   button: {
