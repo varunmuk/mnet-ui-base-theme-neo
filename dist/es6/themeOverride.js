@@ -268,7 +268,8 @@ export var themeOverride = {
           focus = _ref.focus,
           reverse = _ref.reverse,
           icon = _ref.icon,
-          theme = _ref.theme;
+          theme = _ref.theme,
+          readOnly = _ref.readOnly;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",
@@ -281,8 +282,8 @@ export var themeOverride = {
         border: !plain && "1px solid " + normalizeColor('dark-6', theme)
       }, focus ? {
         borderColor: 'transparent',
-        borderBottom: "2px solid " + normalizeColor('accent-3', theme),
-        background: "" + normalizeColor('background-back', theme),
+        borderBottom: "2px solid " + (!readOnly && normalizeColor('accent-3', theme)),
+        background: "" + (!readOnly && normalizeColor('background-back', theme)),
         borderBottomRightRadius: '0px',
         borderBottomLeftRadius: '0px'
       } : {});
