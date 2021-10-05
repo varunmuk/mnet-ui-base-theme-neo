@@ -12,7 +12,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 var Info = _mnetIcons.NeoComponents.Info,
     Success = _mnetIcons.NeoComponents.Success,
     Block = _mnetIcons.NeoComponents.Block,
-    Tick = _mnetIcons.NeoComponents.Tick;
+    Tick = _mnetIcons.NeoComponents.Tick,
+    Up = _mnetIcons.NeoComponents.Up,
+    Down = _mnetIcons.NeoComponents.Down;
 Tick.notSvg = true;
 var baseSpacing = 16;
 var darkColors = [];
@@ -42,17 +44,21 @@ var themeOverride = {
       extend: {
         input: {
           color: darkColors[2],
-          fontWeight: 400
+          fontWeight: 400,
+          padding: baseSpacing / 1.68 + "px"
         }
       }
     },
     icons: {
       background: 'transparent',
       pad: {
-        vertical: baseSpacing / 2.13 + "px",
-        right: 'medium'
+        vertical: baseSpacing / 2.67 + "px",
+        right: 'large'
       },
-      size: 'medium'
+      size: 'large',
+      color: 'dark-3',
+      up: Up,
+      down: Down
     }
   },
   textArea: {
@@ -145,7 +151,7 @@ var themeOverride = {
         }
       },
       label: {
-        color: 'dark-1',
+        color: 'dark-3',
         weight: 400,
         extend: {}
       },
@@ -155,11 +161,14 @@ var themeOverride = {
           side: 'top',
           color: 'light-3'
         },
-        color: 'dark-1',
+        color: 'dark-3',
         size: 'medium',
         alignSelf: 'end',
         weight: '600',
         height: "" + baseSpacing * 1.875
+      },
+      icon: {
+        size: baseSpacing / 1.78 + "px"
       }
     },
     searchbox: {
@@ -202,12 +211,16 @@ var themeOverride = {
           }
         },
         text: {
-          color: 'dark-1',
+          color: 'dark-3',
           size: 'medium',
           weight: '400'
         },
         count: {
-          background: 'light-4'
+          background: 'light-4',
+          round: 'small',
+          pad: {
+            horizontal: 'small'
+          }
         }
       }
     },
