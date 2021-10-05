@@ -117,12 +117,10 @@ export var themeOverride = {
           vertical: 'medium',
           left: 'medium',
           right: 'small'
-        },
-        extend: function extend(props) {
-          return {
-            'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5'
-          };
-        }
+        } // extend: props => ({
+        //   'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5',
+        // }),
+
       },
       option: {
         pad: {
