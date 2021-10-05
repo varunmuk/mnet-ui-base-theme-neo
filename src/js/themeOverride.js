@@ -108,9 +108,9 @@ export const themeOverride = {
     chips: {
       wrapper: {
         pad: { vertical: 'medium', left: 'medium', right: 'small' },
-        // extend: props => ({
-        //   'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5',
-        // }),
+        extend: () => ({
+          'border-bottom': 'none',
+        }),
       },
       option: {
         pad: {

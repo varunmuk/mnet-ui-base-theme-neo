@@ -124,10 +124,12 @@ var themeOverride = {
           vertical: 'medium',
           left: 'medium',
           right: 'small'
-        } // extend: props => ({
-        //   'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5',
-        // }),
-
+        },
+        extend: function extend() {
+          return {
+            'border-bottom': 'none'
+          };
+        }
       },
       option: {
         pad: {
