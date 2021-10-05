@@ -35,6 +35,7 @@ export var themeOverride = {
   select: {
     control: {
       extend: {
+        borderBottomWidth: '2px',
         input: {
           color: darkColors[2],
           fontWeight: 400,
