@@ -1,4 +1,22 @@
-var _templateObject, _templateObject2;
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -32,7 +50,7 @@ var statusColors = {
   disabled: '#CCCCCC'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8'];
 var focusColor = '#B1C2FE';
 var colors = {
   active: '#FFFDE3',
@@ -864,7 +882,7 @@ export var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
+      global: css(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -1353,7 +1371,7 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: css(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
+        color: css(_templateObject2(), function (props) {
           return rgba(normalizeColor('border', props.theme), 0.2);
         })
       },
@@ -1479,22 +1497,22 @@ export var generate = function generate(baseSpacing, scale) {
       header: {
         align: 'start',
         pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
+          horizontal: baseSpacing * 1.25 + "px",
+          vertical: baseSpacing / 2 + "px"
         },
-        border: 'bottom' // verticalAlign: undefined,
-        // background: undefined,
-        // extend: undefined,
+        border: 'all',
+        // verticalAlign: undefined,
+        background: 'light-8' // extend: undefined,
 
       },
       body: {
         align: 'start',
         pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
-        } // background: undefined,
-        // border: undefined,
-        // extend: undefined,
+          horizontal: baseSpacing * 1.25 + "px",
+          vertical: baseSpacing / 2 + "px"
+        },
+        // background: undefined,
+        border: 'all' // extend: undefined,
 
       },
       // row: {
@@ -1513,6 +1531,10 @@ export var generate = function generate(baseSpacing, scale) {
         // background: undefined,
         // extend: undefined,
 
+      },
+      extend: {
+        borderRadius: baseSpacing / 3.2 + "px",
+        overflow: 'hidden'
       }
     },
     text: {

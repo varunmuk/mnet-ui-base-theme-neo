@@ -42,6 +42,7 @@ const lightColors = [
   '#dfdfdf',
   '#DADADA',
   '#F5F7FD',
+  '#F4F6F8',
 ];
 const focusColor = '#B1C2FE';
 
@@ -1366,17 +1367,23 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     table: {
       header: {
         align: 'start',
-        pad: { horizontal: 'small', vertical: 'xsmall' },
-        border: 'bottom',
+        pad: {
+          horizontal: `${baseSpacing * 1.25}px`,
+          vertical: `${baseSpacing / 2}px`,
+        },
+        border: 'all',
         // verticalAlign: undefined,
-        // background: undefined,
+        background: 'light-8',
         // extend: undefined,
       },
       body: {
         align: 'start',
-        pad: { horizontal: 'small', vertical: 'xsmall' },
+        pad: {
+          horizontal: `${baseSpacing * 1.25}px`,
+          vertical: `${baseSpacing / 2}px`,
+        },
         // background: undefined,
-        // border: undefined,
+        border: 'all',
         // extend: undefined,
       },
       // row: {
@@ -1392,6 +1399,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // verticalAlign: undefined,
         // background: undefined,
         // extend: undefined,
+      },
+      extend: {
+        borderRadius: `${baseSpacing / 3.2}px`,
+        overflow: 'hidden',
       },
     },
     text: {
