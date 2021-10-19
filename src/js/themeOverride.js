@@ -291,26 +291,6 @@ export const themeOverride = {
         }
         : {}),
     }),
-    _extend: ({
-      plain, focus, reverse, icon, theme,
-    }) => `
-        padding-top: ${baseSpacing / 1.78}px;
-        padding-bottom: ${baseSpacing / 1.78}px;
-        box-shadow: none;
-        height: 100%;
-        border-bottom-width: 2px;
-        font-weight: 400;
-        color: ${normalizeColor('dark-3', theme)};
-        ${!reverse && icon && `padding-left: ${baseSpacing / 0.64}px;`}
-        ${!plain && `border: 1px solid ${normalizeColor('dark-6', theme)};`}
-        ${
-  focus
-          && `border-color: transparent;
-        border-bottom: 2px solid ${normalizeColor('accent-3', theme)};
-        background: ${normalizeColor('background-back', theme)};
-        border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;`
-}`,
     border: {
       color: 'dark-6',
       side: 'all',

@@ -310,14 +310,6 @@ var themeOverride = {
         borderBottomLeftRadius: '0px'
       } : {});
     },
-    _extend: function _extend(_ref2) {
-      var plain = _ref2.plain,
-          focus = _ref2.focus,
-          reverse = _ref2.reverse,
-          icon = _ref2.icon,
-          theme = _ref2.theme;
-      return "\n        padding-top: " + baseSpacing / 1.78 + "px;\n        padding-bottom: " + baseSpacing / 1.78 + "px;\n        box-shadow: none;\n        height: 100%;\n        border-bottom-width: 2px;\n        font-weight: 400;\n        color: " + (0, _utils.normalizeColor)('dark-3', theme) + ";\n        " + (!reverse && icon && "padding-left: " + baseSpacing / 0.64 + "px;") + "\n        " + (!plain && "border: 1px solid " + (0, _utils.normalizeColor)('dark-6', theme) + ";") + "\n        " + (focus && "border-color: transparent;\n        border-bottom: 2px solid " + (0, _utils.normalizeColor)('accent-3', theme) + ";\n        background: " + (0, _utils.normalizeColor)('background-back', theme) + ";\n        border-bottom-right-radius: 0px;\n        border-bottom-left-radius: 0px;");
-    },
     border: {
       color: 'dark-6',
       side: 'all'
