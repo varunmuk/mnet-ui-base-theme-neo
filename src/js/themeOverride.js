@@ -14,6 +14,9 @@ export const themeOverride = {
     focus: {
       shadow: 'none',
     },
+    colors: {
+      brand: 'accent-3',
+    },
   },
   button: {
     size: {
@@ -244,6 +247,9 @@ export const themeOverride = {
         },
       },
     },
+  },
+  rangeInput: {
+    track: { color: 'dark-3', height: '4px' },
   },
   textInput: {
     container: {

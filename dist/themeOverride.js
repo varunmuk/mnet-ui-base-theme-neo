@@ -19,6 +19,9 @@ var themeOverride = {
   global: {
     focus: {
       shadow: 'none'
+    },
+    colors: {
+      brand: 'accent-3'
     }
   },
   button: {
@@ -255,6 +258,12 @@ var themeOverride = {
           size: 'large'
         }
       }
+    }
+  },
+  rangeInput: {
+    track: {
+      color: 'dark-3',
+      height: '4px'
     }
   },
   textInput: {
