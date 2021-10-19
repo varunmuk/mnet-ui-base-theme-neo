@@ -296,7 +296,7 @@ export var themeOverride = {
         paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
         borderColor: !plain && "" + normalizeColor('dark-6', theme)
       }, focus ? {
-        borderColor: 'transparent',
+        borderColor: readOnly && 'transparent',
         borderBottom: "2px solid " + (!readOnly && normalizeColor('accent-3', theme)),
         background: "" + (!readOnly && normalizeColor('background-back', theme)),
         borderBottomRightRadius: '0px',

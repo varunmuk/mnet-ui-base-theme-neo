@@ -279,7 +279,7 @@ export const themeOverride = {
       borderColor: !plain && `${normalizeColor('dark-6', theme)}`,
       ...(focus
         ? {
-          borderColor: 'transparent',
+          borderColor: readOnly && 'transparent',
           borderBottom: `2px solid ${
             !readOnly && normalizeColor('accent-3', theme)
           }`,
