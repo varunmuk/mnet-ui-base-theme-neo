@@ -457,6 +457,21 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // },
         // extend: undefined,
       },
+      outline: {
+        background: 'white',
+        border: {
+          color: { dark: 'accent-1', light: 'accent-1' },
+          width: '1px',
+        },
+        color: 'accent-1',
+        // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        extend: {
+          fontWeight: 600,
+        },
+      },
       active: {
         background: undefined,
         border: {
