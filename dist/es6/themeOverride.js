@@ -272,6 +272,14 @@ export var themeOverride = {
       }
     }
   },
+  radioButton: {
+    border: {
+      width: '5px'
+    },
+    extend: {
+      marginRight: '8px'
+    }
+  },
   rangeInput: {
     track: {
       color: 'dark-3',
