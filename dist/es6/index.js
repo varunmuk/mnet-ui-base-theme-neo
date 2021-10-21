@@ -1,22 +1,4 @@
-function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -34,7 +16,9 @@ var Up = NeoComponents.Up,
     Close = NeoComponents.Close,
     LongArrowDown = NeoComponents.LongArrowDown,
     TickCircle = NeoComponents.TickCircle,
-    Error = NeoComponents.Error;
+    Error = NeoComponents.Error,
+    Tick = NeoComponents.Tick;
+Tick.notSvg = true;
 addGoogleFont({
   'Open Sans': ['400', '600', '700']
 });
@@ -613,11 +597,20 @@ export var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        // extend: undefined,
-        radius: '4px',
-        thickness: '4px'
+        extend: function extend(props) {
+          return {
+            background: props.checked && normalizeColor('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        }
       },
-      // color: { dark: undefined, light: undefined },
+      color: {
+        dark: undefined,
+        light: 'white'
+      },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -628,11 +621,13 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {// size: undefined,
-        // extend: undefined,
+      icon: {
+        size: 'large' // extend: undefined,
+
       },
-      icons: {// checked: undefined,
-        // indeterminate: undefined,
+      icons: {
+        checked: Tick // indeterminate: undefined,
+
       },
       size: baseSpacing + "px",
       toggle: {
@@ -882,7 +877,7 @@ export var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: css(_templateObject())
+      global: css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
     },
     heading: {
       font: {// family: undefined
@@ -1371,7 +1366,7 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: css(_templateObject2(), function (props) {
+        color: css(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
           return rgba(normalizeColor('border', props.theme), 0.2);
         })
       },

@@ -1,10 +1,14 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
     Success = NeoComponents.Success,
     Block = NeoComponents.Block,
+    Tick = NeoComponents.Tick,
     Up = NeoComponents.Up,
     Down = NeoComponents.Down;
+Tick.notSvg = true;
 var baseSpacing = 16;
 var darkColors = [];
 darkColors[2] = '#575F7D';
@@ -14,7 +18,8 @@ export var themeOverride = {
       shadow: 'none'
     },
     colors: {
-      brand: 'accent-3'
+      brand: 'accent-3',
+      placeholder: 'dark-2'
     }
   },
   button: {
@@ -30,6 +35,7 @@ export var themeOverride = {
   select: {
     control: {
       extend: {
+        borderBottomWidth: '2px',
         input: {
           color: darkColors[2],
           fontWeight: 400,
@@ -90,8 +96,21 @@ export var themeOverride = {
         check: 'subtract'
       },
       check: {
+        extend: function extend(props) {
+          return {
+            background: props.checked && normalizeColor('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        },
         justify: 'center',
         background: 'white'
+      },
+      color: {
+        dark: undefined,
+        light: 'white'
       },
       label: {
         margin: {
@@ -106,9 +125,9 @@ export var themeOverride = {
           left: 'medium',
           right: 'small'
         },
-        extend: function extend(props) {
+        extend: function extend() {
           return {
-            'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5'
+            'border-bottom': 'none'
           };
         }
       },
@@ -270,8 +289,25 @@ export var themeOverride = {
           focus = _ref.focus,
           reverse = _ref.reverse,
           icon = _ref.icon,
-          theme = _ref.theme;
-      return "\n        padding-top: " + baseSpacing / 1.78 + "px;\n        padding-bottom: " + baseSpacing / 1.78 + "px;\n        box-shadow: none;\n        height: 100%;\n        border-bottom-width: 2px;\n        font-weight: 400;\n        color: " + normalizeColor('dark-3', theme) + ";\n        " + (!reverse && icon && "padding-left: " + baseSpacing / 0.64 + "px;") + "\n        " + (!plain && "border: 1px solid " + normalizeColor('dark-6', theme) + ";") + "\n        " + (focus && "border-color: transparent;\n        border-bottom: 2px solid " + normalizeColor('accent-3', theme) + ";\n        background: " + normalizeColor('background-back', theme) + ";\n        border-bottom-right-radius: 0px;\n        border-bottom-left-radius: 0px;");
+          theme = _ref.theme,
+          readOnly = _ref.readOnly;
+      return _extends({
+        paddingTop: baseSpacing / 1.78 + "px",
+        paddingBottom: baseSpacing / 1.78 + "px",
+        boxShadow: 'none',
+        height: '100%',
+        borderBottomWidth: '2px',
+        fontWeight: 400,
+        color: "" + normalizeColor('dark-3', theme),
+        paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
+        borderColor: !plain && "" + normalizeColor('dark-6', theme)
+      }, focus ? {
+        borderColor: !readOnly && 'transparent',
+        borderBottom: "2px solid " + (!readOnly && normalizeColor('accent-3', theme)),
+        background: "" + (!readOnly && normalizeColor('background-back', theme)),
+        borderBottomRightRadius: '0px',
+        borderBottomLeftRadius: '0px'
+      } : {});
     },
     border: {
       color: 'dark-6',

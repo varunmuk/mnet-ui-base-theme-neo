@@ -26,28 +26,11 @@ var _themeOverride = require("./themeOverride");
 Object.keys(_themeOverride).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _themeOverride[key]) return;
   exports[key] = _themeOverride[key];
 });
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n          ", ";\n        "]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -58,7 +41,9 @@ var Up = _mnetIcons.NeoComponents.Up,
     Close = _mnetIcons.NeoComponents.Close,
     LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Error = _mnetIcons.NeoComponents.Error;
+    Error = _mnetIcons.NeoComponents.Error,
+    Tick = _mnetIcons.NeoComponents.Tick;
+Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
@@ -638,11 +623,20 @@ var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        // extend: undefined,
-        radius: '4px',
-        thickness: '4px'
+        extend: function extend(props) {
+          return {
+            background: props.checked && (0, _colors.normalizeColor)('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        }
       },
-      // color: { dark: undefined, light: undefined },
+      color: {
+        dark: undefined,
+        light: 'white'
+      },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -653,11 +647,13 @@ var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {// size: undefined,
-        // extend: undefined,
+      icon: {
+        size: 'large' // extend: undefined,
+
       },
-      icons: {// checked: undefined,
-        // indeterminate: undefined,
+      icons: {
+        checked: Tick // indeterminate: undefined,
+
       },
       size: baseSpacing + "px",
       toggle: {
@@ -907,7 +903,7 @@ var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: (0, _styledComponents.css)(_templateObject())
+      global: (0, _styledComponents.css)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
     },
     heading: {
       font: {// family: undefined
@@ -1396,7 +1392,7 @@ var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: (0, _styledComponents.css)(_templateObject2(), function (props) {
+        color: (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
           return (0, _polished.rgba)((0, _colors.normalizeColor)('border', props.theme), 0.2);
         })
       },
