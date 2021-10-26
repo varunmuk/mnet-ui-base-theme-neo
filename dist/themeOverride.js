@@ -306,7 +306,8 @@ var themeOverride = {
           reverse = _ref.reverse,
           icon = _ref.icon,
           theme = _ref.theme,
-          readOnly = _ref.readOnly;
+          readOnly = _ref.readOnly,
+          error = _ref.error;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",
@@ -316,7 +317,7 @@ var themeOverride = {
         fontWeight: 400,
         color: "" + (0, _utils.normalizeColor)('dark-3', theme),
         paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
-        borderColor: !plain && "" + (0, _utils.normalizeColor)('dark-6', theme)
+        borderColor: !plain && !error && "" + (0, _utils.normalizeColor)('dark-6', theme)
       }, focus ? {
         borderColor: !readOnly && 'transparent',
         borderBottom: "2px solid " + (!readOnly && (0, _utils.normalizeColor)('accent-3', theme)),

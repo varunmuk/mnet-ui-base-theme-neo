@@ -278,7 +278,7 @@ export const themeOverride = {
         `,
     },
     extend: ({
-      plain, focus, reverse, icon, theme, readOnly,
+      plain, focus, reverse, icon, theme, readOnly, error,
     }) => ({
       paddingTop: `${baseSpacing / 1.78}px`,
       paddingBottom: `${baseSpacing / 1.78}px`,
@@ -288,7 +288,7 @@ export const themeOverride = {
       fontWeight: 400,
       color: `${normalizeColor('dark-3', theme)}`,
       paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
-      borderColor: !plain && `${normalizeColor('dark-6', theme)}`,
+      borderColor: !plain && !error && `${normalizeColor('dark-6', theme)}`,
       ...(focus
         ? {
           borderColor: !readOnly && 'transparent',
