@@ -288,7 +288,7 @@ export const themeOverride = {
       fontWeight: 400,
       color: `${normalizeColor('dark-3', theme)}`,
       paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
-      borderColor: !plain && !error && `${normalizeColor('dark-6', theme)}`,
+      borderColor: error ? 'transparent' : !plain && `${normalizeColor('dark-6', theme)}`,
       ...(focus
         ? {
           borderColor: !readOnly && 'transparent',
