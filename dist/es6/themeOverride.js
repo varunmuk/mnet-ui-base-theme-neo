@@ -19,7 +19,8 @@ export var themeOverride = {
     },
     colors: {
       brand: 'accent-3',
-      placeholder: 'dark-2'
+      placeholder: 'dark-2',
+      'status-ok': 'accent-1'
     }
   },
   button: {
@@ -259,7 +260,7 @@ export var themeOverride = {
       include: {
         icon: TickCircle,
         extend: {
-          color: 'status-ok',
+          color: 'accent-1',
           size: 'large'
         }
       },
