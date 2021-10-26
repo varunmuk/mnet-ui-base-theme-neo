@@ -10,7 +10,7 @@ var _utils = require("mnet-ui-base/utils");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 var Info = _mnetIcons.NeoComponents.Info,
-    Success = _mnetIcons.NeoComponents.Success,
+    TickCircle = _mnetIcons.NeoComponents.TickCircle,
     Block = _mnetIcons.NeoComponents.Block,
     Tick = _mnetIcons.NeoComponents.Tick,
     Up = _mnetIcons.NeoComponents.Up,
@@ -264,7 +264,7 @@ var themeOverride = {
     },
     icons: {
       include: {
-        icon: Success,
+        icon: TickCircle,
         extend: {
           color: 'status-ok',
           size: 'large'

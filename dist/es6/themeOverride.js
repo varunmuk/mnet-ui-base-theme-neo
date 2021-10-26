@@ -3,7 +3,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
-    Success = NeoComponents.Success,
+    TickCircle = NeoComponents.TickCircle,
     Block = NeoComponents.Block,
     Tick = NeoComponents.Tick,
     Up = NeoComponents.Up,
@@ -257,7 +257,7 @@ export var themeOverride = {
     },
     icons: {
       include: {
-        icon: Success,
+        icon: TickCircle,
         extend: {
           color: 'status-ok',
           size: 'large'

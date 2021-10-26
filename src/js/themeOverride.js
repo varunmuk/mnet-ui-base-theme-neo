@@ -2,7 +2,7 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 
 const {
-  Info, Success, Block, Tick, Up, Down,
+  Info, TickCircle, Block, Tick, Up, Down,
 } = NeoComponents;
 Tick.notSvg = true;
 
@@ -244,7 +244,7 @@ export const themeOverride = {
     },
     icons: {
       include: {
-        icon: Success,
+        icon: TickCircle,
         extend: {
           color: 'status-ok',
           size: 'large',
