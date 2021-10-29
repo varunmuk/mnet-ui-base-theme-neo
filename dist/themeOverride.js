@@ -123,6 +123,14 @@ var themeOverride = {
         margin: {
           bottom: 'none'
         }
+      },
+      icon: {
+        size: 'large' // extend: undefined,
+
+      },
+      icons: {
+        checked: Tick // indeterminate: undefined,
+
       }
     },
     chips: {

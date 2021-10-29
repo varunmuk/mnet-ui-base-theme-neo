@@ -8,9 +8,9 @@ import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 
 const {
-  Up, Down, Close, LongArrowDown, TickCircle, Error, Tick,
+  Up, Down, Close, LongArrowDown, TickCircle, Error,
 } = NeoComponents;
-Tick.notSvg = true;
+
 addGoogleFont({
   'Open Sans': ['400', '600', '700'],
 });
@@ -539,15 +539,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: '2px',
       },
       check: {
-        extend: props => ({
-          background: props.checked && normalizeColor('accent-3', props.theme),
-          border: props.checked && 'unset',
-          boxShadow: 'unset',
-          borderRadius: '2px',
-          color: 'white',
-        }),
+        // extend: undefined,
+        radius: '4px',
+        thickness: '4px',
       },
-      color: { dark: undefined, light: 'white' },
+      // color: { dark: undefined, light: undefined },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -559,11 +555,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icon: {
-        size: 'large',
+        // size: undefined,
         // extend: undefined,
       },
       icons: {
-        checked: Tick,
+        // checked: undefined,
         // indeterminate: undefined,
       },
       size: `${baseSpacing}px`,
