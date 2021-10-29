@@ -39,6 +39,29 @@ var themeOverride = {
       }
     }
   },
+  checkBox: {
+    check: {
+      extend: function extend(props) {
+        return {
+          background: props.checked && (0, _utils.normalizeColor)('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white'
+        };
+      },
+      justify: 'center',
+      background: 'white'
+    },
+    icon: {
+      size: 'large' // extend: undefined,
+
+    },
+    icons: {
+      checked: Tick // indeterminate: undefined,
+
+    }
+  },
   select: {
     control: {
       extend: {
@@ -103,15 +126,6 @@ var themeOverride = {
         check: 'subtract'
       },
       check: {
-        extend: function extend(props) {
-          return {
-            background: props.checked && (0, _utils.normalizeColor)('accent-3', props.theme),
-            border: props.checked && 'unset',
-            boxShadow: 'unset',
-            borderRadius: '2px',
-            color: 'white'
-          };
-        },
         justify: 'center',
         background: 'white'
       },
@@ -123,14 +137,6 @@ var themeOverride = {
         margin: {
           bottom: 'none'
         }
-      },
-      icon: {
-        size: 'large' // extend: undefined,
-
-      },
-      icons: {
-        checked: Tick // indeterminate: undefined,
-
       }
     },
     chips: {

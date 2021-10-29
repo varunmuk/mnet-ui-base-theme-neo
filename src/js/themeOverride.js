@@ -30,6 +30,27 @@ export const themeOverride = {
       },
     },
   },
+  checkBox: {
+    check: {
+      extend: props => ({
+        background: props.checked && normalizeColor('accent-3', props.theme),
+        border: props.checked && 'unset',
+        boxShadow: 'unset',
+        borderRadius: '2px',
+        color: 'white',
+      }),
+      justify: 'center',
+      background: 'white',
+    },
+    icon: {
+      size: 'large',
+      // extend: undefined,
+    },
+    icons: {
+      checked: Tick,
+      // indeterminate: undefined,
+    },
+  },
   select: {
     control: {
       extend: {
@@ -94,13 +115,6 @@ export const themeOverride = {
         check: 'subtract',
       },
       check: {
-        extend: props => ({
-          background: props.checked && normalizeColor('accent-3', props.theme),
-          border: props.checked && 'unset',
-          boxShadow: 'unset',
-          borderRadius: '2px',
-          color: 'white',
-        }),
         justify: 'center',
         background: 'white',
       },
@@ -109,14 +123,6 @@ export const themeOverride = {
         margin: {
           bottom: 'none',
         },
-      },
-      icon: {
-        size: 'large',
-        // extend: undefined,
-      },
-      icons: {
-        checked: Tick,
-        // indeterminate: undefined,
       },
     },
     chips: {
