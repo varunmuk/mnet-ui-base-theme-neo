@@ -19,6 +19,7 @@ export var themeOverride = {
     },
     colors: {
       brand: 'accent-3',
+      error: '#E15151',
       placeholder: 'dark-2'
     }
   },
@@ -90,6 +91,13 @@ export var themeOverride = {
         color: 'light-3'
       },
       round: 'small'
+    },
+    controls: {
+      label: {
+        exclude: {
+          color: 'error'
+        }
+      }
     },
     includeBtn: {
       color: 'accent-1',
