@@ -2,8 +2,9 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 
 const {
-  Info, Success, Block, Up, Down,
+  Info, Success, Block, Tick, Up, Down,
 } = NeoComponents;
+Tick.notSvg = true;
 
 const baseSpacing = 16;
 const darkColors = [];
@@ -13,6 +14,11 @@ export const themeOverride = {
   global: {
     focus: {
       shadow: 'none',
+    },
+    colors: {
+      brand: 'accent-3',
+      error: '#E15151',
+      placeholder: 'dark-2',
     },
   },
   button: {
@@ -25,9 +31,31 @@ export const themeOverride = {
       },
     },
   },
+  checkBox: {
+    check: {
+      extend: props => ({
+        background: props.checked && normalizeColor('accent-3', props.theme),
+        border: props.checked && 'unset',
+        boxShadow: 'unset',
+        borderRadius: '2px',
+        color: 'white',
+      }),
+      justify: 'center',
+      background: 'white',
+    },
+    icon: {
+      size: 'large',
+      // extend: undefined,
+    },
+    icons: {
+      checked: Tick,
+      // indeterminate: undefined,
+    },
+  },
   select: {
     control: {
       extend: {
+        borderBottomWidth: '2px',
         input: {
           color: darkColors[2],
           fontWeight: 400,
@@ -60,6 +88,13 @@ export const themeOverride = {
       },
       round: 'small',
     },
+    controls: {
+      label: {
+        exclude: {
+          color: 'error',
+        },
+      },
+    },
     includeBtn: {
       color: 'accent-1',
       primary: false,
@@ -91,6 +126,7 @@ export const themeOverride = {
         justify: 'center',
         background: 'white',
       },
+      color: { dark: undefined, light: 'white' },
       label: {
         margin: {
           bottom: 'none',
@@ -100,8 +136,8 @@ export const themeOverride = {
     chips: {
       wrapper: {
         pad: { vertical: 'medium', left: 'medium', right: 'small' },
-        extend: props => ({
-          'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5',
+        extend: () => ({
+          'border-bottom': 'none',
         }),
       },
       option: {
@@ -252,25 +288,31 @@ export const themeOverride = {
         `,
     },
     extend: ({
-      plain, focus, reverse, icon, theme,
-    }) => `
-        padding-top: ${baseSpacing / 1.78}px;
-        padding-bottom: ${baseSpacing / 1.78}px;
-        box-shadow: none;
-        height: 100%;
-        border-bottom-width: 2px;
-        font-weight: 400;
-        color: ${normalizeColor('dark-3', theme)};
-        ${!reverse && icon && `padding-left: ${baseSpacing / 0.64}px;`}
-        ${!plain && `border: 1px solid ${normalizeColor('dark-6', theme)};`}
-        ${
-  focus
-          && `border-color: transparent;
-        border-bottom: 2px solid ${normalizeColor('accent-3', theme)};
-        background: ${normalizeColor('background-back', theme)};
-        border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;`
-}`,
+      plain, focus, reverse, icon, theme, readOnly,
+    }) => ({
+      paddingTop: `${baseSpacing / 1.78}px`,
+      paddingBottom: `${baseSpacing / 1.78}px`,
+      boxShadow: 'none',
+      height: '100%',
+      borderBottomWidth: '2px',
+      fontWeight: 400,
+      color: `${normalizeColor('dark-3', theme)}`,
+      paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
+      borderColor: !plain && `${normalizeColor('dark-6', theme)}`,
+      ...(focus
+        ? {
+          borderColor: !readOnly && 'transparent',
+          borderBottom: `2px solid ${
+            !readOnly && normalizeColor('accent-3', theme)
+          }`,
+          background: `${
+            !readOnly && normalizeColor('background-back', theme)
+          }`,
+          borderBottomRightRadius: '0px',
+          borderBottomLeftRadius: '0px',
+        }
+        : {}),
+    }),
     border: {
       color: 'dark-6',
       side: 'all',
