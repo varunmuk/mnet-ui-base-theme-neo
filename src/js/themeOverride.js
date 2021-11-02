@@ -299,6 +299,10 @@ export const themeOverride = {
   },
   rangeInput: {
     track: { color: 'dark-3', height: '4px' },
+    extend: ({ disabled }) => disabled && 'opacity: .3; cursor: not-allowed !important;',
+    thumb: {
+      extend: ({ disabled }) => disabled && 'cursor: not-allowed !important;',
+    },
   },
   textInput: {
     container: {

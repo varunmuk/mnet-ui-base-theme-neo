@@ -315,6 +315,16 @@ export var themeOverride = {
     track: {
       color: 'dark-3',
       height: '4px'
+    },
+    extend: function extend(_ref) {
+      var disabled = _ref.disabled;
+      return disabled && 'opacity: .3; cursor: not-allowed !important;';
+    },
+    thumb: {
+      extend: function extend(_ref2) {
+        var disabled = _ref2.disabled;
+        return disabled && 'cursor: not-allowed !important;';
+      }
     }
   },
   textInput: {
@@ -323,14 +333,14 @@ export var themeOverride = {
         return "\n          height: 100%;\n        ";
       }
     },
-    extend: function extend(_ref) {
-      var plain = _ref.plain,
-          focus = _ref.focus,
-          reverse = _ref.reverse,
-          icon = _ref.icon,
-          theme = _ref.theme,
-          readOnly = _ref.readOnly,
-          error = _ref.error;
+    extend: function extend(_ref3) {
+      var plain = _ref3.plain,
+          focus = _ref3.focus,
+          reverse = _ref3.reverse,
+          icon = _ref3.icon,
+          theme = _ref3.theme,
+          readOnly = _ref3.readOnly,
+          error = _ref3.error;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",
