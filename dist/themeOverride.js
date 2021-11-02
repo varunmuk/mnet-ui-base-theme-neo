@@ -334,6 +334,18 @@ var themeOverride = {
       }
     }
   },
+  tabs: {
+    // background: undefined,
+    // extend: undefined,
+    gap: 'large',
+    header: {
+      // background: undefined,
+      extend: {
+        'padding-left': '0px',
+        'border-bottom': '1px solid #E8E7E7 '
+      }
+    }
+  },
   textInput: {
     container: {
       extend: function extend() {
