@@ -341,7 +341,7 @@ var themeOverride = {
     header: {
       // background: undefined,
       extend: {
-        'padding-left': '0px',
+        'padding-left': baseSpacing * 1.2 + "px",
         'border-bottom': '1px solid #E8E7E7 '
       }
     }
