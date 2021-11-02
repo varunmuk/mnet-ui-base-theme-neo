@@ -11,7 +11,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 var Info = _mnetIcons.NeoComponents.Info,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Block = _mnetIcons.NeoComponents.Block,
     Tick = _mnetIcons.NeoComponents.Tick,
     Up = _mnetIcons.NeoComponents.Up,
     Down = _mnetIcons.NeoComponents.Down;
@@ -27,7 +26,8 @@ var themeOverride = {
     colors: {
       brand: 'accent-3',
       placeholder: 'dark-2',
-      'status-ok': 'accent-1'
+      'status-ok': 'accent-1',
+      error: '#E15151'
     }
   },
   button: {
@@ -38,6 +38,29 @@ var themeOverride = {
           horizontal: baseSpacing / 1.6 + "px"
         }
       }
+    }
+  },
+  checkBox: {
+    check: {
+      extend: function extend(props) {
+        return {
+          background: props.checked && (0, _utils.normalizeColor)('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white'
+        };
+      },
+      justify: 'center',
+      background: 'white'
+    },
+    icon: {
+      size: 'large' // extend: undefined,
+
+    },
+    icons: {
+      checked: Tick // indeterminate: undefined,
+
     }
   },
   select: {
@@ -75,6 +98,13 @@ var themeOverride = {
         color: 'light-3'
       },
       round: 'small'
+    },
+    controls: {
+      label: {
+        exclude: {
+          color: 'error'
+        }
+      }
     },
     includeBtn: {
       color: 'accent-1',
@@ -272,9 +302,9 @@ var themeOverride = {
         }
       },
       exclude: {
-        icon: Block,
+        icon: TickCircle,
         extend: {
-          color: 'status-error',
+          color: 'error',
           size: 'large'
         }
       }

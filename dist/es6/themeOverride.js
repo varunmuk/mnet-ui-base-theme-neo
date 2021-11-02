@@ -4,7 +4,6 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
     TickCircle = NeoComponents.TickCircle,
-    Block = NeoComponents.Block,
     Tick = NeoComponents.Tick,
     Up = NeoComponents.Up,
     Down = NeoComponents.Down;
@@ -20,7 +19,8 @@ export var themeOverride = {
     colors: {
       brand: 'accent-3',
       placeholder: 'dark-2',
-      'status-ok': 'accent-1'
+      'status-ok': 'accent-1',
+      error: '#E15151'
     }
   },
   button: {
@@ -31,6 +31,29 @@ export var themeOverride = {
           horizontal: baseSpacing / 1.6 + "px"
         }
       }
+    }
+  },
+  checkBox: {
+    check: {
+      extend: function extend(props) {
+        return {
+          background: props.checked && normalizeColor('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white'
+        };
+      },
+      justify: 'center',
+      background: 'white'
+    },
+    icon: {
+      size: 'large' // extend: undefined,
+
+    },
+    icons: {
+      checked: Tick // indeterminate: undefined,
+
     }
   },
   select: {
@@ -68,6 +91,13 @@ export var themeOverride = {
         color: 'light-3'
       },
       round: 'small'
+    },
+    controls: {
+      label: {
+        exclude: {
+          color: 'error'
+        }
+      }
     },
     includeBtn: {
       color: 'accent-1',
@@ -265,9 +295,9 @@ export var themeOverride = {
         }
       },
       exclude: {
-        icon: Block,
+        icon: TickCircle,
         extend: {
-          color: 'status-error',
+          color: 'error',
           size: 'large'
         }
       }
