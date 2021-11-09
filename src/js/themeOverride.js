@@ -289,6 +289,21 @@ export const themeOverride = {
       },
     },
   },
+  pagination: {
+    border: {
+      color: 'none',
+    },
+    button: {
+      active: {
+        fontWeight: 'bold',
+        background: 'light-3',
+        border: {
+          color: 'light-3',
+        },
+        color: 'inherit',
+      },
+    },
+  },
   radioButton: {
     border: {
       width: '5px',
