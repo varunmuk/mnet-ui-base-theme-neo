@@ -324,6 +324,16 @@ export var themeOverride = {
     },
     extend: {
       marginRight: '8px'
+    },
+    container: {
+      extend: function extend(_ref) {
+        var checked = _ref.checked,
+            theme = _ref.theme;
+        return {
+          fontWeight: checked && 600,
+          color: normalizeColor('dark-3', theme)
+        };
+      }
     }
   },
   rangeInput: {
@@ -331,13 +341,13 @@ export var themeOverride = {
       color: 'dark-3',
       height: '4px'
     },
-    extend: function extend(_ref) {
-      var disabled = _ref.disabled;
+    extend: function extend(_ref2) {
+      var disabled = _ref2.disabled;
       return disabled && 'opacity: .3; cursor: not-allowed !important;';
     },
     thumb: {
-      extend: function extend(_ref2) {
-        var disabled = _ref2.disabled;
+      extend: function extend(_ref3) {
+        var disabled = _ref3.disabled;
         return disabled && 'cursor: not-allowed !important;';
       }
     }
@@ -360,14 +370,14 @@ export var themeOverride = {
         return "\n          height: 100%;\n        ";
       }
     },
-    extend: function extend(_ref3) {
-      var plain = _ref3.plain,
-          focus = _ref3.focus,
-          reverse = _ref3.reverse,
-          icon = _ref3.icon,
-          theme = _ref3.theme,
-          readOnly = _ref3.readOnly,
-          error = _ref3.error;
+    extend: function extend(_ref4) {
+      var plain = _ref4.plain,
+          focus = _ref4.focus,
+          reverse = _ref4.reverse,
+          icon = _ref4.icon,
+          theme = _ref4.theme,
+          readOnly = _ref4.readOnly,
+          error = _ref4.error;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",

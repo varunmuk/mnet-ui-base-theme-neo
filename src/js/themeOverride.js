@@ -311,6 +311,12 @@ export const themeOverride = {
     extend: {
       marginRight: '8px',
     },
+    container: {
+      extend: ({ checked, theme }) => ({
+        fontWeight: checked && 600,
+        color: normalizeColor('dark-3', theme),
+      }),
+    },
   },
   rangeInput: {
     track: { color: 'dark-3', height: '4px' },
