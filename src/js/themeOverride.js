@@ -250,8 +250,11 @@ export const themeOverride = {
         height: '100%',
         extend: {
           '*': {
+            height: 'auto',
             border: 'none',
-            height: '100%',
+          },
+          textarea: {
+            minHeight: '185px',
           },
         },
       },

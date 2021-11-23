@@ -271,8 +271,11 @@ var themeOverride = {
         height: '100%',
         extend: {
           '*': {
-            border: 'none',
-            height: '100%'
+            height: 'auto',
+            border: 'none'
+          },
+          textarea: {
+            minHeight: '185px'
           }
         }
       },
