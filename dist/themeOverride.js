@@ -393,6 +393,7 @@ var themeOverride = {
         paddingBottom: baseSpacing / 1.78 + "px",
         boxShadow: 'none',
         height: '100%',
+        fontSize: '12px',
         borderBottomWidth: '2px',
         fontWeight: 400,
         color: "" + (0, _utils.normalizeColor)('dark-3', theme),
