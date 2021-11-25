@@ -342,7 +342,10 @@ export var themeOverride = {
   rangeInput: {
     track: {
       color: 'dark-3',
-      height: '4px'
+      height: '4px',
+      extend: function extend() {
+        return 'border-radius: 10px';
+      }
     },
     extend: function extend(_ref2) {
       var disabled = _ref2.disabled;
