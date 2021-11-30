@@ -257,6 +257,9 @@ export var themeOverride = {
         round: 'small'
       },
       textAreaWrap: {
+        onKeyDown: function onKeyDown(e) {
+          e.stopPropagation();
+        },
         border: {
           color: 'transparent'
         },

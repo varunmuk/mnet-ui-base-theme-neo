@@ -243,6 +243,9 @@ export const themeOverride = {
         round: 'small',
       },
       textAreaWrap: {
+        onKeyDown: e => {
+          e.stopPropagation();
+        },
         border: {
           color: 'transparent',
         },
