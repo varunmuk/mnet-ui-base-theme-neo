@@ -25,7 +25,7 @@ var themeOverride = {
     },
     colors: {
       brand: 'accent-3',
-      placeholder: 'dark-2',
+      placeholder: 'dark-4',
       'status-ok': 'accent-1',
       error: '#E15151'
     }
@@ -80,7 +80,7 @@ var themeOverride = {
         vertical: baseSpacing / 2.67 + "px",
         right: 'large'
       },
-      size: 'large',
+      size: 'xlarge',
       color: 'dark-3',
       up: Up,
       down: Down
