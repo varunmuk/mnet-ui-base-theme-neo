@@ -493,6 +493,45 @@ var themeOverride = {
         size: 'large'
       }
     }
+  },
+  upload: {
+    loader: {
+      props: {
+        height: '15px',
+        width: '15px',
+        margin: 'none'
+      }
+    },
+    table: {
+      button: {
+        submit: {
+          kind: 'outline',
+          background: 'white'
+        },
+        cancel: {
+          plain: true
+        }
+      }
+    },
+    form: {
+      container: {
+        border: {
+          color: '#E0E0E0',
+          size: 'small'
+        },
+        round: 'medium',
+        background: '#FCFDFF'
+      },
+      button: {
+        submit: {
+          kind: 'outline',
+          background: 'white'
+        },
+        cancel: {
+          plain: true
+        }
+      }
+    }
   }
 };
 exports.themeOverride = themeOverride;
