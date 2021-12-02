@@ -213,6 +213,9 @@ export const themeOverride = {
     },
     rightPanel: {
       border: 'light-3',
+      container: {
+        pad: { vertical: 'medium', horizontal: 'large' },
+      },
       incExcHeader: {
         box: {
           align: 'center',
