@@ -405,15 +405,15 @@ var themeOverride = {
         paddingBottom: baseSpacing / 1.78 + "px",
         boxShadow: 'none',
         height: '100%',
-        fontSize: '12px',
-        borderBottomWidth: '2px',
+        fontSize: theme.global.font.size,
+        borderBottomWidth: theme.global.borderSize.small,
         fontWeight: 400,
         color: "" + (0, _utils.normalizeColor)('dark-3', theme),
         paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
         borderColor: error ? 'transparent' : !plain && "" + (0, _utils.normalizeColor)('dark-6', theme)
       }, focus ? {
         borderColor: !readOnly && 'transparent',
-        borderBottom: "2px solid " + (!readOnly && (0, _utils.normalizeColor)('accent-3', theme)),
+        borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && (0, _utils.normalizeColor)('accent-3', theme)),
         background: "" + (!readOnly && (0, _utils.normalizeColor)('background-back', theme)),
         borderBottomRightRadius: '0px',
         borderBottomLeftRadius: '0px'

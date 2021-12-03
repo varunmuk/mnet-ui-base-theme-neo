@@ -359,8 +359,8 @@ export const themeOverride = {
       paddingBottom: `${baseSpacing / 1.78}px`,
       boxShadow: 'none',
       height: '100%',
-      fontSize: '12px',
-      borderBottomWidth: '2px',
+      fontSize: theme.global.font.size,
+      borderBottomWidth: theme.global.borderSize.small,
       fontWeight: 400,
       color: `${normalizeColor('dark-3', theme)}`,
       paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
@@ -368,7 +368,7 @@ export const themeOverride = {
       ...(focus
         ? {
           borderColor: !readOnly && 'transparent',
-          borderBottom: `2px solid ${
+          borderBottom: `${theme.global.borderSize.small} solid ${
             !readOnly && normalizeColor('accent-3', theme)
           }`,
           background: `${
