@@ -16,7 +16,7 @@ addGoogleFont({
 });
 
 const brandColor = '#E15151';
-const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
+const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
 const neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 const statusColors = {
   critical: '#e35e59',
@@ -975,7 +975,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 case false:
                   return '#38C18B';
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
                 default:
                   return accentColors[2];
               }
@@ -1051,7 +1051,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 case false:
                   return '#38C18B';
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
                 default:
                   return darkColors[2];
               }
@@ -1544,6 +1544,30 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         down: Down,
         changeArrow: LongArrowDown,
         close: Close,
+      },
+    },
+    upload: {
+      loader: {
+        props: { height: '15px', width: '15px', margin: 'none' },
+      },
+      form: {
+        container: {
+          border: {
+            color: '#E0E0E0',
+            size: 'small',
+          },
+          round: 'medium',
+          background: '#FCFDFF',
+        },
+        button: {
+          submit: {
+            kind: 'outline',
+            background: 'white',
+          },
+          cancel: {
+            plain: true,
+          },
+        },
       },
     },
   };

@@ -105,7 +105,7 @@ export const themeOverride = {
       showIcon: true,
     },
     excludeBtn: {
-      color: '#FC564F',
+      color: 'accent-5',
       primary: false,
       style: {
         background: 'white',
@@ -446,41 +446,6 @@ export const themeOverride = {
       iconProps: {
         margin: { horizontal: 'small' },
         size: 'large',
-      },
-    },
-  },
-  upload: {
-    loader: {
-      props: { height: '15px', width: '15px', margin: 'none' },
-    },
-    table: {
-      button: {
-        submit: {
-          kind: 'outline',
-          background: 'white',
-        },
-        cancel: {
-          plain: true,
-        },
-      },
-    },
-    form: {
-      container: {
-        border: {
-          color: '#E0E0E0',
-          size: 'small',
-        },
-        round: 'medium',
-        background: '#FCFDFF',
-      },
-      button: {
-        submit: {
-          kind: 'outline',
-          background: 'white',
-        },
-        cancel: {
-          plain: true,
-        },
       },
     },
   },

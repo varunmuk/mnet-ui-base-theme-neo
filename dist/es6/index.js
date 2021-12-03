@@ -23,7 +23,7 @@ addGoogleFont({
   'Open Sans': ['400', '600', '700']
 });
 var brandColor = '#E15151';
-var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
+var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
   critical: '#e35e59',
@@ -1088,7 +1088,7 @@ export var generate = function generate(baseSpacing, scale) {
                   return '#38C18B';
 
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
 
                 default:
                   return accentColors[2];
@@ -1159,7 +1159,7 @@ export var generate = function generate(baseSpacing, scale) {
                   return '#38C18B';
 
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
 
                 default:
                   return darkColors[2];
@@ -1682,6 +1682,34 @@ export var generate = function generate(baseSpacing, scale) {
         down: Down,
         changeArrow: LongArrowDown,
         close: Close
+      }
+    },
+    upload: {
+      loader: {
+        props: {
+          height: '15px',
+          width: '15px',
+          margin: 'none'
+        }
+      },
+      form: {
+        container: {
+          border: {
+            color: '#E0E0E0',
+            size: 'small'
+          },
+          round: 'medium',
+          background: '#FCFDFF'
+        },
+        button: {
+          submit: {
+            kind: 'outline',
+            background: 'white'
+          },
+          cancel: {
+            plain: true
+          }
+        }
       }
     }
   };
