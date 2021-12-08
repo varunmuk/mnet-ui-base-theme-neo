@@ -3,8 +3,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 var Info = NeoComponents.Info,
-    Success = NeoComponents.Success,
-    Block = NeoComponents.Block,
+    TickCircle = NeoComponents.TickCircle,
     Tick = NeoComponents.Tick,
     Up = NeoComponents.Up,
     Down = NeoComponents.Down;
@@ -19,8 +18,9 @@ export var themeOverride = {
     },
     colors: {
       brand: 'accent-3',
-      error: '#E15151',
-      placeholder: 'dark-2'
+      placeholder: 'dark-4',
+      'status-ok': 'accent-1',
+      error: '#E15151'
     }
   },
   button: {
@@ -73,7 +73,7 @@ export var themeOverride = {
         vertical: baseSpacing / 2.67 + "px",
         right: 'large'
       },
-      size: 'large',
+      size: 'xlarge',
       color: 'dark-3',
       up: Up,
       down: Down
@@ -108,7 +108,7 @@ export var themeOverride = {
       showIcon: true
     },
     excludeBtn: {
-      color: '#FC564F',
+      color: 'accent-5',
       primary: false,
       style: {
         background: 'white'
@@ -127,6 +127,15 @@ export var themeOverride = {
         check: 'subtract'
       },
       check: {
+        extend: function extend(props) {
+          return {
+            background: props.checked && normalizeColor('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        },
         justify: 'center',
         background: 'white'
       },
@@ -218,6 +227,12 @@ export var themeOverride = {
     },
     rightPanel: {
       border: 'light-3',
+      container: {
+        pad: {
+          vertical: 'medium',
+          horizontal: 'large'
+        }
+      },
       incExcHeader: {
         box: {
           align: 'center',
@@ -248,6 +263,9 @@ export var themeOverride = {
         round: 'small'
       },
       textAreaWrap: {
+        onKeyDown: function onKeyDown(e) {
+          e.stopPropagation();
+        },
         border: {
           color: 'transparent'
         },
@@ -255,8 +273,11 @@ export var themeOverride = {
         height: '100%',
         extend: {
           '*': {
-            border: 'none',
-            height: '100%'
+            height: 'auto',
+            border: 'none'
+          },
+          textarea: {
+            minHeight: '185px'
           }
         }
       },
@@ -279,18 +300,82 @@ export var themeOverride = {
     },
     icons: {
       include: {
-        icon: Success,
+        icon: TickCircle,
         extend: {
-          color: 'status-ok',
+          color: 'accent-1',
           size: 'large'
         }
       },
       exclude: {
-        icon: Block,
+        icon: TickCircle,
         extend: {
-          color: 'status-error',
+          color: 'error',
           size: 'large'
         }
+      }
+    }
+  },
+  pagination: {
+    border: {
+      color: 'none'
+    },
+    button: {
+      active: {
+        fontWeight: 'bold',
+        background: 'light-3',
+        border: {
+          color: 'light-3'
+        },
+        color: 'inherit'
+      }
+    }
+  },
+  radioButton: {
+    border: {
+      width: '5px'
+    },
+    extend: {
+      marginRight: '8px'
+    },
+    container: {
+      extend: function extend(_ref) {
+        var checked = _ref.checked,
+            theme = _ref.theme;
+        return {
+          fontWeight: checked && 600,
+          color: normalizeColor('dark-3', theme)
+        };
+      }
+    }
+  },
+  rangeInput: {
+    track: {
+      color: 'dark-3',
+      height: '4px',
+      extend: function extend() {
+        return 'border-radius: 10px';
+      }
+    },
+    extend: function extend(_ref2) {
+      var disabled = _ref2.disabled;
+      return disabled && 'opacity: .3; cursor: not-allowed !important;';
+    },
+    thumb: {
+      extend: function extend(_ref3) {
+        var disabled = _ref3.disabled;
+        return disabled && 'cursor: not-allowed !important;';
+      }
+    }
+  },
+  tabs: {
+    // background: undefined,
+    // extend: undefined,
+    gap: 'large',
+    header: {
+      // background: undefined,
+      extend: {
+        'padding-left': baseSpacing * 1.2 + "px",
+        'border-bottom': '1px solid #E8E7E7 '
       }
     }
   },
@@ -300,26 +385,28 @@ export var themeOverride = {
         return "\n          height: 100%;\n        ";
       }
     },
-    extend: function extend(_ref) {
-      var plain = _ref.plain,
-          focus = _ref.focus,
-          reverse = _ref.reverse,
-          icon = _ref.icon,
-          theme = _ref.theme,
-          readOnly = _ref.readOnly;
+    extend: function extend(_ref4) {
+      var plain = _ref4.plain,
+          focus = _ref4.focus,
+          reverse = _ref4.reverse,
+          icon = _ref4.icon,
+          theme = _ref4.theme,
+          readOnly = _ref4.readOnly,
+          error = _ref4.error;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",
         boxShadow: 'none',
         height: '100%',
-        borderBottomWidth: '2px',
+        fontSize: theme.global.font.size,
+        borderBottomWidth: theme.global.borderSize.small,
         fontWeight: 400,
         color: "" + normalizeColor('dark-3', theme),
         paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
-        borderColor: !plain && "" + normalizeColor('dark-6', theme)
+        borderColor: error ? 'transparent' : !plain && "" + normalizeColor('dark-6', theme)
       }, focus ? {
         borderColor: !readOnly && 'transparent',
-        borderBottom: "2px solid " + (!readOnly && normalizeColor('accent-3', theme)),
+        borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && normalizeColor('accent-3', theme)),
         background: "" + (!readOnly && normalizeColor('background-back', theme)),
         borderBottomRightRadius: '0px',
         borderBottomLeftRadius: '0px'

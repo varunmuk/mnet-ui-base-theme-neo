@@ -8,15 +8,15 @@ import { normalizeColor } from 'mnet-ui-base/utils/colors';
 import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
 
 const {
-  Up, Down, Close, LongArrowDown, TickCircle, Error,
+  Up, Down, Close, LongArrowDown, TickCircle, Error, Tick,
 } = NeoComponents;
-
+Tick.notSvg = true;
 addGoogleFont({
   'Open Sans': ['400', '600', '700'],
 });
 
 const brandColor = '#E15151';
-const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
+const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
 const neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 const statusColors = {
   critical: '#e35e59',
@@ -42,6 +42,7 @@ const lightColors = [
   '#dfdfdf',
   '#DADADA',
   '#F5F7FD',
+  '#F4F6F8',
 ];
 const focusColor = '#B1C2FE';
 
@@ -456,6 +457,21 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // },
         // extend: undefined,
       },
+      outline: {
+        background: 'white',
+        border: {
+          color: { dark: 'accent-1', light: 'accent-1' },
+          width: '1px',
+        },
+        color: 'accent-1',
+        // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        extend: {
+          fontWeight: 600,
+        },
+      },
       active: {
         background: undefined,
         border: {
@@ -539,11 +555,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: '2px',
       },
       check: {
-        // extend: undefined,
-        radius: '4px',
-        thickness: '4px',
+        extend: props => ({
+          background: props.checked && normalizeColor('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white',
+        }),
       },
-      // color: { dark: undefined, light: undefined },
+      color: { dark: undefined, light: 'white' },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -555,11 +575,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icon: {
-        // size: undefined,
+        size: 'large',
         // extend: undefined,
       },
       icons: {
-        // checked: undefined,
+        checked: Tick,
         // indeterminate: undefined,
       },
       size: `${baseSpacing}px`,
@@ -955,7 +975,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 case false:
                   return '#38C18B';
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
                 default:
                   return accentColors[2];
               }
@@ -1031,7 +1051,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 case false:
                   return '#38C18B';
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
                 default:
                   return darkColors[2];
               }
@@ -1366,17 +1386,23 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     table: {
       header: {
         align: 'start',
-        pad: { horizontal: 'small', vertical: 'xsmall' },
-        border: 'bottom',
+        pad: {
+          horizontal: `${baseSpacing * 1.25}px`,
+          vertical: `${baseSpacing / 2}px`,
+        },
+        border: 'all',
         // verticalAlign: undefined,
-        // background: undefined,
+        background: 'light-8',
         // extend: undefined,
       },
       body: {
         align: 'start',
-        pad: { horizontal: 'small', vertical: 'xsmall' },
+        pad: {
+          horizontal: `${baseSpacing * 1.25}px`,
+          vertical: `${baseSpacing / 2}px`,
+        },
         // background: undefined,
-        // border: undefined,
+        border: 'all',
         // extend: undefined,
       },
       // row: {
@@ -1392,6 +1418,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // verticalAlign: undefined,
         // background: undefined,
         // extend: undefined,
+      },
+      extend: {
+        borderRadius: `${baseSpacing / 3.2}px`,
+        overflow: 'hidden',
       },
     },
     text: {
@@ -1514,6 +1544,30 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         down: Down,
         changeArrow: LongArrowDown,
         close: Close,
+      },
+    },
+    upload: {
+      loader: {
+        props: { height: '15px', width: '15px', margin: 'none' },
+      },
+      form: {
+        container: {
+          border: {
+            color: '#E0E0E0',
+            size: 'small',
+          },
+          round: 'medium',
+          background: '#FCFDFF',
+        },
+        button: {
+          submit: {
+            kind: 'outline',
+            background: 'white',
+          },
+          cancel: {
+            plain: true,
+          },
+        },
       },
     },
   };

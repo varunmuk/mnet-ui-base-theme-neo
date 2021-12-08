@@ -2,7 +2,7 @@ import { NeoComponents } from 'mnet-icons';
 import { normalizeColor } from 'mnet-ui-base/utils';
 
 const {
-  Info, Success, Block, Tick, Up, Down,
+  Info, TickCircle, Tick, Up, Down,
 } = NeoComponents;
 Tick.notSvg = true;
 
@@ -17,8 +17,9 @@ export const themeOverride = {
     },
     colors: {
       brand: 'accent-3',
+      placeholder: 'dark-4',
+      'status-ok': 'accent-1',
       error: '#E15151',
-      placeholder: 'dark-2',
     },
   },
   button: {
@@ -69,7 +70,7 @@ export const themeOverride = {
         vertical: `${baseSpacing / 2.67}px`,
         right: 'large',
       },
-      size: 'large',
+      size: 'xlarge',
       color: 'dark-3',
       up: Up,
       down: Down,
@@ -104,7 +105,7 @@ export const themeOverride = {
       showIcon: true,
     },
     excludeBtn: {
-      color: '#FC564F',
+      color: 'accent-5',
       primary: false,
       style: {
         background: 'white',
@@ -123,6 +124,13 @@ export const themeOverride = {
         check: 'subtract',
       },
       check: {
+        extend: props => ({
+          background: props.checked && normalizeColor('accent-3', props.theme),
+          border: props.checked && 'unset',
+          boxShadow: 'unset',
+          borderRadius: '2px',
+          color: 'white',
+        }),
         justify: 'center',
         background: 'white',
       },
@@ -205,6 +213,9 @@ export const themeOverride = {
     },
     rightPanel: {
       border: 'light-3',
+      container: {
+        pad: { vertical: 'medium', horizontal: 'large' },
+      },
       incExcHeader: {
         box: {
           align: 'center',
@@ -235,6 +246,9 @@ export const themeOverride = {
         round: 'small',
       },
       textAreaWrap: {
+        onKeyDown: e => {
+          e.stopPropagation();
+        },
         border: {
           color: 'transparent',
         },
@@ -242,8 +256,11 @@ export const themeOverride = {
         height: '100%',
         extend: {
           '*': {
+            height: 'auto',
             border: 'none',
-            height: '100%',
+          },
+          textarea: {
+            minHeight: '185px',
           },
         },
       },
@@ -266,18 +283,66 @@ export const themeOverride = {
     },
     icons: {
       include: {
-        icon: Success,
+        icon: TickCircle,
         extend: {
-          color: 'status-ok',
+          color: 'accent-1',
           size: 'large',
         },
       },
       exclude: {
-        icon: Block,
+        icon: TickCircle,
         extend: {
-          color: 'status-error',
+          color: 'error',
           size: 'large',
         },
+      },
+    },
+  },
+  pagination: {
+    border: {
+      color: 'none',
+    },
+    button: {
+      active: {
+        fontWeight: 'bold',
+        background: 'light-3',
+        border: {
+          color: 'light-3',
+        },
+        color: 'inherit',
+      },
+    },
+  },
+  radioButton: {
+    border: {
+      width: '5px',
+    },
+    extend: {
+      marginRight: '8px',
+    },
+    container: {
+      extend: ({ checked, theme }) => ({
+        fontWeight: checked && 600,
+        color: normalizeColor('dark-3', theme),
+      }),
+    },
+  },
+  rangeInput: {
+    track: { color: 'dark-3', height: '4px', extend: () => 'border-radius: 10px' },
+    extend: ({ disabled }) => disabled && 'opacity: .3; cursor: not-allowed !important;',
+    thumb: {
+      extend: ({ disabled }) => disabled && 'cursor: not-allowed !important;',
+    },
+  },
+  tabs: {
+    // background: undefined,
+    // extend: undefined,
+    gap: 'large',
+    header: {
+      // background: undefined,
+      extend: {
+        'padding-left': `${baseSpacing * 1.2}px`,
+        'border-bottom': '1px solid #E8E7E7 ',
       },
     },
   },
@@ -288,21 +353,22 @@ export const themeOverride = {
         `,
     },
     extend: ({
-      plain, focus, reverse, icon, theme, readOnly,
+      plain, focus, reverse, icon, theme, readOnly, error,
     }) => ({
       paddingTop: `${baseSpacing / 1.78}px`,
       paddingBottom: `${baseSpacing / 1.78}px`,
       boxShadow: 'none',
       height: '100%',
-      borderBottomWidth: '2px',
+      fontSize: theme.global.font.size,
+      borderBottomWidth: theme.global.borderSize.small,
       fontWeight: 400,
       color: `${normalizeColor('dark-3', theme)}`,
       paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
-      borderColor: !plain && `${normalizeColor('dark-6', theme)}`,
+      borderColor: error ? 'transparent' : !plain && `${normalizeColor('dark-6', theme)}`,
       ...(focus
         ? {
           borderColor: !readOnly && 'transparent',
-          borderBottom: `2px solid ${
+          borderBottom: `${theme.global.borderSize.small} solid ${
             !readOnly && normalizeColor('accent-3', theme)
           }`,
           background: `${

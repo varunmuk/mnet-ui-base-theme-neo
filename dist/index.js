@@ -41,12 +41,14 @@ var Up = _mnetIcons.NeoComponents.Up,
     Close = _mnetIcons.NeoComponents.Close,
     LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Error = _mnetIcons.NeoComponents.Error;
+    Error = _mnetIcons.NeoComponents.Error,
+    Tick = _mnetIcons.NeoComponents.Tick;
+Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
 var brandColor = '#E15151';
-var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC'];
+var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
   critical: '#e35e59',
@@ -57,7 +59,7 @@ var statusColors = {
   disabled: '#CCCCCC'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8'];
 var focusColor = '#B1C2FE';
 var colors = {
   active: '#FFFDE3',
@@ -533,6 +535,24 @@ var generate = function generate(baseSpacing, scale) {
         // extend: undefined,
 
       },
+      outline: {
+        background: 'white',
+        border: {
+          color: {
+            dark: 'accent-1',
+            light: 'accent-1'
+          },
+          width: '1px'
+        },
+        color: 'accent-1',
+        // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        extend: {
+          fontWeight: 600
+        }
+      },
       active: {
         background: undefined,
         border: {
@@ -621,11 +641,20 @@ var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        // extend: undefined,
-        radius: '4px',
-        thickness: '4px'
+        extend: function extend(props) {
+          return {
+            background: props.checked && (0, _colors.normalizeColor)('accent-3', props.theme),
+            border: props.checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white'
+          };
+        }
       },
-      // color: { dark: undefined, light: undefined },
+      color: {
+        dark: undefined,
+        light: 'white'
+      },
       // extend: undefined,
       // gap: undefined
       hover: {
@@ -636,11 +665,13 @@ var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      icon: {// size: undefined,
-        // extend: undefined,
+      icon: {
+        size: 'large' // extend: undefined,
+
       },
-      icons: {// checked: undefined,
-        // indeterminate: undefined,
+      icons: {
+        checked: Tick // indeterminate: undefined,
+
       },
       size: baseSpacing + "px",
       toggle: {
@@ -1083,7 +1114,7 @@ var generate = function generate(baseSpacing, scale) {
                   return '#38C18B';
 
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
 
                 default:
                   return accentColors[2];
@@ -1154,7 +1185,7 @@ var generate = function generate(baseSpacing, scale) {
                   return '#38C18B';
 
                 case true:
-                  return '#FC564F';
+                  return accentColors[4];
 
                 default:
                   return darkColors[2];
@@ -1505,22 +1536,22 @@ var generate = function generate(baseSpacing, scale) {
       header: {
         align: 'start',
         pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
+          horizontal: baseSpacing * 1.25 + "px",
+          vertical: baseSpacing / 2 + "px"
         },
-        border: 'bottom' // verticalAlign: undefined,
-        // background: undefined,
-        // extend: undefined,
+        border: 'all',
+        // verticalAlign: undefined,
+        background: 'light-8' // extend: undefined,
 
       },
       body: {
         align: 'start',
         pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
-        } // background: undefined,
-        // border: undefined,
-        // extend: undefined,
+          horizontal: baseSpacing * 1.25 + "px",
+          vertical: baseSpacing / 2 + "px"
+        },
+        // background: undefined,
+        border: 'all' // extend: undefined,
 
       },
       // row: {
@@ -1539,6 +1570,10 @@ var generate = function generate(baseSpacing, scale) {
         // background: undefined,
         // extend: undefined,
 
+      },
+      extend: {
+        borderRadius: baseSpacing / 3.2 + "px",
+        overflow: 'hidden'
       }
     },
     text: {
@@ -1673,6 +1708,34 @@ var generate = function generate(baseSpacing, scale) {
         down: Down,
         changeArrow: LongArrowDown,
         close: Close
+      }
+    },
+    upload: {
+      loader: {
+        props: {
+          height: '15px',
+          width: '15px',
+          margin: 'none'
+        }
+      },
+      form: {
+        container: {
+          border: {
+            color: '#E0E0E0',
+            size: 'small'
+          },
+          round: 'medium',
+          background: '#FCFDFF'
+        },
+        button: {
+          submit: {
+            kind: 'outline',
+            background: 'white'
+          },
+          cancel: {
+            plain: true
+          }
+        }
       }
     }
   };
