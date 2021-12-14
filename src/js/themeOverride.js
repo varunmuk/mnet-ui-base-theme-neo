@@ -214,7 +214,9 @@ export const themeOverride = {
     rightPanel: {
       border: 'light-3',
       container: {
-        pad: { vertical: 'medium', horizontal: 'large' },
+        extend: ({ isEmpty }) => `
+          padding: ${isEmpty ? '10' : '0'}px ${isEmpty ? '16' : '0'}px;
+        `,
       },
       incExcHeader: {
         box: {
