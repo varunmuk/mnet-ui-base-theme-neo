@@ -235,9 +235,9 @@ var themeOverride = {
     rightPanel: {
       border: 'light-3',
       container: {
-        pad: {
-          vertical: 'medium',
-          horizontal: 'large'
+        extend: function extend(_ref) {
+          var isEmpty = _ref.isEmpty;
+          return "\n          padding: " + (isEmpty ? '10' : '0') + "px " + (isEmpty ? '16' : '0') + "px;\n        ";
         }
       },
       incExcHeader: {
@@ -345,9 +345,9 @@ var themeOverride = {
       marginRight: '8px'
     },
     container: {
-      extend: function extend(_ref) {
-        var checked = _ref.checked,
-            theme = _ref.theme;
+      extend: function extend(_ref2) {
+        var checked = _ref2.checked,
+            theme = _ref2.theme;
         return {
           fontWeight: checked && 600,
           color: (0, _utils.normalizeColor)('dark-3', theme)
@@ -363,13 +363,13 @@ var themeOverride = {
         return 'border-radius: 10px';
       }
     },
-    extend: function extend(_ref2) {
-      var disabled = _ref2.disabled;
+    extend: function extend(_ref3) {
+      var disabled = _ref3.disabled;
       return disabled && 'opacity: .3; cursor: not-allowed !important;';
     },
     thumb: {
-      extend: function extend(_ref3) {
-        var disabled = _ref3.disabled;
+      extend: function extend(_ref4) {
+        var disabled = _ref4.disabled;
         return disabled && 'cursor: not-allowed !important;';
       }
     }
@@ -392,14 +392,14 @@ var themeOverride = {
         return "\n          height: 100%;\n        ";
       }
     },
-    extend: function extend(_ref4) {
-      var plain = _ref4.plain,
-          focus = _ref4.focus,
-          reverse = _ref4.reverse,
-          icon = _ref4.icon,
-          theme = _ref4.theme,
-          readOnly = _ref4.readOnly,
-          error = _ref4.error;
+    extend: function extend(_ref5) {
+      var plain = _ref5.plain,
+          focus = _ref5.focus,
+          reverse = _ref5.reverse,
+          icon = _ref5.icon,
+          theme = _ref5.theme,
+          readOnly = _ref5.readOnly,
+          error = _ref5.error;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",
