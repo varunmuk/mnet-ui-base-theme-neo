@@ -397,6 +397,10 @@ export const themeOverride = {
     },
     error: {
       margin: { top: 'xsmall', bottom: 'small', horizontal: 'none' },
+      style: {
+        position: 'inherit',
+        marginTop: '0px',
+      },
     },
     info: {
       margin: { vertical: 'xsmall', left: 'medium' },

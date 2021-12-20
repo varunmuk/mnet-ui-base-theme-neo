@@ -436,6 +436,10 @@ export var themeOverride = {
         top: 'xsmall',
         bottom: 'small',
         horizontal: 'none'
+      },
+      style: {
+        position: 'inherit',
+        marginTop: '0px'
       }
     },
     info: {
