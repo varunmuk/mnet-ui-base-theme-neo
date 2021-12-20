@@ -1,10 +1,6 @@
 "use strict";
 
 exports.__esModule = true;
-var _exportNames = {
-  generate: true,
-  neo: true
-};
 exports.neo = exports.generate = void 0;
 
 var _polished = require("polished");
@@ -21,40 +17,40 @@ var _colors = require("mnet-ui-base/utils/colors");
 
 var _mixins = require("mnet-ui-base/utils/mixins");
 
-var _themeOverride = require("./themeOverride");
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
 
-Object.keys(_themeOverride).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _themeOverride[key]) return;
-  exports[key] = _themeOverride[key];
-});
+  _templateObject = function _templateObject() {
+    return data;
+  };
 
-var _templateObject, _templateObject2;
+  return data;
+}
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-var Up = _mnetIcons.NeoComponents.Up,
+var Close = _mnetIcons.NeoComponents.Close,
     Down = _mnetIcons.NeoComponents.Down,
-    Close = _mnetIcons.NeoComponents.Close,
+    Error = _mnetIcons.NeoComponents.Error,
+    Info = _mnetIcons.NeoComponents.Info,
     LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
     TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Error = _mnetIcons.NeoComponents.Error,
-    Tick = _mnetIcons.NeoComponents.Tick;
+    Tick = _mnetIcons.NeoComponents.Tick,
+    Up = _mnetIcons.NeoComponents.Up;
 Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
-var brandColor = '#E15151';
+var brandColor = 'accent-3';
 var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
   critical: '#e35e59',
   error: '#FFECEC',
   warning: '#AB7113',
-  ok: '#DFFFF2',
+  ok: 'accent-1',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC'
 };
@@ -93,7 +89,7 @@ var colors = {
   'graph-2': 'neutral-2',
   'graph-3': 'neutral-3',
   'graph-4': 'neutral-4',
-  placeholder: 'dark-5',
+  placeholder: 'dark-4',
   selected: 'light-7',
   text: {
     dark: '#f8f8f8',
@@ -117,7 +113,8 @@ var colors = {
   },
   'selected-background': 'brand',
   'selected-text': 'text-strong',
-  white: '#FFFFFF'
+  white: '#FFFFFF',
+  error: '#E15151'
 };
 
 var colorArray = function colorArray(array, prefix) {
@@ -316,10 +313,7 @@ var generate = function generate(baseSpacing, scale) {
           color: 'focus'
         },
         // outline: { color: undefined, size: undefined },
-        shadow: {
-          color: 'focus',
-          size: '1px'
-        }
+        shadow: 'none'
       },
       font: _extends({}, fontSizing(0), {
         // face: undefined,
@@ -444,11 +438,11 @@ var generate = function generate(baseSpacing, scale) {
           border: {
             radius: baseSpacing * 0.25 + "px" // 4px
 
-          } // pad: {
-          //   vertical: `${baseSpacing / (1.618 * 2) - borderWidth}px`, // 4px
-          //   horizontal: `${baseSpacing - borderWidth * 2}px`, // 20px,
-          // },
-
+          },
+          pad: {
+            vertical: baseSpacing / 2.285 + "px",
+            horizontal: baseSpacing / 1.6 + "px"
+          }
         },
         medium: {
           border: {
@@ -464,11 +458,7 @@ var generate = function generate(baseSpacing, scale) {
           border: {
             radius: baseSpacing * 0.4 + "px" // 24px
 
-          } // pad: {
-          //   vertical: `${baseSpacing / (1.618 / 2) + borderWidth}px`, // 8px
-          //   horizontal: `${baseSpacing * 2.8 - borderWidth}px`, // 32px,
-          // },
-
+          }
         }
       },
       border: {
@@ -641,13 +631,16 @@ var generate = function generate(baseSpacing, scale) {
         width: '2px'
       },
       check: {
-        extend: function extend(props) {
+        extend: function extend(_ref) {
+          var checked = _ref.checked,
+              theme = _ref.theme;
           return {
-            background: props.checked && (0, _colors.normalizeColor)('accent-3', props.theme),
-            border: props.checked && 'unset',
+            background: checked && (0, _colors.normalizeColor)('accent-3', theme),
+            border: checked && 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
-            color: 'white'
+            color: (0, _colors.normalizeColor)('white', theme),
+            backgroundColor: (0, _colors.normalizeColor)('white', theme)
           };
         }
       },
@@ -699,8 +692,8 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         radius: baseSpacing + "px",
-        extend: function extend(_ref) {
-          var checked = _ref.checked;
+        extend: function extend(_ref2) {
+          var checked = _ref2.checked;
           return {
             height: baseSpacing * 1.187 + "px",
             border: 'none',
@@ -823,6 +816,12 @@ var generate = function generate(baseSpacing, scale) {
     //   maxHeight: undefined,
     // },
     formField: {
+      field: {
+        focus: 'border-color: white;',
+        "default": {
+          border: '1px solid transparent'
+        }
+      },
       border: {
         color: 'border',
         error: {
@@ -833,7 +832,16 @@ var generate = function generate(baseSpacing, scale) {
         size: 'xsmall'
       },
       content: {
-        pad: 'small'
+        pad: 'none',
+        plainOnFocus: true,
+        style: {
+          width: 'fit-content'
+        }
+      },
+      labelWrap: {
+        margin: 'none',
+        width: 'xxsmall',
+        direction: 'row'
       },
       disabled: {
         background: {
@@ -858,7 +866,8 @@ var generate = function generate(baseSpacing, scale) {
       error: {
         color: 'status-critical',
         margin: {
-          vertical: 'xsmall',
+          top: 'xsmall',
+          bottom: 'small',
           horizontal: 'none'
         },
         style: {
@@ -876,7 +885,7 @@ var generate = function generate(baseSpacing, scale) {
       info: {
         color: 'text-xweak',
         margin: {
-          vertical: '0',
+          vertical: 'xsmall',
           left: 'medium'
         },
         extend: {
@@ -885,14 +894,19 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       label: {
-        margin: 'none'
+        weight: 400,
+        margin: {
+          bottom: 'small',
+          top: 'small',
+          left: 'xxsmall'
+        }
       },
       margin: {
         bottom: 'small'
       },
       postfix: {
         color: 'white',
-        background: 'background-contrast',
+        background: 'dark-3',
         justify: 'center',
         pad: {
           horizontal: 'medium',
@@ -901,27 +915,36 @@ var generate = function generate(baseSpacing, scale) {
       },
       prefix: {
         color: 'white',
-        background: 'background-contrast',
+        background: 'dark-3',
         justify: 'center',
         pad: {
           horizontal: 'medium',
           vertical: 'medium'
         }
       },
+      tooltip: {
+        extend: {
+          position: 'right-end',
+          background: 'white'
+        },
+        icon: Info,
+        iconProps: {
+          margin: {
+            horizontal: 'small'
+          },
+          size: 'large'
+        }
+      },
       // round: undefined,
       extend: {
         button: {
-          flex: 1,
-          border: 'none'
-        },
-        input: {
-          border: 'none'
+          flex: 1
         }
       },
       round: 'small'
     },
     mnet: {
-      global: (0, _styledComponents.css)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
+      global: (0, _styledComponents.css)(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -1079,11 +1102,12 @@ var generate = function generate(baseSpacing, scale) {
         justify: 'between',
         pad: {
           horizontal: 'medium'
-        }
+        },
+        align: 'center'
       },
       checkbox: {
         type: 'check',
-        showUnSelected: false,
+        showUnSelected: undefined,
         box: {
           margin: {
             right: 'medium' // extend: undefined,
@@ -1100,52 +1124,58 @@ var generate = function generate(baseSpacing, scale) {
           margin: 'auto',
           round: 'small',
           align: 'center',
-          // background: 'white',
           border: {
             color: 'light-6'
           },
-          extend: function extend(props) {
-            var getBackground = function getBackground() {
-              switch (props.isExcluded) {
-                case null:
-                  return accentColors[2];
-
-                case false:
-                  return '#38C18B';
-
-                case true:
-                  return accentColors[4];
-
-                default:
-                  return accentColors[2];
-              }
-            };
-
+          justify: 'center',
+          background: 'white',
+          extend: function extend(_ref3) {
+            var checked = _ref3.checked,
+                active = _ref3.active,
+                theme = _ref3.theme;
             return {
-              background: props.active ? getBackground() : 'white',
-              'border-color': props.active ? 'transparent' : lightColors[5]
+              background: checked && (0, _colors.normalizeColor)('accent-3', theme),
+              borderColor: active ? 'transparent' : lightColors[5],
+              border: checked && 'unset',
+              boxShadow: 'unset',
+              borderRadius: '2px',
+              color: 'white'
             };
           }
         },
         include: {
           background: 'accent-1',
           color: 'white',
-          check: 'check'
+          check: 'add'
         },
         exclude: {
           background: 'red',
           color: 'white',
-          check: 'close'
+          check: 'subtract'
+        },
+        color: {
+          dark: undefined,
+          light: 'white'
+        },
+        label: {
+          margin: {
+            bottom: 'none'
+          }
         }
       },
       chips: {
         wrapper: {
-          pad: 'medium',
+          pad: {
+            vertical: 'medium',
+            left: 'medium',
+            right: 'small'
+          },
           direction: 'row',
-          extend: function extend(props) {
+          extend: function extend(_ref4) {
+            var twoColumnLayout = _ref4.twoColumnLayout;
             return {
-              padding: props.twoColumnLayout ? 0 : baseSpacing / 1.618 + "px",
-              'border-bottom': props.twoColumnLayout ? 'none' : '1px solid #D9DBE5'
+              padding: twoColumnLayout ? 0 : baseSpacing / 1.618 + "px",
+              borderBottom: 'none'
             };
           }
         },
@@ -1153,7 +1183,7 @@ var generate = function generate(baseSpacing, scale) {
           background: 'light-3',
           round: 'small',
           pad: {
-            vertical: 'small',
+            vertical: 'medium',
             horizontal: 'medium'
           },
           margin: 'small',
@@ -1163,47 +1193,38 @@ var generate = function generate(baseSpacing, scale) {
             return {
               width: props.twoColumnLayout ? '100%' : 'auto',
               margin: props.twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              background: props.twoColumnLayout ? 'white' : lightColors[2],
+              background: props.twoColumnLayout ? 'white' : '#E0E0E0',
               padding: props.twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
-              'border-radius': props.twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              'border-bottom': props.twoColumnLayout ? '1px solid #D9DBE5' : 'none',
-              'justify-content': props.twoColumnLayout ? 'space-between' : 'flex-start'
+              borderRadius: props.twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
+              borderBottom: props.twoColumnLayout ? '1px solid #D9DBE5' : 'none',
+              justifyContent: props.twoColumnLayout ? 'space-between' : 'flex-start'
             };
           }
         },
         label: {
           color: 'dark-3',
           size: 'medium',
-          weight: 600,
+          weight: 400,
           margin: {
             right: 'small'
-          },
-          extend: function extend(props) {
-            var getTextColor = function getTextColor() {
-              switch (props.isExcluded) {
-                case false:
-                  return '#38C18B';
+          } // extend: undefined,
 
-                case true:
-                  return accentColors[4];
-
-                default:
-                  return darkColors[2];
-              }
-            };
-
-            return {
-              color: getTextColor()
-            };
-          }
         },
         icon: {
-          size: 'small',
+          size: baseSpacing / 1.78 + "px",
           color: 'dark-3'
         },
         clear: {
-          color: 'accent-2',
-          size: 'small'
+          margin: 'medium',
+          border: {
+            side: 'top',
+            color: 'light-3'
+          },
+          color: 'dark-3',
+          size: 'medium',
+          alignSelf: 'end',
+          weight: '600',
+          height: "" + baseSpacing * 1.875
         }
       },
       labelWrap: {
@@ -1218,7 +1239,7 @@ var generate = function generate(baseSpacing, scale) {
             color: 'accent-1'
           },
           exclude: {
-            color: 'brand'
+            color: 'error'
           }
         },
         wrapper: {
@@ -1235,83 +1256,117 @@ var generate = function generate(baseSpacing, scale) {
       },
       searchbox: {
         container: {
-          height: {
-            min: 'xxsmall',
-            max: 'xxsmall'
-          },
+          height: baseSpacing * 2.5 + "px",
           direction: 'row',
           align: 'center',
-          background: 'light-2',
-          pad: {
-            right: 'medium',
-            vertical: 'small'
+          background: 'transparent',
+          pad: 'none',
+          border: {
+            side: 'bottom',
+            color: 'light-3'
           },
-          extend: function extend(props) {
+          style: {
+            minHeight: baseSpacing * 2.5 + "px",
+            position: 'relative'
+          },
+          extend: function extend(_ref5) {
+            var layout = _ref5.layout;
             return {
-              background: props.layout === 'double-column' ? 'white' : lightColors[1],
-              'flex-direction': props.layout === 'double-column' ? 'row-reverse' : 'row',
-              'padding-left': props.layout === 'double-column' ? baseSpacing / 1.618 + "px" : 0,
-              'border-bottom': props.layout === 'double-column' ? '1px solid #D9DBE5' : 'none'
+              background: layout === 'double-column' ? 'white' : lightColors[1],
+              flexDirection: layout === 'double-column' ? 'row-reverse' : 'row',
+              paddingLeft: layout === 'double-column' ? baseSpacing / 1.618 + "px" : 0,
+              borderBottom: layout === 'double-column' ? '1px solid #D9DBE5' : 'none'
             };
           }
         },
         placeholder: {
           color: 'dark-4',
-          weight: 600,
+          weight: 400,
           size: 'medium'
         },
         icon: {
           size: 'small',
           color: 'dark-3'
+        },
+        textWrapper: {
+          flex: 'grow'
+        },
+        iconWrapper: {
+          gap: 'medium',
+          width: 'xxsmall',
+          direction: 'row',
+          justify: 'center'
         }
       },
       rightPanel: {
-        border: '#D9DBE5',
+        border: 'light-3',
         incExcHeader: {
           box: {
             direction: 'row',
             justify: 'between',
             pad: 'large',
-            background: 'background-back',
+            background: 'white',
             border: {
               side: 'bottom',
-              color: '#D9DBE5'
-            }
+              color: 'light-3'
+            },
+            align: 'center'
           },
           count: {
             margin: {
               left: 'small'
             },
-            background: 'brand',
-            round: 'medium',
+            background: 'light-4',
+            round: 'small',
             pad: {
-              horizontal: 'medium'
+              horizontal: 'small'
             },
             justify: 'center'
           },
           text: {
-            color: 'accent-2',
+            color: 'dark-3',
             size: 'medium',
-            weight: 600
+            weight: 400
+          }
+        },
+        container: {
+          extend: function extend(_ref6) {
+            var isEmpty = _ref6.isEmpty;
+            return {
+              padding: (isEmpty ? "" + baseSpacing / 1.6 : '0') + "px " + (isEmpty ? "" + baseSpacing : '0') + "px"
+            };
           }
         }
       },
       custom: {
         wrapper: {
           direction: 'row',
-          width: 'large'
+          width: 'large',
+          border: {
+            color: 'light-3'
+          },
+          round: 'small'
         },
         textAreaWrap: {
           border: {
+            color: 'transparent',
             side: 'right'
           },
-          pad: 'large',
+          pad: 'medium',
           fill: true,
           extend: {
+            '*': {
+              height: 'auto',
+              border: 'none'
+            },
             textarea: {
-              minHeight: '140px'
+              minHeight: '185px'
             }
-          }
+          },
+          onKeyDown: function onKeyDown(e) {
+            e.stopPropagation();
+          },
+          height: '100%'
         },
         label: {
           weight: 600
@@ -1327,39 +1382,59 @@ var generate = function generate(baseSpacing, scale) {
         actions: {
           wrapper: {
             direction: 'row',
-            height: {
-              min: 'auto'
+            gap: '0',
+            margin: '0',
+            justify: 'evenly',
+            align: 'center',
+            border: {
+              side: 'top',
+              color: 'light-3'
             },
-            pad: 'small',
-            margin: 'xsmall',
-            gap: 'xxsmall'
+            pad: 'none',
+            height: {
+              min: baseSpacing * 1.875 + "px"
+            }
           }
         }
       },
       icons: {
         include: {
-          icon: false
+          icon: TickCircle,
+          extend: {
+            color: 'accent-1',
+            size: 'large'
+          }
         },
         exclude: {
-          icon: false
+          icon: TickCircle,
+          extend: {
+            color: 'error',
+            size: 'large'
+          }
         }
       },
       includeBtn: {
-        primary: true,
+        primary: false,
         style: {
-          background: accentColors[0]
+          background: 'white'
         },
-        showIcon: false
+        showIcon: true,
+        color: 'accent-1'
       },
       excludeBtn: {
-        primary: true,
+        primary: false,
         style: {
-          background: brandColor
+          background: 'white'
         },
-        showIcon: false
+        showIcon: true,
+        color: 'accent-5'
       },
       container: {
-        width: 'large'
+        width: 'large',
+        border: {
+          color: 'light-3'
+        },
+        round: 'small'
       }
     },
     paragraph: {
@@ -1370,23 +1445,33 @@ var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     radioButton: {
+      container: {
+        extend: function extend(_ref7) {
+          var checked = _ref7.checked,
+              theme = _ref7.theme;
+          return {
+            fontWeight: checked && 600,
+            color: (0, _colors.normalizeColor)('dark-3', theme)
+          };
+        }
+      },
       border: {
         color: {
           dark: 'dark-6',
           light: 'dark-6'
         },
-        width: '3px'
+        width: '5px'
       },
       check: {
         radius: '100%',
         color: {
           dark: 'accent-3',
           light: 'accent-3'
-        } // extend: undefined,
-
+        }
       },
       hover: {
         border: {
+          width: '5px',
           color: {
             dark: 'accent-3',
             light: 'accent-3'
@@ -1404,17 +1489,31 @@ var generate = function generate(baseSpacing, scale) {
       gap: 'small',
       size: baseSpacing + "px",
       extend: {
-        'margin-right': baseSpacing + "px"
+        marginRight: baseSpacing / 2 + "px",
+        borderWidth: baseSpacing / 3.2 + "px"
       }
     },
     rangeInput: {
       track: {
-        height: '4px',
-        color: (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n          ", ";\n        "])), function (props) {
-          return (0, _polished.rgba)((0, _colors.normalizeColor)('border', props.theme), 0.2);
-        })
+        color: 'dark-3',
+        height: baseSpacing * 0.25 + "px",
+        extend: {
+          borderRadius: baseSpacing * 0.625 + "px"
+        }
       },
-      thumb: {// color: { dark: undefined, light: undefined },
+      thumb: {
+        extend: function extend(_ref8) {
+          var disabled = _ref8.disabled;
+          return {
+            cursor: !disabled ? 'pointer' : 'not-allowed !important'
+          };
+        }
+      },
+      extend: function extend(_ref9) {
+        var disabled = _ref9.disabled;
+        return {
+          cursor: !disabled ? 'pointer' : 'not-allowed !important'
+        };
       }
     },
     rangeSelector: {
@@ -1439,11 +1538,16 @@ var generate = function generate(baseSpacing, scale) {
       },
       control: {
         // open: undefined,
-        extend: {
-          border: '1px solid #DEDEDE',
-          input: {
-            color: darkColors[3]
-          }
+        extend: function extend(_ref10) {
+          var theme = _ref10.theme;
+          return {
+            borderBottomWidth: '2px',
+            input: {
+              color: (0, _colors.normalizeColor)('dark-3', theme),
+              fontWeight: 400,
+              padding: baseSpacing / 1.68 + "px"
+            }
+          };
         }
       },
       options: {
@@ -1461,11 +1565,17 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'icon',
+        color: 'dark-3',
         margin: 'none',
-        pad: baseSpacing / 1.6 + "px",
-        background: 'background-contrast',
-        size: baseSpacing / 0.94 + "px"
+        pad: {
+          vertical: baseSpacing / 2.67 + "px",
+          right: 'large'
+        },
+        background: 'transparent',
+        size: 'xlarge',
+        up: Up,
+        down: Down // extend: undefined,
+
       },
       // searchInput: undefined,
       step: 20
@@ -1518,11 +1628,8 @@ var generate = function generate(baseSpacing, scale) {
       }
     },
     tabs: {
-      // background: undefined,
-      // extend: undefined,
       gap: 'large',
       header: {
-        // background: undefined,
         extend: {
           'padding-left': baseSpacing * 1.2 + "px",
           'border-bottom': '1px solid #E8E7E7 '
@@ -1540,7 +1647,6 @@ var generate = function generate(baseSpacing, scale) {
           vertical: baseSpacing / 2 + "px"
         },
         border: 'all',
-        // verticalAlign: undefined,
         background: 'light-8' // extend: undefined,
 
       },
@@ -1587,24 +1693,72 @@ var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: {
-        border: 'none',
-        'box-shadow': 'none'
-      } // disabled: { opacity: undefined },
-
+      extend: function extend(_ref11) {
+        var theme = _ref11.theme;
+        return {
+          color: (0, _colors.normalizeColor)('dark-3', theme),
+          fontWeight: 400
+        };
+      }
     },
     textInput: {
-      // disabled: { opacity: undefined },
-      extend: {
-        // 'padding-left': `${baseSpacing}px`,
-        'box-shadow': 'none'
+      container: {
+        extend: {
+          height: '100%'
+        }
+      },
+      border: {
+        color: 'dark-6',
+        side: 'all'
+      },
+      placeholder: {
+        extend: {
+          paddingLeft: baseSpacing * 1.125 + "px"
+        }
+      },
+      extend: function extend(_ref12) {
+        var plain = _ref12.plain,
+            focus = _ref12.focus,
+            reverse = _ref12.reverse,
+            icon = _ref12.icon,
+            theme = _ref12.theme,
+            readOnly = _ref12.readOnly,
+            error = _ref12.error;
+        return _extends({
+          paddingTop: baseSpacing / 1.78 + "px",
+          paddingBottom: baseSpacing / 1.78 + "px",
+          boxShadow: 'none',
+          height: '100%',
+          fontSize: theme.global.font.size,
+          borderBottomWidth: theme.global.borderSize.small,
+          fontWeight: 400,
+          color: (0, _colors.normalizeColor)('dark-3', theme),
+          paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
+          borderColor: error ? 'transparent' : !plain && (0, _colors.normalizeColor)('dark-6', theme)
+        }, focus ? {
+          borderColor: !readOnly && 'transparent',
+          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && (0, _colors.normalizeColor)('accent-3', theme)),
+          background: "" + (!readOnly && (0, _colors.normalizeColor)('background-back', theme)),
+          borderBottomRightRadius: '0px',
+          borderBottomLeftRadius: '0px'
+        } : {});
       }
     },
     pagination: {
       background: 'white',
       round: 'small',
       border: {
-        color: 'dark-6'
+        color: 'none'
+      },
+      button: {
+        active: {
+          fontWeight: 'bold',
+          background: 'light-3',
+          border: {
+            color: 'light-3'
+          },
+          color: 'inherit'
+        }
       },
       pad: 'xlarge',
       active: {
