@@ -733,6 +733,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         margin: { vertical: 'xsmall', horizontal: 'none' },
         style: {
           position: 'absolute',
+          marginTop: '42px',
         },
       },
       // extend: undefined,

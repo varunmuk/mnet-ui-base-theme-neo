@@ -839,7 +839,8 @@ export var generate = function generate(baseSpacing, scale) {
           horizontal: 'none'
         },
         style: {
-          position: 'absolute'
+          position: 'absolute',
+          marginTop: '42px'
         }
       },
       // extend: undefined,
