@@ -731,6 +731,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       error: {
         color: 'status-critical',
         margin: { vertical: 'xsmall', horizontal: 'none' },
+        style: {
+          position: 'absolute',
+        },
       },
       // extend: undefined,
       help: {
