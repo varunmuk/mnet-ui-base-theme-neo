@@ -268,9 +268,12 @@ var generate = function generate(baseSpacing, scale) {
         },
         zIndex: '20',
         marginTop: '4px',
-        extend: {
-          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)' // bottom: `${1.5 * baseSpacing}px`,
-
+        extend: function extend(_ref) {
+          var _ref$isTooltip = _ref.isTooltip,
+              isTooltip = _ref$isTooltip === void 0 ? false : _ref$isTooltip;
+          return {
+            'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)'
+          };
         }
       },
       edgeSize: {
@@ -649,7 +652,8 @@ var generate = function generate(baseSpacing, scale) {
             borderRadius: '2px',
             color: 'white'
           };
-        }
+        },
+        thickness: '2px'
       },
       color: {
         dark: undefined,
@@ -666,12 +670,11 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       icon: {
-        size: 'large' // extend: undefined,
+        size: '16px' // extend: undefined,
 
       },
-      icons: {
-        checked: Tick // indeterminate: undefined,
-
+      icons: {// checked: Tick,
+        // indeterminate: undefined,
       },
       size: baseSpacing + "px",
       toggle: {
@@ -699,8 +702,8 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         radius: baseSpacing + "px",
-        extend: function extend(_ref) {
-          var checked = _ref.checked;
+        extend: function extend(_ref2) {
+          var checked = _ref2.checked;
           return {
             height: baseSpacing * 1.187 + "px",
             border: 'none',
@@ -860,11 +863,7 @@ var generate = function generate(baseSpacing, scale) {
         margin: {
           vertical: 'xsmall',
           horizontal: 'none'
-        },
-        style: {
-          position: 'absolute'
-        } // background: undefined,
-
+        }
       },
       // extend: undefined,
       help: {
@@ -1428,7 +1427,7 @@ var generate = function generate(baseSpacing, scale) {
 
     },
     select: {
-      background: 'white',
+      background: 'transparent',
       activeColor: lightColors[4],
       container: {
         extend: function extend(props) {
@@ -1439,11 +1438,18 @@ var generate = function generate(baseSpacing, scale) {
       },
       control: {
         // open: undefined,
-        extend: {
-          border: '1px solid #DEDEDE',
-          input: {
-            color: darkColors[3]
-          }
+        extend: function extend(_ref3) {
+          var disabled = _ref3.disabled,
+              _ref3$background = _ref3.background,
+              background = _ref3$background === void 0 ? 'white' : _ref3$background;
+          return {
+            border: '1px solid #DEDEDE',
+            input: {
+              color: darkColors[3]
+            },
+            background: disabled ? '#f5f5f5' : background,
+            borderBottomWidth: '2px'
+          };
         }
       },
       options: {
@@ -1462,8 +1468,10 @@ var generate = function generate(baseSpacing, scale) {
       },
       icons: {
         color: 'icon',
-        margin: 'none',
-        pad: baseSpacing / 1.6 + "px",
+        margin: {
+          vertical: 'xsmall',
+          right: 'large'
+        },
         background: 'background-contrast',
         size: baseSpacing / 0.94 + "px"
       },
@@ -1613,6 +1621,28 @@ var generate = function generate(baseSpacing, scale) {
       icon: {
         bgColor: 'light-2',
         pad: 'xsmall'
+      }
+    },
+    tip: {
+      mnet: {
+        contentWrap: {
+          align: 'center',
+          justify: 'center'
+        },
+        content: {
+          background: 'dark-1',
+          direction: 'row',
+          pad: {
+            horizontal: 'large',
+            vertical: 'medium'
+          },
+          round: 'small',
+          width: 'medium'
+        }
+      },
+      drop: {
+        isTooltip: true,
+        shadow: 'none'
       }
     },
     tooptip: {

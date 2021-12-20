@@ -53,30 +53,29 @@ var themeOverride = {
       },
       justify: 'center',
       background: 'white'
-    },
-    icon: {
-      size: 'large' // extend: undefined,
-
-    },
-    icons: {
-      checked: Tick // indeterminate: undefined,
-
     }
   },
   select: {
     control: {
-      extend: {
-        borderBottomWidth: '2px',
-        input: {
-          color: darkColors[2],
-          fontWeight: 400,
-          padding: baseSpacing / 1.68 + "px"
-        }
+      extend: function extend(_ref) {
+        var disabled = _ref.disabled,
+            _ref$background = _ref.background,
+            background = _ref$background === void 0 ? 'white' : _ref$background;
+        return {
+          border: '1px solid #DEDEDE',
+          input: {
+            color: darkColors[3],
+            fontWeight: 400,
+            padding: baseSpacing / 1.68 + "px"
+          },
+          background: disabled ? '#f5f5f5' : background,
+          borderBottomWidth: '2px'
+        };
       }
     },
     icons: {
       background: 'transparent',
-      pad: {
+      margin: {
         vertical: baseSpacing / 2.67 + "px",
         right: 'large'
       },
@@ -235,8 +234,8 @@ var themeOverride = {
     rightPanel: {
       border: 'light-3',
       container: {
-        extend: function extend(_ref) {
-          var isEmpty = _ref.isEmpty;
+        extend: function extend(_ref2) {
+          var isEmpty = _ref2.isEmpty;
           return "\n          padding: " + (isEmpty ? '10' : '0') + "px " + (isEmpty ? '16' : '0') + "px;\n        ";
         }
       },
@@ -345,9 +344,9 @@ var themeOverride = {
       marginRight: '8px'
     },
     container: {
-      extend: function extend(_ref2) {
-        var checked = _ref2.checked,
-            theme = _ref2.theme;
+      extend: function extend(_ref3) {
+        var checked = _ref3.checked,
+            theme = _ref3.theme;
         return {
           fontWeight: checked && 600,
           color: (0, _utils.normalizeColor)('dark-3', theme)
@@ -363,13 +362,13 @@ var themeOverride = {
         return 'border-radius: 10px';
       }
     },
-    extend: function extend(_ref3) {
-      var disabled = _ref3.disabled;
+    extend: function extend(_ref4) {
+      var disabled = _ref4.disabled;
       return disabled && 'opacity: .3; cursor: not-allowed !important;';
     },
     thumb: {
-      extend: function extend(_ref4) {
-        var disabled = _ref4.disabled;
+      extend: function extend(_ref5) {
+        var disabled = _ref5.disabled;
         return disabled && 'cursor: not-allowed !important;';
       }
     }
@@ -392,14 +391,14 @@ var themeOverride = {
         return "\n          height: 100%;\n        ";
       }
     },
-    extend: function extend(_ref5) {
-      var plain = _ref5.plain,
-          focus = _ref5.focus,
-          reverse = _ref5.reverse,
-          icon = _ref5.icon,
-          theme = _ref5.theme,
-          readOnly = _ref5.readOnly,
-          error = _ref5.error;
+    extend: function extend(_ref6) {
+      var plain = _ref6.plain,
+          focus = _ref6.focus,
+          reverse = _ref6.reverse,
+          icon = _ref6.icon,
+          theme = _ref6.theme,
+          readOnly = _ref6.readOnly,
+          error = _ref6.error;
       return _extends({
         paddingTop: baseSpacing / 1.78 + "px",
         paddingBottom: baseSpacing / 1.78 + "px",

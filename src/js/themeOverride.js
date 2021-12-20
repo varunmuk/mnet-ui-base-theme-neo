@@ -44,29 +44,23 @@ export const themeOverride = {
       justify: 'center',
       background: 'white',
     },
-    icon: {
-      size: 'large',
-      // extend: undefined,
-    },
-    icons: {
-      checked: Tick,
-      // indeterminate: undefined,
-    },
   },
   select: {
     control: {
-      extend: {
-        borderBottomWidth: '2px',
+      extend: ({ disabled, background = 'white' }) => ({
+        border: '1px solid #DEDEDE',
         input: {
-          color: darkColors[2],
+          color: darkColors[3],
           fontWeight: 400,
           padding: `${baseSpacing / 1.68}px`,
         },
-      },
+        background: disabled ? '#f5f5f5' : background,
+        borderBottomWidth: '2px',
+      }),
     },
     icons: {
       background: 'transparent',
-      pad: {
+      margin: {
         vertical: `${baseSpacing / 2.67}px`,
         right: 'large',
       },

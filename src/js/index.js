@@ -220,10 +220,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         zIndex: '20',
         marginTop: '4px',
-        extend: {
-          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
-          // bottom: `${1.5 * baseSpacing}px`,
-        },
+        extend: ({ isTooltip = false }) => ({
+          'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)',
+        }),
       },
       edgeSize: {
         none: '0px',
@@ -562,6 +561,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           borderRadius: '2px',
           color: 'white',
         }),
+        thickness: '2px',
       },
       color: { dark: undefined, light: 'white' },
       // extend: undefined,
@@ -575,11 +575,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icon: {
-        size: 'large',
+        size: '16px',
         // extend: undefined,
       },
       icons: {
-        checked: Tick,
+        // checked: Tick,
         // indeterminate: undefined,
       },
       size: `${baseSpacing}px`,
@@ -731,10 +731,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       error: {
         color: 'status-critical',
         margin: { vertical: 'xsmall', horizontal: 'none' },
-        style: {
-          position: 'absolute',
-        },
-        // background: undefined,
       },
       // extend: undefined,
       help: {
@@ -1281,7 +1277,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
     },
     select: {
-      background: 'white',
+      background: 'transparent',
       activeColor: lightColors[4],
       container: {
         extend: props => ({
@@ -1290,12 +1286,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       control: {
         // open: undefined,
-        extend: {
+        extend: ({ disabled, background = 'white' }) => ({
           border: '1px solid #DEDEDE',
           input: {
             color: darkColors[3],
           },
-        },
+          background: disabled ? '#f5f5f5' : background,
+          borderBottomWidth: '2px',
+        }),
       },
       options: {
         container: {
@@ -1313,8 +1311,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       icons: {
         color: 'icon',
-        margin: 'none',
-        pad: `${baseSpacing / 1.6}px`,
+        margin: {
+          vertical: 'xsmall',
+          right: 'large',
+        },
         background: 'background-contrast',
         size: `${baseSpacing / 0.94}px`,
       },
@@ -1459,6 +1459,25 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       icon: {
         bgColor: 'light-2',
         pad: 'xsmall',
+      },
+    },
+    tip: {
+      mnet: {
+        contentWrap: {
+          align: 'center',
+          justify: 'center',
+        },
+        content: {
+          background: 'dark-1',
+          direction: 'row',
+          pad: { horizontal: 'large', vertical: 'medium' },
+          round: 'small',
+          width: 'medium',
+        },
+      },
+      drop: {
+        isTooltip: true,
+        shadow: 'none',
       },
     },
     tooptip: {
