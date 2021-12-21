@@ -624,11 +624,8 @@ var generate = function generate(baseSpacing, scale) {
     },
     checkBox: {
       border: {
-        color: {
-          dark: 'rgba(255, 255, 255, 0.5)',
-          light: 'rgba(0, 0, 0, 0.15)'
-        },
-        width: '2px'
+        color: 'border',
+        width: '1px'
       },
       check: {
         extend: function extend(_ref) {
@@ -639,8 +636,7 @@ var generate = function generate(baseSpacing, scale) {
             border: checked && 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
-            color: (0, _colors.normalizeColor)('white', theme),
-            backgroundColor: (0, _colors.normalizeColor)('white', theme)
+            color: (0, _colors.normalizeColor)('white', theme)
           };
         }
       },
@@ -652,10 +648,7 @@ var generate = function generate(baseSpacing, scale) {
       // gap: undefined
       hover: {
         border: {
-          color: {
-            dark: 'white',
-            light: 'black'
-          }
+          color: 'border'
         }
       },
       icon: {
@@ -693,13 +686,20 @@ var generate = function generate(baseSpacing, scale) {
         },
         radius: baseSpacing + "px",
         extend: function extend(_ref2) {
-          var checked = _ref2.checked;
+          var checked = _ref2.checked,
+              theme = _ref2.theme;
           return {
             height: baseSpacing * 1.187 + "px",
             border: 'none',
-            background: checked ? accentColors[0] : accentColors[1]
+            background: (0, _colors.normalizeColor)(checked ? 'accent-1' : 'accent-2', theme)
           };
         }
+      },
+      extend: function extend(_ref3) {
+        var theme = _ref3.theme;
+        return {
+          color: (0, _colors.normalizeColor)('dark-3', theme)
+        };
       }
     },
     clock: {
@@ -906,7 +906,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       postfix: {
         color: 'white',
-        background: 'dark-3',
+        background: 'background-contrast',
         justify: 'center',
         pad: {
           horizontal: 'medium',
@@ -915,7 +915,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       prefix: {
         color: 'white',
-        background: 'dark-3',
+        background: 'background-contrast',
         justify: 'center',
         pad: {
           horizontal: 'medium',
@@ -1129,10 +1129,10 @@ var generate = function generate(baseSpacing, scale) {
           },
           justify: 'center',
           background: 'white',
-          extend: function extend(_ref3) {
-            var checked = _ref3.checked,
-                active = _ref3.active,
-                theme = _ref3.theme;
+          extend: function extend(_ref4) {
+            var checked = _ref4.checked,
+                active = _ref4.active,
+                theme = _ref4.theme;
             return {
               background: checked && (0, _colors.normalizeColor)('accent-3', theme),
               borderColor: active ? 'transparent' : lightColors[5],
@@ -1171,8 +1171,8 @@ var generate = function generate(baseSpacing, scale) {
             right: 'small'
           },
           direction: 'row',
-          extend: function extend(_ref4) {
-            var twoColumnLayout = _ref4.twoColumnLayout;
+          extend: function extend(_ref5) {
+            var twoColumnLayout = _ref5.twoColumnLayout;
             return {
               padding: twoColumnLayout ? 0 : baseSpacing / 1.618 + "px",
               borderBottom: 'none'
@@ -1269,8 +1269,8 @@ var generate = function generate(baseSpacing, scale) {
             minHeight: baseSpacing * 2.5 + "px",
             position: 'relative'
           },
-          extend: function extend(_ref5) {
-            var layout = _ref5.layout;
+          extend: function extend(_ref6) {
+            var layout = _ref6.layout;
             return {
               background: layout === 'double-column' ? 'white' : lightColors[1],
               flexDirection: layout === 'double-column' ? 'row-reverse' : 'row',
@@ -1330,8 +1330,8 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         container: {
-          extend: function extend(_ref6) {
-            var isEmpty = _ref6.isEmpty;
+          extend: function extend(_ref7) {
+            var isEmpty = _ref7.isEmpty;
             return {
               padding: (isEmpty ? "" + baseSpacing / 1.6 : '0') + "px " + (isEmpty ? "" + baseSpacing : '0') + "px"
             };
@@ -1446,9 +1446,9 @@ var generate = function generate(baseSpacing, scale) {
     },
     radioButton: {
       container: {
-        extend: function extend(_ref7) {
-          var checked = _ref7.checked,
-              theme = _ref7.theme;
+        extend: function extend(_ref8) {
+          var checked = _ref8.checked,
+              theme = _ref8.theme;
           return {
             fontWeight: checked && 600,
             color: (0, _colors.normalizeColor)('dark-3', theme)
@@ -1502,15 +1502,15 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       thumb: {
-        extend: function extend(_ref8) {
-          var disabled = _ref8.disabled;
+        extend: function extend(_ref9) {
+          var disabled = _ref9.disabled;
           return {
             cursor: !disabled ? 'pointer' : 'not-allowed !important'
           };
         }
       },
-      extend: function extend(_ref9) {
-        var disabled = _ref9.disabled;
+      extend: function extend(_ref10) {
+        var disabled = _ref10.disabled;
         return {
           cursor: !disabled ? 'pointer' : 'not-allowed !important'
         };
@@ -1538,8 +1538,8 @@ var generate = function generate(baseSpacing, scale) {
       },
       control: {
         // open: undefined,
-        extend: function extend(_ref10) {
-          var theme = _ref10.theme;
+        extend: function extend(_ref11) {
+          var theme = _ref11.theme;
           return {
             borderBottomWidth: '2px',
             input: {
@@ -1693,8 +1693,8 @@ var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: function extend(_ref11) {
-        var theme = _ref11.theme;
+      extend: function extend(_ref12) {
+        var theme = _ref12.theme;
         return {
           color: (0, _colors.normalizeColor)('dark-3', theme),
           fontWeight: 400
@@ -1716,14 +1716,14 @@ var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref12) {
-        var plain = _ref12.plain,
-            focus = _ref12.focus,
-            reverse = _ref12.reverse,
-            icon = _ref12.icon,
-            theme = _ref12.theme,
-            readOnly = _ref12.readOnly,
-            error = _ref12.error;
+      extend: function extend(_ref13) {
+        var plain = _ref13.plain,
+            focus = _ref13.focus,
+            reverse = _ref13.reverse,
+            icon = _ref13.icon,
+            theme = _ref13.theme,
+            readOnly = _ref13.readOnly,
+            error = _ref13.error;
         return _extends({
           paddingTop: baseSpacing / 1.78 + "px",
           paddingBottom: baseSpacing / 1.78 + "px",

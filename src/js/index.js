@@ -543,11 +543,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     checkBox: {
       border: {
-        color: {
-          dark: 'rgba(255, 255, 255, 0.5)',
-          light: 'rgba(0, 0, 0, 0.15)',
-        },
-        width: '2px',
+        color: 'border',
+        width: '1px',
       },
       check: {
         extend: ({ checked, theme }) => ({
@@ -556,7 +553,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           boxShadow: 'unset',
           borderRadius: '2px',
           color: normalizeColor('white', theme),
-          backgroundColor: normalizeColor('white', theme),
         }),
       },
       color: { dark: undefined, light: 'white' },
@@ -564,10 +560,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // gap: undefined
       hover: {
         border: {
-          color: {
-            dark: 'white',
-            light: 'black',
-          },
+          color: 'border',
         },
       },
       icon: {
@@ -598,12 +591,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
         radius: `${baseSpacing}px`,
-        extend: ({ checked }) => ({
+        extend: ({ checked, theme }) => ({
           height: `${baseSpacing * 1.187}px`,
           border: 'none',
-          background: checked ? accentColors[0] : accentColors[1],
+          background: normalizeColor(checked ? 'accent-1' : 'accent-2', theme),
         }),
       },
+      extend: ({ theme }) => ({
+        color: normalizeColor('dark-3', theme),
+      }),
     },
     clock: {
       analog: {
@@ -773,13 +769,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       margin: { bottom: 'small' },
       postfix: {
         color: 'white',
-        background: 'dark-3',
+        background: 'background-contrast',
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
       },
       prefix: {
         color: 'white',
-        background: 'dark-3',
+        background: 'background-contrast',
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
       },
