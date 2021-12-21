@@ -771,10 +771,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       extend: {
         button: {
           flex: 1,
-          border: 'none',
+          // border: 'none',
         },
         input: {
-          border: 'none',
+          // border: 'none',
         },
       },
       round: 'small',
@@ -1071,7 +1071,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       labelWrap: {
-        pad: { left: 'medium', vertical: 'small' },
+        pad: false,
       },
       controls: {
         label: {
@@ -1294,7 +1294,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           border: '1px solid #DEDEDE',
           input: {
             color: darkColors[3],
+            padding: '6px 0px',
           },
+          padding: '4px 10px',
           background: disabled ? '#f5f5f5' : background,
           borderBottomWidth: '2px',
         }),
@@ -1315,10 +1317,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       icons: {
         color: 'icon',
-        margin: {
-          vertical: 'xsmall',
-          right: 'large',
-        },
+        // margin: {
+        //   vertical: 'xsmall',
+        //   right: 'large',
+        // },
         background: 'background-contrast',
         size: `${baseSpacing / 0.94}px`,
       },
