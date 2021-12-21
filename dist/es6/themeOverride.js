@@ -59,8 +59,9 @@ export var themeOverride = {
           input: {
             color: darkColors[3],
             fontWeight: 400,
-            padding: baseSpacing / 1.68 + "px"
+            padding: '0px'
           },
+          padding: '4px 10px',
           background: disabled ? '#f5f5f5' : background,
           borderBottomWidth: '2px'
         };
@@ -69,8 +70,8 @@ export var themeOverride = {
     icons: {
       background: 'transparent',
       margin: {
-        vertical: baseSpacing / 2.67 + "px",
-        right: 'large'
+        vertical: 'small',
+        right: 'small'
       },
       size: 'xlarge',
       color: 'dark-3',

@@ -914,11 +914,10 @@ var generate = function generate(baseSpacing, scale) {
       // round: undefined,
       extend: {
         button: {
-          flex: 1,
-          border: 'none'
+          flex: 1 // border: 'none',
+
         },
-        input: {
-          border: 'none'
+        input: {// border: 'none',
         }
       },
       round: 'small'
@@ -1210,10 +1209,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       labelWrap: {
-        pad: {
-          left: 'medium',
-          vertical: 'small'
-        }
+        pad: false
       },
       controls: {
         label: {
@@ -1449,8 +1445,10 @@ var generate = function generate(baseSpacing, scale) {
           return {
             border: '1px solid #DEDEDE',
             input: {
-              color: darkColors[3]
+              color: darkColors[3],
+              padding: '6px 0px'
             },
+            padding: '4px 10px',
             background: disabled ? '#f5f5f5' : background,
             borderBottomWidth: '2px'
           };
@@ -1472,10 +1470,10 @@ var generate = function generate(baseSpacing, scale) {
       },
       icons: {
         color: 'icon',
-        margin: {
-          vertical: 'xsmall',
-          right: 'large'
-        },
+        // margin: {
+        //   vertical: 'xsmall',
+        //   right: 'large',
+        // },
         background: 'background-contrast',
         size: baseSpacing / 0.94 + "px"
       },
