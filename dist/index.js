@@ -836,10 +836,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       content: {
         pad: 'none',
-        plainOnFocus: true,
-        style: {
-          width: 'fit-content'
-        }
+        plainOnFocus: true
       },
       labelWrap: {
         margin: 'none',
@@ -872,10 +869,6 @@ var generate = function generate(baseSpacing, scale) {
           top: 'xsmall',
           bottom: 'small',
           horizontal: 'none'
-        },
-        style: {
-          position: 'absolute',
-          marginTop: baseSpacing * 2.625 + "px"
         } // background: undefined,
 
       },
@@ -940,11 +933,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       // round: undefined,
-      extend: {
-        button: {
-          flex: 1
-        }
-      },
+      extend: {},
       round: 'small'
     },
     mnet: {

@@ -708,9 +708,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       content: {
         pad: 'none',
         plainOnFocus: true,
-        style: {
-          width: 'fit-content',
-        },
       },
       labelWrap: {
         margin: 'none',
@@ -740,10 +737,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       error: {
         color: 'status-critical',
         margin: { top: 'xsmall', bottom: 'small', horizontal: 'none' },
-        style: {
-          position: 'absolute',
-          marginTop: `${baseSpacing * 2.625}px`,
-        },
         // background: undefined,
       },
       // extend: undefined,
@@ -794,11 +787,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       // round: undefined,
-      extend: {
-        button: {
-          flex: 1,
-        },
-      },
+      extend: {},
       round: 'small',
     },
     mnet: {
