@@ -224,10 +224,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         zIndex: '20',
         marginTop: '4px',
-        extend: {
-          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
-          // bottom: `${1.5 * baseSpacing}px`,
-        },
+        extend: ({ isTooltip = false }) => ({
+          'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)',
+        }),
       },
       edgeSize: {
         none: '0px',
@@ -549,6 +548,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: '1px',
       },
       check: {
+        thickness: '2px',
         extend: ({ checked, theme }) => ({
           background: checked && normalizeColor('accent-3', theme),
           border: checked && 'unset',
@@ -566,11 +566,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icon: {
-        size: 'large',
+        size: `${baseSpacing}px`,
         // extend: undefined,
       },
       icons: {
-        checked: Tick,
+        // checked: Tick,
         // indeterminate: undefined,
       },
       size: `${baseSpacing}px`,
@@ -742,6 +742,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         margin: { top: 'xsmall', bottom: 'small', horizontal: 'none' },
         style: {
           position: 'absolute',
+          marginTop: `${baseSpacing * 2.625}px`,
         },
         // background: undefined,
       },
@@ -1082,7 +1083,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       labelWrap: {
-        pad: { left: 'medium', vertical: 'small' },
+        pad: false,
       },
       controls: {
         label: {
@@ -1363,7 +1364,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
     },
     select: {
-      background: 'white',
+      background: 'transparent',
       activeColor: lightColors[4],
       container: {
         extend: props => ({
@@ -1372,13 +1373,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       control: {
         // open: undefined,
-        extend: ({ theme }) => ({
-          borderBottomWidth: '2px',
+        extend: ({ theme, disabled, background = 'white' }) => ({
+          border: `1px solid ${normalizeColor('dark-6', theme)}`,
           input: {
-            color: normalizeColor('dark-3', theme),
+            color: normalizeColor('dark-4', theme),
             fontWeight: 400,
-            padding: `${baseSpacing / 1.68}px`,
+            padding: '0px',
           },
+          padding: `${baseSpacing * 0.25}px ${baseSpacing * 0.625}px`,
+          background: normalizeColor(disabled ? 'light-10' : background, theme),
+          borderBottomWidth: '2px',
         }),
       },
       options: {
@@ -1397,10 +1401,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       icons: {
         color: 'dark-3',
-        margin: 'none',
-        pad: {
-          vertical: `${baseSpacing / 2.67}px`,
-          right: 'large',
+        margin: {
+          vertical: 'small',
+          right: 'small',
         },
         background: 'transparent',
         size: 'xlarge',
@@ -1590,6 +1593,25 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       icon: {
         bgColor: 'light-2',
         pad: 'xsmall',
+      },
+    },
+    tip: {
+      mnet: {
+        contentWrap: {
+          align: 'center',
+          justify: 'center',
+        },
+        content: {
+          background: 'dark-1',
+          direction: 'row',
+          pad: { horizontal: 'large', vertical: 'medium' },
+          round: 'small',
+          width: 'medium',
+        },
+      },
+      drop: {
+        isTooltip: true,
+        shadow: 'none',
       },
     },
     tooptip: {
