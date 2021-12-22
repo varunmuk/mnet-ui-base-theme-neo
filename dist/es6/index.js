@@ -1182,7 +1182,7 @@ export var generate = function generate(baseSpacing, scale) {
             return {
               width: twoColumnLayout ? '100%' : 'auto',
               margin: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              background: twoColumnLayout ? 'white' : '#E0E0E0',
+              background: normalizeColor(twoColumnLayout ? 'white' : 'light-10', theme),
               padding: twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
               borderRadius: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
               borderBottom: twoColumnLayout ? "1px solid " + normalizeColor('light-9', theme) : 'none',
@@ -1868,7 +1868,7 @@ export var generate = function generate(baseSpacing, scale) {
       form: {
         container: {
           border: {
-            color: '#E0E0E0',
+            color: 'light-10',
             size: 'small'
           },
           round: 'medium',
