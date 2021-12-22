@@ -44,6 +44,8 @@ const lightColors = [
   '#DADADA',
   '#F5F7FD',
   '#F4F6F8',
+  '#D9DBE5',
+  '#E8E7E7',
 ];
 const focusColor = '#B1C2FE';
 
@@ -1033,22 +1035,22 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: 'small',
           direction: 'row',
           align: 'center',
-          extend: props => ({
-            width: props.twoColumnLayout ? '100%' : 'auto',
-            margin: props.twoColumnLayout
+          extend: ({ theme, twoColumnLayout }) => ({
+            width: twoColumnLayout ? '100%' : 'auto',
+            margin: twoColumnLayout
               ? 0
               : `${baseSpacing / (1.618 * 2)}px`,
-            background: props.twoColumnLayout ? 'white' : '#E0E0E0',
-            padding: props.twoColumnLayout
+            background: twoColumnLayout ? 'white' : '#E0E0E0',
+            padding: twoColumnLayout
               ? `${baseSpacing / 1.618}px`
               : `${baseSpacing / (1.618 * 2)}px ${baseSpacing / 1.618}px`,
-            borderRadius: props.twoColumnLayout
+            borderRadius: twoColumnLayout
               ? 0
               : `${baseSpacing / (1.618 * 2)}px`,
-            borderBottom: props.twoColumnLayout
-              ? '1px solid #D9DBE5'
+            borderBottom: twoColumnLayout
+              ? `1px solid ${normalizeColor('light-9', theme)}`
               : 'none',
-            justifyContent: props.twoColumnLayout
+            justifyContent: twoColumnLayout
               ? 'space-between'
               : 'flex-start',
           }),
@@ -1118,7 +1120,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             minHeight: `${baseSpacing * 2.5}px`,
             position: 'relative',
           },
-          extend: ({ layout }) => ({
+          extend: ({ layout, theme }) => ({
             background:
               layout === 'double-column' ? 'white' : lightColors[1],
             flexDirection:
@@ -1126,7 +1128,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             paddingLeft:
               layout === 'double-column' ? `${baseSpacing / 1.618}px` : 0,
             borderBottom:
-              layout === 'double-column' ? '1px solid #D9DBE5' : 'none',
+              layout === 'double-column' ? `1px solid ${normalizeColor('light-9', theme)}` : 'none',
           }),
         },
         placeholder: {
@@ -1205,7 +1207,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               border: 'none',
             },
             textarea: {
-              minHeight: '185px',
+              minHeight: `${baseSpacing * 11.56}px`,
             },
           },
           onKeyDown: e => {
@@ -1219,7 +1221,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         textAreaContainer: {
           width: 'medium',
           height: 'medium',
-          minHeight: '140px',
+          minHeight: `${baseSpacing * 8.75}px`,
           margin: { vertical: 'medium' },
         },
         actions: {
@@ -1386,7 +1388,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           round: 'false',
           border: {
             side: 'bottom',
-            color: '#D9DBE5',
+            color: 'light-9',
           },
         },
         text: {
@@ -1459,10 +1461,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     tabs: {
       gap: 'large',
       header: {
-        extend: {
+        extend: ({ theme }) => ({
           'padding-left': `${baseSpacing * 1.2}px`,
-          'border-bottom': '1px solid #E8E7E7 ',
-        },
+          'border-bottom': `1px solid ${normalizeColor('light-10', theme)}`,
+        }),
       },
       panel: {
         extend: {},
@@ -1677,7 +1679,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     upload: {
       loader: {
-        props: { height: '15px', width: '15px', margin: 'none' },
+        props: {
+          height: `${baseSpacing * 0.94}px`,
+          width: `${baseSpacing * 0.94}px`,
+          margin: 'none',
+        },
       },
       form: {
         container: {

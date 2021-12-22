@@ -55,7 +55,7 @@ var statusColors = {
   disabled: '#CCCCCC'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7'];
 var focusColor = '#B1C2FE';
 var colors = {
   active: '#FFFDE3',
@@ -1189,15 +1189,17 @@ var generate = function generate(baseSpacing, scale) {
           margin: 'small',
           direction: 'row',
           align: 'center',
-          extend: function extend(props) {
+          extend: function extend(_ref6) {
+            var theme = _ref6.theme,
+                twoColumnLayout = _ref6.twoColumnLayout;
             return {
-              width: props.twoColumnLayout ? '100%' : 'auto',
-              margin: props.twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              background: props.twoColumnLayout ? 'white' : '#E0E0E0',
-              padding: props.twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
-              borderRadius: props.twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              borderBottom: props.twoColumnLayout ? '1px solid #D9DBE5' : 'none',
-              justifyContent: props.twoColumnLayout ? 'space-between' : 'flex-start'
+              width: twoColumnLayout ? '100%' : 'auto',
+              margin: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
+              background: twoColumnLayout ? 'white' : '#E0E0E0',
+              padding: twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
+              borderRadius: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
+              borderBottom: twoColumnLayout ? "1px solid " + (0, _colors.normalizeColor)('light-9', theme) : 'none',
+              justifyContent: twoColumnLayout ? 'space-between' : 'flex-start'
             };
           }
         },
@@ -1269,13 +1271,14 @@ var generate = function generate(baseSpacing, scale) {
             minHeight: baseSpacing * 2.5 + "px",
             position: 'relative'
           },
-          extend: function extend(_ref6) {
-            var layout = _ref6.layout;
+          extend: function extend(_ref7) {
+            var layout = _ref7.layout,
+                theme = _ref7.theme;
             return {
               background: layout === 'double-column' ? 'white' : lightColors[1],
               flexDirection: layout === 'double-column' ? 'row-reverse' : 'row',
               paddingLeft: layout === 'double-column' ? baseSpacing / 1.618 + "px" : 0,
-              borderBottom: layout === 'double-column' ? '1px solid #D9DBE5' : 'none'
+              borderBottom: layout === 'double-column' ? "1px solid " + (0, _colors.normalizeColor)('light-9', theme) : 'none'
             };
           }
         },
@@ -1330,8 +1333,8 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         container: {
-          extend: function extend(_ref7) {
-            var isEmpty = _ref7.isEmpty;
+          extend: function extend(_ref8) {
+            var isEmpty = _ref8.isEmpty;
             return {
               padding: (isEmpty ? "" + baseSpacing / 1.6 : '0') + "px " + (isEmpty ? "" + baseSpacing : '0') + "px"
             };
@@ -1360,7 +1363,7 @@ var generate = function generate(baseSpacing, scale) {
               border: 'none'
             },
             textarea: {
-              minHeight: '185px'
+              minHeight: baseSpacing * 11.56 + "px"
             }
           },
           onKeyDown: function onKeyDown(e) {
@@ -1374,7 +1377,7 @@ var generate = function generate(baseSpacing, scale) {
         textAreaContainer: {
           width: 'medium',
           height: 'medium',
-          minHeight: '140px',
+          minHeight: baseSpacing * 8.75 + "px",
           margin: {
             vertical: 'medium'
           }
@@ -1446,9 +1449,9 @@ var generate = function generate(baseSpacing, scale) {
     },
     radioButton: {
       container: {
-        extend: function extend(_ref8) {
-          var checked = _ref8.checked,
-              theme = _ref8.theme;
+        extend: function extend(_ref9) {
+          var checked = _ref9.checked,
+              theme = _ref9.theme;
           return {
             fontWeight: checked && 600,
             color: (0, _colors.normalizeColor)('dark-3', theme)
@@ -1502,15 +1505,15 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       thumb: {
-        extend: function extend(_ref9) {
-          var disabled = _ref9.disabled;
+        extend: function extend(_ref10) {
+          var disabled = _ref10.disabled;
           return {
             cursor: !disabled ? 'pointer' : 'not-allowed !important'
           };
         }
       },
-      extend: function extend(_ref10) {
-        var disabled = _ref10.disabled;
+      extend: function extend(_ref11) {
+        var disabled = _ref11.disabled;
         return {
           cursor: !disabled ? 'pointer' : 'not-allowed !important'
         };
@@ -1538,8 +1541,8 @@ var generate = function generate(baseSpacing, scale) {
       },
       control: {
         // open: undefined,
-        extend: function extend(_ref11) {
-          var theme = _ref11.theme;
+        extend: function extend(_ref12) {
+          var theme = _ref12.theme;
           return {
             borderBottomWidth: '2px',
             input: {
@@ -1557,7 +1560,7 @@ var generate = function generate(baseSpacing, scale) {
           round: 'false',
           border: {
             side: 'bottom',
-            color: '#D9DBE5'
+            color: 'light-9'
           }
         },
         text: {
@@ -1630,9 +1633,12 @@ var generate = function generate(baseSpacing, scale) {
     tabs: {
       gap: 'large',
       header: {
-        extend: {
-          'padding-left': baseSpacing * 1.2 + "px",
-          'border-bottom': '1px solid #E8E7E7 '
+        extend: function extend(_ref13) {
+          var theme = _ref13.theme;
+          return {
+            'padding-left': baseSpacing * 1.2 + "px",
+            'border-bottom': "1px solid " + (0, _colors.normalizeColor)('light-10', theme)
+          };
         }
       },
       panel: {
@@ -1693,8 +1699,8 @@ var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: function extend(_ref12) {
-        var theme = _ref12.theme;
+      extend: function extend(_ref14) {
+        var theme = _ref14.theme;
         return {
           color: (0, _colors.normalizeColor)('dark-3', theme),
           fontWeight: 400
@@ -1716,14 +1722,14 @@ var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref13) {
-        var plain = _ref13.plain,
-            focus = _ref13.focus,
-            reverse = _ref13.reverse,
-            icon = _ref13.icon,
-            theme = _ref13.theme,
-            readOnly = _ref13.readOnly,
-            error = _ref13.error;
+      extend: function extend(_ref15) {
+        var plain = _ref15.plain,
+            focus = _ref15.focus,
+            reverse = _ref15.reverse,
+            icon = _ref15.icon,
+            theme = _ref15.theme,
+            readOnly = _ref15.readOnly,
+            error = _ref15.error;
         return _extends({
           paddingTop: baseSpacing / 1.78 + "px",
           paddingBottom: baseSpacing / 1.78 + "px",
@@ -1867,8 +1873,8 @@ var generate = function generate(baseSpacing, scale) {
     upload: {
       loader: {
         props: {
-          height: '15px',
-          width: '15px',
+          height: baseSpacing * 0.94 + "px",
+          width: baseSpacing * 0.94 + "px",
           margin: 'none'
         }
       },
