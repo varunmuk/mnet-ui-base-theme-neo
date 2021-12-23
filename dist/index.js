@@ -11,13 +11,21 @@ var _googleFonts = require("google-fonts");
 
 var _mnetIcons = require("mnet-icons");
 
-var _object = require("mnet-ui-base/utils/object");
+var _object = require("grommet/utils/object");
 
-var _colors = require("mnet-ui-base/utils/colors");
+var _colors = require("grommet/utils/colors");
 
-var _mixins = require("mnet-ui-base/utils/mixins");
+var _mixins = require("grommet/utils/mixins");
 
-var _templateObject;
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -929,7 +937,7 @@ var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: (0, _styledComponents.css)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
+      global: (0, _styledComponents.css)(_templateObject())
     },
     heading: {
       font: {// family: undefined
