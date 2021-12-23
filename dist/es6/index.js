@@ -1,12 +1,4 @@
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -935,7 +927,7 @@ export var generate = function generate(baseSpacing, scale) {
       round: 'small'
     },
     mnet: {
-      global: css(_templateObject())
+      global: css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "])))
     },
     heading: {
       font: {// family: undefined
