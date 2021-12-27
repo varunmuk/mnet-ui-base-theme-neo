@@ -1453,10 +1453,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     tabs: {
       gap: 'large',
       header: {
-        extend: ({ theme }) => ({
+        border: {
+          color: 'light-10',
+          size: '1px',
+          style: 'solid',
+          side: 'bottom',
+        },
+        extend: {
           'padding-left': `${baseSpacing * 1.2}px`,
-          'border-bottom': `1px solid ${normalizeColor('light-10', theme)}`,
-        }),
+        },
       },
       panel: {
         extend: {},

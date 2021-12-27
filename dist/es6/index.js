@@ -1615,12 +1615,14 @@ export var generate = function generate(baseSpacing, scale) {
     tabs: {
       gap: 'large',
       header: {
-        extend: function extend(_ref14) {
-          var theme = _ref14.theme;
-          return {
-            'padding-left': baseSpacing * 1.2 + "px",
-            'border-bottom': "1px solid " + normalizeColor('light-10', theme)
-          };
+        border: {
+          color: 'light-10',
+          size: '1px',
+          style: 'solid',
+          side: 'bottom'
+        },
+        extend: {
+          'padding-left': baseSpacing * 1.2 + "px"
         }
       },
       panel: {
@@ -1681,8 +1683,8 @@ export var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: function extend(_ref15) {
-        var theme = _ref15.theme;
+      extend: function extend(_ref14) {
+        var theme = _ref14.theme;
         return {
           color: normalizeColor('dark-3', theme),
           fontWeight: 400
@@ -1704,14 +1706,14 @@ export var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref16) {
-        var plain = _ref16.plain,
-            focus = _ref16.focus,
-            reverse = _ref16.reverse,
-            icon = _ref16.icon,
-            theme = _ref16.theme,
-            readOnly = _ref16.readOnly,
-            error = _ref16.error;
+      extend: function extend(_ref15) {
+        var plain = _ref15.plain,
+            focus = _ref15.focus,
+            reverse = _ref15.reverse,
+            icon = _ref15.icon,
+            theme = _ref15.theme,
+            readOnly = _ref15.readOnly,
+            error = _ref15.error;
         return _extends({
           paddingTop: baseSpacing / 1.78 + "px",
           paddingBottom: baseSpacing / 1.78 + "px",
