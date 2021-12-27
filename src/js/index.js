@@ -1369,7 +1369,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             fontWeight: 400,
             padding: '0px',
           },
-          padding: `${baseSpacing * 0.25}px ${baseSpacing * 0.625}px`,
+          padding: `${baseSpacing * 0.188}px ${baseSpacing * 0.625}px`,
           background: normalizeColor(disabled ? 'light-10' : background, theme),
           borderBottomWidth: '2px',
         }),

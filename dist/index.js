@@ -1543,7 +1543,7 @@ var generate = function generate(baseSpacing, scale) {
               fontWeight: 400,
               padding: '0px'
             },
-            padding: baseSpacing * 0.25 + "px " + baseSpacing * 0.625 + "px",
+            padding: baseSpacing * 0.188 + "px " + baseSpacing * 0.625 + "px",
             background: (0, _colors.normalizeColor)(disabled ? 'light-10' : background, theme),
             borderBottomWidth: '2px'
           };
