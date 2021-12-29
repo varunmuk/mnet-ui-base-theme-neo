@@ -944,6 +944,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           direction: 'row',
         },
         button: {
+          reverse: true,
           margin: {
             right: 'medium',
           },
@@ -1217,7 +1218,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         actions: {
           wrapper: {
             direction: 'row',
-            gap: '0',
+            // gap: '0',
             margin: '0',
             justify: 'evenly',
             align: 'center',
@@ -1362,16 +1363,18 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       control: {
         // open: undefined,
-        extend: ({ theme, disabled, background = 'white' }) => ({
-          border: `1px solid ${normalizeColor('dark-6', theme)}`,
+        extend: ({
+          theme, disabled, background, callerPlain: plain,
+        }) => ({
+          border: !plain && `1px solid ${normalizeColor('dark-6', theme)}`,
           input: {
             color: normalizeColor('dark-4', theme),
             fontWeight: 400,
             padding: '0px',
           },
           padding: `${baseSpacing * 0.188}px ${baseSpacing * 0.625}px`,
-          background: normalizeColor(disabled ? 'light-10' : background, theme),
-          borderBottomWidth: '2px',
+          background: normalizeColor(disabled ? 'light-1' : background, theme),
+          borderBottomWidth: !plain && '2px',
         }),
       },
       options: {

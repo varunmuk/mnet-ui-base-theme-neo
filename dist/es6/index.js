@@ -1069,6 +1069,7 @@ export var generate = function generate(baseSpacing, scale) {
           direction: 'row'
         },
         button: {
+          reverse: true,
           margin: {
             right: 'medium'
           }
@@ -1362,7 +1363,7 @@ export var generate = function generate(baseSpacing, scale) {
         actions: {
           wrapper: {
             direction: 'row',
-            gap: '0',
+            // gap: '0',
             margin: '0',
             justify: 'evenly',
             align: 'center',
@@ -1521,18 +1522,18 @@ export var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref13) {
           var theme = _ref13.theme,
               disabled = _ref13.disabled,
-              _ref13$background = _ref13.background,
-              background = _ref13$background === void 0 ? 'white' : _ref13$background;
+              background = _ref13.background,
+              plain = _ref13.callerPlain;
           return {
-            border: "1px solid " + normalizeColor('dark-6', theme),
+            border: !plain && "1px solid " + normalizeColor('dark-6', theme),
             input: {
               color: normalizeColor('dark-4', theme),
               fontWeight: 400,
               padding: '0px'
             },
             padding: baseSpacing * 0.188 + "px " + baseSpacing * 0.625 + "px",
-            background: normalizeColor(disabled ? 'light-10' : background, theme),
-            borderBottomWidth: '2px'
+            background: normalizeColor(disabled ? 'light-1' : background, theme),
+            borderBottomWidth: !plain && '2px'
           };
         }
       },
