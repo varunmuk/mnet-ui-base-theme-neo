@@ -826,7 +826,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       border: {
-        color: 'border',
+        color: 'white',
         error: {
           color: statusColors.critical
         },

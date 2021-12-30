@@ -697,7 +697,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       border: {
-        color: 'border',
+        color: 'white',
         error: {
           color: statusColors.critical,
         },
