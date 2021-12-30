@@ -23,7 +23,7 @@ const statusColors = {
   critical: '#e35e59',
   error: '#FFECEC',
   warning: '#AB7113',
-  ok: 'accent-1',
+  ok: '#DFFFF2',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC',
 };
