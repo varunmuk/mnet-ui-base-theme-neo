@@ -1,19 +1,6 @@
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n        :focus {\n          outline: none;\n        }\n      "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
-
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 import { rgba } from 'polished';
-import { css } from 'styled-components';
 import { add as addGoogleFont } from 'google-fonts';
 import { NeoComponents } from 'mnet-icons';
 import { deepFreeze } from 'grommet/utils/object';
@@ -22,7 +9,6 @@ import { parseMetricToNum } from 'grommet/utils/mixins';
 var Close = NeoComponents.Close,
     Down = NeoComponents.Down,
     Error = NeoComponents.Error,
-    Info = NeoComponents.Info,
     LongArrowDown = NeoComponents.LongArrowDown,
     TickCircle = NeoComponents.TickCircle,
     Tick = NeoComponents.Tick,
@@ -825,11 +811,6 @@ export var generate = function generate(baseSpacing, scale) {
         pad: 'none',
         plainOnFocus: true
       },
-      labelWrap: {
-        margin: 'none',
-        width: 'xxsmall',
-        direction: 'row'
-      },
       disabled: {
         background: {
           color: 'status-disabled',
@@ -906,25 +887,7 @@ export var generate = function generate(baseSpacing, scale) {
           vertical: 'medium'
         }
       },
-      tooltip: {
-        extend: {
-          position: 'right-end',
-          background: 'white'
-        },
-        icon: Info,
-        iconProps: {
-          margin: {
-            horizontal: 'small'
-          },
-          size: 'large'
-        }
-      },
-      // round: undefined,
-      extend: {},
       round: 'small'
-    },
-    mnet: {
-      global: css(_templateObject())
     },
     heading: {
       font: {// family: undefined
@@ -1428,10 +1391,8 @@ export var generate = function generate(baseSpacing, scale) {
     radioButton: {
       container: {
         extend: function extend(_ref10) {
-          var checked = _ref10.checked,
-              theme = _ref10.theme;
+          var theme = _ref10.theme;
           return {
-            fontWeight: checked && 600,
             color: normalizeColor('dark-3', theme)
           };
         }
@@ -1481,20 +1442,6 @@ export var generate = function generate(baseSpacing, scale) {
         extend: {
           borderRadius: baseSpacing * 0.625 + "px"
         }
-      },
-      thumb: {
-        extend: function extend(_ref11) {
-          var disabled = _ref11.disabled;
-          return {
-            cursor: !disabled ? 'pointer' : 'not-allowed !important'
-          };
-        }
-      },
-      extend: function extend(_ref12) {
-        var disabled = _ref12.disabled;
-        return {
-          cursor: !disabled ? 'pointer' : 'not-allowed !important'
-        };
       }
     },
     rangeSelector: {
@@ -1519,11 +1466,11 @@ export var generate = function generate(baseSpacing, scale) {
       },
       control: {
         // open: undefined,
-        extend: function extend(_ref13) {
-          var theme = _ref13.theme,
-              disabled = _ref13.disabled,
-              background = _ref13.background,
-              plain = _ref13.callerPlain;
+        extend: function extend(_ref11) {
+          var theme = _ref11.theme,
+              disabled = _ref11.disabled,
+              background = _ref11.background,
+              plain = _ref11.callerPlain;
           return {
             border: !plain && "1px solid " + normalizeColor('dark-6', theme),
             input: {
@@ -1533,7 +1480,7 @@ export var generate = function generate(baseSpacing, scale) {
             },
             padding: baseSpacing * 0.188 + "px " + baseSpacing * 0.625 + "px",
             background: normalizeColor(disabled ? 'light-1' : background, theme),
-            borderBottomWidth: !plain && '2px'
+            borderBottomWidth: !plain && theme.global.borderSize.small
           };
         }
       },
@@ -1684,8 +1631,8 @@ export var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: function extend(_ref14) {
-        var theme = _ref14.theme;
+      extend: function extend(_ref12) {
+        var theme = _ref12.theme;
         return {
           color: normalizeColor('dark-3', theme),
           fontWeight: 400
@@ -1707,14 +1654,14 @@ export var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref15) {
-        var plain = _ref15.plain,
-            focus = _ref15.focus,
-            reverse = _ref15.reverse,
-            icon = _ref15.icon,
-            theme = _ref15.theme,
-            readOnly = _ref15.readOnly,
-            error = _ref15.error;
+      extend: function extend(_ref13) {
+        var plain = _ref13.plain,
+            focus = _ref13.focus,
+            reverse = _ref13.reverse,
+            icon = _ref13.icon,
+            theme = _ref13.theme,
+            readOnly = _ref13.readOnly,
+            error = _ref13.error;
         return _extends({
           paddingTop: baseSpacing / 1.78 + "px",
           paddingBottom: baseSpacing / 1.78 + "px",
@@ -1761,7 +1708,7 @@ export var generate = function generate(baseSpacing, scale) {
       }
     },
     tip: {
-      mnet: {
+      wrapper: {
         contentWrap: {
           align: 'center',
           justify: 'center'
@@ -1781,21 +1728,6 @@ export var generate = function generate(baseSpacing, scale) {
         isTooltip: true,
         shadow: 'none'
       }
-    },
-    tooptip: {
-      background: 'dark-1',
-      color: 'white',
-      tipSize: '5px',
-      round: 'small',
-      maxWidth: '20%',
-      dropProps: {
-        left: 'right'
-      },
-      pad: {
-        horizontal: 'large',
-        vertical: 'medium'
-      },
-      showArrow: true
     },
     notification: {
       toast: {

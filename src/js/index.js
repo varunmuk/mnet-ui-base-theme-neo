@@ -1,5 +1,4 @@
 import { rgba } from 'polished';
-import { css } from 'styled-components';
 import { add as addGoogleFont } from 'google-fonts';
 import { NeoComponents } from 'mnet-icons';
 
@@ -8,7 +7,7 @@ import { normalizeColor } from 'grommet/utils/colors';
 import { parseMetricToNum } from 'grommet/utils/mixins';
 
 const {
-  Close, Down, Error, Info, LongArrowDown, TickCircle, Tick, Up,
+  Close, Down, Error, LongArrowDown, TickCircle, Tick, Up,
 } = NeoComponents;
 Tick.notSvg = true;
 
@@ -709,11 +708,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         pad: 'none',
         plainOnFocus: true,
       },
-      labelWrap: {
-        margin: 'none',
-        width: 'xxsmall',
-        direction: 'row',
-      },
       disabled: {
         background: {
           color: 'status-disabled',
@@ -775,27 +769,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
       },
-      tooltip: {
-        extend: {
-          position: 'right-end',
-          background: 'white',
-        },
-        icon: Info,
-        iconProps: {
-          margin: { horizontal: 'small' },
-          size: 'large',
-        },
-      },
-      // round: undefined,
-      extend: {},
       round: 'small',
-    },
-    mnet: {
-      global: css`
-        :focus {
-          outline: none;
-        }
-      `,
     },
     heading: {
       font: {
@@ -1282,8 +1256,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     radioButton: {
       container: {
-        extend: ({ checked, theme }) => ({
-          fontWeight: checked && 600,
+        extend: ({ theme }) => ({
           color: normalizeColor('dark-3', theme),
         }),
       },
@@ -1334,14 +1307,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           borderRadius: `${baseSpacing * 0.625}px`,
         },
       },
-      thumb: {
-        extend: ({ disabled }) => ({
-          cursor: !disabled ? 'pointer' : 'not-allowed !important',
-        }),
-      },
-      extend: ({ disabled }) => ({
-        cursor: !disabled ? 'pointer' : 'not-allowed !important',
-      }),
     },
     rangeSelector: {
       background: {
@@ -1374,7 +1339,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           padding: `${baseSpacing * 0.188}px ${baseSpacing * 0.625}px`,
           background: normalizeColor(disabled ? 'light-1' : background, theme),
-          borderBottomWidth: !plain && '2px',
+          borderBottomWidth: !plain && theme.global.borderSize.small,
         }),
       },
       options: {
@@ -1593,7 +1558,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
     },
     tip: {
-      mnet: {
+      wrapper: {
         contentWrap: {
           align: 'center',
           justify: 'center',
@@ -1610,21 +1575,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         isTooltip: true,
         shadow: 'none',
       },
-    },
-    tooptip: {
-      background: 'dark-1',
-      color: 'white',
-      tipSize: '5px',
-      round: 'small',
-      maxWidth: '20%',
-      dropProps: {
-        left: 'right',
-      },
-      pad: {
-        horizontal: 'large',
-        vertical: 'medium',
-      },
-      showArrow: true,
     },
     notification: {
       toast: {
