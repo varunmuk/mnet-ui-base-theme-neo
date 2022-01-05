@@ -1467,7 +1467,7 @@ var generate = function generate(baseSpacing, scale) {
 
     },
     select: {
-      background: 'white',
+      background: 'transparent',
       activeColor: lightColors[4],
       container: {
         extend: function extend(props) {
@@ -1481,7 +1481,6 @@ var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref11) {
           var theme = _ref11.theme,
               disabled = _ref11.disabled,
-              background = _ref11.background,
               plain = _ref11.callerPlain;
           return {
             border: !plain && "1px solid " + (0, _colors.normalizeColor)('dark-6', theme),
@@ -1491,7 +1490,7 @@ var generate = function generate(baseSpacing, scale) {
               padding: '0px'
             },
             padding: baseSpacing * 0.188 + "px " + baseSpacing * 0.625 + "px",
-            background: (0, _colors.normalizeColor)(disabled ? 'light-1' : background, theme),
+            background: (0, _colors.normalizeColor)(disabled ? 'light-1' : 'white', theme),
             borderBottomWidth: !plain && theme.global.borderSize.small
           };
         }

@@ -1319,7 +1319,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
     },
     select: {
-      background: 'white',
+      background: 'transparent',
       activeColor: lightColors[4],
       container: {
         extend: props => ({
@@ -1329,7 +1329,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       control: {
         // open: undefined,
         extend: ({
-          theme, disabled, background, callerPlain: plain,
+          theme, disabled, callerPlain: plain,
         }) => ({
           border: !plain && `1px solid ${normalizeColor('dark-6', theme)}`,
           input: {
@@ -1338,7 +1338,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             padding: '0px',
           },
           padding: `${baseSpacing * 0.188}px ${baseSpacing * 0.625}px`,
-          background: normalizeColor(disabled ? 'light-1' : background, theme),
+          background: normalizeColor(disabled ? 'light-1' : 'white', theme),
           borderBottomWidth: !plain && theme.global.borderSize.small,
         }),
       },
