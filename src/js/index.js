@@ -1319,7 +1319,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
     },
     select: {
-      background: 'transparent',
+      background: 'white',
       activeColor: lightColors[4],
       container: {
         extend: props => ({

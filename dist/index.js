@@ -1467,7 +1467,7 @@ var generate = function generate(baseSpacing, scale) {
 
     },
     select: {
-      background: 'transparent',
+      background: 'white',
       activeColor: lightColors[4],
       container: {
         extend: function extend(props) {
