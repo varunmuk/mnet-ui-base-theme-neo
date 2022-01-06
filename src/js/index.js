@@ -1619,6 +1619,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         direction: 'row',
         margin: 'none',
         pad: 'none',
+        gap: 'none',
       },
       icons: {
         color: 'text-xweak',

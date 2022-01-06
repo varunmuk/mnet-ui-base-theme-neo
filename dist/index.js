@@ -1780,7 +1780,8 @@ var generate = function generate(baseSpacing, scale) {
         justify: 'center',
         direction: 'row',
         margin: 'none',
-        pad: 'none'
+        pad: 'none',
+        gap: 'none'
       },
       icons: {
         color: 'text-xweak',
