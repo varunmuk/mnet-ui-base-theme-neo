@@ -1543,7 +1543,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               display: flex;
               align-items: center;
               justify-content: center;
-              pad
             }
             &:first-child {
               border-radius: 4px 0 0 4px;
@@ -1559,11 +1558,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       button: {
         padding: 'none',
         active: {
-          background: colors.brand,
-          color: 'white',
+          background: 'light-3',
+          color: 'dark-3',
           border: {
             width: '1px',
-            color: colors.brand,
+            color: 'transparent',
+            radius: 'none',
           },
         },
         disabled: {
