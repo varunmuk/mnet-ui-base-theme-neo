@@ -1562,8 +1562,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'dark-3',
           border: {
             width: '1px',
-            color: 'transparent',
-            radius: 'none',
+            color: 'light-3',
+            radius: '0px',
           },
         },
         disabled: {

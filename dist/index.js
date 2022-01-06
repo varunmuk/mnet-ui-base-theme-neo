@@ -1724,8 +1724,8 @@ var generate = function generate(baseSpacing, scale) {
           color: 'dark-3',
           border: {
             width: '1px',
-            color: 'transparent',
-            radius: 'none'
+            color: 'light-3',
+            radius: '0px'
           }
         },
         disabled: {
