@@ -49,6 +49,7 @@
     "lint"
   ],
   "dependencies": {
-    "google-fonts": "^1.0.0"
+    "google-fonts": "^1.0.0",
+    "grommet-icons": "^4.7.0"
   }
 }

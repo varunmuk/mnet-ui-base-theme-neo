@@ -9,11 +9,29 @@ var _googleFonts = require("google-fonts");
 
 var _mnetIcons = require("mnet-icons");
 
+var _styledComponents = require("styled-components");
+
 var _object = require("grommet/utils/object");
 
 var _colors = require("grommet/utils/colors");
 
 var _mixins = require("grommet/utils/mixins");
+
+var _FormNext = require("grommet-icons/icons/FormNext");
+
+var _FormPrevious = require("grommet-icons/icons/FormPrevious");
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n              pad\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1694,28 +1712,79 @@ var generate = function generate(baseSpacing, scale) {
       }
     },
     pagination: {
-      background: 'white',
-      round: 'small',
-      border: {
-        color: 'none'
-      },
-      button: {
-        active: {
-          fontWeight: 'bold',
-          background: 'light-3',
-          border: {
-            color: 'light-3'
-          },
-          color: 'inherit'
+      control: {
+        extend: function extend(props) {
+          return (0, _styledComponents.css)(_templateObject(), (0, _colors.normalizeColor)('light-4', props.theme), (0, _colors.normalizeColor)('light-4', props.theme));
         }
       },
-      pad: 'xlarge',
-      active: {
-        color: '#e7eaf1'
+      button: {
+        padding: 'none',
+        active: {
+          background: colors.brand,
+          color: 'white',
+          border: {
+            width: '1px',
+            color: colors.brand
+          }
+        },
+        disabled: {
+          padding: 'none'
+        },
+        color: 'text-strong',
+        size: {
+          small: {
+            border: {
+              radius: baseSpacing / 8 + "px",
+              width: '2px'
+            },
+            pad: {
+              vertical: '8px',
+              horizontal: '8px'
+            },
+            font: _extends({}, fontSizing(-1)),
+            height: baseSpacing * 1.25 + "px",
+            width: baseSpacing * 1.25 + "px"
+          },
+          medium: {
+            border: {
+              width: '2px',
+              color: 'light-3',
+              side: 'right'
+            },
+            pad: {
+              vertical: '8px',
+              horizontal: '8px'
+            },
+            font: _extends({}, fontSizing(0)),
+            height: baseSpacing * 2 + "px",
+            width: baseSpacing * 2 + "px"
+          },
+          large: {
+            border: {
+              radius: baseSpacing / 4 + "px",
+              width: '2px'
+            },
+            pad: {
+              vertical: '4px',
+              horizontal: '4px'
+            },
+            font: _extends({}, fontSizing(1)),
+            height: baseSpacing * 2 + "px",
+            width: baseSpacing * 2 + "px"
+          }
+        }
       },
-      icon: {
-        bgColor: 'light-2',
-        pad: 'xsmall'
+      controls: {
+        align: 'center',
+        justify: 'center',
+        direction: 'row',
+        margin: 'none',
+        pad: 'none'
+      },
+      icons: {
+        color: 'text-xweak',
+        previous: _FormPrevious.FormPrevious,
+        next: _FormNext.FormNext
       }
     },
     tip: {

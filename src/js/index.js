@@ -1,10 +1,12 @@
 import { rgba } from 'polished';
 import { add as addGoogleFont } from 'google-fonts';
 import { NeoComponents } from 'mnet-icons';
-
+import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
 import { parseMetricToNum } from 'grommet/utils/mixins';
+import { FormNext } from 'grommet-icons/icons/FormNext';
+import { FormPrevious } from 'grommet-icons/icons/FormPrevious';
 
 const {
   Close, Down, Error, LongArrowDown, TickCircle, Tick, Up,
@@ -1533,28 +1535,95 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       }),
     },
     pagination: {
-      background: 'white',
-      round: 'small',
-      border: {
-        color: 'none',
+      control: {
+        extend: props => css`
+            border: 1px solid ${normalizeColor('light-4', props.theme)};
+            border-right: none;
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              pad
+            }
+            &:first-child {
+              border-radius: 4px 0 0 4px;
+                        
+            }
+            &:last-child {
+              border-radius: 0 4px 4px 0;
+              border-right: 1px solid ${normalizeColor('light-4', props.theme)};
+            }
+
+        `,
       },
       button: {
+        padding: 'none',
         active: {
-          fontWeight: 'bold',
-          background: 'light-3',
+          background: colors.brand,
+          color: 'white',
           border: {
-            color: 'light-3',
+            width: '1px',
+            color: colors.brand,
           },
-          color: 'inherit',
+        },
+        disabled: {
+          padding: 'none',
+        },
+        color: 'text-strong',
+        size: {
+          small: {
+            border: {
+              radius: `${baseSpacing / 8}px`,
+              width: '2px',
+            },
+            pad: {
+              vertical: '8px',
+              horizontal: '8px',
+            },
+            font: { ...fontSizing(-1) },
+            height: `${baseSpacing * 1.25}px`,
+            width: `${baseSpacing * 1.25}px`,
+          },
+          medium: {
+            border: {
+              width: '2px',
+              color: 'light-3',
+              side: 'right',
+            },
+            pad: {
+              vertical: '8px',
+              horizontal: '8px',
+            },
+            font: { ...fontSizing(0) },
+            height: `${baseSpacing * 2}px`,
+            width: `${baseSpacing * 2}px`,
+          },
+          large: {
+            border: {
+              radius: `${baseSpacing / 4}px`,
+              width: '2px',
+            },
+            pad: {
+              vertical: '4px',
+              horizontal: '4px',
+            },
+            font: { ...fontSizing(1) },
+            height: `${baseSpacing * 2}px`,
+            width: `${baseSpacing * 2}px`,
+          },
         },
       },
-      pad: 'xlarge',
-      active: {
-        color: '#e7eaf1',
+      controls: {
+        align: 'center',
+        justify: 'center',
+        direction: 'row',
+        margin: 'none',
+        pad: 'none',
       },
-      icon: {
-        bgColor: 'light-2',
-        pad: 'xsmall',
+      icons: {
+        color: 'text-xweak',
+        previous: FormPrevious,
+        next: FormNext,
       },
     },
     tip: {
