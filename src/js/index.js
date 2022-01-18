@@ -764,12 +764,36 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         background: 'background-contrast',
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
+        border: [
+          {
+            side: 'horizontal',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+          {
+            side: 'right',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+        ],
       },
       prefix: {
         color: 'white',
         background: 'background-contrast',
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
+        border: [
+          {
+            side: 'horizontal',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+          {
+            side: 'left',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+        ],
       },
       round: 'small',
     },
