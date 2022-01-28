@@ -1,21 +1,23 @@
 import { rgba } from 'polished';
-import { css } from 'styled-components';
 import { add as addGoogleFont } from 'google-fonts';
 import { NeoComponents } from 'mnet-icons';
-
-import { deepFreeze } from 'mnet-ui-base/utils/object';
-import { normalizeColor } from 'mnet-ui-base/utils/colors';
-import { parseMetricToNum } from 'mnet-ui-base/utils/mixins';
+import { css } from 'styled-components';
+import { deepFreeze } from 'grommet/utils/object';
+import { normalizeColor } from 'grommet/utils/colors';
+import { parseMetricToNum } from 'grommet/utils/mixins';
+import { FormNext } from 'grommet-icons/icons/FormNext';
+import { FormPrevious } from 'grommet-icons/icons/FormPrevious';
 
 const {
-  Up, Down, Close, LongArrowDown, TickCircle, Error, Tick,
+  Close, Down, Error, LongArrowDown, TickCircle, Tick, Up,
 } = NeoComponents;
 Tick.notSvg = true;
+
 addGoogleFont({
   'Open Sans': ['400', '600', '700'],
 });
 
-const brandColor = '#E15151';
+const brandColor = 'accent-3';
 const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
 const neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 const statusColors = {
@@ -43,6 +45,8 @@ const lightColors = [
   '#DADADA',
   '#F5F7FD',
   '#F4F6F8',
+  '#D9DBE5',
+  '#E8E7E7',
 ];
 const focusColor = '#B1C2FE';
 
@@ -78,7 +82,7 @@ const colors = {
   'graph-2': 'neutral-2',
   'graph-3': 'neutral-3',
   'graph-4': 'neutral-4',
-  placeholder: 'dark-5',
+  placeholder: 'dark-4',
   selected: 'light-7',
   text: {
     dark: '#f8f8f8',
@@ -103,6 +107,7 @@ const colors = {
   'selected-background': 'brand',
   'selected-text': 'text-strong',
   white: '#FFFFFF',
+  error: '#E15151',
 };
 
 const colorArray = (array, prefix) => array.forEach((color, index) => {
@@ -220,10 +225,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         zIndex: '20',
         marginTop: '4px',
-        extend: {
-          'box-shadow': '0 1px 7px 3px rgba(0,0,0,0.15)',
-          // bottom: `${1.5 * baseSpacing}px`,
-        },
+        extend: ({ isTooltip = false }) => ({
+          'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)',
+        }),
       },
       edgeSize: {
         none: '0px',
@@ -261,10 +265,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'focus',
         },
         // outline: { color: undefined, size: undefined },
-        shadow: {
-          color: 'focus',
-          size: '1px',
-        },
+        shadow: 'none',
       },
       font: {
         ...fontSizing(0),
@@ -381,10 +382,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           border: {
             radius: `${baseSpacing * 0.25}px`, // 4px
           },
-          // pad: {
-          //   vertical: `${baseSpacing / (1.618 * 2) - borderWidth}px`, // 4px
-          //   horizontal: `${baseSpacing - borderWidth * 2}px`, // 20px,
-          // },
+          pad: {
+            vertical: `${baseSpacing / 2.285}px`,
+            horizontal: `${baseSpacing / 1.6}px`,
+          },
         },
         medium: {
           border: {
@@ -399,10 +400,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           border: {
             radius: `${baseSpacing * 0.4}px`, // 24px
           },
-          // pad: {
-          //   vertical: `${baseSpacing / (1.618 / 2) + borderWidth}px`, // 8px
-          //   horizontal: `${baseSpacing * 2.8 - borderWidth}px`, // 32px,
-          // },
         },
       },
       border: {
@@ -548,19 +545,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     checkBox: {
       border: {
-        color: {
-          dark: 'rgba(255, 255, 255, 0.5)',
-          light: 'rgba(0, 0, 0, 0.15)',
-        },
-        width: '2px',
+        color: 'border',
+        width: '1px',
       },
       check: {
-        extend: props => ({
-          background: props.checked && normalizeColor('accent-3', props.theme),
-          border: props.checked && 'unset',
+        thickness: '2px',
+        extend: ({ checked, theme }) => ({
+          background: checked && normalizeColor('accent-3', theme),
+          border: checked && 'unset',
           boxShadow: 'unset',
           borderRadius: '2px',
-          color: 'white',
+          color: normalizeColor('white', theme),
         }),
       },
       color: { dark: undefined, light: 'white' },
@@ -568,18 +563,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // gap: undefined
       hover: {
         border: {
-          color: {
-            dark: 'white',
-            light: 'black',
-          },
+          color: 'border',
         },
       },
       icon: {
-        size: 'large',
+        size: `${baseSpacing}px`,
         // extend: undefined,
       },
       icons: {
-        checked: Tick,
+        // checked: Tick,
         // indeterminate: undefined,
       },
       size: `${baseSpacing}px`,
@@ -602,12 +594,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
         radius: `${baseSpacing}px`,
-        extend: ({ checked }) => ({
+        extend: ({ checked, theme }) => ({
           height: `${baseSpacing * 1.187}px`,
           border: 'none',
-          background: checked ? accentColors[0] : accentColors[1],
+          background: normalizeColor(checked ? 'accent-1' : 'accent-2', theme),
         }),
       },
+      extend: ({ theme }) => ({
+        color: normalizeColor('dark-3', theme),
+      }),
     },
     clock: {
       analog: {
@@ -696,8 +691,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     //   maxHeight: undefined,
     // },
     formField: {
+      field: {
+        focus: 'border-color: white;',
+        default: {
+          border: '1px solid transparent',
+        },
+      },
       border: {
-        color: 'border',
+        color: 'white',
         error: {
           color: statusColors.critical,
         },
@@ -706,7 +707,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         size: 'xsmall',
       },
       content: {
-        pad: 'small',
+        pad: 'none',
+        plainOnFocus: true,
       },
       disabled: {
         background: {
@@ -730,10 +732,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
       error: {
         color: 'status-critical',
-        margin: { vertical: 'xsmall', horizontal: 'none' },
-        style: {
-          position: 'absolute',
-        },
+        margin: { top: 'xsmall', bottom: 'small', horizontal: 'none' },
         // background: undefined,
       },
       // extend: undefined,
@@ -745,14 +744,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       info: {
         color: 'text-xweak',
-        margin: { vertical: '0', left: 'medium' },
+        margin: { vertical: 'xsmall', left: 'medium' },
         extend: {
           position: 'relative',
           top: '3px',
         },
       },
       label: {
-        margin: 'none',
+        weight: 400,
+        margin: {
+          bottom: 'small',
+          top: 'small',
+          left: 'xxsmall',
+        },
       },
       margin: { bottom: 'small' },
       postfix: {
@@ -760,31 +764,38 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         background: 'background-contrast',
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
+        border: [
+          {
+            side: 'horizontal',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+          {
+            side: 'right',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+        ],
       },
       prefix: {
         color: 'white',
         background: 'background-contrast',
         justify: 'center',
         pad: { horizontal: 'medium', vertical: 'medium' },
-      },
-      // round: undefined,
-      extend: {
-        button: {
-          flex: 1,
-          border: 'none',
-        },
-        input: {
-          border: 'none',
-        },
+        border: [
+          {
+            side: 'horizontal',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+          {
+            side: 'left',
+            color: 'dark-6',
+            size: 'xsmall',
+          },
+        ],
       },
       round: 'small',
-    },
-    mnet: {
-      global: css`
-        :focus {
-          outline: none;
-        }
-      `,
     },
     heading: {
       font: {
@@ -933,6 +944,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           direction: 'row',
         },
         button: {
+          reverse: true,
           margin: {
             right: 'medium',
           },
@@ -945,10 +957,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         direction: 'row',
         justify: 'between',
         pad: { horizontal: 'medium' },
+        align: 'center',
       },
       checkbox: {
         type: 'check',
-        showUnSelected: false,
+        showUnSelected: undefined,
         box: {
           margin: {
             right: 'medium',
@@ -965,75 +978,70 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           margin: 'auto',
           round: 'small',
           align: 'center',
-          // background: 'white',
           border: { color: 'light-6' },
-          extend: props => {
-            const getBackground = () => {
-              switch (props.isExcluded) {
-                case null:
-                  return accentColors[2];
-                case false:
-                  return '#38C18B';
-                case true:
-                  return accentColors[4];
-                default:
-                  return accentColors[2];
-              }
-            };
-            return {
-              background: props.active ? getBackground() : 'white',
-              'border-color': props.active ? 'transparent' : lightColors[5],
-            };
-          },
+          justify: 'center',
+          background: 'white',
+          extend: ({ checked, active, theme }) => ({
+            background: checked && normalizeColor('accent-3', theme),
+            borderColor: active ? 'transparent' : lightColors[5],
+            border: checked && 'unset',
+            boxShadow: 'unset',
+            borderRadius: '2px',
+            color: 'white',
+          }),
         },
         include: {
           background: 'accent-1',
           color: 'white',
-          check: 'check',
+          check: 'add',
         },
         exclude: {
           background: 'red',
           color: 'white',
-          check: 'close',
+          check: 'subtract',
+        },
+        color: { dark: undefined, light: 'white' },
+        label: {
+          margin: {
+            bottom: 'none',
+          },
         },
       },
       chips: {
         wrapper: {
-          pad: 'medium',
+          pad: { vertical: 'medium', left: 'medium', right: 'small' },
           direction: 'row',
-          extend: props => ({
-            padding: props.twoColumnLayout ? 0 : `${baseSpacing / 1.618}px`,
-            'border-bottom': props.twoColumnLayout
-              ? 'none'
-              : '1px solid #D9DBE5',
+          extend: ({ twoColumnLayout }) => ({
+            padding: twoColumnLayout ? 0 : `${baseSpacing / 1.618}px`,
+            borderBottom: 'none',
           }),
         },
         option: {
           background: 'light-3',
           round: 'small',
           pad: {
-            vertical: 'small',
+            vertical: 'medium',
             horizontal: 'medium',
           },
           margin: 'small',
           direction: 'row',
           align: 'center',
-          extend: props => ({
-            width: props.twoColumnLayout ? '100%' : 'auto',
-            margin: props.twoColumnLayout
+          extend: ({ theme, twoColumnLayout }) => ({
+            width: twoColumnLayout ? '100%' : 'auto',
+            margin: twoColumnLayout
               ? 0
               : `${baseSpacing / (1.618 * 2)}px`,
-            background: props.twoColumnLayout ? 'white' : lightColors[2],
-            padding: props.twoColumnLayout
+            background: normalizeColor(twoColumnLayout ? 'white' : 'light-10', theme),
+            padding: twoColumnLayout
               ? `${baseSpacing / 1.618}px`
               : `${baseSpacing / (1.618 * 2)}px ${baseSpacing / 1.618}px`,
-            'border-radius': props.twoColumnLayout
+            borderRadius: twoColumnLayout
               ? 0
               : `${baseSpacing / (1.618 * 2)}px`,
-            'border-bottom': props.twoColumnLayout
-              ? '1px solid #D9DBE5'
+            borderBottom: twoColumnLayout
+              ? `1px solid ${normalizeColor('light-9', theme)}`
               : 'none',
-            'justify-content': props.twoColumnLayout
+            justifyContent: twoColumnLayout
               ? 'space-between'
               : 'flex-start',
           }),
@@ -1041,37 +1049,31 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         label: {
           color: 'dark-3',
           size: 'medium',
-          weight: 600,
+          weight: 400,
           margin: {
             right: 'small',
           },
-          extend: props => {
-            const getTextColor = () => {
-              switch (props.isExcluded) {
-                case false:
-                  return '#38C18B';
-                case true:
-                  return accentColors[4];
-                default:
-                  return darkColors[2];
-              }
-            };
-            return {
-              color: getTextColor(),
-            };
-          },
+          // extend: undefined,
         },
         icon: {
-          size: 'small',
+          size: `${baseSpacing / 1.78}px`,
           color: 'dark-3',
         },
         clear: {
-          color: 'accent-2',
-          size: 'small',
+          margin: 'medium',
+          border: {
+            side: 'top',
+            color: 'light-3',
+          },
+          color: 'dark-3',
+          size: 'medium',
+          alignSelf: 'end',
+          weight: '600',
+          height: `${baseSpacing * 1.875}`,
         },
       },
       labelWrap: {
-        pad: { left: 'medium', vertical: 'small' },
+        pad: false,
       },
       controls: {
         label: {
@@ -1079,7 +1081,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             color: 'accent-1',
           },
           exclude: {
-            color: 'brand',
+            color: 'error',
           },
         },
         wrapper: {
@@ -1096,77 +1098,113 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       searchbox: {
         container: {
-          height: {
-            min: 'xxsmall',
-            max: 'xxsmall',
-          },
+          height: `${baseSpacing * 2.5}px`,
           direction: 'row',
           align: 'center',
-          background: 'light-2',
-          pad: { right: 'medium', vertical: 'small' },
-          extend: props => ({
+          background: 'transparent',
+          pad: 'none',
+          border: {
+            side: 'bottom',
+            color: 'light-3',
+          },
+          style: {
+            minHeight: `${baseSpacing * 2.5}px`,
+            position: 'relative',
+          },
+          extend: ({ layout, theme }) => ({
             background:
-              props.layout === 'double-column' ? 'white' : lightColors[1],
-            'flex-direction':
-              props.layout === 'double-column' ? 'row-reverse' : 'row',
-            'padding-left':
-              props.layout === 'double-column' ? `${baseSpacing / 1.618}px` : 0,
-            'border-bottom':
-              props.layout === 'double-column' ? '1px solid #D9DBE5' : 'none',
+              layout === 'double-column' ? 'white' : lightColors[1],
+            flexDirection:
+              layout === 'double-column' ? 'row-reverse' : 'row',
+            paddingLeft:
+              layout === 'double-column' ? `${baseSpacing / 1.618}px` : 0,
+            borderBottom:
+              layout === 'double-column' ? `1px solid ${normalizeColor('light-9', theme)}` : 'none',
           }),
         },
         placeholder: {
           color: 'dark-4',
-          weight: 600,
+          weight: 400,
           size: 'medium',
         },
         icon: {
           size: 'small',
           color: 'dark-3',
         },
+        textWrapper: {
+          flex: 'grow',
+        },
+        iconWrapper: {
+          gap: 'medium',
+          width: 'xxsmall',
+          direction: 'row',
+          justify: 'center',
+        },
       },
       rightPanel: {
-        border: '#D9DBE5',
+        border: 'light-3',
         incExcHeader: {
           box: {
             direction: 'row',
             justify: 'between',
             pad: 'large',
-            background: 'background-back',
+            background: 'white',
             border: {
               side: 'bottom',
-              color: '#D9DBE5',
+              color: 'light-3',
             },
+            align: 'center',
           },
           count: {
             margin: { left: 'small' },
-            background: 'brand',
-            round: 'medium',
-            pad: { horizontal: 'medium' },
+            background: 'light-4',
+            round: 'small',
+            pad: {
+              horizontal: 'small',
+            },
             justify: 'center',
           },
           text: {
-            color: 'accent-2',
+            color: 'dark-3',
             size: 'medium',
-            weight: 600,
+            weight: 400,
           },
         },
+        container: {
+          extend: ({ isEmpty }) => ({
+            padding: `${isEmpty ? `${baseSpacing / 1.6}` : '0'}px ${isEmpty ? `${baseSpacing}` : '0'}px`,
+          }),
+        },
       },
-
       custom: {
         wrapper: {
           direction: 'row',
           width: 'large',
+          border: {
+            color: 'light-3',
+          },
+          round: 'small',
         },
         textAreaWrap: {
-          border: { side: 'right' },
-          pad: 'large',
+          border: {
+            color: 'transparent',
+            side: 'right',
+          },
+          pad: 'medium',
           fill: true,
           extend: {
+            '*': {
+              height: 'auto',
+              border: 'none',
+            },
             textarea: {
-              minHeight: '140px',
+              minHeight: `${baseSpacing * 11.56}px`,
             },
           },
+          onKeyDown: e => {
+            e.stopPropagation();
+          },
+          height: '100%',
         },
         label: {
           weight: 600,
@@ -1174,43 +1212,65 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         textAreaContainer: {
           width: 'medium',
           height: 'medium',
-          minHeight: '140px',
+          minHeight: `${baseSpacing * 8.75}px`,
           margin: { vertical: 'medium' },
         },
         actions: {
           wrapper: {
             direction: 'row',
-            height: { min: 'auto' },
-            pad: 'small',
-            margin: 'xsmall',
-            gap: 'xxsmall',
+            // gap: '0',
+            margin: '0',
+            justify: 'evenly',
+            align: 'center',
+            border: {
+              side: 'top',
+              color: 'light-3',
+            },
+            pad: 'none',
+            height: {
+              min: `${baseSpacing * 1.875}px`,
+            },
           },
         },
       },
       icons: {
         include: {
-          icon: false,
+          icon: TickCircle,
+          extend: {
+            color: 'accent-1',
+            size: 'large',
+          },
         },
         exclude: {
-          icon: false,
+          icon: TickCircle,
+          extend: {
+            color: 'error',
+            size: 'large',
+          },
         },
       },
       includeBtn: {
-        primary: true,
+        primary: false,
         style: {
-          background: accentColors[0],
+          background: 'white',
         },
-        showIcon: false,
+        showIcon: true,
+        color: 'accent-1',
       },
       excludeBtn: {
-        primary: true,
+        primary: false,
         style: {
-          background: brandColor,
+          background: 'white',
         },
-        showIcon: false,
+        showIcon: true,
+        color: 'accent-5',
       },
       container: {
         width: 'large',
+        border: {
+          color: 'light-3',
+        },
+        round: 'small',
       },
     },
     paragraph: {
@@ -1221,12 +1281,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       xxlarge: { ...fontSizing(4) },
     },
     radioButton: {
+      container: {
+        extend: ({ theme }) => ({
+          color: normalizeColor('dark-3', theme),
+        }),
+      },
       border: {
         color: {
           dark: 'dark-6',
           light: 'dark-6',
         },
-        width: '3px',
+        width: '5px',
       },
       check: {
         radius: '100%',
@@ -1234,10 +1299,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           dark: 'accent-3',
           light: 'accent-3',
         },
-        // extend: undefined,
       },
       hover: {
         border: {
+          width: '5px',
           color: {
             dark: 'accent-3',
             light: 'accent-3',
@@ -1256,18 +1321,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       gap: 'small',
       size: `${baseSpacing}px`,
       extend: {
-        'margin-right': `${baseSpacing}px`,
+        marginRight: `${baseSpacing / 2}px`,
+        borderWidth: `${baseSpacing / 3.2}px`,
       },
     },
     rangeInput: {
       track: {
-        height: '4px',
-        color: css`
-          ${props => rgba(normalizeColor('border', props.theme), 0.2)};
-        `,
-      },
-      thumb: {
-        // color: { dark: undefined, light: undefined },
+        color: 'dark-3',
+        height: `${baseSpacing * 0.25}px`,
+        extend: {
+          borderRadius: `${baseSpacing * 0.625}px`,
+        },
       },
     },
     rangeSelector: {
@@ -1281,7 +1345,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
     },
     select: {
-      background: 'white',
+      background: 'transparent',
       activeColor: lightColors[4],
       container: {
         extend: props => ({
@@ -1290,12 +1354,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       control: {
         // open: undefined,
-        extend: {
-          border: '1px solid #DEDEDE',
+        extend: ({
+          theme, disabled, callerPlain: plain,
+        }) => ({
+          border: !plain && `1px solid ${normalizeColor('dark-6', theme)}`,
           input: {
-            color: darkColors[3],
+            color: normalizeColor('dark-4', theme),
+            fontWeight: 400,
+            padding: '0px',
           },
-        },
+          padding: `${baseSpacing * 0.188}px ${baseSpacing * 0.625}px`,
+          background: normalizeColor(disabled ? 'light-1' : 'white', theme),
+          borderBottomWidth: !plain && theme.global.borderSize.small,
+        }),
       },
       options: {
         container: {
@@ -1304,7 +1375,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           round: 'false',
           border: {
             side: 'bottom',
-            color: '#D9DBE5',
+            color: 'light-9',
           },
         },
         text: {
@@ -1312,11 +1383,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icons: {
-        color: 'icon',
-        margin: 'none',
-        pad: `${baseSpacing / 1.6}px`,
-        background: 'background-contrast',
-        size: `${baseSpacing / 0.94}px`,
+        color: 'dark-3',
+        margin: {
+          vertical: 'small',
+          right: 'small',
+        },
+        background: 'transparent',
+        size: 'xlarge',
+        up: Up,
+        down: Down,
+        // extend: undefined,
       },
       // searchInput: undefined,
       step: 20,
@@ -1369,14 +1445,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
     },
     tabs: {
-      // background: undefined,
-      // extend: undefined,
       gap: 'large',
       header: {
-        // background: undefined,
+        border: {
+          color: 'light-10',
+          size: '1px',
+          style: 'solid',
+          side: 'bottom',
+        },
         extend: {
           'padding-left': `${baseSpacing * 1.2}px`,
-          'border-bottom': '1px solid #E8E7E7 ',
         },
       },
       panel: {
@@ -1391,7 +1469,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           vertical: `${baseSpacing / 2}px`,
         },
         border: 'all',
-        // verticalAlign: undefined,
         background: 'light-8',
         // extend: undefined,
       },
@@ -1433,48 +1510,165 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       xxlarge: { ...fontSizing(4) },
     },
     textArea: {
-      extend: {
-        border: 'none',
-        'box-shadow': 'none',
-      },
-      // disabled: { opacity: undefined },
+      extend: ({ theme }) => ({
+        color: normalizeColor('dark-3', theme),
+        fontWeight: 400,
+      }),
     },
     textInput: {
-      // disabled: { opacity: undefined },
-      extend: {
-        // 'padding-left': `${baseSpacing}px`,
-        'box-shadow': 'none',
+      container: {
+        extend: {
+          height: '100%',
+        },
       },
-    },
-    pagination: {
-      background: 'white',
-      round: 'small',
       border: {
         color: 'dark-6',
+        side: 'all',
       },
-      pad: 'xlarge',
-      active: {
-        color: '#e7eaf1',
+      placeholder: {
+        extend: {
+          paddingLeft: `${baseSpacing * 1.125}px`,
+        },
       },
-      icon: {
-        bgColor: 'light-2',
-        pad: 'xsmall',
+      extend: ({
+        plain, focus, reverse, icon, theme, readOnly, error,
+      }) => ({
+        paddingTop: `${baseSpacing / 1.78}px`,
+        paddingBottom: `${baseSpacing / 1.78}px`,
+        boxShadow: 'none',
+        height: '100%',
+        fontSize: theme.global.font.size,
+        borderBottomWidth: theme.global.borderSize.small,
+        fontWeight: 400,
+        color: normalizeColor('dark-3', theme),
+        paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
+        borderColor: error ? 'transparent' : !plain && normalizeColor('dark-6', theme),
+        ...(focus
+          ? {
+            borderColor: !readOnly && 'transparent',
+            borderBottom: `${theme.global.borderSize.small} solid ${
+              !readOnly && normalizeColor('accent-3', theme)
+            }`,
+            background: `${
+              !readOnly && normalizeColor('background-back', theme)
+            }`,
+            borderBottomRightRadius: '0px',
+            borderBottomLeftRadius: '0px',
+          }
+          : {}),
+      }),
+    },
+    pagination: {
+      control: {
+        extend: props => css`
+            border: 1px solid ${normalizeColor('light-4', props.theme)};
+            border-right: none;
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            &:first-child {
+              border-radius: 4px 0 0 4px;
+                        
+            }
+            &:last-child {
+              border-radius: 0 4px 4px 0;
+              border-right: 1px solid ${normalizeColor('light-4', props.theme)};
+            }
+
+        `,
+      },
+      button: {
+        padding: 'none',
+        active: {
+          background: 'light-3',
+          color: 'dark-3',
+          border: {
+            width: '1px',
+            color: 'light-3',
+            radius: '0px',
+          },
+        },
+        disabled: {
+          padding: 'none',
+        },
+        color: 'text-strong',
+        size: {
+          small: {
+            border: {
+              radius: `${baseSpacing / 8}px`,
+              width: '2px',
+            },
+            pad: {
+              vertical: '8px',
+              horizontal: '8px',
+            },
+            font: { ...fontSizing(-1) },
+            height: `${baseSpacing * 1.25}px`,
+            width: `${baseSpacing * 1.25}px`,
+          },
+          medium: {
+            border: {
+              width: '2px',
+              color: 'light-3',
+              side: 'right',
+            },
+            pad: {
+              vertical: '8px',
+              horizontal: '8px',
+            },
+            font: { ...fontSizing(0) },
+            height: `${baseSpacing * 2}px`,
+            width: `${baseSpacing * 2}px`,
+          },
+          large: {
+            border: {
+              radius: `${baseSpacing / 4}px`,
+              width: '2px',
+            },
+            pad: {
+              vertical: '4px',
+              horizontal: '4px',
+            },
+            font: { ...fontSizing(1) },
+            height: `${baseSpacing * 2}px`,
+            width: `${baseSpacing * 2}px`,
+          },
+        },
+      },
+      controls: {
+        align: 'center',
+        justify: 'center',
+        direction: 'row',
+        margin: 'none',
+        pad: 'none',
+        gap: 'none',
+      },
+      icons: {
+        color: 'text-xweak',
+        previous: FormPrevious,
+        next: FormNext,
       },
     },
-    tooptip: {
-      background: 'dark-1',
-      color: 'white',
-      tipSize: '5px',
-      round: 'small',
-      maxWidth: '20%',
-      dropProps: {
-        left: 'right',
+    tip: {
+      wrapper: {
+        contentWrap: {
+          align: 'center',
+          justify: 'center',
+        },
+        content: {
+          background: 'dark-1',
+          direction: 'row',
+          pad: { horizontal: 'large', vertical: 'medium' },
+          round: 'small',
+          width: 'medium',
+        },
       },
-      pad: {
-        horizontal: 'large',
-        vertical: 'medium',
+      drop: {
+        isTooltip: true,
+        shadow: 'none',
       },
-      showArrow: true,
     },
     notification: {
       toast: {
@@ -1548,12 +1742,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     upload: {
       loader: {
-        props: { height: '15px', width: '15px', margin: 'none' },
+        props: {
+          height: `${baseSpacing * 0.94}px`,
+          width: `${baseSpacing * 0.94}px`,
+          margin: 'none',
+        },
       },
       form: {
         container: {
           border: {
-            color: '#E0E0E0',
+            color: 'light-10',
             size: 'small',
           },
           round: 'medium',
@@ -1576,5 +1774,3 @@ export const generate = (baseSpacing = 24, scale = 6) => {
 };
 
 export const neo = generate(16);
-
-export * from './themeOverride';
