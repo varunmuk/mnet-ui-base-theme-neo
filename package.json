@@ -13,7 +13,7 @@
     "url": "https://github.com/sabarnix/mnet-ui-base-theme-neo.git"
   },
   "peerDependencies": {
-    "mnet-icons": "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#grommet",
+    "mnet-icons": "git+ssh://git@tree.mn:saumik.s/mnet-icons.git",
     "grommet": "^2.19.1",
     "polished": "^3.4.1",
     "styled-components": "^4.0.0"
@@ -32,7 +32,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
-    "mnet-icons": "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#grommet",
+    "mnet-icons": "git+ssh://git@tree.mn:saumik.s/mnet-icons.git",
     "grommet": "^2.19.1",
     "polished": "^3.4.1",
     "pre-commit": "^1.2.2",
