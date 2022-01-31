@@ -1207,7 +1207,9 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       labelWrap: {
-        pad: false
+        pad: {
+          vertical: 'small'
+        }
       },
       controls: {
         label: {

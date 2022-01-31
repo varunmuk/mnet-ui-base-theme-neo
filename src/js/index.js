@@ -1073,7 +1073,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       labelWrap: {
-        pad: false,
+        pad: { vertical: 'small' },
       },
       controls: {
         label: {
