@@ -1981,28 +1981,40 @@ export var generate = function generate(baseSpacing, scale) {
     },
     selectBtns: {
       background: 'white',
-      border: {
-        radius: 'small',
-        size: '1px',
-        color: 'dark-6'
-      },
       font: {
         size: baseFontSize * 0.91 + "px",
         weight: 'bold'
       },
       box: {
+        border: {
+          size: '1px',
+          color: 'dark-6'
+        },
         pad: {
           vertical: '6px',
           horizontal: 'large'
         },
         hover: undefined,
         active: {
+          border: {
+            color: 'accent-3'
+          },
           color: 'white',
           weight: 600,
           background: 'accent-3'
         },
         extend: {
-          'border-radius': '0'
+          'border-width': '1px 0px 1px 0px',
+          '&:first-child': {
+            borderTopLeftRadius: '4px',
+            borderBottomLeftRadius: '4px',
+            borderWidth: '1px 0px 1px 1px'
+          },
+          '&:last-child': {
+            borderTopRightRadius: '4px',
+            borderBottomRightRadius: '4px',
+            borderWidth: '1px 1px 1px 0px'
+          }
         }
       }
     },
