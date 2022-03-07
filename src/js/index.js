@@ -374,7 +374,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     box: {
       responsiveBreakpoint: 'small', // when we switch rows to columns
-      // extend: undefined,
+      extend: ({ theme }) => ({
+        '::-webkit-scrollbar': {
+          width: `${baseSpacing * 0.25}px`,
+        },
+        '::-webkit-scrollbar-thumb': {
+          background: normalizeColor('dark-6', theme),
+          'border-radius': `${baseSpacing * 0.5}px`,
+        },
+      }),
     },
     button: {
       size: {
