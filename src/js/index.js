@@ -928,6 +928,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           level: 3,
           size: 'small',
           color: 'dark-3',
+          margin: '0',
         },
       },
       message: {

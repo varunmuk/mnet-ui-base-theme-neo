@@ -1043,7 +1043,8 @@ export var generate = function generate(baseSpacing, scale) {
         text: {
           level: 3,
           size: 'small',
-          color: 'dark-3'
+          color: 'dark-3',
+          margin: '0'
         }
       },
       message: {
