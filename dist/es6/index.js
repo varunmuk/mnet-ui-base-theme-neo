@@ -411,19 +411,23 @@ export var generate = function generate(baseSpacing, scale) {
       }
     },
     box: {
-      responsiveBreakpoint: 'small',
-      // when we switch rows to columns
-      extend: function extend(_ref2) {
-        var theme = _ref2.theme;
-        return {
-          '::-webkit-scrollbar': {
-            width: baseSpacing * 0.25 + "px"
-          },
-          '::-webkit-scrollbar-thumb': {
-            background: normalizeColor('dark-6', theme),
-            'border-radius': baseSpacing * 0.5 + "px"
-          }
-        };
+      responsiveBreakpoint: 'small' // when we switch rows to columns
+
+    },
+    scrollablebox: {
+      box: {
+        extend: function extend(_ref2) {
+          var theme = _ref2.theme;
+          return {
+            '::-webkit-scrollbar': {
+              width: baseSpacing * 0.25 + "px"
+            },
+            '::-webkit-scrollbar-thumb': {
+              background: normalizeColor('dark-6', theme),
+              'border-radius': baseSpacing * 0.5 + "px"
+            }
+          };
+        }
       }
     },
     button: {
@@ -1623,8 +1627,12 @@ export var generate = function generate(baseSpacing, scale) {
           vertical: baseSpacing / 2 + "px"
         },
         border: 'all',
-        background: 'light-8' // extend: undefined,
-
+        background: 'light-8',
+        // extend: undefined,
+        font: {
+          weight: 400
+        },
+        verticalAlign: 'middle'
       },
       body: {
         align: 'start',
@@ -1633,8 +1641,13 @@ export var generate = function generate(baseSpacing, scale) {
           vertical: baseSpacing / 2 + "px"
         },
         // background: undefined,
-        border: 'all' // extend: undefined,
-
+        border: 'all',
+        // extend: undefined,
+        extend: {
+          'font-weight': '600',
+          color: 'dark-3',
+          verticalAlign: 'middle'
+        }
       },
       // row: {
       //   hover: {
@@ -1653,9 +1666,54 @@ export var generate = function generate(baseSpacing, scale) {
         // extend: undefined,
 
       },
-      extend: {
-        borderRadius: baseSpacing / 3.2 + "px",
-        overflow: 'hidden'
+      extend: function extend(_ref13) {
+        var theme = _ref13.theme;
+        return {
+          position: 'relative',
+          'border-spacing': 0,
+          'border-collapse': 'separate',
+          height: 'auto',
+          overflow: 'hidden',
+          tr: {
+            'td, th': {
+              'border-bottom': 0,
+              'border-right': 0,
+              '&:last-child': {
+                'border-right': "1px solid " + normalizeColor('border', theme)
+              }
+            }
+          },
+          thead: {
+            th: {
+              'text-transform': 'uppercase',
+              '&:first-child': {
+                'border-top-left-radius': baseSpacing / 3.5 + "px"
+              },
+              '&:last-child': {
+                'border-top-right-radius': baseSpacing / 3.5 + "px"
+              }
+            }
+          },
+          tbody: {
+            tr: {
+              '&:last-child': {
+                th: {
+                  'border-bottom': "1px solid " + normalizeColor('border', theme),
+                  'border-bottom-left-radius': baseSpacing / 3.5 + "px"
+                },
+                td: {
+                  'border-bottom': "1px solid " + normalizeColor('border', theme),
+                  '&:last-child': {
+                    'border-bottom-right-radius': baseSpacing / 3.5 + "px"
+                  },
+                  '&:first-child': {
+                    'border-bottom-left-radius': baseSpacing / 3.5 + "px"
+                  }
+                }
+              }
+            }
+          }
+        };
       }
     },
     text: {
@@ -1669,8 +1727,8 @@ export var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: function extend(_ref13) {
-        var theme = _ref13.theme;
+      extend: function extend(_ref14) {
+        var theme = _ref14.theme;
         return {
           color: normalizeColor('dark-3', theme),
           fontWeight: 400
@@ -1692,14 +1750,14 @@ export var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref14) {
-        var plain = _ref14.plain,
-            focus = _ref14.focus,
-            reverse = _ref14.reverse,
-            icon = _ref14.icon,
-            theme = _ref14.theme,
-            readOnly = _ref14.readOnly,
-            error = _ref14.error;
+      extend: function extend(_ref15) {
+        var plain = _ref15.plain,
+            focus = _ref15.focus,
+            reverse = _ref15.reverse,
+            icon = _ref15.icon,
+            theme = _ref15.theme,
+            readOnly = _ref15.readOnly,
+            error = _ref15.error;
         return _extends({
           paddingTop: baseSpacing / 1.78 + "px",
           paddingBottom: baseSpacing / 1.78 + "px",
