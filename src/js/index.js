@@ -1413,7 +1413,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     tab: {
       active: {
         color: 'dark-3',
-        weight: 600,
+        weight: 700,
         // background: undefined,
       },
       // background: undefined,
@@ -1458,7 +1458,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
     },
     tabs: {
-      gap: 'large',
+      gap: 'xlarge',
       header: {
         border: {
           color: 'light-10',

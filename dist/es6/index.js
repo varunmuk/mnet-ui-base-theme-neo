@@ -1558,7 +1558,7 @@ export var generate = function generate(baseSpacing, scale) {
     tab: {
       active: {
         color: 'dark-3',
-        weight: 600 // background: undefined,
+        weight: 700 // background: undefined,
 
       },
       // background: undefined,
@@ -1603,7 +1603,7 @@ export var generate = function generate(baseSpacing, scale) {
       }
     },
     tabs: {
-      gap: 'large',
+      gap: 'xlarge',
       header: {
         border: {
           color: 'light-10',
