@@ -69,6 +69,7 @@ const lightColors = [
   '#CCCCCC',
   '#E0E4ED',
   '#edfff2',
+  '#EDF6FF',
 ];
 const chartColors = [
   '#FC564F',
@@ -1998,7 +1999,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         day: {
           hover: {
             color: 'dark-3',
-            background: '#EDF6FF',
+            background: lightColors[14],
           },
           selected: {
             color: 'white',
