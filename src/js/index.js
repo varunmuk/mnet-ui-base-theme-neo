@@ -153,7 +153,7 @@ const colors = {
   'selected-text': 'text-strong',
   white: '#FFFFFF',
   error: '#E15151',
-  'chart-grid': 'e6e6e6',
+  'chart-grid': '#e6e6e6',
 };
 
 const colorArray = (array, prefix) => array.forEach((color, index) => {

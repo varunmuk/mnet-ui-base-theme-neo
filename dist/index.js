@@ -122,7 +122,7 @@ var colors = {
   'selected-text': 'text-strong',
   white: '#FFFFFF',
   error: '#E15151',
-  'chart-grid': 'e6e6e6'
+  'chart-grid': '#e6e6e6'
 };
 
 var colorArray = function colorArray(array, prefix) {
