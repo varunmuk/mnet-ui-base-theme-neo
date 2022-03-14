@@ -107,7 +107,8 @@ var colors = {
   'selected-background': 'brand',
   'selected-text': 'text-strong',
   white: '#FFFFFF',
-  error: '#E15151'
+  error: '#E15151',
+  'chart-grid': 'e6e6e6'
 };
 
 var colorArray = function colorArray(array, prefix) {
@@ -2020,7 +2021,7 @@ export var generate = function generate(baseSpacing, scale) {
     },
     charts: {
       colors: chartColors,
-      gridColor: '#e6e6e6',
+      gridColor: colors['chart-grid'],
       // for all the grid lines except the axis one
       gridColorDark: 'lightgrey',
       // for grid line colors

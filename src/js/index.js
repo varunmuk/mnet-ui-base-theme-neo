@@ -153,6 +153,7 @@ const colors = {
   'selected-text': 'text-strong',
   white: '#FFFFFF',
   error: '#E15151',
+  'chart-grid': 'e6e6e6',
 };
 
 const colorArray = (array, prefix) => array.forEach((color, index) => {
@@ -1896,7 +1897,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     charts: {
       colors: chartColors,
-      gridColor: '#e6e6e6', // for all the grid lines except the axis one
+      gridColor: colors['chart-grid'], // for all the grid lines except the axis one
       gridColorDark: 'lightgrey', // for grid line colors
       gridStyles: {
         strokeWidth: '1', // for grid stroke
