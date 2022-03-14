@@ -9,7 +9,16 @@ import { FormNext } from 'grommet-icons/icons/FormNext';
 import { FormPrevious } from 'grommet-icons/icons/FormPrevious';
 
 const {
-  Close, Down, Error, LongArrowDown, TickCircle, Tick, Up,
+  Close,
+  Down,
+  Error,
+  LongArrowDown,
+  TickCircle,
+  Tick,
+  Up,
+  LongArrowUp,
+  Left,
+  Right,
 } = NeoComponents;
 Tick.notSvg = true;
 
@@ -18,7 +27,15 @@ addGoogleFont({
 });
 
 const brandColor = 'accent-3';
-const accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1'];
+const accentColors = [
+  '#38C18B',
+  '#8F94A6',
+  '#739FFC',
+  '#439ADC',
+  '#FC564F',
+  '#FFF2F1',
+  '#70A67F',
+];
 const neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 const statusColors = {
   critical: '#e35e59',
@@ -35,6 +52,7 @@ const darkColors = [
   '#898EA2',
   '#BABDCA',
   '#DEDEDE',
+  '#333333',
 ];
 const lightColors = [
   '#fbfbfb',
@@ -47,6 +65,33 @@ const lightColors = [
   '#F4F6F8',
   '#D9DBE5',
   '#E8E7E7',
+  '#F5F6FA',
+  '#CCCCCC',
+  '#E0E4ED',
+  '#edfff2',
+  '#EDF6FF',
+];
+const chartColors = [
+  '#FC564F',
+  '#719CF7',
+  '#36C18B',
+  '#FC90C9',
+  '#F5B473',
+  '#7371D9',
+  '#98DB98',
+  '#FC805A',
+  '#3165B0',
+  '#5DD8EB',
+  '#FCD743',
+  '#C94F78',
+  '#AFA392',
+  '#F5938C',
+  '#6A3A27',
+  '#DB2001',
+  '#3C9678',
+  '#575F7D',
+  '#650B7C',
+  '#9F7D56',
 ];
 const focusColor = '#B1C2FE';
 
@@ -108,6 +153,7 @@ const colors = {
   'selected-text': 'text-strong',
   white: '#FFFFFF',
   error: '#E15151',
+  'chart-grid': '#e6e6e6',
 };
 
 const colorArray = (array, prefix) => array.forEach((color, index) => {
@@ -118,6 +164,7 @@ colorArray(accentColors, 'accent');
 colorArray(darkColors, 'dark');
 colorArray(lightColors, 'light');
 colorArray(neutralColors, 'neutral');
+colorArray(chartColors, 'chart');
 Object.keys(statusColors).forEach(color => {
   colors[`status-${color}`] = statusColors[color];
 });
@@ -1765,6 +1812,214 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           cancel: {
             plain: true,
           },
+        },
+      },
+    },
+    card: {
+      container: {
+        background: 'white',
+        round: 'small',
+      },
+      header: {
+        pad: {
+          vertical: `${baseSpacing * 1.25}px`,
+          horizontal: `${baseSpacing * 1.25}px`,
+        },
+        color: 'dark-3',
+        font: { size: `${baseFontSize * 1.5}px` },
+      },
+      body: {
+        pad: {
+          top: `${baseSpacing * 1.25}px`,
+          left: `${baseSpacing * 1.25}px`,
+          right: `${baseSpacing * 1.25}px`,
+          bottom: `${baseSpacing * 1.25}px`,
+        },
+      },
+    },
+    tag: {
+      container: {
+        background: 'accent-3',
+        pad: { horizontal: 'small', vertical: 'xsmall' },
+        font: { size: `${baseFontSize * 0.83}px` },
+        color: 'white',
+        // extend:
+      },
+      danger: {
+        background: accentColors[4],
+        // extend:
+      },
+      plain: {
+        background: 'transparent',
+        color: undefined,
+      },
+      icon: {
+        cancel: Close,
+        // extend:
+      },
+    },
+    selectBtns: {
+      background: 'white',
+      font: {
+        size: `${baseFontSize * 0.91}px`,
+        weight: 'bold',
+      },
+      box: {
+        border: {
+          size: '1px',
+          color: 'dark-6',
+        },
+        pad: {
+          vertical: '6px',
+          horizontal: 'large',
+        },
+        hover: undefined,
+        active: {
+          border: { color: 'accent-3' },
+          color: 'white',
+          weight: 600,
+          background: 'accent-3',
+        },
+        extend: {
+          'border-width': '1px 0px 1px 0px',
+          '&:first-child': {
+            borderTopLeftRadius: '4px',
+            borderBottomLeftRadius: '4px',
+            borderWidth: '1px 0px 1px 1px',
+          },
+          '&:last-child': {
+            borderTopRightRadius: '4px',
+            borderBottomRightRadius: '4px',
+            borderWidth: '1px 1px 1px 0px',
+          },
+        },
+      },
+    },
+    charts: {
+      colors: chartColors,
+      gridColor: colors['chart-grid'], // for all the grid lines except the axis one
+      gridColorDark: 'lightgrey', // for grid line colors
+      gridStyles: {
+        strokeWidth: '1', // for grid stroke
+      },
+      svgLabelBig: {
+        fontFamily: 'open_sansregular',
+        fontSize: `${baseFontSize}px`,
+        fill: accentColors[1],
+      },
+      svgLabelSmall: {
+        fontFamily: 'open_sansregular',
+        fontSize: `${baseFontSize}px`,
+        fill: accentColors[1],
+      },
+      xAxisLineStyles: {
+        strokeWidth: '1',
+      },
+      yAxisLineStyles: {
+        strokeWidth: '1',
+      },
+    },
+    datePicker: {
+      tag: {
+        cursor: 'pointer',
+        margin: '0',
+        height: 'auto',
+        background: 'white',
+        padding: {
+          vertical: `${baseSpacing * 0.31}px`,
+          horizontal: `${baseSpacing * 0.63}px`,
+        },
+        border: {
+          hover: {
+            width: '1px',
+            color: darkColors[5],
+          },
+          width: '1px',
+          color: darkColors[5],
+        },
+        text: {
+          range: {
+            weight: '400',
+            color: 'dark-3',
+          },
+        },
+      },
+      navIcon: {
+        icon: {
+          left: Left,
+          right: Right,
+        },
+        color: 'dark-3',
+        size: 'large',
+        weight: 'bold',
+      },
+      range: {
+        icon: {
+          name: LongArrowUp,
+          size: `${baseFontSize * 1.33}px`,
+        },
+        text: {
+          weight: '400',
+          color: 'dark-3',
+          extend: {
+            fontWeight: '400',
+          },
+        },
+      },
+      week: {
+        top: '50px',
+        font: {
+          size: '1.2em',
+          color: 'dark-3',
+          weight: '600',
+        },
+      },
+
+      presets: {
+        menu: {
+          alignLeft: true,
+        },
+        item: {
+          font: {
+            color: 'dark-3',
+            size: `${baseFontSize}px`,
+          },
+          active: {
+            background: 'accent-3',
+            color: 'white',
+          },
+        },
+      },
+
+      zIndex: 10,
+
+      popup: {
+        boxShadow: '0px 4px 17px 0 rgba(181,181,181,0.47)',
+      },
+      calendar: {
+        day: {
+          hover: {
+            color: 'dark-3',
+            background: lightColors[14],
+          },
+          selected: {
+            color: 'white',
+            background: 'accent-3',
+          },
+        },
+      },
+
+      confirmButton: {
+        extend: {
+          padding: '12px 30px',
+          fontSize: `${baseFontSize * 1.166}px`,
+          height: '40px',
+          borderRadius: '4px',
+          '&:hover': {
+            boxShadow: '0 3px 10px 0 rgb(0 0 0 / 27%)',
+          },
+          fontWeight: '400',
+          width: 'auto !important',
         },
       },
     },
