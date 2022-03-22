@@ -421,7 +421,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     box: {
       responsiveBreakpoint: 'small', // when we switch rows to columns
-      // extend: undefined,
+    },
+    scrollablebox: {
+      box: {
+        extend: ({ theme }) => ({
+          '::-webkit-scrollbar': {
+            width: `${baseSpacing * 0.25}px`,
+          },
+          '::-webkit-scrollbar-thumb': {
+            background: normalizeColor('dark-6', theme),
+            'border-radius': `${baseSpacing * 0.5}px`,
+          },
+        }),
+      },
     },
     button: {
       size: {
@@ -967,6 +979,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           level: 3,
           size: 'small',
           color: 'dark-3',
+          margin: '0',
         },
       },
       message: {
@@ -1447,7 +1460,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     tab: {
       active: {
         color: 'dark-3',
-        weight: 600,
+        weight: 700,
         // background: undefined,
       },
       // background: undefined,
@@ -1492,7 +1505,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
     },
     tabs: {
-      gap: 'large',
+      gap: 'xlarge',
       header: {
         border: {
           color: 'light-10',
@@ -1516,8 +1529,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           vertical: `${baseSpacing / 2}px`,
         },
         border: 'all',
-        background: 'light-8',
-        // extend: undefined,
+        background: 'light-8', // extend: undefined,
+        font: {
+          weight: 400,
+        },
+        verticalAlign: 'middle',
       },
       body: {
         align: 'start',
@@ -1526,8 +1542,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           vertical: `${baseSpacing / 2}px`,
         },
         // background: undefined,
-        border: 'all',
-        // extend: undefined,
+        border: 'all', // extend: undefined,
+        extend: {
+          'font-weight': '600',
+          color: 'dark-3',
+          verticalAlign: 'middle',
+        },
       },
       // row: {
       //   hover: {
@@ -1537,16 +1557,61 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // },
       footer: {
         align: 'start',
-        pad: { horizontal: 'small', vertical: 'xsmall' },
-        border: 'top',
-        // verticalAlign: undefined,
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall',
+        },
+        border: 'top', // verticalAlign: undefined,
         // background: undefined,
         // extend: undefined,
+
       },
-      extend: {
-        borderRadius: `${baseSpacing / 3.2}px`,
+      extend: ({ theme }) => ({
+        position: 'relative',
+        'border-spacing': 0,
+        'border-collapse': 'separate',
+        height: 'auto',
         overflow: 'hidden',
-      },
+        tr: {
+          'td, th': {
+            'border-bottom': 0,
+            'border-right': 0,
+            '&:last-child': {
+              'border-right': `1px solid ${normalizeColor('border', theme)}`,
+            },
+          },
+        },
+        thead: {
+          th: {
+            'text-transform': 'uppercase',
+            '&:first-child': {
+              'border-top-left-radius': `${baseSpacing / 3.5}px`,
+            },
+            '&:last-child': {
+              'border-top-right-radius': `${baseSpacing / 3.5}px`,
+            },
+          },
+        },
+        tbody: {
+          tr: {
+            '&:last-child': {
+              th: {
+                'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+                'border-bottom-left-radius': `${baseSpacing / 3.5}px`,
+              },
+              td: {
+                'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+                '&:last-child': {
+                  'border-bottom-right-radius': `${baseSpacing / 3.5}px`,
+                },
+                '&:first-child': {
+                  'border-bottom-left-radius': `${baseSpacing / 3.5}px`,
+                },
+              },
+            },
+          },
+        },
+      }),
     },
     text: {
       xsmall: { ...fontSizing(-1.5) },
