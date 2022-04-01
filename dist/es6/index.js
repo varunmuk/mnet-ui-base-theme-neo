@@ -13,9 +13,10 @@ import { LongArrowDown } from "mnet-icons/dist/es6/icons/neo/LongArrowDown";
 import { TickCircle } from "mnet-icons/dist/es6/icons/neo/TickCircle";
 import { Tick } from "mnet-icons/dist/es6/icons/neo/Tick";
 import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
-import { LongArrowUp } from "mnet-icons/dist/es6/icons/neo/LongArrowUp";
+import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
 import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
+import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -26,26 +27,28 @@ Tick.notSvg = true;
 addGoogleFont({
   'Open Sans': ['400', '600', '700']
 });
-var brandColor = 'accent-3';
-var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1', '#70A67F', '#F2F5FC', '#f5f5f5', '#D7FCED', '#0AAD6C'];
+var brandColor = 'accent-12';
+var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1', '#70A67F', '#F2F5FC', '#f5f5f5', '#D7FCED', '#0AAD6C', '#5B8BF2', '#F6AA73'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
-  critical: '#e35e59',
-  error: '#FFECEC',
+  critical: '#FC564F',
+  error: '#FFE2E1',
   warning: '#AB7113',
-  ok: '#DFFFF2',
+  ok: '#D7FCED',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC',
   active: '#38C18B',
   stopped: '#FC564E',
-  notStarted: '#9DA2AD'
+  notStarted: '#898FA2',
+  errorText: '#FC564F',
+  okText: '#38C18B'
 };
-var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF'];
+var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#898FA2', '#DCDFE7', '#F8FAFE', '#D5D7DB'];
 var chartColors = ['#FC564F', '#719CF7', '#36C18B', '#FC90C9', '#F5B473', '#7371D9', '#98DB98', '#FC805A', '#3165B0', '#5DD8EB', '#FCD743', '#C94F78', '#AFA392', '#F5938C', '#6A3A27', '#DB2001', '#3C9678', '#575F7D', '#650B7C', '#9F7D56'];
 var focusColor = '#B1C2FE';
 var colors = {
-  active: '#FFFDE3',
+  active: '#F8FAFE',
   'background-back': {
     dark: '#33333308',
     light: '#F8FAFE'
@@ -63,7 +66,7 @@ var colors = {
   black: '#000000',
   border: {
     dark: rgba(255, 255, 255, 0.33),
-    light: '#DEDEDE'
+    light: '#DCDFE7'
   },
   brand: brandColor,
   control: {
@@ -80,7 +83,7 @@ var colors = {
   selected: 'light-7',
   text: {
     dark: '#f8f8f8',
-    light: '#898EA2'
+    light: '#333333'
   },
   'text-strong': {
     dark: '#FFFFFF',
@@ -102,7 +105,7 @@ var colors = {
   'selected-text': 'text-strong',
   white: '#FFFFFF',
   error: '#E15151',
-  'chart-grid': '#e6e6e6'
+  'chart-grid': '#DCDFE7'
 };
 
 var colorArray = function colorArray(array, prefix) {
@@ -136,7 +139,7 @@ export var generate = function generate(baseSpacing, scale) {
   var fontSizing = function fontSizing(factor) {
     return {
       size: baseFontSize + factor * fontScale + "px",
-      height: baseSpacing + factor * fontScale + "px",
+      height: baseSpacing * 1.25 + factor * fontScale + "px",
       // maxWidth chosen to be ~50 characters wide
       // see: https://ux.stackexchange.com/a/34125
       maxWidth: baseSpacing * (baseFontSize + factor * fontScale) + "px"
@@ -150,11 +153,11 @@ export var generate = function generate(baseSpacing, scale) {
       active: {
         background: {
           color: 'active',
-          opacity: 'medium'
+          opacity: 1
         },
         color: {
           dark: 'white',
-          light: '#898EA2'
+          light: 'dark-7'
         }
       },
       animation: {
@@ -257,7 +260,7 @@ export var generate = function generate(baseSpacing, scale) {
           var _ref$isTooltip = _ref.isTooltip,
               isTooltip = _ref$isTooltip === void 0 ? false : _ref$isTooltip;
           return {
-            'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)'
+            'box-shadow': !isTooltip && '0 2px 4px 0 rgba(0,0,0,0.26)'
           };
         }
       },
@@ -313,7 +316,7 @@ export var generate = function generate(baseSpacing, scale) {
       hover: {
         background: {
           color: 'active',
-          opacity: 'medium'
+          opacity: 1
         },
         color: {
           dark: 'white',
@@ -359,6 +362,9 @@ export var generate = function generate(baseSpacing, scale) {
         xxlarge: baseSpacing * 64 + "px",
         // 1536
         full: '100%'
+      },
+      codeSnippetFont: {
+        family: "'Roboto Mono', monospace"
       }
     },
     accordion: {
@@ -446,31 +452,33 @@ export var generate = function generate(baseSpacing, scale) {
 
           },
           pad: {
-            vertical: baseSpacing / 2.285 + "px",
-            horizontal: baseSpacing / 1.6 + "px"
+            vertical: baseSpacing * 0.125 + "px",
+            horizontal: baseSpacing * 0.5 + "px"
           }
         },
         medium: {
           border: {
-            radius: baseSpacing * 0.312 + "px" // 5px
-
+            radius: baseSpacing * 0.25 + "px"
           },
           pad: {
-            vertical: baseSpacing / 1.618 - borderWidth + "px",
-            horizontal: baseSpacing - borderWidth * 1.4 + "px"
+            vertical: baseSpacing * 0.375 + "px",
+            horizontal: baseSpacing + "px"
           }
         },
         large: {
           border: {
-            radius: baseSpacing * 0.4 + "px" // 24px
-
+            radius: baseSpacing * 0.25 + "px"
+          },
+          pad: {
+            vertical: baseSpacing * 0.5 + "px",
+            horizontal: baseSpacing * 1.5 + "px"
           }
         }
       },
       border: {
         // color: { dark: undefined, light: undefined }
         width: borderWidth + "px",
-        radius: baseSpacing * 0.312 + "px"
+        radius: baseSpacing * 0.25 + "px"
       },
       color: {
         dark: undefined,
@@ -479,42 +487,51 @@ export var generate = function generate(baseSpacing, scale) {
       "default": {
         background: 'transparent',
         border: 'none',
-        // color: undefined,
-        padding: {
-          vertical: '0',
-          horizontal: '0'
-        } // extend: undefined,
-
+        color: 'dark-7',
+        extend: {
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
       },
       primary: {
-        background: 'accent-1',
+        background: 'accent-12',
         border: {
           color: {
-            dark: 'accent-1',
-            light: 'accent-1'
+            dark: 'accent-12',
+            light: 'accent-12'
           }
         },
-        color: 'white' // padding: {
+        color: 'white',
+        // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
-        // extend: undefined,
-
+        extend: {
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
       },
       secondary: {
-        background: 'accent-2',
+        background: 'white',
         border: {
           color: {
-            dark: 'accent-2',
-            light: 'accent-2'
+            dark: 'transparent',
+            light: 'transparent'
           }
         },
-        color: 'white' // padding: {
+        color: 'accent-12',
+        // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
-        // extend: undefined,
-
+        extend: {
+          boxShadow: '0 1px 3px 0 rgba(0,0,0,0.25)',
+          '&:focus:not(:focus-visible)': {
+            boxShadow: '0 1px 3px 0 rgba(0,0,0,0.25) !important'
+          },
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
       },
       tertiary: {
         background: 'light-3',
@@ -523,30 +540,34 @@ export var generate = function generate(baseSpacing, scale) {
             dark: 'light-3',
             light: 'light-3'
           }
-        } // color: 'white',
-        // padding: {
-        //   vertical: undefined,
-        //   horizontal: undefined,
-        // },
-        // extend: undefined,
-
-      },
-      outline: {
-        background: 'white',
-        border: {
-          color: {
-            dark: 'accent-1',
-            light: 'accent-1'
-          },
-          width: '1px'
         },
-        color: 'accent-1',
+        // color: 'white',
         // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
         extend: {
-          fontWeight: 600
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
+      },
+      outline: {
+        background: 'white',
+        border: {
+          color: {
+            dark: 'accent-12',
+            light: 'accent-12'
+          },
+          width: '1px'
+        },
+        color: 'accent-12',
+        // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        extend: {
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
         }
       },
       active: {
@@ -569,29 +590,96 @@ export var generate = function generate(baseSpacing, scale) {
         background: undefined,
         border: undefined,
         color: undefined,
-        opacity: 0.6 //   extend: undefined,
-        //   default: {},
-        //   primary: {},
-        //   secondary: {},
-
+        opacity: 1,
+        //   extend: undefined,
+        "default": {
+          color: 'light-23'
+        },
+        primary: {
+          background: 'light-16',
+          color: 'light-17'
+        },
+        secondary: {
+          background: 'light-18',
+          color: 'light-19',
+          extend: {
+            boxShadow: 'none !important'
+          }
+        },
+        outline: {
+          background: 'light-18',
+          color: 'light-19',
+          border: {
+            color: 'light-19'
+          }
+        }
       },
-      // hover: {
-      //   background: undefined,
-      //   border: undefined,
-      //   color: undefined},
-      //   extend: undefined,
-      //   default: {},
-      //   primary: {},
-      //   secondary: {},
-      // },
+      hover: {
+        // background: undefined,
+        // border: undefined,
+        // color: undefined},
+        // extend: undefined,
+        "default": {
+          background: 'light-22',
+          color: 'dark-7'
+        },
+        primary: {
+          extend: {
+            boxShadow: '0 2px 3px 0 rgba(0,0,0,0.3)'
+          }
+        },
+        secondary: {
+          extend: {
+            boxShadow: '0 2px 3px 0 rgba(0,0,0,0.3)'
+          }
+        },
+        outline: {
+          background: lightColors[21],
+          color: 'accent-12'
+        }
+      },
       padding: {
         vertical: baseSpacing / 1.618 - borderWidth + "px",
         horizontal: baseSpacing - borderWidth * 1.4 + "px"
       },
       transition: {
-        timing: 'ease-in-out',
+        timing: 'linear',
         duration: 0.1,
         properties: ['color', 'background-color', 'border-color', 'box-shadow']
+      },
+      extend: function extend(props) {
+        var styles = [];
+
+        if (props.plain && props.disabled) {
+          styles.push('opacity: 0.6;');
+        }
+
+        switch (props.sizeProp) {
+          case 'large':
+            styles.push({
+              fontSize: baseFontSize * 1.16 + "px",
+              height: baseSpacing * 2.5 + "px"
+            });
+            break;
+
+          case 'medium':
+            styles.push({
+              fontSize: baseFontSize + "px",
+              height: baseSpacing * 2 + "px"
+            });
+            break;
+
+          case 'small':
+            styles.push({
+              fontSize: baseFontSize * 0.83 + "px",
+              height: baseSpacing * 1.5 + "px"
+            });
+            break;
+
+          default:
+        }
+
+        return styles;
       }
     },
     calendar: {
@@ -639,7 +727,7 @@ export var generate = function generate(baseSpacing, scale) {
           var checked = _ref3.checked,
               theme = _ref3.theme;
           return {
-            background: checked && normalizeColor('accent-3', theme),
+            background: checked ? normalizeColor('accent-12', theme) : 'white',
             border: checked && 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
@@ -655,7 +743,7 @@ export var generate = function generate(baseSpacing, scale) {
       // gap: undefined
       hover: {
         border: {
-          color: 'border'
+          color: 'dark-7'
         }
       },
       icon: {
@@ -704,7 +792,9 @@ export var generate = function generate(baseSpacing, scale) {
       extend: function extend(_ref5) {
         var theme = _ref5.theme;
         return {
-          color: normalizeColor('dark-3', theme)
+          color: normalizeColor('dark-7', theme),
+          fontWeight: 400,
+          marginBottom: '0px'
         };
       }
     },
@@ -802,9 +892,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       header: {
         extend: function extend() {
-          return {
-            textAlign: 'start'
-          };
+          return {};
         }
       },
       primary: {
@@ -971,11 +1059,20 @@ export var generate = function generate(baseSpacing, scale) {
             // weight: undefined,
           },
           small: _extends({}, fontSizing(1)),
-          medium: _extends({}, fontSizing(2)),
+          medium: _extends({}, fontSizing(2.25)),
           large: _extends({}, fontSizing(4)),
           xlarge: _extends({}, fontSizing(6))
         },
         4: {
+          font: {// family: undefined,
+            // weight: undefined,
+          },
+          small: _extends({}, fontSizing(0.75)),
+          medium: _extends({}, fontSizing(0.75)),
+          large: _extends({}, fontSizing(0.75)),
+          xlarge: _extends({}, fontSizing(0.75))
+        },
+        5: {
           font: {// family: undefined,
             // weight: undefined,
           },
@@ -984,7 +1081,7 @@ export var generate = function generate(baseSpacing, scale) {
           large: _extends({}, fontSizing(0)),
           xlarge: _extends({}, fontSizing(0))
         },
-        5: {
+        6: {
           font: {// family: undefined,
             // weight: undefined,
           },
@@ -992,15 +1089,6 @@ export var generate = function generate(baseSpacing, scale) {
           medium: _extends({}, fontSizing(-0.5)),
           large: _extends({}, fontSizing(-0.5)),
           xlarge: _extends({}, fontSizing(-0.5))
-        },
-        6: {
-          font: {// family: undefined,
-            // weight: undefined,
-          },
-          small: _extends({}, fontSizing(-1)),
-          medium: _extends({}, fontSizing(-1)),
-          large: _extends({}, fontSizing(-1)),
-          xlarge: _extends({}, fontSizing(-1))
         }
       },
       responsiveBreakpoint: 'small',
@@ -1099,9 +1187,6 @@ export var generate = function generate(baseSpacing, scale) {
         width: 'full',
         direction: 'row',
         justify: 'between',
-        pad: {
-          horizontal: 'medium'
-        },
         align: 'center'
       },
       checkbox: {
@@ -1197,7 +1282,7 @@ export var generate = function generate(baseSpacing, scale) {
               background: normalizeColor(twoColumnLayout ? 'white' : 'light-10', theme),
               padding: twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
               borderRadius: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              borderBottom: twoColumnLayout ? "1px solid " + normalizeColor('light-9', theme) : 'none',
+              borderBottom: 'none',
               justifyContent: twoColumnLayout ? 'space-between' : 'flex-start'
             };
           }
@@ -1230,7 +1315,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       labelWrap: {
         pad: {
-          vertical: 'small'
+          vertical: baseSpacing / 8 + "px"
         }
       },
       controls: {
@@ -1243,7 +1328,7 @@ export var generate = function generate(baseSpacing, scale) {
           }
         },
         wrapper: {
-          pad: 'medium',
+          pad: 'small',
           direction: 'row',
           height: {
             min: 'auto'
@@ -1393,7 +1478,7 @@ export var generate = function generate(baseSpacing, scale) {
             },
             pad: 'none',
             height: {
-              min: baseSpacing * 1.875 + "px"
+              min: baseSpacing * 2.13 + "px"
             }
           }
         }
@@ -1526,21 +1611,37 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       control: {
-        // open: undefined,
-        extend: function extend(_ref12) {
-          var theme = _ref12.theme,
-              disabled = _ref12.disabled,
-              plain = _ref12.callerPlain;
+        color: 'dark-7',
+        open: function open(_ref12) {
+          var plain = _ref12.callerPlain;
+          return !plain && {
+            borderBottomColor: accentColors[11],
+            backgroundColor: lightColors[21]
+          };
+        },
+        extend: function extend(_ref13) {
+          var theme = _ref13.theme,
+              disabled = _ref13.disabled,
+              plain = _ref13.callerPlain;
           return {
             border: !plain && "1px solid " + normalizeColor('dark-6', theme),
             input: {
-              color: normalizeColor('dark-4', theme),
+              color: normalizeColor('dark-7', theme),
               fontWeight: 400,
-              padding: '0px'
+              padding: '0px',
+              textOverflow: 'ellipsis',
+              '&::placeholder': {
+                color: normalizeColor('dark-7', theme),
+                opacity: 1
+              }
             },
-            padding: baseSpacing * 0.188 + "px " + baseSpacing * 0.625 + "px",
+            lineHeight: baseSpacing * 1.5 + "px",
+            padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px",
             background: normalizeColor(disabled ? 'light-1' : 'white', theme),
-            borderBottomWidth: !plain && theme.global.borderSize.small
+            borderBottomWidth: !plain && theme.global.borderSize.small,
+            '&:hover': {
+              borderBottomColor: accentColors[11]
+            }
           };
         }
       },
@@ -1548,22 +1649,36 @@ export var generate = function generate(baseSpacing, scale) {
         container: {
           align: 'start',
           pad: 'small',
+          // pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
           round: 'false',
-          border: {
-            side: 'bottom',
-            color: 'light-9'
-          }
+          // border: {
+          //   side: 'bottom',
+          //   color: colors.border.light,
+          // },
+          border: undefined
         },
         text: {
-          margin: 'small',
+          margin: baseSpacing * 0.31 + "px",
           color: 'dark-3'
+        },
+        check: {
+          box: {
+            margin: {
+              left: 'auto'
+            }
+          },
+          icon: {
+            name: Check,
+            size: 'xlarge',
+            color: darkColors[6]
+          }
         }
       },
       icons: {
-        color: 'dark-3',
+        color: 'dark-7',
         margin: {
-          vertical: 'small',
-          right: 'small'
+          vertical: 'none',
+          right: 'none'
         },
         background: 'transparent',
         size: 'xlarge',
@@ -1576,14 +1691,14 @@ export var generate = function generate(baseSpacing, scale) {
     },
     tab: {
       active: {
-        color: 'dark-3',
-        weight: 700 // background: undefined,
+        color: 'accent-12' // weight: 600,
+        // background: undefined,
 
       },
       // background: undefined,
       border: {
         side: 'bottom',
-        size: 'medium',
+        size: 'small',
         color: {
           dark: 'brand',
           light: 'white'
@@ -1591,34 +1706,38 @@ export var generate = function generate(baseSpacing, scale) {
         active: {
           color: {
             dark: 'white',
-            light: 'accent-3'
+            light: 'accent-12'
           }
         },
         hover: {
           color: {
             dark: 'white',
-            light: 'white'
+            light: 'accent-12'
           } // extend: undefined,
 
         }
       },
-      color: 'dark-4',
-      // extend: undefined,
+      color: 'dark-7',
+      extend: {
+        fontWeight: 600
+      },
       hover: {
         // background: undefined,
         // extend: undefined,
         color: {
           dark: 'white',
-          light: 'dark-3'
+          light: 'dark-7'
         }
       },
       margin: {
-        top: 'large',
+        top: baseSpacing + "px",
+        left: 'none',
         horizontal: 'small',
         bottom: 'none'
       },
       pad: {
-        bottom: 'large'
+        bottom: baseSpacing - 2 + "px" // 2px is  for border size
+
       }
     },
     tabs: {
@@ -1631,7 +1750,7 @@ export var generate = function generate(baseSpacing, scale) {
           side: 'bottom'
         },
         extend: {
-          'padding-left': baseSpacing * 1.2 + "px"
+          'padding-left': baseSpacing + "px"
         }
       },
       panel: {
@@ -1642,33 +1761,41 @@ export var generate = function generate(baseSpacing, scale) {
       header: {
         align: 'start',
         pad: {
-          horizontal: baseSpacing * 1.25 + "px",
-          vertical: baseSpacing / 2 + "px"
+          horizontal: baseSpacing + "px",
+          vertical: baseSpacing * 0.5 + "px"
         },
-        border: 'all',
-        background: 'light-8',
+        border: undefined,
+        background: 'light-3',
         // extend: undefined,
         font: {
           weight: 400
         },
-        verticalAlign: 'middle'
+        verticalAlign: 'middle',
+        extend: {
+          color: darkColors[7],
+          fontWeight: 600,
+          fontSize: fontSizing(-0.75).size,
+          lineHeight: fontSizing(-0.75).height
+        }
       },
       body: {
         align: 'start',
         pad: {
-          horizontal: baseSpacing * 1.25 + "px",
-          vertical: baseSpacing / 2 + "px"
+          horizontal: baseSpacing + "px",
+          vertical: baseSpacing * 0.5 + "px"
         },
         // background: undefined,
-        border: 'all',
+        border: {
+          color: colors.border.light,
+          side: 'all'
+        },
         // extend: undefined,
-        extend: function extend(_ref13) {
-          var theme = _ref13.theme;
-          return {
-            'font-weight': '600',
-            color: normalizeColor('dark-3', theme),
-            verticalAlign: 'middle'
-          };
+        extend: {
+          'font-weight': '400',
+          color: darkColors[6],
+          verticalAlign: 'middle',
+          fontSize: fontSizing(0).size,
+          lineHeight: fontSizing(0).height
         }
       },
       // row: {
@@ -1680,10 +1807,13 @@ export var generate = function generate(baseSpacing, scale) {
       footer: {
         align: 'start',
         pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
+          horizontal: baseSpacing + "px",
+          vertical: baseSpacing + "px"
         },
-        border: 'top' // verticalAlign: undefined,
+        border: {
+          color: colors.border.light,
+          side: 'top'
+        } // verticalAlign: undefined,
         // background: undefined,
         // extend: undefined,
 
@@ -1700,6 +1830,10 @@ export var generate = function generate(baseSpacing, scale) {
             'td, th': {
               'border-bottom': 0,
               'border-right': 0,
+              'border-left': 0,
+              '&:first-child': {
+                'border-left': "1px solid " + normalizeColor('border', theme)
+              },
               '&:last-child': {
                 'border-right': "1px solid " + normalizeColor('border', theme)
               }
@@ -1708,28 +1842,36 @@ export var generate = function generate(baseSpacing, scale) {
           thead: {
             th: {
               'text-transform': 'uppercase',
+              border: 'none',
               '&:first-child': {
-                'border-top-left-radius': baseSpacing / 3.5 + "px"
+                'border-top-left-radius': baseSpacing / 2.6666 + "px",
+                'border-left': 'none'
               },
               '&:last-child': {
-                'border-top-right-radius': baseSpacing / 3.5 + "px"
+                'border-top-right-radius': baseSpacing / 2.6666 + "px",
+                'border-right': 'none'
               }
             }
           },
           tbody: {
             tr: {
+              '&:first-child': {
+                'td, th': {
+                  borderTop: 'none'
+                }
+              },
               '&:last-child': {
                 th: {
                   'border-bottom': "1px solid " + normalizeColor('border', theme),
-                  'border-bottom-left-radius': baseSpacing / 3.5 + "px"
+                  'border-bottom-left-radius': baseSpacing / 2.6666 + "px"
                 },
                 td: {
                   'border-bottom': "1px solid " + normalizeColor('border', theme),
                   '&:last-child': {
-                    'border-bottom-right-radius': baseSpacing / 3.5 + "px"
+                    'border-bottom-right-radius': baseSpacing / 2.6666 + "px"
                   },
                   '&:first-child': {
-                    'border-bottom-left-radius': baseSpacing / 3.5 + "px"
+                    'border-bottom-left-radius': baseSpacing / 2.6666 + "px"
                   }
                 }
               }
@@ -1739,14 +1881,16 @@ export var generate = function generate(baseSpacing, scale) {
       }
     },
     text: {
-      xsmall: _extends({}, fontSizing(-1.5)),
-      small: _extends({}, fontSizing(-1)),
+      xsmall: _extends({}, fontSizing(-0.5)),
+      small: _extends({}, fontSizing(-0.75)),
       medium: _extends({}, fontSizing(0)),
       // 18px
-      large: _extends({}, fontSizing(1)),
+      large: _extends({}, fontSizing(0.75)),
       // 22px
-      xlarge: _extends({}, fontSizing(2)),
-      xxlarge: _extends({}, fontSizing(4))
+      xlarge: _extends({}, fontSizing(1.50)),
+      xxlarge: _extends({}, fontSizing(2.25)),
+      xxxlarge: _extends({}, fontSizing(3.75)),
+      xxxxlarge: _extends({}, fontSizing(4.5))
     },
     textArea: {
       extend: function extend(_ref15) {
@@ -1764,7 +1908,6 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       border: {
-        color: 'dark-6',
         side: 'all'
       },
       placeholder: {
@@ -1781,8 +1924,7 @@ export var generate = function generate(baseSpacing, scale) {
             readOnly = _ref16.readOnly,
             error = _ref16.error;
         return _extends({
-          paddingTop: baseSpacing / 1.78 + "px",
-          paddingBottom: baseSpacing / 1.78 + "px",
+          padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
           boxShadow: 'none',
           height: '100%',
           fontSize: theme.global.font.size,
@@ -1790,13 +1932,13 @@ export var generate = function generate(baseSpacing, scale) {
           fontWeight: 400,
           color: normalizeColor('dark-3', theme),
           paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
-          borderColor: error ? 'transparent' : !plain && normalizeColor('dark-6', theme)
+          borderColor: error ? 'transparent' : !plain && normalizeColor('border', theme)
+        }, !plain && {
+          minHeight: baseSpacing * 2.5 + "px"
         }, focus ? {
-          borderColor: !readOnly && 'transparent',
-          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && normalizeColor('accent-3', theme)),
-          background: "" + (!readOnly && normalizeColor('background-back', theme)),
-          borderBottomRightRadius: '0px',
-          borderBottomLeftRadius: '0px'
+          borderColor: !readOnly && normalizeColor('border', theme),
+          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && normalizeColor('accent-12', theme)),
+          background: "" + (!readOnly && normalizeColor('background-back', theme))
         } : {});
       }
     },
@@ -1888,8 +2030,8 @@ export var generate = function generate(baseSpacing, scale) {
           background: 'dark-1',
           direction: 'row',
           pad: {
-            horizontal: 'large',
-            vertical: 'medium'
+            horizontal: baseSpacing * 0.5 + "px",
+            vertical: baseSpacing * 0.5 + "px"
           },
           round: 'small',
           width: 'medium'
@@ -2011,24 +2153,60 @@ export var generate = function generate(baseSpacing, scale) {
     card: {
       container: {
         background: 'white',
-        round: 'small'
+        round: baseSpacing * 0.25 + "px",
+        extend: {
+          boxShadow: '0 1px 4px 0 rgba(0,0,0,0.1)',
+          color: 'inherit'
+        }
       },
       header: {
         pad: {
-          vertical: baseSpacing * 1.25 + "px",
-          horizontal: baseSpacing * 1.25 + "px"
+          vertical: baseSpacing + "px",
+          horizontal: baseSpacing + "px"
         },
-        color: 'dark-3',
+        color: 'dark-7',
         font: {
-          size: baseFontSize * 1.5 + "px"
+          size: baseFontSize * 1.5 + "px",
+          weight: '600'
+        },
+        close: {
+          icon: {
+            name: Close,
+            size: 'xlarge',
+            color: 'inherit'
+          },
+          wrapper: {
+            extend: {
+              color: lightColors[19],
+              '&:hover': {
+                color: darkColors[6]
+              }
+            }
+          }
+        },
+        iconWrapper: {
+          margin: {
+            right: 'large',
+            left: 'large'
+          }
         }
       },
       body: {
         pad: {
-          top: baseSpacing * 1.25 + "px",
-          left: baseSpacing * 1.25 + "px",
-          right: baseSpacing * 1.25 + "px",
-          bottom: baseSpacing * 1.25 + "px"
+          top: baseSpacing + "px",
+          left: baseSpacing + "px",
+          right: baseSpacing + "px",
+          bottom: baseSpacing + "px"
+        }
+      },
+      footer: {
+        justify: 'start',
+        gap: baseSpacing * 0.5 + "px",
+        pad: {
+          left: baseSpacing + "px",
+          right: baseSpacing + "px",
+          top: baseSpacing + "px",
+          bottom: baseSpacing + "px"
         }
       }
     },
@@ -2101,7 +2279,7 @@ export var generate = function generate(baseSpacing, scale) {
       colors: chartColors,
       gridColor: colors['chart-grid'],
       // for all the grid lines except the axis one
-      gridColorDark: 'lightgrey',
+      gridColorDark: colors['chart-grid'],
       // for grid line colors
       gridStyles: {
         strokeWidth: '1' // for grid stroke
@@ -2110,42 +2288,71 @@ export var generate = function generate(baseSpacing, scale) {
       svgLabelBig: {
         fontFamily: 'open_sansregular',
         fontSize: baseFontSize + "px",
-        fill: accentColors[1]
+        fill: darkColors[6]
       },
       svgLabelSmall: {
         fontFamily: 'open_sansregular',
         fontSize: baseFontSize + "px",
-        fill: accentColors[1]
+        fill: darkColors[6]
       },
       xAxisLineStyles: {
         strokeWidth: '1'
       },
       yAxisLineStyles: {
         strokeWidth: '1'
+      },
+      legend: {
+        circle: {
+          height: baseSpacing * 0.375 + "px",
+          width: baseSpacing * 0.375 + "px",
+          background: null
+        }
       }
     },
     datePicker: {
       tag: {
         cursor: 'pointer',
         margin: '0',
-        height: 'auto',
+        height: baseSpacing * 1.5 + "px",
         background: 'white',
         padding: {
-          vertical: baseSpacing * 0.31 + "px",
-          horizontal: baseSpacing * 0.63 + "px"
+          vertical: baseSpacing * 0.5 - 1.5 + "px",
+          horizontal: baseSpacing + "px"
         },
         border: {
           hover: {
             width: '1px',
-            color: darkColors[5]
+            color: colors.border.light,
+            bottom: {
+              width: '2px',
+              color: accentColors[11]
+            }
           },
           width: '1px',
-          color: darkColors[5]
+          color: colors.border.light,
+          bottom: {
+            width: '2px',
+            color: colors.border.light
+          }
         },
         text: {
           range: {
             weight: '400',
             color: 'dark-3'
+          }
+        },
+        extend: {
+          borderRadius: baseSpacing * 0.25 + "px",
+          color: darkColors[6]
+        }
+      },
+      isOpen: {
+        tag: {
+          background: lightColors[21],
+          border: {
+            bottom: {
+              color: accentColors[11]
+            }
           }
         }
       },
@@ -2160,12 +2367,12 @@ export var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: LongArrowUp,
-          size: baseFontSize * 1.33 + "px"
+          name: LongArrowRight,
+          size: baseFontSize + "px"
         },
         text: {
           weight: '400',
-          color: 'dark-3',
+          color: 'dark-7',
           extend: {
             fontWeight: '400'
           }
@@ -2185,18 +2392,27 @@ export var generate = function generate(baseSpacing, scale) {
         },
         item: {
           font: {
-            color: 'dark-3',
+            color: darkColors[6],
             size: baseFontSize + "px"
           },
           active: {
             background: 'accent-3',
             color: 'white'
+          },
+          extend: {
+            '&:first-child': {
+              borderTopLeftRadius: baseSpacing * 0.25 + "px"
+            }
           }
         }
       },
       zIndex: 10,
       popup: {
-        boxShadow: '0px 4px 17px 0 rgba(181,181,181,0.47)'
+        boxShadow: '0px 2px 4px 0 rgba(0,0,0,0.26)',
+        radius: baseSpacing * 0.25 + "px",
+        margin: {
+          top: baseSpacing * 0.5 + "px"
+        }
       },
       calendar: {
         day: {
@@ -2210,17 +2426,150 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
-      confirmButton: {
+      confirmButtonWrapper: {
         extend: {
-          padding: '12px 30px',
+          boxShadow: '0px 3px 4px 0 rgba(0,0,0,0.15)'
+        }
+      },
+      confirmButton: {
+        ok: {
+          size: 'large'
+        },
+        cancel: {
+          size: 'large',
+          secondary: undefined,
+          kind: 'default',
+          margin: {
+            left: baseSpacing * 0.5 + "px"
+          }
+        },
+        extend: {
+          padding: baseSpacing * 0.5 + "px " + baseSpacing * 1.5 + "px",
           fontSize: baseFontSize * 1.166 + "px",
-          height: '40px',
-          borderRadius: '4px',
-          '&:hover': {
-            boxShadow: '0 3px 10px 0 rgb(0 0 0 / 27%)'
-          },
-          fontWeight: '400',
+          height: baseSpacing * 2.5 + "px",
           width: 'auto !important'
+        }
+      }
+    },
+    setupSteps: {
+      container: {
+        direction: 'column' // extend;
+
+      },
+      steps: {
+        container: {// extend
+        },
+        step: {
+          container: {// extend
+          },
+          box: {
+            background: 'light-8',
+            round: '50%',
+            align: 'center',
+            width: baseSpacing * 2 + "px",
+            height: baseSpacing * 2 + "px" // extend
+
+          },
+          text: {
+            size: baseFontSize + "px",
+            weight: '600',
+            color: darkColors[6]
+          },
+          title: {
+            color: 'dark-7',
+            size: 'xxlarge',
+            margin: {
+              left: baseSpacing + "px"
+            },
+            weight: '600'
+          },
+          active: {
+            box: {
+              background: {
+                color: 'dark-8'
+              }
+            },
+            text: {
+              color: 'white'
+            }
+          },
+          complete: {
+            box: {
+              background: {
+                color: 'accent-1'
+              },
+              border: {
+                color: 'accent-1'
+              },
+              pad: {
+                vertical: 'xsmall'
+              }
+            },
+            checkicon: {
+              name: Tick,
+              color: 'white',
+              size: baseFontSize * 1.5 + "px"
+            }
+          }
+        },
+        connector: {
+          border: {
+            color: darkColors[5],
+            side: 'bottom'
+          },
+          margin: {
+            left: 'none',
+            right: 'none'
+          } // extend,
+
+        }
+      },
+      full: {
+        steps: {
+          container: {
+            gap: baseSpacing * 1.5 + "px"
+          },
+          connector: {
+            margin: {
+              left: baseSpacing * 1.25 + "px"
+            } // extend,
+
+          }
+        }
+      },
+      collapsed: {
+        container: {
+          direction: 'row',
+          align: 'center',
+          justify: 'center' // extend;
+
+        },
+        steps: {
+          container: {// extend: {},
+          },
+          connector: {
+            margin: {
+              left: baseSpacing * 1.5 + "px",
+              right: baseSpacing * 1.5 + "px"
+            } // extend,
+
+          },
+          step: {
+            container: {
+              extend: {
+                '&:last-child': {
+                  flex: '0 1 auto'
+                }
+              }
+            },
+            title: {
+              size: 'large'
+            },
+            box: {
+              width: baseSpacing * 1.5 + "px",
+              height: baseSpacing * 1.5 + "px"
+            }
+          }
         }
       }
     }
