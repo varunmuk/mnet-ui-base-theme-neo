@@ -2438,7 +2438,7 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-"mnet-icons@git+ssh://git@tree.mn:saumik.s/mnet-icons.git":
+"mnet-icons@git+ssh://git@tree.mn:saumik.s/mnet-icons.git#prebid-neo":
   version "0.0.1"
   resolved "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#98011987ea930c13f494d4428113bc75c7cfaffe"
   dependencies:

@@ -49,26 +49,28 @@ _Tick.Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
-var brandColor = 'accent-3';
-var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1', '#70A67F', '#F2F5FC', '#f5f5f5', '#D7FCED', '#0AAD6C'];
+var brandColor = 'accent-12';
+var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1', '#70A67F', '#F2F5FC', '#f5f5f5', '#D7FCED', '#0AAD6C', '#5B8BF2', '#F6AA73'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
-  critical: '#e35e59',
-  error: '#FFECEC',
+  critical: '#FC564F',
+  error: '#FFE2E1',
   warning: '#AB7113',
-  ok: '#DFFFF2',
+  ok: '#D7FCED',
   unknown: '#CCCCCC',
   disabled: '#CCCCCC',
   active: '#38C18B',
   stopped: '#FC564E',
-  notStarted: '#9DA2AD'
+  notStarted: '#9DA2AD',
+  errorText: '#FC564F',
+  okText: '#38C18B'
 };
-var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF'];
+var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#9DA2AD', '#DCDFE7', '#F8FAFE', '#D5D7DB'];
 var chartColors = ['#FC564F', '#719CF7', '#36C18B', '#FC90C9', '#F5B473', '#7371D9', '#98DB98', '#FC805A', '#3165B0', '#5DD8EB', '#FCD743', '#C94F78', '#AFA392', '#F5938C', '#6A3A27', '#DB2001', '#3C9678', '#575F7D', '#650B7C', '#9F7D56'];
 var focusColor = '#B1C2FE';
 var colors = {
-  active: '#FFFDE3',
+  active: '#F8FAFE',
   'background-back': {
     dark: '#33333308',
     light: '#F8FAFE'
@@ -86,7 +88,7 @@ var colors = {
   black: '#000000',
   border: {
     dark: (0, _polished.rgba)(255, 255, 255, 0.33),
-    light: '#DEDEDE'
+    light: '#DCDFE7'
   },
   brand: brandColor,
   control: {
@@ -103,7 +105,7 @@ var colors = {
   selected: 'light-7',
   text: {
     dark: '#f8f8f8',
-    light: '#898EA2'
+    light: '#333333'
   },
   'text-strong': {
     dark: '#FFFFFF',
@@ -125,7 +127,7 @@ var colors = {
   'selected-text': 'text-strong',
   white: '#FFFFFF',
   error: '#E15151',
-  'chart-grid': '#e6e6e6'
+  'chart-grid': '#DCDFE7'
 };
 
 var colorArray = function colorArray(array, prefix) {
@@ -160,7 +162,7 @@ var generate = function generate(baseSpacing, scale) {
   var fontSizing = function fontSizing(factor) {
     return {
       size: baseFontSize + factor * fontScale + "px",
-      height: baseSpacing + factor * fontScale + "px",
+      height: baseSpacing * 1.25 + factor * fontScale + "px",
       // maxWidth chosen to be ~50 characters wide
       // see: https://ux.stackexchange.com/a/34125
       maxWidth: baseSpacing * (baseFontSize + factor * fontScale) + "px"
@@ -174,11 +176,11 @@ var generate = function generate(baseSpacing, scale) {
       active: {
         background: {
           color: 'active',
-          opacity: 'medium'
+          opacity: 1
         },
         color: {
           dark: 'white',
-          light: '#898EA2'
+          light: 'dark-7'
         }
       },
       animation: {
@@ -337,7 +339,7 @@ var generate = function generate(baseSpacing, scale) {
       hover: {
         background: {
           color: 'active',
-          opacity: 'medium'
+          opacity: 1
         },
         color: {
           dark: 'white',
@@ -470,31 +472,33 @@ var generate = function generate(baseSpacing, scale) {
 
           },
           pad: {
-            vertical: baseSpacing / 2.285 + "px",
-            horizontal: baseSpacing / 1.6 + "px"
+            vertical: baseSpacing * 0.125 + "px",
+            horizontal: baseSpacing * 0.5 + "px"
           }
         },
         medium: {
           border: {
-            radius: baseSpacing * 0.312 + "px" // 5px
-
+            radius: baseSpacing * 0.25 + "px"
           },
           pad: {
-            vertical: baseSpacing / 1.618 - borderWidth + "px",
-            horizontal: baseSpacing - borderWidth * 1.4 + "px"
+            vertical: baseSpacing * 0.375 + "px",
+            horizontal: baseSpacing + "px"
           }
         },
         large: {
           border: {
-            radius: baseSpacing * 0.4 + "px" // 24px
-
+            radius: baseSpacing * 0.25 + "px"
+          },
+          pad: {
+            vertical: baseSpacing * 0.5 + "px",
+            horizontal: baseSpacing * 1.5 + "px"
           }
         }
       },
       border: {
         // color: { dark: undefined, light: undefined }
         width: borderWidth + "px",
-        radius: baseSpacing * 0.312 + "px"
+        radius: baseSpacing * 0.25 + "px"
       },
       color: {
         dark: undefined,
@@ -503,42 +507,51 @@ var generate = function generate(baseSpacing, scale) {
       "default": {
         background: 'transparent',
         border: 'none',
-        // color: undefined,
-        padding: {
-          vertical: '0',
-          horizontal: '0'
-        } // extend: undefined,
-
+        color: 'dark-7',
+        extend: {
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
       },
       primary: {
-        background: 'accent-1',
+        background: 'accent-12',
         border: {
           color: {
-            dark: 'accent-1',
-            light: 'accent-1'
+            dark: 'accent-12',
+            light: 'accent-12'
           }
         },
-        color: 'white' // padding: {
+        color: 'white',
+        // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
-        // extend: undefined,
-
+        extend: {
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
       },
       secondary: {
-        background: 'accent-2',
+        background: 'white',
         border: {
           color: {
-            dark: 'accent-2',
-            light: 'accent-2'
+            dark: 'transparent',
+            light: 'transparent'
           }
         },
-        color: 'white' // padding: {
+        color: 'accent-12',
+        // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
-        // extend: undefined,
-
+        extend: {
+          boxShadow: '0 1px 3px 0 rgba(0,0,0,0.25)',
+          '&:focus:not(:focus-visible)': {
+            boxShadow: '0 1px 3px 0 rgba(0,0,0,0.25) !important'
+          },
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
       },
       tertiary: {
         background: 'light-3',
@@ -547,30 +560,34 @@ var generate = function generate(baseSpacing, scale) {
             dark: 'light-3',
             light: 'light-3'
           }
-        } // color: 'white',
-        // padding: {
-        //   vertical: undefined,
-        //   horizontal: undefined,
-        // },
-        // extend: undefined,
-
-      },
-      outline: {
-        background: 'white',
-        border: {
-          color: {
-            dark: 'accent-1',
-            light: 'accent-1'
-          },
-          width: '1px'
         },
-        color: 'accent-1',
+        // color: 'white',
         // padding: {
         //   vertical: undefined,
         //   horizontal: undefined,
         // },
         extend: {
-          fontWeight: 600
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }
+      },
+      outline: {
+        background: 'white',
+        border: {
+          color: {
+            dark: 'accent-12',
+            light: 'accent-12'
+          },
+          width: '1px'
+        },
+        color: 'accent-12',
+        // padding: {
+        //   vertical: undefined,
+        //   horizontal: undefined,
+        // },
+        extend: {
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
         }
       },
       active: {
@@ -593,29 +610,96 @@ var generate = function generate(baseSpacing, scale) {
         background: undefined,
         border: undefined,
         color: undefined,
-        opacity: 0.6 //   extend: undefined,
-        //   default: {},
-        //   primary: {},
-        //   secondary: {},
-
+        opacity: 1,
+        //   extend: undefined,
+        "default": {
+          color: 'light-23'
+        },
+        primary: {
+          background: 'light-16',
+          color: 'light-17'
+        },
+        secondary: {
+          background: 'light-18',
+          color: 'light-19',
+          extend: {
+            boxShadow: 'none !important'
+          }
+        },
+        outline: {
+          background: 'light-18',
+          color: 'light-19',
+          border: {
+            color: 'light-19'
+          }
+        }
       },
-      // hover: {
-      //   background: undefined,
-      //   border: undefined,
-      //   color: undefined},
-      //   extend: undefined,
-      //   default: {},
-      //   primary: {},
-      //   secondary: {},
-      // },
+      hover: {
+        // background: undefined,
+        // border: undefined,
+        // color: undefined},
+        // extend: undefined,
+        "default": {
+          background: 'light-22',
+          color: 'dark-7'
+        },
+        primary: {
+          extend: {
+            boxShadow: '0 2px 3px 0 rgba(0,0,0,0.3)'
+          }
+        },
+        secondary: {
+          extend: {
+            boxShadow: '0 2px 3px 0 rgba(0,0,0,0.3)'
+          }
+        },
+        outline: {
+          background: lightColors[21],
+          color: 'accent-12'
+        }
+      },
       padding: {
         vertical: baseSpacing / 1.618 - borderWidth + "px",
         horizontal: baseSpacing - borderWidth * 1.4 + "px"
       },
       transition: {
-        timing: 'ease-in-out',
+        timing: 'linear',
         duration: 0.1,
         properties: ['color', 'background-color', 'border-color', 'box-shadow']
+      },
+      extend: function extend(props) {
+        var styles = [];
+
+        if (props.plain && props.disabled) {
+          styles.push('opacity: 0.6;');
+        }
+
+        switch (props.sizeProp) {
+          case 'large':
+            styles.push({
+              fontSize: baseFontSize * 1.16 + "px",
+              height: baseSpacing * 2.5 + "px"
+            });
+            break;
+
+          case 'medium':
+            styles.push({
+              fontSize: baseFontSize + "px",
+              height: baseSpacing * 2 + "px"
+            });
+            break;
+
+          case 'small':
+            styles.push({
+              fontSize: baseFontSize * 0.83 + "px",
+              height: baseSpacing * 1.5 + "px"
+            });
+            break;
+
+          default:
+        }
+
+        return styles;
       }
     },
     calendar: {
@@ -663,7 +747,7 @@ var generate = function generate(baseSpacing, scale) {
           var checked = _ref3.checked,
               theme = _ref3.theme;
           return {
-            background: checked && (0, _colors.normalizeColor)('accent-3', theme),
+            background: checked && (0, _colors.normalizeColor)('accent-12', theme),
             border: checked && 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
@@ -728,7 +812,9 @@ var generate = function generate(baseSpacing, scale) {
       extend: function extend(_ref5) {
         var theme = _ref5.theme;
         return {
-          color: (0, _colors.normalizeColor)('dark-3', theme)
+          color: (0, _colors.normalizeColor)('dark-7', theme),
+          fontWeight: 400,
+          marginBottom: '0px'
         };
       }
     },
@@ -995,11 +1081,20 @@ var generate = function generate(baseSpacing, scale) {
             // weight: undefined,
           },
           small: _extends({}, fontSizing(1)),
-          medium: _extends({}, fontSizing(2)),
+          medium: _extends({}, fontSizing(2.25)),
           large: _extends({}, fontSizing(4)),
           xlarge: _extends({}, fontSizing(6))
         },
         4: {
+          font: {// family: undefined,
+            // weight: undefined,
+          },
+          small: _extends({}, fontSizing(0.75)),
+          medium: _extends({}, fontSizing(0.75)),
+          large: _extends({}, fontSizing(0.75)),
+          xlarge: _extends({}, fontSizing(0.75))
+        },
+        5: {
           font: {// family: undefined,
             // weight: undefined,
           },
@@ -1008,7 +1103,7 @@ var generate = function generate(baseSpacing, scale) {
           large: _extends({}, fontSizing(0)),
           xlarge: _extends({}, fontSizing(0))
         },
-        5: {
+        6: {
           font: {// family: undefined,
             // weight: undefined,
           },
@@ -1016,15 +1111,6 @@ var generate = function generate(baseSpacing, scale) {
           medium: _extends({}, fontSizing(-0.5)),
           large: _extends({}, fontSizing(-0.5)),
           xlarge: _extends({}, fontSizing(-0.5))
-        },
-        6: {
-          font: {// family: undefined,
-            // weight: undefined,
-          },
-          small: _extends({}, fontSizing(-1)),
-          medium: _extends({}, fontSizing(-1)),
-          large: _extends({}, fontSizing(-1)),
-          xlarge: _extends({}, fontSizing(-1))
         }
       },
       responsiveBreakpoint: 'small',
@@ -1546,44 +1632,72 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       control: {
-        // open: undefined,
-        extend: function extend(_ref12) {
-          var theme = _ref12.theme,
-              disabled = _ref12.disabled,
-              plain = _ref12.callerPlain;
+        color: 'dark-7',
+        open: function open(_ref12) {
+          var plain = _ref12.callerPlain;
+          return !plain && {
+            borderBottomColor: accentColors[11],
+            backgroundColor: lightColors[21]
+          };
+        },
+        extend: function extend(_ref13) {
+          var theme = _ref13.theme,
+              disabled = _ref13.disabled,
+              plain = _ref13.callerPlain;
           return {
             border: !plain && "1px solid " + (0, _colors.normalizeColor)('dark-6', theme),
             input: {
-              color: (0, _colors.normalizeColor)('dark-4', theme),
+              color: (0, _colors.normalizeColor)('dark-7', theme),
               fontWeight: 400,
-              padding: '0px'
+              padding: '0px',
+              textOverflow: 'ellipsis'
             },
-            padding: baseSpacing * 0.188 + "px " + baseSpacing * 0.625 + "px",
+            lineHeight: baseSpacing * 1.5 + "px",
+            padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px",
             background: (0, _colors.normalizeColor)(disabled ? 'light-1' : 'white', theme),
-            borderBottomWidth: !plain && theme.global.borderSize.small
+            borderBottomWidth: !plain && theme.global.borderSize.small,
+            '&:hover': {
+              borderBottomColor: accentColors[11]
+            }
           };
         }
       },
       options: {
         container: {
           align: 'start',
-          pad: 'small',
+          pad: {
+            horizontal: baseSpacing * 0.75 + "px",
+            vertical: baseSpacing * 0.5 - 2 + "px"
+          },
           round: 'false',
-          border: {
-            side: 'bottom',
-            color: 'light-9'
-          }
+          // border: {
+          //   side: 'bottom',
+          //   color: colors.border.light,
+          // },
+          border: undefined
         },
         text: {
-          margin: 'small',
-          color: 'dark-3'
+          margin: baseSpacing * 0.25 + "px",
+          color: 'dark-7'
+        },
+        check: {
+          box: {
+            margin: {
+              left: 'auto'
+            }
+          },
+          icon: {
+            name: Check,
+            size: 'xlarge',
+            color: darkColors[6]
+          }
         }
       },
       icons: {
-        color: 'dark-3',
+        color: 'dark-7',
         margin: {
-          vertical: 'small',
-          right: 'small'
+          vertical: 'none',
+          right: 'none'
         },
         background: 'transparent',
         size: 'xlarge',
@@ -1596,14 +1710,14 @@ var generate = function generate(baseSpacing, scale) {
     },
     tab: {
       active: {
-        color: 'dark-3',
-        weight: 700 // background: undefined,
+        color: 'accent-12',
+        weight: 600 // background: undefined,
 
       },
       // background: undefined,
       border: {
         side: 'bottom',
-        size: 'medium',
+        size: 'small',
         color: {
           dark: 'brand',
           light: 'white'
@@ -1611,7 +1725,7 @@ var generate = function generate(baseSpacing, scale) {
         active: {
           color: {
             dark: 'white',
-            light: 'accent-3'
+            light: 'accent-12'
           }
         },
         hover: {
@@ -1622,7 +1736,7 @@ var generate = function generate(baseSpacing, scale) {
 
         }
       },
-      color: 'dark-4',
+      color: 'dark-7',
       // extend: undefined,
       hover: {
         // background: undefined,
@@ -1633,12 +1747,14 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       margin: {
-        top: 'large',
+        top: baseSpacing + "px",
+        left: 'none',
         horizontal: 'small',
         bottom: 'none'
       },
       pad: {
-        bottom: 'large'
+        bottom: baseSpacing - 2 + "px" // 2px is  for border size
+
       }
     },
     tabs: {
@@ -1651,7 +1767,7 @@ var generate = function generate(baseSpacing, scale) {
           side: 'bottom'
         },
         extend: {
-          'padding-left': baseSpacing * 1.2 + "px"
+          'padding-left': baseSpacing + "px"
         }
       },
       panel: {
@@ -1662,33 +1778,41 @@ var generate = function generate(baseSpacing, scale) {
       header: {
         align: 'start',
         pad: {
-          horizontal: baseSpacing * 1.25 + "px",
-          vertical: baseSpacing / 2 + "px"
+          horizontal: baseSpacing + "px",
+          vertical: baseSpacing * 0.5 + "px"
         },
-        border: 'all',
-        background: 'light-8',
+        border: undefined,
+        background: 'light-3',
         // extend: undefined,
         font: {
           weight: 400
         },
-        verticalAlign: 'middle'
+        verticalAlign: 'middle',
+        extend: {
+          color: darkColors[7],
+          fontWeight: 600,
+          fontSize: fontSizing(-0.75).size,
+          lineHeight: fontSizing(-0.75).height
+        }
       },
       body: {
         align: 'start',
         pad: {
-          horizontal: baseSpacing * 1.25 + "px",
-          vertical: baseSpacing / 2 + "px"
+          horizontal: baseSpacing + "px",
+          vertical: baseSpacing * 0.5 + "px"
         },
         // background: undefined,
-        border: 'all',
+        border: {
+          color: colors.border.light,
+          side: 'all'
+        },
         // extend: undefined,
-        extend: function extend(_ref13) {
-          var theme = _ref13.theme;
-          return {
-            'font-weight': '600',
-            color: (0, _colors.normalizeColor)('dark-3', theme),
-            verticalAlign: 'middle'
-          };
+        extend: {
+          'font-weight': '400',
+          color: darkColors[6],
+          verticalAlign: 'middle',
+          fontSize: fontSizing(0).size,
+          lineHeight: fontSizing(0).height
         }
       },
       // row: {
@@ -1700,10 +1824,13 @@ var generate = function generate(baseSpacing, scale) {
       footer: {
         align: 'start',
         pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
+          horizontal: baseSpacing + "px",
+          vertical: baseSpacing + "px"
         },
-        border: 'top' // verticalAlign: undefined,
+        border: {
+          color: colors.border.light,
+          side: 'top'
+        } // verticalAlign: undefined,
         // background: undefined,
         // extend: undefined,
 
@@ -1720,6 +1847,10 @@ var generate = function generate(baseSpacing, scale) {
             'td, th': {
               'border-bottom': 0,
               'border-right': 0,
+              'border-left': 0,
+              '&:first-child': {
+                'border-left': "1px solid " + (0, _colors.normalizeColor)('border', theme)
+              },
               '&:last-child': {
                 'border-right': "1px solid " + (0, _colors.normalizeColor)('border', theme)
               }
@@ -1729,10 +1860,10 @@ var generate = function generate(baseSpacing, scale) {
             th: {
               'text-transform': 'uppercase',
               '&:first-child': {
-                'border-top-left-radius': baseSpacing / 3.5 + "px"
+                'border-top-left-radius': baseSpacing / 2.6666 + "px"
               },
               '&:last-child': {
-                'border-top-right-radius': baseSpacing / 3.5 + "px"
+                'border-top-right-radius': baseSpacing / 2.6666 + "px"
               }
             }
           },
@@ -1741,15 +1872,15 @@ var generate = function generate(baseSpacing, scale) {
               '&:last-child': {
                 th: {
                   'border-bottom': "1px solid " + (0, _colors.normalizeColor)('border', theme),
-                  'border-bottom-left-radius': baseSpacing / 3.5 + "px"
+                  'border-bottom-left-radius': baseSpacing / 2.6666 + "px"
                 },
                 td: {
                   'border-bottom': "1px solid " + (0, _colors.normalizeColor)('border', theme),
                   '&:last-child': {
-                    'border-bottom-right-radius': baseSpacing / 3.5 + "px"
+                    'border-bottom-right-radius': baseSpacing / 2.6666 + "px"
                   },
                   '&:first-child': {
-                    'border-bottom-left-radius': baseSpacing / 3.5 + "px"
+                    'border-bottom-left-radius': baseSpacing / 2.6666 + "px"
                   }
                 }
               }
@@ -1759,14 +1890,16 @@ var generate = function generate(baseSpacing, scale) {
       }
     },
     text: {
-      xsmall: _extends({}, fontSizing(-1.5)),
-      small: _extends({}, fontSizing(-1)),
+      xsmall: _extends({}, fontSizing(-0.5)),
+      small: _extends({}, fontSizing(-0.75)),
       medium: _extends({}, fontSizing(0)),
       // 18px
-      large: _extends({}, fontSizing(1)),
+      large: _extends({}, fontSizing(0.75)),
       // 22px
-      xlarge: _extends({}, fontSizing(2)),
-      xxlarge: _extends({}, fontSizing(4))
+      xlarge: _extends({}, fontSizing(1.50)),
+      xxlarge: _extends({}, fontSizing(2.25)),
+      xxxlarge: _extends({}, fontSizing(3.75)),
+      xxxxlarge: _extends({}, fontSizing(4.5))
     },
     textArea: {
       extend: function extend(_ref15) {
@@ -1784,7 +1917,6 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       border: {
-        color: 'dark-6',
         side: 'all'
       },
       placeholder: {
@@ -1801,8 +1933,7 @@ var generate = function generate(baseSpacing, scale) {
             readOnly = _ref16.readOnly,
             error = _ref16.error;
         return _extends({
-          paddingTop: baseSpacing / 1.78 + "px",
-          paddingBottom: baseSpacing / 1.78 + "px",
+          padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
           boxShadow: 'none',
           height: '100%',
           fontSize: theme.global.font.size,
@@ -1810,13 +1941,13 @@ var generate = function generate(baseSpacing, scale) {
           fontWeight: 400,
           color: (0, _colors.normalizeColor)('dark-3', theme),
           paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
-          borderColor: error ? 'transparent' : !plain && (0, _colors.normalizeColor)('dark-6', theme)
+          borderColor: error ? 'transparent' : !plain && (0, _colors.normalizeColor)('border', theme)
+        }, !plain && {
+          minHeight: baseSpacing * 2.5 + "px"
         }, focus ? {
-          borderColor: !readOnly && 'transparent',
-          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && (0, _colors.normalizeColor)('accent-3', theme)),
-          background: "" + (!readOnly && (0, _colors.normalizeColor)('background-back', theme)),
-          borderBottomRightRadius: '0px',
-          borderBottomLeftRadius: '0px'
+          borderColor: !readOnly && (0, _colors.normalizeColor)('border', theme),
+          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && (0, _colors.normalizeColor)('accent-12', theme)),
+          background: "" + (!readOnly && (0, _colors.normalizeColor)('background-back', theme))
         } : {});
       }
     },
@@ -2031,24 +2162,60 @@ var generate = function generate(baseSpacing, scale) {
     card: {
       container: {
         background: 'white',
-        round: 'small'
+        round: baseSpacing * 0.25 + "px",
+        extend: {
+          boxShadow: '0 1px 4px 0 rgba(0,0,0,0.1)',
+          color: 'inherit'
+        }
       },
       header: {
         pad: {
-          vertical: baseSpacing * 1.25 + "px",
-          horizontal: baseSpacing * 1.25 + "px"
+          vertical: baseSpacing + "px",
+          horizontal: baseSpacing + "px"
         },
-        color: 'dark-3',
+        color: 'dark-7',
         font: {
-          size: baseFontSize * 1.5 + "px"
+          size: baseFontSize * 1.5 + "px",
+          weight: '600'
+        },
+        close: {
+          icon: {
+            name: Close,
+            size: 'xlarge',
+            color: 'inherit'
+          },
+          wrapper: {
+            extend: {
+              color: lightColors[19],
+              '&:hover': {
+                color: darkColors[6]
+              }
+            }
+          }
+        },
+        iconWrapper: {
+          margin: {
+            right: 'large',
+            left: 'large'
+          }
         }
       },
       body: {
         pad: {
-          top: baseSpacing * 1.25 + "px",
-          left: baseSpacing * 1.25 + "px",
-          right: baseSpacing * 1.25 + "px",
-          bottom: baseSpacing * 1.25 + "px"
+          top: baseSpacing + "px",
+          left: baseSpacing + "px",
+          right: baseSpacing + "px",
+          bottom: baseSpacing + "px"
+        }
+      },
+      footer: {
+        justify: 'start',
+        gap: baseSpacing * 0.5 + "px",
+        pad: {
+          left: baseSpacing + "px",
+          right: baseSpacing + "px",
+          top: baseSpacing + "px",
+          bottom: baseSpacing + "px"
         }
       }
     },
@@ -2121,7 +2288,7 @@ var generate = function generate(baseSpacing, scale) {
       colors: chartColors,
       gridColor: colors['chart-grid'],
       // for all the grid lines except the axis one
-      gridColorDark: 'lightgrey',
+      gridColorDark: colors['chart-grid'],
       // for grid line colors
       gridStyles: {
         strokeWidth: '1' // for grid stroke
@@ -2130,42 +2297,71 @@ var generate = function generate(baseSpacing, scale) {
       svgLabelBig: {
         fontFamily: 'open_sansregular',
         fontSize: baseFontSize + "px",
-        fill: accentColors[1]
+        fill: darkColors[6]
       },
       svgLabelSmall: {
         fontFamily: 'open_sansregular',
         fontSize: baseFontSize + "px",
-        fill: accentColors[1]
+        fill: darkColors[6]
       },
       xAxisLineStyles: {
         strokeWidth: '1'
       },
       yAxisLineStyles: {
         strokeWidth: '1'
+      },
+      legend: {
+        circle: {
+          height: baseSpacing * 0.375 + "px",
+          width: baseSpacing * 0.375 + "px",
+          background: null
+        }
       }
     },
     datePicker: {
       tag: {
         cursor: 'pointer',
         margin: '0',
-        height: 'auto',
+        height: baseSpacing * 1.5 + "px",
         background: 'white',
         padding: {
-          vertical: baseSpacing * 0.31 + "px",
-          horizontal: baseSpacing * 0.63 + "px"
+          vertical: baseSpacing * 0.5 - 1.5 + "px",
+          horizontal: baseSpacing + "px"
         },
         border: {
           hover: {
             width: '1px',
-            color: darkColors[5]
+            color: colors.border.light,
+            bottom: {
+              width: '2px',
+              color: accentColors[11]
+            }
           },
           width: '1px',
-          color: darkColors[5]
+          color: colors.border.light,
+          bottom: {
+            width: '2px',
+            color: colors.border.light
+          }
         },
         text: {
           range: {
             weight: '400',
             color: 'dark-3'
+          }
+        },
+        extend: {
+          borderRadius: baseSpacing * 0.25 + "px",
+          color: darkColors[6]
+        }
+      },
+      isOpen: {
+        tag: {
+          background: lightColors[21],
+          border: {
+            bottom: {
+              color: accentColors[11]
+            }
           }
         }
       },
@@ -2231,16 +2427,144 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       confirmButton: {
+        ok: {
+          size: 'large'
+        },
+        cancel: {
+          size: 'large',
+          secondary: undefined,
+          kind: 'default',
+          margin: {
+            left: baseSpacing * 0.5 + "px"
+          }
+        },
         extend: {
-          padding: '12px 30px',
+          padding: baseSpacing * 0.5 + "px " + baseSpacing * 1.5 + "px",
           fontSize: baseFontSize * 1.166 + "px",
-          height: '40px',
-          borderRadius: '4px',
-          '&:hover': {
-            boxShadow: '0 3px 10px 0 rgb(0 0 0 / 27%)'
-          },
-          fontWeight: '400',
+          height: baseSpacing * 2.5 + "px",
           width: 'auto !important'
+        }
+      }
+    },
+    setupSteps: {
+      container: {
+        direction: 'column' // extend;
+
+      },
+      steps: {
+        container: {// extend
+        },
+        step: {
+          container: {// extend
+          },
+          box: {
+            background: 'light-8',
+            round: '50%',
+            align: 'center',
+            width: baseSpacing * 2 + "px",
+            height: baseSpacing * 2 + "px" // extend
+
+          },
+          text: {
+            size: baseFontSize + "px",
+            weight: '600',
+            color: darkColors[6]
+          },
+          title: {
+            color: 'dark-7',
+            size: 'xxlarge',
+            margin: {
+              left: baseSpacing + "px"
+            },
+            weight: '600'
+          },
+          active: {
+            box: {
+              background: {
+                color: 'dark-8'
+              }
+            },
+            text: {
+              color: 'white'
+            }
+          },
+          complete: {
+            box: {
+              background: {
+                color: 'accent-1'
+              },
+              border: {
+                color: 'accent-1'
+              },
+              pad: {
+                vertical: 'xsmall'
+              }
+            },
+            checkicon: {
+              name: Tick,
+              color: 'white',
+              size: baseFontSize * 1.5 + "px"
+            }
+          }
+        },
+        connector: {
+          border: {
+            color: darkColors[5],
+            side: 'bottom'
+          },
+          margin: {
+            left: 'none',
+            right: 'none'
+          } // extend,
+
+        }
+      },
+      full: {
+        steps: {
+          container: {
+            gap: baseSpacing * 1.5 + "px"
+          },
+          connector: {
+            margin: {
+              left: baseSpacing * 1.25 + "px"
+            } // extend,
+
+          }
+        }
+      },
+      collapsed: {
+        container: {
+          direction: 'row',
+          align: 'center',
+          justify: 'center' // extend;
+
+        },
+        steps: {
+          container: {// extend: {},
+          },
+          connector: {
+            margin: {
+              left: baseSpacing * 1.5 + "px",
+              right: baseSpacing * 1.5 + "px"
+            } // extend,
+
+          },
+          step: {
+            container: {
+              extend: {
+                '&:last-child': {
+                  flex: '0 1 auto'
+                }
+              }
+            },
+            title: {
+              size: 'large'
+            },
+            box: {
+              width: baseSpacing * 1.625 + "px",
+              height: baseSpacing * 1.625 + "px"
+            }
+          }
         }
       }
     }
