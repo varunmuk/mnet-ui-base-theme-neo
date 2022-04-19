@@ -21,7 +21,15 @@ var _FormNext = require("grommet-icons/icons/FormNext");
 
 var _FormPrevious = require("grommet-icons/icons/FormPrevious");
 
-var _templateObject;
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -42,7 +50,7 @@ Tick.notSvg = true;
   'Open Sans': ['400', '600', '700']
 });
 var brandColor = 'accent-3';
-var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1', '#70A67F'];
+var accentColors = ['#38C18B', '#8F94A6', '#739FFC', '#439ADC', '#FC564F', '#FFF2F1', '#70A67F', '#F2F5FC', '#f5f5f5', '#D7FCED', '#0AAD6C'];
 var neutralColors = ['#519bff', '#99742E', '#00739D', '#A2423D'];
 var statusColors = {
   critical: '#e35e59',
@@ -50,7 +58,10 @@ var statusColors = {
   warning: '#AB7113',
   ok: '#DFFFF2',
   unknown: '#CCCCCC',
-  disabled: '#CCCCCC'
+  disabled: '#CCCCCC',
+  active: '#38C18B',
+  stopped: '#FC564E',
+  notStarted: '#9DA2AD'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333'];
 var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF'];
@@ -813,7 +824,13 @@ var generate = function generate(baseSpacing, scale) {
           size: 'xsmall'
         }
       },
-      header: {},
+      header: {
+        extend: function extend() {
+          return {
+            textAlign: 'start'
+          };
+        }
+      },
       primary: {
         weight: 'bold'
       },
@@ -1226,7 +1243,7 @@ var generate = function generate(baseSpacing, scale) {
           margin: 'medium',
           border: {
             side: 'top',
-            color: 'light-3'
+            color: 'dark-6'
           },
           color: 'dark-3',
           size: 'medium',
@@ -1270,7 +1287,7 @@ var generate = function generate(baseSpacing, scale) {
           pad: 'none',
           border: {
             side: 'bottom',
-            color: 'light-3'
+            color: 'dark-6'
           },
           style: {
             minHeight: baseSpacing * 2.5 + "px",
@@ -1307,7 +1324,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       rightPanel: {
-        border: 'light-3',
+        border: 'dark-6',
         incExcHeader: {
           box: {
             direction: 'row',
@@ -1316,7 +1333,7 @@ var generate = function generate(baseSpacing, scale) {
             background: 'white',
             border: {
               side: 'bottom',
-              color: 'light-3'
+              color: 'dark-6'
             },
             align: 'center'
           },
@@ -1351,7 +1368,7 @@ var generate = function generate(baseSpacing, scale) {
           direction: 'row',
           width: 'large',
           border: {
-            color: 'light-3'
+            color: 'dark-6'
           },
           round: 'small'
         },
@@ -1396,7 +1413,7 @@ var generate = function generate(baseSpacing, scale) {
             align: 'center',
             border: {
               side: 'top',
-              color: 'light-3'
+              color: 'dark-6'
             },
             pad: 'none',
             height: {
@@ -1440,7 +1457,7 @@ var generate = function generate(baseSpacing, scale) {
       container: {
         width: 'large',
         border: {
-          color: 'light-3'
+          color: 'dark-6'
         },
         round: 'small'
       }
@@ -1664,10 +1681,13 @@ var generate = function generate(baseSpacing, scale) {
         // background: undefined,
         border: 'all',
         // extend: undefined,
-        extend: {
-          'font-weight': '600',
-          color: 'dark-3',
-          verticalAlign: 'middle'
+        extend: function extend(_ref13) {
+          var theme = _ref13.theme;
+          return {
+            'font-weight': '600',
+            color: (0, _colors.normalizeColor)('dark-3', theme),
+            verticalAlign: 'middle'
+          };
         }
       },
       // row: {
@@ -1687,8 +1707,8 @@ var generate = function generate(baseSpacing, scale) {
         // extend: undefined,
 
       },
-      extend: function extend(_ref13) {
-        var theme = _ref13.theme;
+      extend: function extend(_ref14) {
+        var theme = _ref14.theme;
         return {
           position: 'relative',
           'border-spacing': 0,
@@ -1748,8 +1768,8 @@ var generate = function generate(baseSpacing, scale) {
       xxlarge: _extends({}, fontSizing(4))
     },
     textArea: {
-      extend: function extend(_ref14) {
-        var theme = _ref14.theme;
+      extend: function extend(_ref15) {
+        var theme = _ref15.theme;
         return {
           color: (0, _colors.normalizeColor)('dark-3', theme),
           fontWeight: 400
@@ -1771,14 +1791,14 @@ var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref15) {
-        var plain = _ref15.plain,
-            focus = _ref15.focus,
-            reverse = _ref15.reverse,
-            icon = _ref15.icon,
-            theme = _ref15.theme,
-            readOnly = _ref15.readOnly,
-            error = _ref15.error;
+      extend: function extend(_ref16) {
+        var plain = _ref16.plain,
+            focus = _ref16.focus,
+            reverse = _ref16.reverse,
+            icon = _ref16.icon,
+            theme = _ref16.theme,
+            readOnly = _ref16.readOnly,
+            error = _ref16.error;
         return _extends({
           paddingTop: baseSpacing / 1.78 + "px",
           paddingBottom: baseSpacing / 1.78 + "px",
@@ -1802,7 +1822,7 @@ var generate = function generate(baseSpacing, scale) {
     pagination: {
       control: {
         extend: function extend(props) {
-          return (0, _styledComponents.css)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "])), (0, _colors.normalizeColor)('light-4', props.theme), (0, _colors.normalizeColor)('light-4', props.theme));
+          return (0, _styledComponents.css)(_templateObject(), (0, _colors.normalizeColor)('light-4', props.theme), (0, _colors.normalizeColor)('light-4', props.theme));
         }
       },
       button: {
