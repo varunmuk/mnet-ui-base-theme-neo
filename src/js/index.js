@@ -1452,6 +1452,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         text: {
           margin: 'small',
+          color: 'dark-3',
         },
       },
       icons: {
