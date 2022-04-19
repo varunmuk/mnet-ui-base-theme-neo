@@ -1560,7 +1560,8 @@ export var generate = function generate(baseSpacing, scale) {
           }
         },
         text: {
-          margin: 'small'
+          margin: 'small',
+          color: 'dark-3'
         }
       },
       icons: {
