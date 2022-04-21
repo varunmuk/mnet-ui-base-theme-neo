@@ -7,7 +7,7 @@ var _polished = require("polished");
 
 var _googleFonts = require("google-fonts");
 
-var _mnetIcons = require("mnet-icons");
+var _neo = require("mnet-icons/dist/neo");
 
 var _styledComponents = require("styled-components");
 
@@ -21,31 +21,13 @@ var _FormNext = require("grommet-icons/icons/FormNext");
 
 var _FormPrevious = require("grommet-icons/icons/FormPrevious");
 
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-var Close = _mnetIcons.NeoComponents.Close,
-    Down = _mnetIcons.NeoComponents.Down,
-    Error = _mnetIcons.NeoComponents.Error,
-    LongArrowDown = _mnetIcons.NeoComponents.LongArrowDown,
-    TickCircle = _mnetIcons.NeoComponents.TickCircle,
-    Tick = _mnetIcons.NeoComponents.Tick,
-    Up = _mnetIcons.NeoComponents.Up,
-    LongArrowUp = _mnetIcons.NeoComponents.LongArrowUp,
-    Left = _mnetIcons.NeoComponents.Left,
-    Right = _mnetIcons.NeoComponents.Right;
-Tick.notSvg = true;
+_neo.Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
@@ -1424,14 +1406,14 @@ var generate = function generate(baseSpacing, scale) {
       },
       icons: {
         include: {
-          icon: TickCircle,
+          icon: _neo.TickCircle,
           extend: {
             color: 'accent-1',
             size: 'large'
           }
         },
         exclude: {
-          icon: TickCircle,
+          icon: _neo.TickCircle,
           extend: {
             color: 'error',
             size: 'large'
@@ -1587,8 +1569,8 @@ var generate = function generate(baseSpacing, scale) {
         },
         background: 'transparent',
         size: 'xlarge',
-        up: Up,
-        down: Down // extend: undefined,
+        up: _neo.Up,
+        down: _neo.Down // extend: undefined,
 
       },
       // searchInput: undefined,
@@ -1823,7 +1805,7 @@ var generate = function generate(baseSpacing, scale) {
     pagination: {
       control: {
         extend: function extend(props) {
-          return (0, _styledComponents.css)(_templateObject(), (0, _colors.normalizeColor)('light-4', props.theme), (0, _colors.normalizeColor)('light-4', props.theme));
+          return (0, _styledComponents.css)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "])), (0, _colors.normalizeColor)('light-4', props.theme), (0, _colors.normalizeColor)('light-4', props.theme));
         }
       },
       button: {
@@ -1922,16 +1904,16 @@ var generate = function generate(baseSpacing, scale) {
     },
     notification: {
       toast: {
-        closeIcon: Close,
+        closeIcon: _neo.Close,
         position: 'top-right',
         zIndex: 999,
         width: '60%',
         timeout: 2000,
         icon: {
           size: 'xlarge',
-          "default": TickCircle,
-          ok: TickCircle,
-          error: Error
+          "default": _neo.TickCircle,
+          ok: _neo.TickCircle,
+          error: _neo.Error
         },
         text: {
           "default": {
@@ -1994,10 +1976,10 @@ var generate = function generate(baseSpacing, scale) {
         primary: 'accent-3'
       },
       icons: {
-        up: Up,
-        down: Down,
-        changeArrow: LongArrowDown,
-        close: Close
+        up: _neo.Up,
+        down: _neo.Down,
+        changeArrow: _neo.LongArrowDown,
+        close: _neo.Close
       }
     },
     upload: {
@@ -2074,7 +2056,7 @@ var generate = function generate(baseSpacing, scale) {
         color: undefined
       },
       icon: {
-        cancel: Close // extend:
+        cancel: _neo.Close // extend:
 
       }
     },
@@ -2171,8 +2153,8 @@ var generate = function generate(baseSpacing, scale) {
       },
       navIcon: {
         icon: {
-          left: Left,
-          right: Right
+          left: _neo.Left,
+          right: _neo.Right
         },
         color: 'dark-3',
         size: 'large',
@@ -2180,7 +2162,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: LongArrowUp,
+          name: _neo.LongArrowUp,
           size: baseFontSize * 1.33 + "px"
         },
         text: {
