@@ -1,12 +1,4 @@
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
@@ -14,23 +6,13 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 import { rgba } from 'polished';
 import { add as addGoogleFont } from 'google-fonts';
-import { NeoComponents } from 'mnet-icons';
+import { Close, Down, Error, LongArrowDown, TickCircle, Tick, Up, LongArrowUp, Left, Right } from 'mnet-icons/dist/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
 import { parseMetricToNum } from 'grommet/utils/mixins';
 import { FormNext } from 'grommet-icons/icons/FormNext';
 import { FormPrevious } from 'grommet-icons/icons/FormPrevious';
-var Close = NeoComponents.Close,
-    Down = NeoComponents.Down,
-    Error = NeoComponents.Error,
-    LongArrowDown = NeoComponents.LongArrowDown,
-    TickCircle = NeoComponents.TickCircle,
-    Tick = NeoComponents.Tick,
-    Up = NeoComponents.Up,
-    LongArrowUp = NeoComponents.LongArrowUp,
-    Left = NeoComponents.Left,
-    Right = NeoComponents.Right;
 Tick.notSvg = true;
 addGoogleFont({
   'Open Sans': ['400', '600', '700']
@@ -1808,7 +1790,7 @@ export var generate = function generate(baseSpacing, scale) {
     pagination: {
       control: {
         extend: function extend(props) {
-          return css(_templateObject(), normalizeColor('light-4', props.theme), normalizeColor('light-4', props.theme));
+          return css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "])), normalizeColor('light-4', props.theme), normalizeColor('light-4', props.theme));
         }
       },
       button: {
