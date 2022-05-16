@@ -1,17 +1,15 @@
 import { rgba } from 'polished';
 import { add as addGoogleFont } from 'google-fonts';
-import {
-  Close,
-  Down,
-  Error,
-  LongArrowDown,
-  TickCircle,
-  Tick,
-  Up,
-  LongArrowUp,
-  Left,
-  Right,
-} from 'mnet-icons/dist/neo';
+import { Close } from 'mnet-icons/dist/Neo/icons/Close';
+import { Down } from 'mnet-icons/dist/Neo/icons/Down';
+import { Error } from 'mnet-icons/dist/Neo/icons/Error';
+import { LongArrowDown } from 'mnet-icons/dist/Neo/icons/LongArrowDown';
+import { TickCircle } from 'mnet-icons/dist/Neo/icons/TickCircle';
+import { Tick } from 'mnet-icons/dist/Neo/icons/Tick';
+import { Up } from 'mnet-icons/dist/Neo/icons/Up';
+import { LongArrowUp } from 'mnet-icons/dist/Neo/icons/LongArrowUp';
+import { Left } from 'mnet-icons/dist/Neo/icons/Left';
+import { Right } from 'mnet-icons/dist/Neo/icons/Right';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
