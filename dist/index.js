@@ -7,25 +7,25 @@ var _polished = require("polished");
 
 var _googleFonts = require("google-fonts");
 
-var _Close = require("mnet-icons/dist/Neo/icons/Close");
+var _Close = require("mnet-icons/dist/es6/icons/neo/Close");
 
-var _Down = require("mnet-icons/dist/Neo/icons/Down");
+var _Down = require("mnet-icons/dist/es6/icons/neo/Down");
 
-var _Error = require("mnet-icons/dist/Neo/icons/Error");
+var _Error = require("mnet-icons/dist/es6/icons/neo/Error");
 
-var _LongArrowDown = require("mnet-icons/dist/Neo/icons/LongArrowDown");
+var _LongArrowDown = require("mnet-icons/dist/es6/icons/neo/LongArrowDown");
 
-var _TickCircle = require("mnet-icons/dist/Neo/icons/TickCircle");
+var _TickCircle = require("mnet-icons/dist/es6/icons/neo/TickCircle");
 
-var _Tick = require("mnet-icons/dist/Neo/icons/Tick");
+var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
-var _Up = require("mnet-icons/dist/Neo/icons/Up");
+var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
-var _LongArrowUp = require("mnet-icons/dist/Neo/icons/LongArrowUp");
+var _LongArrowUp = require("mnet-icons/dist/es6/icons/neo/LongArrowUp");
 
-var _Left = require("mnet-icons/dist/Neo/icons/Left");
+var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
-var _Right = require("mnet-icons/dist/Neo/icons/Right");
+var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
 
 var _styledComponents = require("styled-components");
 

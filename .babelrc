@@ -12,7 +12,7 @@
           "skipDefaultConversion": true
         },
         "mnet-icons": {
-          "transform": "mnet-icons/dist/Neo/icons/${member}",
+          "transform": "mnet-icons/dist/es6/icons/neo/${member}",
           "preventFullImport": true,
           "skipDefaultConversion": true
         }
