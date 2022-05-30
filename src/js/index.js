@@ -11,7 +11,7 @@ import {
   LongArrowUp,
   Left,
   Right,
-} from 'mnet-icons';
+} from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';

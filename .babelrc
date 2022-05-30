@@ -11,7 +11,7 @@
           "preventFullImport": true,
           "skipDefaultConversion": true
         },
-        "mnet-icons": {
+        "mnet-icons/neo": {
           "transform": "mnet-icons/dist/es6/icons/neo/${member}",
           "preventFullImport": true,
           "skipDefaultConversion": true
