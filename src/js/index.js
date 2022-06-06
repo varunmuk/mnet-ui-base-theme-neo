@@ -1,14 +1,6 @@
 import { rgba } from 'polished';
 import { add as addGoogleFont } from 'google-fonts';
-import { NeoComponents } from 'mnet-icons';
-import { css } from 'styled-components';
-import { deepFreeze } from 'grommet/utils/object';
-import { normalizeColor } from 'grommet/utils/colors';
-import { parseMetricToNum } from 'grommet/utils/mixins';
-import { FormNext } from 'grommet-icons/icons/FormNext';
-import { FormPrevious } from 'grommet-icons/icons/FormPrevious';
-
-const {
+import {
   Close,
   Down,
   Error,
@@ -19,7 +11,13 @@ const {
   LongArrowUp,
   Left,
   Right,
-} = NeoComponents;
+} from 'mnet-icons/neo';
+import { css } from 'styled-components';
+import { deepFreeze } from 'grommet/utils/object';
+import { normalizeColor } from 'grommet/utils/colors';
+import { parseMetricToNum } from 'grommet/utils/mixins';
+import { FormNext, FormPrevious } from 'grommet-icons';
+
 Tick.notSvg = true;
 
 addGoogleFont({
