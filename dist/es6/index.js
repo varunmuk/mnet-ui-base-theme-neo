@@ -16,6 +16,7 @@ import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
 import { LongArrowUp } from "mnet-icons/dist/es6/icons/neo/LongArrowUp";
 import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
+import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';

@@ -27,6 +27,8 @@ var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
 
+var _Check = require("mnet-icons/dist/es6/icons/neo/Check");
+
 var _styledComponents = require("styled-components");
 
 var _object = require("grommet/utils/object");
@@ -1687,7 +1689,7 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           icon: {
-            name: Check,
+            name: _Check.Check,
             size: 'xlarge',
             color: darkColors[6]
           }
@@ -2180,7 +2182,7 @@ var generate = function generate(baseSpacing, scale) {
         },
         close: {
           icon: {
-            name: Close,
+            name: _Close.Close,
             size: 'xlarge',
             color: 'inherit'
           },
@@ -2501,7 +2503,7 @@ var generate = function generate(baseSpacing, scale) {
               }
             },
             checkicon: {
-              name: Tick,
+              name: _Tick.Tick,
               color: 'white',
               size: baseFontSize * 1.5 + "px"
             }
