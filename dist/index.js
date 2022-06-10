@@ -1652,7 +1652,11 @@ var generate = function generate(baseSpacing, scale) {
               color: (0, _colors.normalizeColor)('dark-7', theme),
               fontWeight: 400,
               padding: '0px',
-              textOverflow: 'ellipsis'
+              textOverflow: 'ellipsis',
+              '&::placeholder': {
+                color: (0, _colors.normalizeColor)('dark-7', theme),
+                opacity: 1
+              }
             },
             lineHeight: baseSpacing * 1.5 + "px",
             padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px",
