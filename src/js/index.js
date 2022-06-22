@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  LongArrowUp,
+  LongArrowRight,
   Left,
   Right,
   Check,
@@ -51,7 +51,7 @@ const statusColors = {
   disabled: '#CCCCCC',
   active: '#38C18B',
   stopped: '#FC564E',
-  notStarted: '#9DA2AD',
+  notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B',
 };
@@ -86,7 +86,7 @@ const lightColors = [
   '#F2F6FF',
   '#F9F9F9',
   '#BDD1FA',
-  '#9DA2AD',
+  '#898FA2',
   '#DCDFE7',
   '#F8FAFE',
   '#D5D7DB',
@@ -711,7 +711,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       check: {
         thickness: '2px',
         extend: ({ checked, theme }) => ({
-          background: checked && normalizeColor('accent-12', theme),
+          background: checked ? normalizeColor('accent-12', theme) : 'white',
           border: checked && 'unset',
           boxShadow: 'unset',
           borderRadius: '2px',
@@ -1612,7 +1612,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         hover: {
           color: {
             dark: 'white',
-            light: 'white',
+            light: 'accent-12',
           },
           // extend: undefined,
         },
@@ -1916,7 +1916,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         content: {
           background: 'dark-1',
           direction: 'row',
-          pad: { horizontal: 'large', vertical: 'medium' },
+          pad: { horizontal: `${baseSpacing * 0.5}px`, vertical: `${baseSpacing * 0.5}px` },
           round: 'small',
           width: 'medium',
         },
@@ -2222,8 +2222,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          name: LongArrowUp,
-          size: `${baseFontSize * 1.33}px`,
+          name: LongArrowRight,
+          size: `${baseFontSize}px`,
         },
         text: {
           weight: '400',
@@ -2396,8 +2396,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               size: 'large',
             },
             box: {
-              width: `${baseSpacing * 1.625}px`,
-              height: `${baseSpacing * 1.625}px`,
+              width: `${baseSpacing * 1.5}px`,
+              height: `${baseSpacing * 1.5}px`,
             },
           },
         },

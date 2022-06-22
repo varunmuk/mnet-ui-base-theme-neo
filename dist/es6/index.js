@@ -13,7 +13,7 @@ import { LongArrowDown } from "mnet-icons/dist/es6/icons/neo/LongArrowDown";
 import { TickCircle } from "mnet-icons/dist/es6/icons/neo/TickCircle";
 import { Tick } from "mnet-icons/dist/es6/icons/neo/Tick";
 import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
-import { LongArrowUp } from "mnet-icons/dist/es6/icons/neo/LongArrowUp";
+import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
 import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
@@ -39,12 +39,12 @@ var statusColors = {
   disabled: '#CCCCCC',
   active: '#38C18B',
   stopped: '#FC564E',
-  notStarted: '#9DA2AD',
+  notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#9DA2AD', '#DCDFE7', '#F8FAFE', '#D5D7DB'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#898FA2', '#DCDFE7', '#F8FAFE', '#D5D7DB'];
 var chartColors = ['#FC564F', '#719CF7', '#36C18B', '#FC90C9', '#F5B473', '#7371D9', '#98DB98', '#FC805A', '#3165B0', '#5DD8EB', '#FCD743', '#C94F78', '#AFA392', '#F5938C', '#6A3A27', '#DB2001', '#3C9678', '#575F7D', '#650B7C', '#9F7D56'];
 var focusColor = '#B1C2FE';
 var colors = {
@@ -724,7 +724,7 @@ export var generate = function generate(baseSpacing, scale) {
           var checked = _ref3.checked,
               theme = _ref3.theme;
           return {
-            background: checked && normalizeColor('accent-12', theme),
+            background: checked ? normalizeColor('accent-12', theme) : 'white',
             border: checked && 'unset',
             boxShadow: 'unset',
             borderRadius: '2px',
@@ -1712,7 +1712,7 @@ export var generate = function generate(baseSpacing, scale) {
         hover: {
           color: {
             dark: 'white',
-            light: 'white'
+            light: 'accent-12'
           } // extend: undefined,
 
         }
@@ -2020,8 +2020,8 @@ export var generate = function generate(baseSpacing, scale) {
           background: 'dark-1',
           direction: 'row',
           pad: {
-            horizontal: 'large',
-            vertical: 'medium'
+            horizontal: baseSpacing * 0.5 + "px",
+            vertical: baseSpacing * 0.5 + "px"
           },
           round: 'small',
           width: 'medium'
@@ -2357,8 +2357,8 @@ export var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: LongArrowUp,
-          size: baseFontSize * 1.33 + "px"
+          name: LongArrowRight,
+          size: baseFontSize + "px"
         },
         text: {
           weight: '400',
@@ -2542,8 +2542,8 @@ export var generate = function generate(baseSpacing, scale) {
               size: 'large'
             },
             box: {
-              width: baseSpacing * 1.625 + "px",
-              height: baseSpacing * 1.625 + "px"
+              width: baseSpacing * 1.5 + "px",
+              height: baseSpacing * 1.5 + "px"
             }
           }
         }
