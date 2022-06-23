@@ -1444,7 +1444,8 @@ var generate = function generate(baseSpacing, scale) {
           background: 'white'
         },
         showIcon: true,
-        color: 'accent-1'
+        color: 'accent-1',
+        fill: true
       },
       excludeBtn: {
         primary: false,
@@ -1452,7 +1453,8 @@ var generate = function generate(baseSpacing, scale) {
           background: 'white'
         },
         showIcon: true,
-        color: 'accent-5'
+        color: 'accent-5',
+        fill: true
       },
       container: {
         width: 'large',

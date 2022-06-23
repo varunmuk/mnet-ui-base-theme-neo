@@ -1326,6 +1326,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         showIcon: true,
         color: 'accent-1',
+        fill: true,
       },
       excludeBtn: {
         primary: false,
@@ -1334,6 +1335,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         showIcon: true,
         color: 'accent-5',
+        fill: true,
       },
       container: {
         width: 'large',
