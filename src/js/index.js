@@ -2267,6 +2267,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
 
       popup: {
         boxShadow: '0px 2px 4px 0 rgba(0,0,0,0.26)',
+        radius: `${baseSpacing * 0.25}px`,
       },
       calendar: {
         day: {
