@@ -2387,7 +2387,7 @@ var generate = function generate(baseSpacing, scale) {
         },
         text: {
           weight: '400',
-          color: 'dark-3',
+          color: 'dark-7',
           extend: {
             fontWeight: '400'
           }
@@ -2407,18 +2407,23 @@ var generate = function generate(baseSpacing, scale) {
         },
         item: {
           font: {
-            color: 'dark-3',
+            color: darkColors[6],
             size: baseFontSize + "px"
           },
           active: {
             background: 'accent-3',
             color: 'white'
+          },
+          extend: {
+            '&:first-child': {
+              borderTopLeftRadius: baseSpacing * 0.25 + "px"
+            }
           }
         }
       },
       zIndex: 10,
       popup: {
-        boxShadow: '0px 4px 17px 0 rgba(181,181,181,0.47)'
+        boxShadow: '0px 2px 4px 0 rgba(0,0,0,0.26)'
       },
       calendar: {
         day: {
@@ -2430,6 +2435,13 @@ var generate = function generate(baseSpacing, scale) {
             color: 'white',
             background: 'accent-3'
           }
+        }
+      },
+      confirmButtonWrapper: {
+        extend: {
+          boxShadow: '0px 3px 4px 0 rgba(0,0,0,0.15)',
+          borderBottomLeftRadius: baseSpacing * 0.25 + "px",
+          borderBottomRightRadius: baseSpacing * 0.25 + "px"
         }
       },
       confirmButton: {

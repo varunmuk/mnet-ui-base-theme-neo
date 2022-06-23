@@ -2227,7 +2227,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         text: {
           weight: '400',
-          color: 'dark-3',
+          color: 'dark-7',
           extend: {
             fontWeight: '400',
           },
@@ -2248,12 +2248,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         item: {
           font: {
-            color: 'dark-3',
+            color: darkColors[6],
             size: `${baseFontSize}px`,
           },
           active: {
             background: 'accent-3',
             color: 'white',
+          },
+          extend: {
+            '&:first-child': {
+              borderTopLeftRadius: `${baseSpacing * 0.25}px`,
+            },
           },
         },
       },
@@ -2261,7 +2266,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       zIndex: 10,
 
       popup: {
-        boxShadow: '0px 4px 17px 0 rgba(181,181,181,0.47)',
+        boxShadow: '0px 2px 4px 0 rgba(0,0,0,0.26)',
       },
       calendar: {
         day: {
@@ -2275,7 +2280,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
       },
-
+      confirmButtonWrapper: {
+        extend: {
+          boxShadow: '0px 3px 4px 0 rgba(0,0,0,0.15)',
+          borderBottomLeftRadius: `${baseSpacing * 0.25}px`,
+          borderBottomRightRadius: `${baseSpacing * 0.25}px`,
+        },
+      },
       confirmButton: {
         ok: {
           size: 'large',
