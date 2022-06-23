@@ -260,7 +260,7 @@ export var generate = function generate(baseSpacing, scale) {
           var _ref$isTooltip = _ref.isTooltip,
               isTooltip = _ref$isTooltip === void 0 ? false : _ref$isTooltip;
           return {
-            'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)'
+            'box-shadow': !isTooltip && '0 2px 4px 0 rgba(0,0,0,0.26)'
           };
         }
       },
@@ -1724,7 +1724,7 @@ export var generate = function generate(baseSpacing, scale) {
         // extend: undefined,
         color: {
           dark: 'white',
-          light: 'dark-3'
+          light: 'dark-7'
         }
       },
       margin: {

@@ -293,7 +293,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         zIndex: '20',
         marginTop: '4px',
         extend: ({ isTooltip = false }) => ({
-          'box-shadow': !isTooltip && '0 1px 7px 3px rgba(0,0,0,0.15)',
+          'box-shadow': !isTooltip && '0 2px 4px 0 rgba(0,0,0,0.26)',
         }),
       },
       edgeSize: {
@@ -1624,7 +1624,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         // extend: undefined,
         color: {
           dark: 'white',
-          light: 'dark-3',
+          light: 'dark-7',
         },
       },
       margin: {
