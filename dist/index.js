@@ -1342,7 +1342,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       labelWrap: {
         pad: {
-          vertical: 'small'
+          vertical: baseSpacing / 8 + "px"
         }
       },
       controls: {
@@ -1505,7 +1505,7 @@ var generate = function generate(baseSpacing, scale) {
             },
             pad: 'none',
             height: {
-              min: baseSpacing * 1.875 + "px"
+              min: baseSpacing * 2.13 + "px"
             }
           }
         }
@@ -1671,20 +1671,17 @@ var generate = function generate(baseSpacing, scale) {
       options: {
         container: {
           align: 'start',
-          pad: {
-            horizontal: baseSpacing * 0.75 + "px",
-            vertical: baseSpacing * 0.5 - 2 + "px"
-          },
+          pad: 'small',
+          // pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
           round: 'false',
-          // border: {
-          //   side: 'bottom',
-          //   color: colors.border.light,
-          // },
-          border: undefined
+          border: {
+            side: 'bottom',
+            color: colors.border.light
+          }
         },
         text: {
-          margin: baseSpacing * 0.25 + "px",
-          color: 'dark-7'
+          margin: baseSpacing * 0.31 + "px",
+          color: 'dark-3'
         },
         check: {
           box: {
@@ -1773,7 +1770,7 @@ var generate = function generate(baseSpacing, scale) {
           side: 'bottom'
         },
         extend: {
-          'padding-left': baseSpacing + "px"
+          'padding-left': baseSpacing * 1.618 + "px"
         }
       },
       panel: {

@@ -1240,7 +1240,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       labelWrap: {
-        pad: { vertical: 'small' },
+        pad: { vertical: `${baseSpacing / 8}px` },
       },
       controls: {
         label: {
@@ -1395,7 +1395,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
             pad: 'none',
             height: {
-              min: `${baseSpacing * 1.875}px`,
+              min: `${baseSpacing * 2.13}px`,
             },
           },
         },
@@ -1551,17 +1551,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       options: {
         container: {
           align: 'start',
-          pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
+          pad: 'small',
+          // pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
           round: 'false',
-          // border: {
-          //   side: 'bottom',
-          //   color: colors.border.light,
-          // },
-          border: undefined,
+          border: {
+            side: 'bottom',
+            color: colors.border.light,
+          },
         },
         text: {
-          margin: `${baseSpacing * 0.25}px`,
-          color: 'dark-7',
+          margin: `${baseSpacing * 0.31}px`,
+          color: 'dark-3',
         },
         check: {
           box: {
@@ -1647,7 +1647,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           side: 'bottom',
         },
         extend: {
-          'padding-left': `${baseSpacing}px`,
+          'padding-left': `${baseSpacing * 1.618}px`,
         },
       },
       panel: {
