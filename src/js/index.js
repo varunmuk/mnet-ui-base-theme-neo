@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  LongArrowRight,
+  // LongArrowRight,
   Left,
   Right,
   Check,
@@ -1575,13 +1575,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icons: {
-        color: 'dark-7',
+        color: 'dark-4',
         margin: {
           vertical: 'none',
           right: 'none',
         },
         background: 'transparent',
-        size: 'xlarge',
+        size: 'xxlarge',
         up: Up,
         down: Down,
         // extend: undefined,
@@ -2222,7 +2222,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          name: LongArrowRight,
+          // name: LongArrowRight,
           size: `${baseFontSize}px`,
         },
         text: {

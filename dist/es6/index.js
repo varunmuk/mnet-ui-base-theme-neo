@@ -13,8 +13,8 @@ import { LongArrowDown } from "mnet-icons/dist/es6/icons/neo/LongArrowDown";
 import { TickCircle } from "mnet-icons/dist/es6/icons/neo/TickCircle";
 import { Tick } from "mnet-icons/dist/es6/icons/neo/Tick";
 import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
-import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
-import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
+import { // LongArrowRight,
+Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { css } from 'styled-components';
@@ -1672,13 +1672,13 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'dark-7',
+        color: 'dark-4',
         margin: {
           vertical: 'none',
           right: 'none'
         },
         background: 'transparent',
-        size: 'xlarge',
+        size: 'xxlarge',
         up: Up,
         down: Down // extend: undefined,
 
@@ -2354,7 +2354,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: LongArrowRight,
+          // name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {

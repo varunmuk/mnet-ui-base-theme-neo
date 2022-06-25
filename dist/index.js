@@ -21,8 +21,6 @@ var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
 var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
-var _LongArrowRight = require("mnet-icons/dist/es6/icons/neo/LongArrowRight");
-
 var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
@@ -1697,13 +1695,13 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'dark-7',
+        color: 'dark-4',
         margin: {
           vertical: 'none',
           right: 'none'
         },
         background: 'transparent',
-        size: 'xlarge',
+        size: 'xxlarge',
         up: _Up.Up,
         down: _Down.Down // extend: undefined,
 
@@ -2379,7 +2377,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: _LongArrowRight.LongArrowRight,
+          // name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {
