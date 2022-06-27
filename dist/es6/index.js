@@ -2396,7 +2396,10 @@ export var generate = function generate(baseSpacing, scale) {
       zIndex: 10,
       popup: {
         boxShadow: '0px 2px 4px 0 rgba(0,0,0,0.26)',
-        radius: baseSpacing * 0.25 + "px"
+        radius: baseSpacing * 0.25 + "px",
+        margin: {
+          top: baseSpacing * 0.5 + "px"
+        }
       },
       calendar: {
         day: {
@@ -2412,9 +2415,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       confirmButtonWrapper: {
         extend: {
-          boxShadow: '0px 3px 4px 0 rgba(0,0,0,0.15)',
-          borderBottomLeftRadius: baseSpacing * 0.25 + "px",
-          borderBottomRightRadius: baseSpacing * 0.25 + "px"
+          boxShadow: '0px 3px 4px 0 rgba(0,0,0,0.15)'
         }
       },
       confirmButton: {

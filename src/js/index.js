@@ -2268,6 +2268,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       popup: {
         boxShadow: '0px 2px 4px 0 rgba(0,0,0,0.26)',
         radius: `${baseSpacing * 0.25}px`,
+        margin: { top: `${baseSpacing * 0.5}px` },
       },
       calendar: {
         day: {
@@ -2284,8 +2285,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       confirmButtonWrapper: {
         extend: {
           boxShadow: '0px 3px 4px 0 rgba(0,0,0,0.15)',
-          borderBottomLeftRadius: `${baseSpacing * 0.25}px`,
-          borderBottomRightRadius: `${baseSpacing * 0.25}px`,
         },
       },
       confirmButton: {
