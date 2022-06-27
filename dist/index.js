@@ -21,6 +21,8 @@ var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
 var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
+var _LongArrowRight = require("mnet-icons/dist/es6/icons/neo/LongArrowRight");
+
 var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
@@ -1672,10 +1674,11 @@ var generate = function generate(baseSpacing, scale) {
           pad: 'small',
           // pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
           round: 'false',
-          border: {
-            side: 'bottom',
-            color: colors.border.light
-          }
+          // border: {
+          //   side: 'bottom',
+          //   color: colors.border.light,
+          // },
+          border: undefined
         },
         text: {
           margin: baseSpacing * 0.31 + "px",
@@ -1695,13 +1698,13 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'dark-4',
+        color: 'dark-7',
         margin: {
           vertical: 'none',
           right: 'none'
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'xlarge',
         up: _Up.Up,
         down: _Down.Down // extend: undefined,
 
@@ -1768,7 +1771,7 @@ var generate = function generate(baseSpacing, scale) {
           side: 'bottom'
         },
         extend: {
-          'padding-left': baseSpacing * 1.618 + "px"
+          'padding-left': baseSpacing + "px"
         }
       },
       panel: {
@@ -2377,7 +2380,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: _LongArrowRight.LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {

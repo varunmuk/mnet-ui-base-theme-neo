@@ -13,8 +13,8 @@ import { LongArrowDown } from "mnet-icons/dist/es6/icons/neo/LongArrowDown";
 import { TickCircle } from "mnet-icons/dist/es6/icons/neo/TickCircle";
 import { Tick } from "mnet-icons/dist/es6/icons/neo/Tick";
 import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
-import { // LongArrowRight,
-Left } from "mnet-icons/dist/es6/icons/neo/Left";
+import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
+import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { css } from 'styled-components';
@@ -1649,10 +1649,11 @@ export var generate = function generate(baseSpacing, scale) {
           pad: 'small',
           // pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
           round: 'false',
-          border: {
-            side: 'bottom',
-            color: colors.border.light
-          }
+          // border: {
+          //   side: 'bottom',
+          //   color: colors.border.light,
+          // },
+          border: undefined
         },
         text: {
           margin: baseSpacing * 0.31 + "px",
@@ -1672,13 +1673,13 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'dark-4',
+        color: 'dark-7',
         margin: {
           vertical: 'none',
           right: 'none'
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'xlarge',
         up: Up,
         down: Down // extend: undefined,
 
@@ -1745,7 +1746,7 @@ export var generate = function generate(baseSpacing, scale) {
           side: 'bottom'
         },
         extend: {
-          'padding-left': baseSpacing * 1.618 + "px"
+          'padding-left': baseSpacing + "px"
         }
       },
       panel: {
@@ -2354,7 +2355,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {

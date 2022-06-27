@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  // LongArrowRight,
+  LongArrowRight,
   Left,
   Right,
   Check,
@@ -1554,10 +1554,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           pad: 'small',
           // pad: { horizontal: `${baseSpacing * 0.75}px`, vertical: `${baseSpacing * 0.5 - 2}px` },
           round: 'false',
-          border: {
-            side: 'bottom',
-            color: colors.border.light,
-          },
+          // border: {
+          //   side: 'bottom',
+          //   color: colors.border.light,
+          // },
+          border: undefined,
         },
         text: {
           margin: `${baseSpacing * 0.31}px`,
@@ -1575,13 +1576,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icons: {
-        color: 'dark-4',
+        color: 'dark-7',
         margin: {
           vertical: 'none',
           right: 'none',
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'xlarge',
         up: Up,
         down: Down,
         // extend: undefined,
@@ -1647,7 +1648,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           side: 'bottom',
         },
         extend: {
-          'padding-left': `${baseSpacing * 1.618}px`,
+          'padding-left': `${baseSpacing}px`,
         },
       },
       panel: {
@@ -2222,7 +2223,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: LongArrowRight,
           size: `${baseFontSize}px`,
         },
         text: {
