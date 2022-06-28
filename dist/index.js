@@ -21,8 +21,6 @@ var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
 var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
-var _LongArrowRight = require("mnet-icons/dist/es6/icons/neo/LongArrowRight");
-
 var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
@@ -914,9 +912,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       header: {
         extend: function extend() {
-          return {
-            textAlign: 'start'
-          };
+          return {};
         }
       },
       primary: {
@@ -1211,9 +1207,6 @@ var generate = function generate(baseSpacing, scale) {
         width: 'full',
         direction: 'row',
         justify: 'between',
-        pad: {
-          horizontal: 'medium'
-        },
         align: 'center'
       },
       checkbox: {
@@ -1309,7 +1302,7 @@ var generate = function generate(baseSpacing, scale) {
               background: (0, _colors.normalizeColor)(twoColumnLayout ? 'white' : 'light-10', theme),
               padding: twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
               borderRadius: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              borderBottom: twoColumnLayout ? "1px solid " + (0, _colors.normalizeColor)('light-9', theme) : 'none',
+              borderBottom: 'none',
               justifyContent: twoColumnLayout ? 'space-between' : 'flex-start'
             };
           }
@@ -2380,7 +2373,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: _LongArrowRight.LongArrowRight,
+          // name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {

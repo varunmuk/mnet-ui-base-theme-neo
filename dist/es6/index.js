@@ -13,8 +13,8 @@ import { LongArrowDown } from "mnet-icons/dist/es6/icons/neo/LongArrowDown";
 import { TickCircle } from "mnet-icons/dist/es6/icons/neo/TickCircle";
 import { Tick } from "mnet-icons/dist/es6/icons/neo/Tick";
 import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
-import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
-import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
+import { // LongArrowRight,
+Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { css } from 'styled-components';
@@ -889,9 +889,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       header: {
         extend: function extend() {
-          return {
-            textAlign: 'start'
-          };
+          return {};
         }
       },
       primary: {
@@ -1186,9 +1184,6 @@ export var generate = function generate(baseSpacing, scale) {
         width: 'full',
         direction: 'row',
         justify: 'between',
-        pad: {
-          horizontal: 'medium'
-        },
         align: 'center'
       },
       checkbox: {
@@ -1284,7 +1279,7 @@ export var generate = function generate(baseSpacing, scale) {
               background: normalizeColor(twoColumnLayout ? 'white' : 'light-10', theme),
               padding: twoColumnLayout ? baseSpacing / 1.618 + "px" : baseSpacing / (1.618 * 2) + "px " + baseSpacing / 1.618 + "px",
               borderRadius: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
-              borderBottom: twoColumnLayout ? "1px solid " + normalizeColor('light-9', theme) : 'none',
+              borderBottom: 'none',
               justifyContent: twoColumnLayout ? 'space-between' : 'flex-start'
             };
           }
@@ -2355,7 +2350,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: LongArrowRight,
+          // name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {

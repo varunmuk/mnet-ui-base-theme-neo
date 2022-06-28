@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  LongArrowRight,
+  // LongArrowRight,
   Left,
   Right,
   Check,
@@ -832,9 +832,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         border: { side: 'bottom', size: 'xsmall' },
       },
       header: {
-        extend: () => ({
-          textAlign: 'start',
-        }),
+        extend: () => ({}),
       },
       primary: {
         weight: 'bold',
@@ -1123,7 +1121,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         width: 'full',
         direction: 'row',
         justify: 'between',
-        pad: { horizontal: 'medium' },
         align: 'center',
       },
       checkbox: {
@@ -1205,9 +1202,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             borderRadius: twoColumnLayout
               ? 0
               : `${baseSpacing / (1.618 * 2)}px`,
-            borderBottom: twoColumnLayout
-              ? `1px solid ${normalizeColor('light-9', theme)}`
-              : 'none',
+            borderBottom: 'none',
             justifyContent: twoColumnLayout
               ? 'space-between'
               : 'flex-start',
@@ -2223,7 +2218,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          name: LongArrowRight,
+          // name: LongArrowRight,
           size: `${baseFontSize}px`,
         },
         text: {
