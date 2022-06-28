@@ -1856,6 +1856,7 @@ var generate = function generate(baseSpacing, scale) {
           thead: {
             th: {
               'text-transform': 'uppercase',
+              'border-top': "1px solid " + (0, _colors.normalizeColor)('border', theme),
               '&:first-child': {
                 'border-top-left-radius': baseSpacing / 2.6666 + "px"
               },

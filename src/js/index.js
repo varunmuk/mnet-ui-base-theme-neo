@@ -1725,6 +1725,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         thead: {
           th: {
             'text-transform': 'uppercase',
+            'border-top': `1px solid ${normalizeColor('border', theme)}`,
             '&:first-child': {
               'border-top-left-radius': `${baseSpacing / 2.6666}px`,
             },
