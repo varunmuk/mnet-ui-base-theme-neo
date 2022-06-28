@@ -1247,7 +1247,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
         wrapper: {
-          pad: 'medium',
+          pad: 'small',
           direction: 'row',
           height: {
             min: 'auto',

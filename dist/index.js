@@ -1348,7 +1348,7 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         wrapper: {
-          pad: 'medium',
+          pad: 'small',
           direction: 'row',
           height: {
             min: 'auto'
