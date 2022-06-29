@@ -21,6 +21,8 @@ var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
 var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
+var _LongArrowRight = require("mnet-icons/dist/es6/icons/neo/LongArrowRight");
+
 var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
@@ -385,6 +387,9 @@ var generate = function generate(baseSpacing, scale) {
         xxlarge: baseSpacing * 64 + "px",
         // 1536
         full: '100%'
+      },
+      codeSnippetFont: {
+        family: "'Roboto Mono', monospace"
       }
     },
     accordion: {
@@ -1856,12 +1861,14 @@ var generate = function generate(baseSpacing, scale) {
           thead: {
             th: {
               'text-transform': 'uppercase',
-              'border-top': "1px solid " + (0, _colors.normalizeColor)('border', theme),
+              border: 'none',
               '&:first-child': {
-                'border-top-left-radius': baseSpacing / 2.6666 + "px"
+                'border-top-left-radius': baseSpacing / 2.6666 + "px",
+                'border-left': 'none'
               },
               '&:last-child': {
-                'border-top-right-radius': baseSpacing / 2.6666 + "px"
+                'border-top-right-radius': baseSpacing / 2.6666 + "px",
+                'border-right': 'none'
               }
             }
           },
@@ -2374,7 +2381,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: _LongArrowRight.LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {

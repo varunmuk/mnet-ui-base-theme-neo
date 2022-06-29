@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  // LongArrowRight,
+  LongArrowRight,
   Left,
   Right,
   Check,
@@ -387,6 +387,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         xlarge: `${baseSpacing * 48}px`, // 1152
         xxlarge: `${baseSpacing * 64}px`, // 1536
         full: '100%',
+      },
+      codeSnippetFont: {
+        family: "'Roboto Mono', monospace",
       },
     },
     accordion: {
@@ -1725,12 +1728,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         thead: {
           th: {
             'text-transform': 'uppercase',
-            'border-top': `1px solid ${normalizeColor('border', theme)}`,
+            border: 'none',
             '&:first-child': {
               'border-top-left-radius': `${baseSpacing / 2.6666}px`,
+              'border-left': 'none',
             },
             '&:last-child': {
               'border-top-right-radius': `${baseSpacing / 2.6666}px`,
+              'border-right': 'none',
             },
           },
         },
@@ -2219,7 +2224,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: LongArrowRight,
           size: `${baseFontSize}px`,
         },
         text: {

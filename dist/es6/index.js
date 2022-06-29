@@ -13,8 +13,8 @@ import { LongArrowDown } from "mnet-icons/dist/es6/icons/neo/LongArrowDown";
 import { TickCircle } from "mnet-icons/dist/es6/icons/neo/TickCircle";
 import { Tick } from "mnet-icons/dist/es6/icons/neo/Tick";
 import { Up } from "mnet-icons/dist/es6/icons/neo/Up";
-import { // LongArrowRight,
-Left } from "mnet-icons/dist/es6/icons/neo/Left";
+import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
+import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { css } from 'styled-components';
@@ -362,6 +362,9 @@ export var generate = function generate(baseSpacing, scale) {
         xxlarge: baseSpacing * 64 + "px",
         // 1536
         full: '100%'
+      },
+      codeSnippetFont: {
+        family: "'Roboto Mono', monospace"
       }
     },
     accordion: {
@@ -1833,12 +1836,14 @@ export var generate = function generate(baseSpacing, scale) {
           thead: {
             th: {
               'text-transform': 'uppercase',
-              'border-top': "1px solid " + normalizeColor('border', theme),
+              border: 'none',
               '&:first-child': {
-                'border-top-left-radius': baseSpacing / 2.6666 + "px"
+                'border-top-left-radius': baseSpacing / 2.6666 + "px",
+                'border-left': 'none'
               },
               '&:last-child': {
-                'border-top-right-radius': baseSpacing / 2.6666 + "px"
+                'border-top-right-radius': baseSpacing / 2.6666 + "px",
+                'border-right': 'none'
               }
             }
           },
@@ -2351,7 +2356,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {
