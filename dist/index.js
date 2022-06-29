@@ -1712,8 +1712,8 @@ var generate = function generate(baseSpacing, scale) {
     },
     tab: {
       active: {
-        color: 'accent-12',
-        weight: 600 // background: undefined,
+        color: 'accent-12' // weight: 600,
+        // background: undefined,
 
       },
       // background: undefined,
@@ -1739,7 +1739,9 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       color: 'dark-7',
-      // extend: undefined,
+      extend: {
+        fontWeight: 600
+      },
       hover: {
         // background: undefined,
         // extend: undefined,
@@ -1874,6 +1876,11 @@ var generate = function generate(baseSpacing, scale) {
           },
           tbody: {
             tr: {
+              '&:first-child': {
+                'td, th': {
+                  borderTop: 'none'
+                }
+              },
               '&:last-child': {
                 th: {
                   'border-bottom': "1px solid " + (0, _colors.normalizeColor)('border', theme),
