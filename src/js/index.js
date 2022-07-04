@@ -726,7 +726,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // gap: undefined
       hover: {
         border: {
-          color: 'border',
+          color: 'dark-7',
         },
       },
       icon: {

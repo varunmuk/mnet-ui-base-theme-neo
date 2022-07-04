@@ -743,7 +743,7 @@ export var generate = function generate(baseSpacing, scale) {
       // gap: undefined
       hover: {
         border: {
-          color: 'border'
+          color: 'dark-7'
         }
       },
       icon: {
