@@ -1441,20 +1441,22 @@ var generate = function generate(baseSpacing, scale) {
       includeBtn: {
         primary: false,
         style: {
-          background: 'white'
+          background: 'white',
+          flexGrow: 1,
+          height: '100%'
         },
         showIcon: true,
-        color: 'accent-1',
-        fill: true
+        color: 'accent-1'
       },
       excludeBtn: {
         primary: false,
         style: {
-          background: 'white'
+          background: 'white',
+          flexGrow: 1,
+          height: '100%'
         },
         showIcon: true,
-        color: 'accent-5',
-        fill: true
+        color: 'accent-5'
       },
       container: {
         width: 'large',
