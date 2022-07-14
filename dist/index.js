@@ -1696,13 +1696,13 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'dark-7',
+        color: 'dark-4',
         margin: {
           vertical: 'none',
           right: 'none'
         },
         background: 'transparent',
-        size: 'xlarge',
+        size: 'xxlarge',
         up: _Up.Up,
         down: _Down.Down // extend: undefined,
 

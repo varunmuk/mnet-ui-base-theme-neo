@@ -1574,13 +1574,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icons: {
-        color: 'dark-7',
+        color: 'dark-4',
         margin: {
           vertical: 'none',
           right: 'none',
         },
         background: 'transparent',
-        size: 'xlarge',
+        size: 'xxlarge',
         up: Up,
         down: Down,
         // extend: undefined,
