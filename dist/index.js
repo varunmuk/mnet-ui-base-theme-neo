@@ -7,25 +7,7 @@ var _polished = require("polished");
 
 var _googleFonts = require("google-fonts");
 
-var _Close = require("mnet-icons/dist/es6/icons/neo/Close");
-
-var _Down = require("mnet-icons/dist/es6/icons/neo/Down");
-
-var _Error = require("mnet-icons/dist/es6/icons/neo/Error");
-
-var _LongArrowDown = require("mnet-icons/dist/es6/icons/neo/LongArrowDown");
-
-var _TickCircle = require("mnet-icons/dist/es6/icons/neo/TickCircle");
-
-var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
-
-var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
-
-var _LongArrowUp = require("mnet-icons/dist/es6/icons/neo/LongArrowUp");
-
-var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
-
-var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
+var _neo = require("mnet-icons/neo");
 
 var _styledComponents = require("styled-components");
 
@@ -45,7 +27,7 @@ function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.s
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-_Tick.Tick.notSvg = true;
+_neo.Tick.notSvg = true;
 (0, _googleFonts.add)({
   'Open Sans': ['400', '600', '700']
 });
@@ -1424,14 +1406,14 @@ var generate = function generate(baseSpacing, scale) {
       },
       icons: {
         include: {
-          icon: _TickCircle.TickCircle,
+          icon: _neo.TickCircle,
           extend: {
             color: 'accent-1',
             size: 'large'
           }
         },
         exclude: {
-          icon: _TickCircle.TickCircle,
+          icon: _neo.TickCircle,
           extend: {
             color: 'error',
             size: 'large'
@@ -1591,8 +1573,8 @@ var generate = function generate(baseSpacing, scale) {
         },
         background: 'transparent',
         size: 'xlarge',
-        up: _Up.Up,
-        down: _Down.Down // extend: undefined,
+        up: _neo.Up,
+        down: _neo.Down // extend: undefined,
 
       },
       // searchInput: undefined,
@@ -1926,16 +1908,16 @@ var generate = function generate(baseSpacing, scale) {
     },
     notification: {
       toast: {
-        closeIcon: _Close.Close,
+        closeIcon: _neo.Close,
         position: 'top-right',
         zIndex: 999,
         width: '60%',
         timeout: 2000,
         icon: {
           size: 'xlarge',
-          "default": _TickCircle.TickCircle,
-          ok: _TickCircle.TickCircle,
-          error: _Error.Error
+          "default": _neo.TickCircle,
+          ok: _neo.TickCircle,
+          error: _neo.Error
         },
         text: {
           "default": {
@@ -1998,10 +1980,10 @@ var generate = function generate(baseSpacing, scale) {
         primary: 'accent-3'
       },
       icons: {
-        up: _Up.Up,
-        down: _Down.Down,
-        changeArrow: _LongArrowDown.LongArrowDown,
-        close: _Close.Close
+        up: _neo.Up,
+        down: _neo.Down,
+        changeArrow: _neo.LongArrowDown,
+        close: _neo.Close
       }
     },
     upload: {
@@ -2078,7 +2060,7 @@ var generate = function generate(baseSpacing, scale) {
         color: undefined
       },
       icon: {
-        cancel: _Close.Close // extend:
+        cancel: _neo.Close // extend:
 
       }
     },
@@ -2175,8 +2157,8 @@ var generate = function generate(baseSpacing, scale) {
       },
       navIcon: {
         icon: {
-          left: _Left.Left,
-          right: _Right.Right
+          left: _neo.Left,
+          right: _neo.Right
         },
         color: 'dark-3',
         size: 'large',
@@ -2184,7 +2166,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: _LongArrowUp.LongArrowUp,
+          name: _neo.LongArrowUp,
           size: baseFontSize * 1.33 + "px"
         },
         text: {
