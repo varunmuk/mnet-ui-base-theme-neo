@@ -2440,7 +2440,7 @@ mkdirp@^0.5.1:
 
 "mnet-icons@git+ssh://git@tree.mn:saumik.s/mnet-icons.git#export-testing":
   version "0.0.1"
-  resolved "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#c1bb9f9a2f8467af6d46ceb00702401c973e0de7"
+  resolved "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#1627ea6cec981f1d2437b5f1ddfbbc921cc45918"
   dependencies:
     prop-types "^15.7.2"
     raw-loader "^4.0.1"
@@ -2497,7 +2497,7 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+  integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
 
 object-inspect@^1.11.0, object-inspect@^1.9.0:
   version "1.12.0"
