@@ -10,12 +10,12 @@
           "transform": "grommet-icons/es6/icons/${member}",
           "preventFullImport": true,
           "skipDefaultConversion": true
+        },
+        "mnet-icons/neo": {
+          "transform": "mnet-icons/dist/es6/icons/neo/${member}",
+          "preventFullImport": true,
+          "skipDefaultConversion": true
         }
-        // "mnet-icons/neo": {
-        //   "transform": "mnet-icons/dist/es6/icons/neo/${member}",
-        //   "preventFullImport": true,
-        //   "skipDefaultConversion": true
-        // }
       }
     ]
   ]
