@@ -66,6 +66,7 @@ const darkColors = [
   '#333333',
   '#898FA2',
 ];
+/* TODO: As per style guide only few colours to be used: need to remove unused colors */
 const lightColors = [
   '#fbfbfb',
   '#f5f6f8',
@@ -458,6 +459,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         }),
       },
     },
+    /* TODO: Button has so many extend.check and remove unnecessary extend */
     button: {
       size: {
         small: {
@@ -629,7 +631,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
         outline: {
-          background: lightColors[21],
+          background: 'light-22',
           color: 'accent-12',
         },
       },
@@ -1573,7 +1575,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icon: {
             name: Check,
             size: 'xlarge',
-            color: darkColors[6],
+            color: darkColors[6], // TODO: check dark-7 works ?
           },
         },
       },
