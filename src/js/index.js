@@ -1418,6 +1418,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         primary: false,
         style: {
           background: 'white',
+          flexGrow: 1,
+          height: '100%',
         },
         showIcon: true,
         color: 'accent-1',
@@ -1426,6 +1428,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         primary: false,
         style: {
           background: 'white',
+          flexGrow: 1,
+          height: '100%',
         },
         showIcon: true,
         color: 'accent-5',
