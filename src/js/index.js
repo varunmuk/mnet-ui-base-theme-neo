@@ -1680,7 +1680,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             borderBottomRightRadius: '0px',
             borderBottomLeftRadius: '0px',
           }
-          : {}),
+          : { borderBottom: `${theme.global.borderSize.small} solid transparent` }),
       }),
     },
     pagination: {

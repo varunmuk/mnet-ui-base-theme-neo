@@ -1795,7 +1795,9 @@ export var generate = function generate(baseSpacing, scale) {
           background: "" + (!readOnly && normalizeColor('background-back', theme)),
           borderBottomRightRadius: '0px',
           borderBottomLeftRadius: '0px'
-        } : {});
+        } : {
+          borderBottom: theme.global.borderSize.small + " solid transparent"
+        });
       }
     },
     pagination: {
