@@ -2320,6 +2320,94 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
     },
+    reporting: {
+      filters: {
+        tag: {
+          label: {
+            size: 'large',
+            margin: {
+              vertical: 'small',
+            },
+          },
+          selected: {
+            background: 'light-8',
+            pad: {
+              horizontal: 'medium',
+              vertical: '0',
+            },
+            border: {
+              color: 'border',
+            },
+            round: 'small',
+            width: {
+              min: `${baseSpacing * 11.25}px`,
+            },
+          },
+          subOpt: {
+            weight: 500,
+            size: 'large',
+          },
+          subOptNumber: {
+            margin: {
+              horizontal: 'medium',
+            },
+            pad: {
+              horizontal: 'small',
+            },
+            round: 'small',
+            background: 'brand',
+            extend: {
+              color: 'white',
+              fontWeight: 600,
+            },
+          },
+          icons: {
+            delete: Close,
+            size: 'medium',
+            color: 'dark-3',
+          },
+          iconButtons: {
+            margin: {
+              left: 'medium',
+            },
+          },
+          options: {
+            time: {
+              wrapper: {
+                border: {
+                  side: 'vertical',
+                  color: 'border',
+                },
+                pad: {
+                  horizontal: 'medium',
+                },
+                background: 'white',
+              },
+              item: {
+                switch: {
+                  container: {
+                    pad: '0',
+                    gap: 'medium',
+                  },
+                  option: {
+                    pad: {
+                      horizontal: 'small',
+                    },
+                    round: 'small',
+                  },
+                  text: {
+                    weight: 500,
+                    size: 'large',
+                    active: 'white',
+                    inactive: 'dark-3',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
     setupSteps: {
       container: {
         direction: 'column',
