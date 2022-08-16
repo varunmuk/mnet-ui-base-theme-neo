@@ -17,6 +17,7 @@ import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
 import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
+import { Plus } from "mnet-icons/dist/es6/icons/neo/Plus";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -50,7 +51,7 @@ var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADA
 var chartColors = ['#FC564F', '#719CF7', '#36C18B', '#FC90C9', '#F5B473', '#7371D9', '#98DB98', '#FC805A', '#3165B0', '#5DD8EB', '#FCD743', '#C94F78', '#AFA392', '#F5938C', '#6A3A27', '#DB2001', '#3C9678', '#575F7D', '#650B7C', '#9F7D56'];
 var focusColor = '#B1C2FE';
 var colors = {
-  active: '#F8FAFE',
+  active: '#F4F6F8',
   'background-back': {
     dark: '#33333308',
     light: '#F8FAFE'
@@ -2484,6 +2485,35 @@ export var generate = function generate(baseSpacing, scale) {
     },
     reporting: {
       filters: {
+        menu: {
+          icons: {
+            color: 'brand',
+            size: 'xlarge',
+            icon: Plus
+          },
+          item: {
+            hover: {
+              extend: function extend(_ref17) {
+                var theme = _ref17.theme;
+                return {
+                  color: normalizeColor('dark-7', theme)
+                };
+              }
+            },
+            extend: {
+              minWidth: baseSpacing * 10 + "px",
+              padding: baseSpacing / 4 + "px " + baseSpacing / 1.5 + "px",
+              fontSize: baseSpacing * 0.875 + "px"
+            }
+          },
+          list: {
+            extend: {
+              '&:hover': {
+                backgroundColor: 'transparent'
+              }
+            }
+          }
+        },
         tag: {
           label: {
             size: 'large',

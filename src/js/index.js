@@ -12,6 +12,7 @@ import {
   Left,
   Right,
   Check,
+  Plus,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -117,7 +118,7 @@ const chartColors = [
 const focusColor = '#B1C2FE';
 
 const colors = {
-  active: '#F8FAFE',
+  active: '#F4F6F8',
   'background-back': {
     dark: '#33333308',
     light: '#F8FAFE',
@@ -1790,8 +1791,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 },
               },
             },
-          }
-        }
+          },
+        },
       }),
     },
     text: {
@@ -2343,6 +2344,32 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     reporting: {
       filters: {
+        menu: {
+          icons: {
+            color: 'brand',
+            size: 'xlarge',
+            icon: Plus,
+          },
+          item: {
+            hover: {
+              extend: ({ theme }) => ({
+                color: normalizeColor('dark-7', theme),
+              }),
+            },
+            extend: {
+              minWidth: `${baseSpacing * 10}px`,
+              padding: `${baseSpacing / 4}px ${baseSpacing / 1.5}px`,
+              fontSize: `${baseSpacing * 0.875}px`,
+            },
+          },
+          list: {
+            extend: {
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
+            },
+          },
+        },
         tag: {
           label: {
             size: 'large',
