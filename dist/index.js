@@ -2622,6 +2622,9 @@ var generate = function generate(baseSpacing, scale) {
                 }
               }
             }
+          },
+          dropdown: {
+            width: 'medium'
           }
         },
         drop: {

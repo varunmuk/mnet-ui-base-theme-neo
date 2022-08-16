@@ -2453,6 +2453,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
             },
           },
+          dropdown: {
+            width: 'medium',
+          },
         },
         drop: {
           selection: {
