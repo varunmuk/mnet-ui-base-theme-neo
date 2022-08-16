@@ -2501,6 +2501,38 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
             },
           },
+          datepicker: {
+            container: {
+              border: {
+                side: 'bottom',
+                size: 'xsmall',
+              },
+            },
+            presets: {
+              wrapper: {
+                border: {
+                  side: 'right',
+                  size: 'xsmall',
+                },
+              },
+              date: {
+                item: {
+                  switch: {
+                    option: {
+                      width: '100%',
+                      pad: {
+                        vertical: 'small',
+                        horizontal: 'large',
+                      },
+                    },
+                    container: {
+                      gap: 'none',
+                    },
+                  },
+                },
+              },
+            },
+          },
           buttonPanel: {
             container: {
               pad: 'medium',
