@@ -1668,14 +1668,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           horizontal: `${baseSpacing}px`,
           vertical: `${baseSpacing * 0.5}px`,
         },
-        border: undefined,
-        background: 'light-3', // extend: undefined,
+        border: { color: colors.border.light, side: 'all' }, // extend: undefined,
+        background: 'light-8', // extend: undefined,
         font: {
           weight: 400,
         },
         verticalAlign: 'middle',
         extend: {
-          color: darkColors[7],
+          color: darkColors[6],
           fontWeight: 600,
           fontSize: fontSizing(-0.75).size,
           lineHeight: fontSizing(-0.75).height,
@@ -1707,12 +1707,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         align: 'start',
         pad: {
           horizontal: `${baseSpacing}px`,
-          vertical: `${baseSpacing}px`,
+          vertical: `${baseSpacing * 0.5}px`,
         },
-        border: { color: colors.border.light, side: 'top' }, // verticalAlign: undefined,
+        border: { color: colors.border.light, side: 'all' }, // verticalAlign: undefined,
         // background: undefined,
-        // extend: undefined,
-
+        extend: {
+          'font-weight': '600',
+          color: darkColors[6],
+          verticalAlign: 'middle',
+          fontSize: fontSizing(0).size,
+          lineHeight: fontSizing(0).height,
+        },
       },
       extend: ({ theme }) => ({
         position: 'relative',
@@ -1724,7 +1729,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           'td, th': {
             'border-bottom': 0,
             'border-right': 0,
-            'border-left': 0,
             '&:first-child': {
               'border-left': `1px solid ${normalizeColor('border', theme)}`,
             },
@@ -1736,15 +1740,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         thead: {
           th: {
             'text-transform': 'uppercase',
-            border: 'none',
             '&:first-child': {
               'border-top-left-radius': `${baseSpacing / 2.6666}px`,
-              'border-left': 'none',
             },
             '&:last-child': {
               'border-top-right-radius': `${baseSpacing / 2.6666}px`,
-              'border-right': 'none',
             },
+            'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
           },
         },
         tbody: {
@@ -1754,6 +1756,25 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 borderTop: 'none',
               },
             },
+            // '&:last-child': {
+            //   th: {
+            //     'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+            //     'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
+            //   },
+            //   td: {
+            //     'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+            //     '&:last-child': {
+            //       'border-bottom-right-radius': `${baseSpacing / 2.6666}px`,
+            //     },
+            //     '&:first-child': {
+            //       'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
+            //     },
+            //   },
+            // },
+          },
+        },
+        tfoot: {
+          tr: {
             '&:last-child': {
               th: {
                 'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
@@ -1769,8 +1790,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 },
               },
             },
-          },
-        },
+          }
+        }
       }),
     },
     text: {
