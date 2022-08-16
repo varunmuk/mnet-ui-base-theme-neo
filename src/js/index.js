@@ -2454,6 +2454,64 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
         },
+        drop: {
+          selection: {
+            search: {
+              margin: '0',
+            },
+            list: {
+              wrapper: {
+                border: {
+                  side: 'horizontal',
+                  size: 'xsmall',
+                },
+              },
+              item: {
+                margin: '0',
+                pad: 'medium',
+                extend: ({ theme }) => ({
+                  fontSize: `${baseSpacing * 0.875}px`,
+                  '&:hover': {
+                    cursor: 'pointer',
+                    background: normalizeColor('active', theme),
+                  },
+                }),
+              },
+            },
+            incExc: {
+              wrapper: {
+                border: {
+                  size: 'xsmall',
+                  side: 'bottom',
+                  color: 'border',
+                },
+                margin: '0',
+                round: 'none',
+                overflow: 'hidden',
+              },
+              item: {
+                align: 'center',
+                pad: 'medium',
+                extend: ({ isActive, theme }) => ({
+                  fontSize: `${baseSpacing * 0.875}px`,
+                  fontWeight: '600',
+                  color: normalizeColor(isActive ? 'brand' : 'dark-7', theme),
+                  borderBottom: `3px solid ${normalizeColor(isActive ? 'brand' : 'transparent', theme)}`,
+                }),
+              },
+            },
+          },
+          buttonPanel: {
+            container: {
+              pad: 'medium',
+              justify: 'start',
+              gap: 'xsmall',
+            },
+            button: {
+              secondary: false,
+            },
+          },
+        },
       },
     },
     setupSteps: {

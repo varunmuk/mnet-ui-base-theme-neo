@@ -2623,6 +2623,71 @@ var generate = function generate(baseSpacing, scale) {
               }
             }
           }
+        },
+        drop: {
+          selection: {
+            search: {
+              margin: '0'
+            },
+            list: {
+              wrapper: {
+                border: {
+                  side: 'horizontal',
+                  size: 'xsmall'
+                }
+              },
+              item: {
+                margin: '0',
+                pad: 'medium',
+                extend: function extend(_ref18) {
+                  var theme = _ref18.theme;
+                  return {
+                    fontSize: baseSpacing * 0.875 + "px",
+                    '&:hover': {
+                      cursor: 'pointer',
+                      background: (0, _colors.normalizeColor)('active', theme)
+                    }
+                  };
+                }
+              }
+            },
+            incExc: {
+              wrapper: {
+                border: {
+                  size: 'xsmall',
+                  side: 'bottom',
+                  color: 'border'
+                },
+                margin: '0',
+                round: 'none',
+                overflow: 'hidden'
+              },
+              item: {
+                align: 'center',
+                pad: 'medium',
+                extend: function extend(_ref19) {
+                  var isActive = _ref19.isActive,
+                      theme = _ref19.theme;
+                  return {
+                    fontSize: baseSpacing * 0.875 + "px",
+                    fontWeight: '600',
+                    color: (0, _colors.normalizeColor)(isActive ? 'brand' : 'dark-7', theme),
+                    borderBottom: "3px solid " + (0, _colors.normalizeColor)(isActive ? 'brand' : 'transparent', theme)
+                  };
+                }
+              }
+            }
+          },
+          buttonPanel: {
+            container: {
+              pad: 'medium',
+              justify: 'start',
+              gap: 'xsmall'
+            },
+            button: {
+              secondary: false
+            }
+          }
         }
       }
     },
