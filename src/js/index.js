@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  LongArrowRight,
+  // LongArrowRight,
   Left,
   Right,
   Check,
@@ -116,6 +116,7 @@ const chartColors = [
   '#9F7D56',
 ];
 const focusColor = '#B1C2FE';
+const borderColor = '#DCDFE7';
 
 const colors = {
   active: '#F4F6F8',
@@ -136,7 +137,7 @@ const colors = {
   black: '#000000',
   border: {
     dark: rgba(255, 255, 255, 0.33),
-    light: '#DCDFE7',
+    light: borderColor,
   },
   brand: brandColor,
   control: {
@@ -698,6 +699,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         slideDuration: '0.8s',
       },
       heading: { level: '4' }, // level ranges from 1-6
+      day: {
+        extend: ({ isSelected, theme }) => ({
+          backgroundColor: `${isSelected ? normalizeColor('brand', theme) : undefined}`,
+        }),
+      },
     },
     carousel: {
       animation: {
@@ -2259,7 +2265,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          name: LongArrowRight,
+          // name: LongArrowRight,
           size: `${baseFontSize}px`,
         },
         text: {
@@ -2461,6 +2467,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           selection: {
             search: {
               margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: `${baseSpacing * 0.875}px`,
+                paddingLeft: `${baseSpacing * 2.25}px`,
+              },
             },
             list: {
               wrapper: {
@@ -2471,7 +2482,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
               item: {
                 margin: '0',
-                pad: 'medium',
+                pad: {
+                  horizontal: 'medium',
+                  vertical: `${baseSpacing / 2}px`,
+                },
                 extend: ({ theme }) => ({
                   fontSize: `${baseSpacing * 0.875}px`,
                   '&:hover': {
@@ -2513,6 +2527,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
             presets: {
               wrapper: {
+                width: `${baseSpacing * 12.5}px`,
                 border: {
                   side: 'right',
                   size: 'xsmall',
@@ -2524,14 +2539,64 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                     option: {
                       width: '100%',
                       pad: {
-                        vertical: 'small',
+                        vertical: 'large',
                         horizontal: 'large',
                       },
+                      border: {
+                        side: 'bottom',
+                        size: 'xsmall',
+                        color: 'border',
+                      },
+                      extend: ({ checked, theme }) => ({
+                        borderLeft: `3px solid ${normalizeColor(checked ? 'brand' : 'transparent', theme)}`,
+                      }),
                     },
                     container: {
                       gap: 'none',
                     },
+                    text: {
+                      weight: 600,
+                      size: 'large',
+                      active: 'brand',
+                      inactive: 'dark-7',
+                    },
                   },
+                },
+                wrapper: {
+                  extend: {
+                    'label, label>div': {
+                      width: '100%',
+                      margin: '0',
+                    },
+                    'label:hover input:not([disabled]) + div': {
+                      borderColor,
+                    },
+                    input: {
+                      display: 'none',
+                    },
+                  },
+                },
+              },
+            },
+            calendar: {
+              wrapper: {
+                pad: {
+                  horizontal: `${baseSpacing * 2}px`,
+                  vertical: 'small',
+                },
+              },
+              selection: {
+                container: {
+                  align: 'center',
+                  pad: 'medium',
+                  border: {
+                    side: 'bottom',
+                    size: 'xsmall',
+                  },
+                },
+                label: {
+                  color: 'dark-7',
+                  size: 'large',
                 },
               },
             },

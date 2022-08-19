@@ -21,8 +21,6 @@ var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
 var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
-var _LongArrowRight = require("mnet-icons/dist/es6/icons/neo/LongArrowRight");
-
 var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
@@ -75,6 +73,7 @@ var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDED
 var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#898FA2', '#DCDFE7', '#F8FAFE', '#D5D7DB'];
 var chartColors = ['#FC564F', '#719CF7', '#36C18B', '#FC90C9', '#F5B473', '#7371D9', '#98DB98', '#FC805A', '#3165B0', '#5DD8EB', '#FCD743', '#C94F78', '#AFA392', '#F5938C', '#6A3A27', '#DB2001', '#3C9678', '#575F7D', '#650B7C', '#9F7D56'];
 var focusColor = '#B1C2FE';
+var borderColor = '#DCDFE7';
 var colors = {
   active: '#F4F6F8',
   'background-back': {
@@ -94,7 +93,7 @@ var colors = {
   black: '#000000',
   border: {
     dark: (0, _polished.rgba)(255, 255, 255, 0.33),
-    light: '#DCDFE7'
+    light: borderColor
   },
   brand: brandColor,
   control: {
@@ -735,8 +734,17 @@ var generate = function generate(baseSpacing, scale) {
       },
       heading: {
         level: '4'
-      } // level ranges from 1-6
-
+      },
+      // level ranges from 1-6
+      day: {
+        extend: function extend(_ref3) {
+          var isSelected = _ref3.isSelected,
+              theme = _ref3.theme;
+          return {
+            backgroundColor: "" + (isSelected ? (0, _colors.normalizeColor)('brand', theme) : undefined)
+          };
+        }
+      }
     },
     carousel: {
       animation: {
@@ -754,9 +762,9 @@ var generate = function generate(baseSpacing, scale) {
       },
       check: {
         thickness: '2px',
-        extend: function extend(_ref3) {
-          var checked = _ref3.checked,
-              theme = _ref3.theme;
+        extend: function extend(_ref4) {
+          var checked = _ref4.checked,
+              theme = _ref4.theme;
           return {
             background: checked ? (0, _colors.normalizeColor)('accent-12', theme) : 'white',
             border: checked && 'unset',
@@ -810,9 +818,9 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         radius: baseSpacing + "px",
-        extend: function extend(_ref4) {
-          var checked = _ref4.checked,
-              theme = _ref4.theme;
+        extend: function extend(_ref5) {
+          var checked = _ref5.checked,
+              theme = _ref5.theme;
           return {
             height: baseSpacing * 1.187 + "px",
             border: 'none',
@@ -820,8 +828,8 @@ var generate = function generate(baseSpacing, scale) {
           };
         }
       },
-      extend: function extend(_ref5) {
-        var theme = _ref5.theme;
+      extend: function extend(_ref6) {
+        var theme = _ref6.theme;
         return {
           color: (0, _colors.normalizeColor)('dark-7', theme),
           fontWeight: 400,
@@ -1244,10 +1252,10 @@ var generate = function generate(baseSpacing, scale) {
           },
           justify: 'center',
           background: 'white',
-          extend: function extend(_ref6) {
-            var checked = _ref6.checked,
-                active = _ref6.active,
-                theme = _ref6.theme;
+          extend: function extend(_ref7) {
+            var checked = _ref7.checked,
+                active = _ref7.active,
+                theme = _ref7.theme;
             return {
               background: checked && (0, _colors.normalizeColor)('accent-3', theme),
               borderColor: active ? 'transparent' : lightColors[5],
@@ -1286,8 +1294,8 @@ var generate = function generate(baseSpacing, scale) {
             right: 'small'
           },
           direction: 'row',
-          extend: function extend(_ref7) {
-            var twoColumnLayout = _ref7.twoColumnLayout;
+          extend: function extend(_ref8) {
+            var twoColumnLayout = _ref8.twoColumnLayout;
             return {
               padding: twoColumnLayout ? 0 : baseSpacing / 1.618 + "px",
               borderBottom: 'none'
@@ -1304,9 +1312,9 @@ var generate = function generate(baseSpacing, scale) {
           margin: 'small',
           direction: 'row',
           align: 'center',
-          extend: function extend(_ref8) {
-            var theme = _ref8.theme,
-                twoColumnLayout = _ref8.twoColumnLayout;
+          extend: function extend(_ref9) {
+            var theme = _ref9.theme,
+                twoColumnLayout = _ref9.twoColumnLayout;
             return {
               width: twoColumnLayout ? '100%' : 'auto',
               margin: twoColumnLayout ? 0 : baseSpacing / (1.618 * 2) + "px",
@@ -1385,9 +1393,9 @@ var generate = function generate(baseSpacing, scale) {
             minHeight: baseSpacing * 2.5 + "px",
             position: 'relative'
           },
-          extend: function extend(_ref9) {
-            var layout = _ref9.layout,
-                theme = _ref9.theme;
+          extend: function extend(_ref10) {
+            var layout = _ref10.layout,
+                theme = _ref10.theme;
             return {
               background: layout === 'double-column' ? 'white' : lightColors[1],
               flexDirection: layout === 'double-column' ? 'row-reverse' : 'row',
@@ -1447,8 +1455,8 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         container: {
-          extend: function extend(_ref10) {
-            var isEmpty = _ref10.isEmpty;
+          extend: function extend(_ref11) {
+            var isEmpty = _ref11.isEmpty;
             return {
               padding: (isEmpty ? "" + baseSpacing / 1.6 : '0') + "px " + (isEmpty ? "" + baseSpacing : '0') + "px"
             };
@@ -1567,8 +1575,8 @@ var generate = function generate(baseSpacing, scale) {
     },
     radioButton: {
       container: {
-        extend: function extend(_ref11) {
-          var theme = _ref11.theme;
+        extend: function extend(_ref12) {
+          var theme = _ref12.theme;
           return {
             color: (0, _colors.normalizeColor)('dark-3', theme)
           };
@@ -1643,17 +1651,17 @@ var generate = function generate(baseSpacing, scale) {
       },
       control: {
         color: 'dark-7',
-        open: function open(_ref12) {
-          var plain = _ref12.callerPlain;
+        open: function open(_ref13) {
+          var plain = _ref13.callerPlain;
           return !plain && {
             borderBottomColor: accentColors[11],
             backgroundColor: lightColors[21]
           };
         },
-        extend: function extend(_ref13) {
-          var theme = _ref13.theme,
-              disabled = _ref13.disabled,
-              plain = _ref13.callerPlain;
+        extend: function extend(_ref14) {
+          var theme = _ref14.theme,
+              disabled = _ref14.disabled,
+              plain = _ref14.callerPlain;
           return {
             border: !plain && "1px solid " + (0, _colors.normalizeColor)('dark-6', theme),
             input: {
@@ -1860,8 +1868,8 @@ var generate = function generate(baseSpacing, scale) {
           lineHeight: fontSizing(0).height
         }
       },
-      extend: function extend(_ref14) {
-        var theme = _ref14.theme;
+      extend: function extend(_ref15) {
+        var theme = _ref15.theme;
         return {
           position: 'relative',
           'border-spacing': 0,
@@ -1951,8 +1959,8 @@ var generate = function generate(baseSpacing, scale) {
       xxxxlarge: _extends({}, fontSizing(4.5))
     },
     textArea: {
-      extend: function extend(_ref15) {
-        var theme = _ref15.theme;
+      extend: function extend(_ref16) {
+        var theme = _ref16.theme;
         return {
           color: (0, _colors.normalizeColor)('dark-3', theme),
           fontWeight: 400
@@ -1973,14 +1981,14 @@ var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref16) {
-        var plain = _ref16.plain,
-            focus = _ref16.focus,
-            reverse = _ref16.reverse,
-            icon = _ref16.icon,
-            theme = _ref16.theme,
-            readOnly = _ref16.readOnly,
-            error = _ref16.error;
+      extend: function extend(_ref17) {
+        var plain = _ref17.plain,
+            focus = _ref17.focus,
+            reverse = _ref17.reverse,
+            icon = _ref17.icon,
+            theme = _ref17.theme,
+            readOnly = _ref17.readOnly,
+            error = _ref17.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
           boxShadow: 'none',
@@ -2425,7 +2433,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          name: _LongArrowRight.LongArrowRight,
+          // name: LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {
@@ -2519,8 +2527,8 @@ var generate = function generate(baseSpacing, scale) {
           },
           item: {
             hover: {
-              extend: function extend(_ref17) {
-                var theme = _ref17.theme;
+              extend: function extend(_ref18) {
+                var theme = _ref18.theme;
                 return {
                   color: (0, _colors.normalizeColor)('dark-7', theme)
                 };
@@ -2630,7 +2638,12 @@ var generate = function generate(baseSpacing, scale) {
         drop: {
           selection: {
             search: {
-              margin: '0'
+              margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: baseSpacing * 0.875 + "px",
+                paddingLeft: baseSpacing * 2.25 + "px"
+              }
             },
             list: {
               wrapper: {
@@ -2641,9 +2654,12 @@ var generate = function generate(baseSpacing, scale) {
               },
               item: {
                 margin: '0',
-                pad: 'medium',
-                extend: function extend(_ref18) {
-                  var theme = _ref18.theme;
+                pad: {
+                  horizontal: 'medium',
+                  vertical: baseSpacing / 2 + "px"
+                },
+                extend: function extend(_ref19) {
+                  var theme = _ref19.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
                     '&:hover': {
@@ -2668,9 +2684,9 @@ var generate = function generate(baseSpacing, scale) {
               item: {
                 align: 'center',
                 pad: 'medium',
-                extend: function extend(_ref19) {
-                  var isActive = _ref19.isActive,
-                      theme = _ref19.theme;
+                extend: function extend(_ref20) {
+                  var isActive = _ref20.isActive,
+                      theme = _ref20.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
                     fontWeight: '600',
@@ -2690,6 +2706,7 @@ var generate = function generate(baseSpacing, scale) {
             },
             presets: {
               wrapper: {
+                width: baseSpacing * 12.5 + "px",
                 border: {
                   side: 'right',
                   size: 'xsmall'
@@ -2701,14 +2718,68 @@ var generate = function generate(baseSpacing, scale) {
                     option: {
                       width: '100%',
                       pad: {
-                        vertical: 'small',
+                        vertical: 'large',
                         horizontal: 'large'
+                      },
+                      border: {
+                        side: 'bottom',
+                        size: 'xsmall',
+                        color: 'border'
+                      },
+                      extend: function extend(_ref21) {
+                        var checked = _ref21.checked,
+                            theme = _ref21.theme;
+                        return {
+                          borderLeft: "3px solid " + (0, _colors.normalizeColor)(checked ? 'brand' : 'transparent', theme)
+                        };
                       }
                     },
                     container: {
                       gap: 'none'
+                    },
+                    text: {
+                      weight: 600,
+                      size: 'large',
+                      active: 'brand',
+                      inactive: 'dark-7'
                     }
                   }
+                },
+                wrapper: {
+                  extend: {
+                    'label, label>div': {
+                      width: '100%',
+                      margin: '0'
+                    },
+                    'label:hover input:not([disabled]) + div': {
+                      borderColor: borderColor
+                    },
+                    input: {
+                      display: 'none'
+                    }
+                  }
+                }
+              }
+            },
+            calendar: {
+              wrapper: {
+                pad: {
+                  horizontal: baseSpacing * 2 + "px",
+                  vertical: 'small'
+                }
+              },
+              selection: {
+                container: {
+                  align: 'center',
+                  pad: 'medium',
+                  border: {
+                    side: 'bottom',
+                    size: 'xsmall'
+                  }
+                },
+                label: {
+                  color: 'dark-7',
+                  size: 'large'
                 }
               }
             }
