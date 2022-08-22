@@ -21,6 +21,8 @@ var _Tick = require("mnet-icons/dist/es6/icons/neo/Tick");
 
 var _Up = require("mnet-icons/dist/es6/icons/neo/Up");
 
+var _LongArrowRight = require("mnet-icons/dist/es6/icons/neo/LongArrowRight");
+
 var _Left = require("mnet-icons/dist/es6/icons/neo/Left");
 
 var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
@@ -2433,7 +2435,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: _LongArrowRight.LongArrowRight,
           size: baseFontSize + "px"
         },
         text: {
@@ -2721,16 +2723,11 @@ var generate = function generate(baseSpacing, scale) {
                         vertical: 'large',
                         horizontal: 'large'
                       },
-                      border: {
-                        side: 'bottom',
-                        size: 'xsmall',
-                        color: 'border'
-                      },
                       extend: function extend(_ref21) {
                         var checked = _ref21.checked,
                             theme = _ref21.theme;
                         return {
-                          borderLeft: "3px solid " + (0, _colors.normalizeColor)(checked ? 'brand' : 'transparent', theme)
+                          borderLeft: checked ? "3px solid " + (0, _colors.normalizeColor)('brand', theme) : '0'
                         };
                       }
                     },
@@ -2742,21 +2739,34 @@ var generate = function generate(baseSpacing, scale) {
                       size: 'large',
                       active: 'brand',
                       inactive: 'dark-7'
+                    },
+                    radioButton: {
+                      hover: {
+                        border: {
+                          color: {
+                            dark: 'brand',
+                            light: 'brand'
+                          }
+                        }
+                      }
                     }
                   }
                 },
                 wrapper: {
-                  extend: {
-                    'label, label>div': {
-                      width: '100%',
-                      margin: '0'
-                    },
-                    'label:hover input:not([disabled]) + div': {
-                      borderColor: borderColor
-                    },
-                    input: {
-                      display: 'none'
-                    }
+                  extend: function extend(_ref22) {
+                    var theme = _ref22.theme;
+                    return {
+                      'label, label>div': {
+                        width: '100%',
+                        margin: '0'
+                      },
+                      label: {
+                        borderBottom: "1px solid " + (0, _colors.normalizeColor)('border', theme)
+                      },
+                      input: {
+                        display: 'none'
+                      }
+                    };
                   }
                 }
               }

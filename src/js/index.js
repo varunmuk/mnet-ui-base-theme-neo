@@ -8,7 +8,7 @@ import {
   TickCircle,
   Tick,
   Up,
-  // LongArrowRight,
+  LongArrowRight,
   Left,
   Right,
   Check,
@@ -2265,7 +2265,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       range: {
         icon: {
-          // name: LongArrowRight,
+          name: LongArrowRight,
           size: `${baseFontSize}px`,
         },
         text: {
@@ -2542,13 +2542,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                         vertical: 'large',
                         horizontal: 'large',
                       },
-                      border: {
-                        side: 'bottom',
-                        size: 'xsmall',
-                        color: 'border',
-                      },
                       extend: ({ checked, theme }) => ({
-                        borderLeft: `3px solid ${normalizeColor(checked ? 'brand' : 'transparent', theme)}`,
+                        borderLeft: checked ? `3px solid ${normalizeColor('brand', theme)}` : '0',
                       }),
                     },
                     container: {
@@ -2560,21 +2555,31 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                       active: 'brand',
                       inactive: 'dark-7',
                     },
+                    radioButton: {
+                      hover: {
+                        border: {
+                          color: {
+                            dark: 'brand',
+                            light: 'brand',
+                          },
+                        },
+                      },
+                    },
                   },
                 },
                 wrapper: {
-                  extend: {
+                  extend: ({ theme }) => ({
                     'label, label>div': {
                       width: '100%',
                       margin: '0',
                     },
-                    'label:hover input:not([disabled]) + div': {
-                      borderColor,
+                    label: {
+                      borderBottom: `1px solid ${normalizeColor('border', theme)}`,
                     },
                     input: {
                       display: 'none',
                     },
-                  },
+                  }),
                 },
               },
             },
