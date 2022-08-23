@@ -697,8 +697,8 @@ export var generate = function generate(baseSpacing, scale) {
         slideDuration: '0.2s'
       },
       medium: {
-        fontSize: baseFontSize + "px",
-        lineHeight: 1.45,
+        fontSize: baseSpacing * 0.875 + "px",
+        lineHeight: baseSpacing * 1.375 + "px",
         daySize: baseSpacing * 16 / 7 + "px",
         slideDuration: '0.5s'
       },
@@ -715,9 +715,18 @@ export var generate = function generate(baseSpacing, scale) {
       day: {
         extend: function extend(_ref3) {
           var isSelected = _ref3.isSelected,
+              isInRange = _ref3.isInRange,
+              children = _ref3.children,
               theme = _ref3.theme;
           return {
-            backgroundColor: "" + (isSelected ? normalizeColor('brand', theme) : undefined)
+            backgroundColor: "" + ( // eslint-disable-next-line no-nested-ternary
+            isSelected ? normalizeColor('brand', theme) : isInRange ? normalizeColor('active', theme) : undefined),
+            color: "" + ( // eslint-disable-next-line no-nested-ternary
+            isSelected ? normalizeColor('white', theme) : Number.isNaN(Number(children)) ? normalizeColor('dark-7', theme) : undefined),
+            fontWeight: isSelected || Number.isNaN(Number(children)) ? 600 : 400,
+            height: baseSpacing * 1.5 + "px",
+            marginBottom: '2px',
+            opacity: Number.isNaN(Number(children)) ? 1 : undefined
           };
         }
       }
@@ -2693,10 +2702,7 @@ export var generate = function generate(baseSpacing, scale) {
                   "switch": {
                     option: {
                       width: '100%',
-                      pad: {
-                        vertical: 'large',
-                        horizontal: 'large'
-                      },
+                      pad: 'large',
                       extend: function extend(_ref21) {
                         var checked = _ref21.checked,
                             theme = _ref21.theme;
@@ -2755,7 +2761,7 @@ export var generate = function generate(baseSpacing, scale) {
               selection: {
                 container: {
                   align: 'center',
-                  pad: 'medium',
+                  pad: 'large',
                   border: {
                     side: 'bottom',
                     size: 'xsmall'

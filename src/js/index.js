@@ -687,8 +687,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         slideDuration: '0.2s',
       },
       medium: {
-        fontSize: `${baseFontSize}px`,
-        lineHeight: 1.45,
+        fontSize: `${baseSpacing * 0.875}px`,
+        lineHeight: `${baseSpacing * 1.375}px`,
         daySize: `${(baseSpacing * 16) / 7}px`,
         slideDuration: '0.5s',
       },
@@ -700,8 +700,28 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       heading: { level: '4' }, // level ranges from 1-6
       day: {
-        extend: ({ isSelected, theme }) => ({
-          backgroundColor: `${isSelected ? normalizeColor('brand', theme) : undefined}`,
+        extend: ({
+          isSelected, isInRange, children, theme,
+        }) => ({
+          backgroundColor: `${
+            // eslint-disable-next-line no-nested-ternary
+            isSelected
+              ? normalizeColor('brand', theme)
+              : isInRange
+                ? normalizeColor('active', theme)
+                : undefined
+          }`,
+          color: `${
+            // eslint-disable-next-line no-nested-ternary
+            isSelected
+              ? normalizeColor('white', theme)
+              : Number.isNaN(Number(children))
+                ? normalizeColor('dark-7', theme)
+                : undefined}`,
+          fontWeight: isSelected || Number.isNaN(Number(children)) ? 600 : 400,
+          height: `${baseSpacing * 1.5}px`,
+          marginBottom: '2px',
+          opacity: Number.isNaN(Number(children)) ? 1 : undefined,
         }),
       },
     },
@@ -2538,10 +2558,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                   switch: {
                     option: {
                       width: '100%',
-                      pad: {
-                        vertical: 'large',
-                        horizontal: 'large',
-                      },
+                      pad: 'large',
                       extend: ({ checked, theme }) => ({
                         borderLeft: checked ? `3px solid ${normalizeColor('brand', theme)}` : '0',
                       }),
@@ -2593,7 +2610,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               selection: {
                 container: {
                   align: 'center',
-                  pad: 'medium',
+                  pad: 'large',
                   border: {
                     side: 'bottom',
                     size: 'xsmall',
