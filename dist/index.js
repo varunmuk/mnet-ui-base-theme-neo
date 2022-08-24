@@ -742,6 +742,7 @@ var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref3) {
           var isSelected = _ref3.isSelected,
               isInRange = _ref3.isInRange,
+              otherMonth = _ref3.otherMonth,
               children = _ref3.children,
               theme = _ref3.theme;
           return {
@@ -752,8 +753,14 @@ var generate = function generate(baseSpacing, scale) {
             fontWeight: isSelected || Number.isNaN(Number(children)) ? 600 : 400,
             height: baseSpacing * 1.5 + "px",
             marginBottom: '2px',
-            opacity: Number.isNaN(Number(children)) ? 1 : undefined
+            opacity: Number.isNaN(Number(children)) ? 1 : undefined,
+            visibility: otherMonth && !Number.isNaN(Number(children)) ? 'hidden' : 'visible'
           };
+        }
+      },
+      extend: {
+        'button:disabled': {
+          opacity: 0.2
         }
       }
     },
@@ -2796,6 +2803,24 @@ var generate = function generate(baseSpacing, scale) {
                 label: {
                   color: 'dark-7',
                   size: 'large'
+                }
+              },
+              header: {
+                container: {
+                  width: baseSpacing * 10 + "px",
+                  pad: {
+                    vertical: 'large'
+                  }
+                },
+                text: {
+                  size: 'large',
+                  color: 'dark-7',
+                  weight: 600
+                },
+                icons: {
+                  prev: _Left.Left,
+                  next: _Right.Right,
+                  color: 'dark-8'
                 }
               }
             }

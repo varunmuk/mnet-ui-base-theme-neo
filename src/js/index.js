@@ -701,7 +701,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       heading: { level: '4' }, // level ranges from 1-6
       day: {
         extend: ({
-          isSelected, isInRange, children, theme,
+          isSelected, isInRange, otherMonth, children, theme,
         }) => ({
           backgroundColor: `${
             // eslint-disable-next-line no-nested-ternary
@@ -717,12 +717,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               ? normalizeColor('white', theme)
               : Number.isNaN(Number(children))
                 ? normalizeColor('dark-7', theme)
-                : undefined}`,
+                : undefined
+          }`,
           fontWeight: isSelected || Number.isNaN(Number(children)) ? 600 : 400,
           height: `${baseSpacing * 1.5}px`,
           marginBottom: '2px',
           opacity: Number.isNaN(Number(children)) ? 1 : undefined,
+          visibility: otherMonth && !Number.isNaN(Number(children)) ? 'hidden' : 'visible',
         }),
+      },
+      extend: {
+        'button:disabled': {
+          opacity: 0.2,
+        },
       },
     },
     carousel: {
@@ -2619,6 +2626,24 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 label: {
                   color: 'dark-7',
                   size: 'large',
+                },
+              },
+              header: {
+                container: {
+                  width: `${baseSpacing * 10}px`,
+                  pad: {
+                    vertical: 'large',
+                  },
+                },
+                text: {
+                  size: 'large',
+                  color: 'dark-7',
+                  weight: 600,
+                },
+                icons: {
+                  prev: Left,
+                  next: Right,
+                  color: 'dark-8',
                 },
               },
             },
