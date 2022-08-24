@@ -2396,6 +2396,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           list: {
+            dropProps: {
+              align: {
+                top: 'bottom',
+                left: 'left',
+              },
+              overflow: 'scroll',
+              height: `${baseSpacing * 12.5}px`,
+            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent',
@@ -2505,6 +2513,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 border: {
                   side: 'horizontal',
                   size: 'xsmall',
+                },
+                height: {
+                  max: `${baseSpacing * 12.5}px`,
                 },
               },
               item: {
