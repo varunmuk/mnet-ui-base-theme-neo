@@ -2396,12 +2396,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           list: {
-            dropProps: {
-              align: {
-                top: 'bottom',
-                left: 'left',
-              },
-            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent',

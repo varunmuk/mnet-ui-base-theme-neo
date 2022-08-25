@@ -2559,12 +2559,6 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           list: {
-            dropProps: {
-              align: {
-                top: 'bottom',
-                left: 'left'
-              }
-            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent'
