@@ -2537,14 +2537,32 @@ export var generate = function generate(baseSpacing, scale) {
               align: {
                 top: 'bottom',
                 left: 'left'
-              },
-              overflow: 'scroll',
-              height: baseSpacing * 12.5 + "px"
+              }
             },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent'
               }
+            }
+          },
+          drop: {
+            maxHeight: baseSpacing * 12.5 + "px",
+            '& ::-webkit-scrollbar': {
+              width: '14px'
+            },
+            '& ::-webkit-scrollbar-thumb': {
+              border: '4px solid transparent',
+              borderRadius: '7px',
+              boxShadow: 'inset 0 0 0 10px',
+              color: darkColors[3]
+            },
+            '& ::-webkit-scrollbar-button': {
+              width: 0,
+              height: 0,
+              display: 'none'
+            },
+            '& ::-webkit-scrollbar-corner': {
+              backgroundColor: 'transparent'
             }
           }
         },
@@ -2653,6 +2671,28 @@ export var generate = function generate(baseSpacing, scale) {
                 },
                 height: {
                   max: baseSpacing * 12.5 + "px"
+                },
+                extend: function extend(_ref19) {
+                  var theme = _ref19.theme;
+                  return {
+                    '::-webkit-scrollbar': {
+                      width: '14px'
+                    },
+                    '::-webkit-scrollbar-thumb': {
+                      border: '4px solid transparent',
+                      borderRadius: '7px',
+                      boxShadow: 'inset 0 0 0 10px',
+                      color: normalizeColor('dark-4', theme)
+                    },
+                    '::-webkit-scrollbar-button': {
+                      width: 0,
+                      height: 0,
+                      display: 'none'
+                    },
+                    '::-webkit-scrollbar-corner': {
+                      backgroundColor: 'transparent'
+                    }
+                  };
                 }
               },
               item: {
@@ -2661,8 +2701,8 @@ export var generate = function generate(baseSpacing, scale) {
                   horizontal: 'medium',
                   vertical: baseSpacing / 2 + "px"
                 },
-                extend: function extend(_ref19) {
-                  var theme = _ref19.theme;
+                extend: function extend(_ref20) {
+                  var theme = _ref20.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
                     '&:hover': {
@@ -2687,9 +2727,9 @@ export var generate = function generate(baseSpacing, scale) {
               item: {
                 align: 'center',
                 pad: 'medium',
-                extend: function extend(_ref20) {
-                  var isActive = _ref20.isActive,
-                      theme = _ref20.theme;
+                extend: function extend(_ref21) {
+                  var isActive = _ref21.isActive,
+                      theme = _ref21.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
                     fontWeight: '600',
@@ -2721,9 +2761,9 @@ export var generate = function generate(baseSpacing, scale) {
                     option: {
                       width: '100%',
                       pad: 'large',
-                      extend: function extend(_ref21) {
-                        var checked = _ref21.checked,
-                            theme = _ref21.theme;
+                      extend: function extend(_ref22) {
+                        var checked = _ref22.checked,
+                            theme = _ref22.theme;
                         return {
                           borderLeft: checked ? "3px solid " + normalizeColor('brand', theme) : '0'
                         };
@@ -2751,8 +2791,8 @@ export var generate = function generate(baseSpacing, scale) {
                   }
                 },
                 wrapper: {
-                  extend: function extend(_ref22) {
-                    var theme = _ref22.theme;
+                  extend: function extend(_ref23) {
+                    var theme = _ref23.theme;
                     return {
                       'label, label>div': {
                         width: '100%',

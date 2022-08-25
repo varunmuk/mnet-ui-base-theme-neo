@@ -2401,13 +2401,31 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 top: 'bottom',
                 left: 'left',
               },
-              overflow: 'scroll',
-              height: `${baseSpacing * 12.5}px`,
             },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent',
               },
+            },
+          },
+          drop: {
+            maxHeight: `${baseSpacing * 12.5}px`,
+            '& ::-webkit-scrollbar': {
+              width: '14px',
+            },
+            '& ::-webkit-scrollbar-thumb': {
+              border: '4px solid transparent',
+              borderRadius: '7px',
+              boxShadow: 'inset 0 0 0 10px',
+              color: darkColors[3],
+            },
+            '& ::-webkit-scrollbar-button': {
+              width: 0,
+              height: 0,
+              display: 'none',
+            },
+            '& ::-webkit-scrollbar-corner': {
+              backgroundColor: 'transparent',
             },
           },
         },
@@ -2517,6 +2535,25 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 height: {
                   max: `${baseSpacing * 12.5}px`,
                 },
+                extend: ({ theme }) => ({
+                  '::-webkit-scrollbar': {
+                    width: '14px',
+                  },
+                  '::-webkit-scrollbar-thumb': {
+                    border: '4px solid transparent',
+                    borderRadius: '7px',
+                    boxShadow: 'inset 0 0 0 10px',
+                    color: normalizeColor('dark-4', theme),
+                  },
+                  '::-webkit-scrollbar-button': {
+                    width: 0,
+                    height: 0,
+                    display: 'none',
+                  },
+                  '::-webkit-scrollbar-corner': {
+                    backgroundColor: 'transparent',
+                  },
+                }),
               },
               item: {
                 margin: '0',
