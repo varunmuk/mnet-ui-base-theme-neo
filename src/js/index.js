@@ -2038,6 +2038,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
       },
+      icon: {
+        error: {
+          color: 'accent-5',
+        }
+      }
     },
     card: {
       container: {
