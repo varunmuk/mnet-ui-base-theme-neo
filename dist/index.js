@@ -49,6 +49,8 @@ var _FormNext = require("grommet-icons/es6/icons/FormNext");
 
 var _FormPrevious = require("grommet-icons/es6/icons/FormPrevious");
 
+var _Clear = require("grommet-icons/es6/icons/Clear");
+
 var _templateObject;
 
 function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
@@ -2597,6 +2599,9 @@ var generate = function generate(baseSpacing, scale) {
             size: 'large',
             margin: {
               vertical: 'small'
+            },
+            disabled: {
+              opacity: 0.4
             }
           },
           selected: {
@@ -2633,6 +2638,7 @@ var generate = function generate(baseSpacing, scale) {
           },
           icons: {
             "delete": _Close.Close,
+            disabled: _Clear.Clear,
             size: 'medium',
             color: 'dark-3'
           },

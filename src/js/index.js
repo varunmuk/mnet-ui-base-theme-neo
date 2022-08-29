@@ -21,7 +21,7 @@ import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
 import { parseMetricToNum } from 'grommet/utils/mixins';
-import { FormNext, FormPrevious } from 'grommet-icons';
+import { FormNext, FormPrevious, Clear } from 'grommet-icons';
 
 Tick.notSvg = true;
 
@@ -2432,6 +2432,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             margin: {
               vertical: 'small',
             },
+            disabled: {
+              opacity: 0.4,
+            },
           },
           selected: {
             background: 'light-8',
@@ -2467,6 +2470,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           icons: {
             delete: Close,
+            disabled: Clear,
             size: 'medium',
             color: 'dark-3',
           },

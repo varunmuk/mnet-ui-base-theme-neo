@@ -27,6 +27,7 @@ import { normalizeColor } from 'grommet/utils/colors';
 import { parseMetricToNum } from 'grommet/utils/mixins';
 import { FormNext } from "grommet-icons/es6/icons/FormNext";
 import { FormPrevious } from "grommet-icons/es6/icons/FormPrevious";
+import { Clear } from "grommet-icons/es6/icons/Clear";
 Tick.notSvg = true;
 addGoogleFont({
   'Open Sans': ['400', '600', '700']
@@ -2568,6 +2569,9 @@ export var generate = function generate(baseSpacing, scale) {
             size: 'large',
             margin: {
               vertical: 'small'
+            },
+            disabled: {
+              opacity: 0.4
             }
           },
           selected: {
@@ -2604,6 +2608,7 @@ export var generate = function generate(baseSpacing, scale) {
           },
           icons: {
             "delete": Close,
+            disabled: Clear,
             size: 'medium',
             color: 'dark-3'
           },
