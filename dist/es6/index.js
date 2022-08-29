@@ -18,6 +18,9 @@ import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
 import { Plus } from "mnet-icons/dist/es6/icons/neo/Plus";
+import { DefaultSort } from "mnet-icons/dist/es6/icons/neo/DefaultSort";
+import { AscSort } from "mnet-icons/dist/es6/icons/neo/AscSort";
+import { DesSort } from "mnet-icons/dist/es6/icons/neo/DesSort";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -2853,6 +2856,15 @@ export var generate = function generate(baseSpacing, scale) {
             button: {
               secondary: false
             }
+          }
+        }
+      },
+      dataTable: {
+        icons: {
+          sort: {
+            "default": DefaultSort,
+            asc: AscSort,
+            desc: DesSort
           }
         }
       }

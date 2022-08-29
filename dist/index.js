@@ -31,6 +31,12 @@ var _Check = require("mnet-icons/dist/es6/icons/neo/Check");
 
 var _Plus = require("mnet-icons/dist/es6/icons/neo/Plus");
 
+var _DefaultSort = require("mnet-icons/dist/es6/icons/neo/DefaultSort");
+
+var _AscSort = require("mnet-icons/dist/es6/icons/neo/AscSort");
+
+var _DesSort = require("mnet-icons/dist/es6/icons/neo/DesSort");
+
 var _styledComponents = require("styled-components");
 
 var _object = require("grommet/utils/object");
@@ -2879,6 +2885,15 @@ var generate = function generate(baseSpacing, scale) {
             button: {
               secondary: false
             }
+          }
+        }
+      },
+      dataTable: {
+        icons: {
+          sort: {
+            "default": _DefaultSort.DefaultSort,
+            asc: _AscSort.AscSort,
+            desc: _DesSort.DesSort
           }
         }
       }

@@ -13,6 +13,9 @@ import {
   Right,
   Check,
   Plus,
+  DefaultSort,
+  AscSort,
+  DesSort,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2699,6 +2702,15 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             button: {
               secondary: false,
             },
+          },
+        },
+      },
+      dataTable: {
+        icons: {
+          sort: {
+            default: DefaultSort,
+            asc: AscSort,
+            desc: DesSort,
           },
         },
       },
