@@ -2589,6 +2589,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 }),
               },
             },
+            radioContainer: {
+              pad: 'medium',
+              item: {
+                gap: 'medium',
+              },
+            },
           },
           datepicker: {
             container: {

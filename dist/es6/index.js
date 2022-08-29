@@ -2735,6 +2735,12 @@ export var generate = function generate(baseSpacing, scale) {
                   };
                 }
               }
+            },
+            radioContainer: {
+              pad: 'medium',
+              item: {
+                gap: 'medium'
+              }
             }
           },
           datepicker: {
