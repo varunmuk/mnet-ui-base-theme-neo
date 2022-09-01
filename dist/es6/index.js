@@ -2569,8 +2569,11 @@ export var generate = function generate(baseSpacing, scale) {
             size: 'large',
             margin: {
               vertical: 'small'
-            },
+            }
+          },
+          state: {
             disabled: {
+              cursor: 'not-allowed',
               opacity: 0.4
             }
           },

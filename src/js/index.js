@@ -2432,7 +2432,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             margin: {
               vertical: 'small',
             },
+          },
+          state: {
             disabled: {
+              cursor: 'not-allowed',
               opacity: 0.4,
             },
           },
