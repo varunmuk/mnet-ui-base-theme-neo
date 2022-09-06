@@ -2611,7 +2611,7 @@ export var generate = function generate(baseSpacing, scale) {
           },
           icons: {
             "delete": Close,
-            disabled: Clear,
+            disable: Clear,
             size: 'medium',
             color: 'dark-3'
           },

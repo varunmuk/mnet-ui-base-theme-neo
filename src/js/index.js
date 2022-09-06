@@ -2473,7 +2473,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           icons: {
             delete: Close,
-            disabled: Clear,
+            disable: Clear,
             size: 'medium',
             color: 'dark-3',
           },

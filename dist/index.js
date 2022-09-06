@@ -2641,7 +2641,7 @@ var generate = function generate(baseSpacing, scale) {
           },
           icons: {
             "delete": _Close.Close,
-            disabled: _Clear.Clear,
+            disable: _Clear.Clear,
             size: 'medium',
             color: 'dark-3'
           },
