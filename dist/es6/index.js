@@ -1871,7 +1871,7 @@ export var generate = function generate(baseSpacing, scale) {
           'border-spacing': 0,
           'border-collapse': 'separate',
           height: 'auto',
-          overflow: 'hidden',
+          // overflow: 'hidden',
           tr: {
             'td, th': {
               'border-bottom': 0,
