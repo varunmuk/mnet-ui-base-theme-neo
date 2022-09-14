@@ -16,6 +16,7 @@ import {
   DefaultSort,
   AscSort,
   DesSort,
+  Info,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2725,6 +2726,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             asc: AscSort,
             desc: DesSort,
           },
+          tooltip: Info,
         },
       },
     },

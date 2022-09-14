@@ -37,6 +37,8 @@ var _AscSort = require("mnet-icons/dist/es6/icons/neo/AscSort");
 
 var _DesSort = require("mnet-icons/dist/es6/icons/neo/DesSort");
 
+var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
+
 var _styledComponents = require("styled-components");
 
 var _object = require("grommet/utils/object");
@@ -2909,7 +2911,8 @@ var generate = function generate(baseSpacing, scale) {
             "default": _DefaultSort.DefaultSort,
             asc: _AscSort.AscSort,
             desc: _DesSort.DesSort
-          }
+          },
+          tooltip: _Info.Info
         }
       }
     },

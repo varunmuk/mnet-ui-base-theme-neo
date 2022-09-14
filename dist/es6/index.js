@@ -21,6 +21,7 @@ import { Plus } from "mnet-icons/dist/es6/icons/neo/Plus";
 import { DefaultSort } from "mnet-icons/dist/es6/icons/neo/DefaultSort";
 import { AscSort } from "mnet-icons/dist/es6/icons/neo/AscSort";
 import { DesSort } from "mnet-icons/dist/es6/icons/neo/DesSort";
+import { Info } from "mnet-icons/dist/es6/icons/neo/Info";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -2879,7 +2880,8 @@ export var generate = function generate(baseSpacing, scale) {
             "default": DefaultSort,
             asc: AscSort,
             desc: DesSort
-          }
+          },
+          tooltip: Info
         }
       }
     },
