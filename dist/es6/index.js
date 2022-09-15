@@ -2461,6 +2461,11 @@ export var generate = function generate(baseSpacing, scale) {
         }
       }
     },
+    stepWizard: {
+      extend: {
+        cursor: 'default'
+      }
+    },
     setupSteps: {
       container: {
         direction: 'column' // extend;

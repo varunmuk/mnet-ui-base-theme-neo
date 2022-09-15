@@ -2325,6 +2325,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
     },
+    stepWizard: {
+      extend: {
+        cursor: 'default',
+      },
+    },
     setupSteps: {
       container: {
         direction: 'column',
