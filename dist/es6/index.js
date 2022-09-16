@@ -22,6 +22,7 @@ import { DefaultSort } from "mnet-icons/dist/es6/icons/neo/DefaultSort";
 import { AscSort } from "mnet-icons/dist/es6/icons/neo/AscSort";
 import { DesSort } from "mnet-icons/dist/es6/icons/neo/DesSort";
 import { Info } from "mnet-icons/dist/es6/icons/neo/Info";
+import { AlertTriangle } from "mnet-icons/dist/es6/icons/neo/AlertTriangle";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -48,7 +49,7 @@ var statusColors = {
   notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B',
-  'warning-background': '#F6B800'
+  'warning-background': '#fcf8e3'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
 /* TODO: As per style guide only few colours to be used: need to remove unused colors */
@@ -2117,7 +2118,8 @@ export var generate = function generate(baseSpacing, scale) {
           size: 'xlarge',
           "default": TickCircle,
           ok: TickCircle,
-          error: Error
+          error: Error,
+          warning: AlertTriangle
         },
         text: {
           "default": {
@@ -2132,6 +2134,13 @@ export var generate = function generate(baseSpacing, scale) {
           },
           error: {
             color: '#E9716C',
+            weight: 600,
+            margin: {
+              horizontal: 'small'
+            }
+          },
+          warning: {
+            color: 'status-warning',
             weight: 600,
             margin: {
               horizontal: 'small'
@@ -2170,7 +2179,7 @@ export var generate = function generate(baseSpacing, scale) {
 
         },
         warning: {
-          background: 'status-warning' // text: {},
+          background: 'status-warning-background' // text: {},
 
         }
       }

@@ -39,6 +39,8 @@ var _DesSort = require("mnet-icons/dist/es6/icons/neo/DesSort");
 
 var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
 
+var _AlertTriangle = require("mnet-icons/dist/es6/icons/neo/AlertTriangle");
+
 var _styledComponents = require("styled-components");
 
 var _object = require("grommet/utils/object");
@@ -78,7 +80,7 @@ var statusColors = {
   notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B',
-  'warning-background': '#F6B800'
+  'warning-background': '#fcf8e3'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
 /* TODO: As per style guide only few colours to be used: need to remove unused colors */
@@ -2148,7 +2150,8 @@ var generate = function generate(baseSpacing, scale) {
           size: 'xlarge',
           "default": _TickCircle.TickCircle,
           ok: _TickCircle.TickCircle,
-          error: _Error.Error
+          error: _Error.Error,
+          warning: _AlertTriangle.AlertTriangle
         },
         text: {
           "default": {
@@ -2163,6 +2166,13 @@ var generate = function generate(baseSpacing, scale) {
           },
           error: {
             color: '#E9716C',
+            weight: 600,
+            margin: {
+              horizontal: 'small'
+            }
+          },
+          warning: {
+            color: 'status-warning',
             weight: 600,
             margin: {
               horizontal: 'small'
@@ -2201,7 +2211,7 @@ var generate = function generate(baseSpacing, scale) {
 
         },
         warning: {
-          background: 'status-warning' // text: {},
+          background: 'status-warning-background' // text: {},
 
         }
       }

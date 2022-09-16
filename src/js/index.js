@@ -17,6 +17,7 @@ import {
   AscSort,
   DesSort,
   Info,
+  AlertTriangle,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -59,7 +60,7 @@ const statusColors = {
   notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B',
-  'warning-background': '#F6B800',
+  'warning-background': '#fcf8e3',
 };
 
 const darkColors = [
@@ -2013,6 +2014,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           default: TickCircle,
           ok: TickCircle,
           error: Error,
+          warning: AlertTriangle,
         },
         text: {
           default: {
@@ -2025,6 +2027,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           error: {
             color: '#E9716C',
+            weight: 600,
+            margin: { horizontal: 'small' },
+          },
+          warning: {
+            color: 'status-warning',
             weight: 600,
             margin: { horizontal: 'small' },
           },
@@ -2055,7 +2062,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           // text: {},
         },
         warning: {
-          background: 'status-warning',
+          background: 'status-warning-background',
           // text: {},
         },
       },
