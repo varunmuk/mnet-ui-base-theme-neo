@@ -2038,6 +2038,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
       },
+      icon: {
+        error: {
+          color: 'accent-5',
+        }
+      }
     },
     card: {
       container: {
@@ -2318,6 +2323,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           height: `${baseSpacing * 2.5}px`,
           width: 'auto !important',
         },
+      },
+    },
+    stepWizard: {
+      extend: {
+        cursor: 'default',
       },
     },
     setupSteps: {
