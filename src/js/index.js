@@ -59,6 +59,7 @@ const statusColors = {
   notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B',
+  'warning-background': '#F6B800',
 };
 
 const darkColors = [

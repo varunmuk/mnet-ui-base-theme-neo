@@ -47,7 +47,8 @@ var statusColors = {
   stopped: '#FC564E',
   notStarted: '#898FA2',
   errorText: '#FC564F',
-  okText: '#38C18B'
+  okText: '#38C18B',
+  'warning-background': '#F6B800'
 };
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
 /* TODO: As per style guide only few colours to be used: need to remove unused colors */
