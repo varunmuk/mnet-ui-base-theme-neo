@@ -707,7 +707,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       heading: { level: '4' }, // level ranges from 1-6
       day: {
         extend: ({
-          isSelected, isInRange, otherMonth, children, theme,
+          isSelected, isInRange, children, theme,
         }) => ({
           backgroundColor: `${
             // eslint-disable-next-line no-nested-ternary
@@ -729,7 +729,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           height: `${baseSpacing * 1.5}px`,
           marginBottom: '2px',
           opacity: Number.isNaN(Number(children)) ? 1 : undefined,
-          visibility: otherMonth && !Number.isNaN(Number(children)) ? 'hidden' : 'visible',
         }),
       },
       extend: {
@@ -2635,6 +2634,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                       pad: 'large',
                       extend: ({ checked, theme }) => ({
                         borderLeft: checked ? `3px solid ${normalizeColor('brand', theme)}` : '0',
+                        '&:hover': {
+                          background: normalizeColor('active', theme),
+                        },
                       }),
                     },
                     container: {

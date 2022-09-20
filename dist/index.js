@@ -755,7 +755,6 @@ var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref3) {
           var isSelected = _ref3.isSelected,
               isInRange = _ref3.isInRange,
-              otherMonth = _ref3.otherMonth,
               children = _ref3.children,
               theme = _ref3.theme;
           return {
@@ -766,8 +765,7 @@ var generate = function generate(baseSpacing, scale) {
             fontWeight: isSelected || Number.isNaN(Number(children)) ? 600 : 400,
             height: baseSpacing * 1.5 + "px",
             marginBottom: '2px',
-            opacity: Number.isNaN(Number(children)) ? 1 : undefined,
-            visibility: otherMonth && !Number.isNaN(Number(children)) ? 'hidden' : 'visible'
+            opacity: Number.isNaN(Number(children)) ? 1 : undefined
           };
         }
       },
@@ -2819,7 +2817,10 @@ var generate = function generate(baseSpacing, scale) {
                         var checked = _ref22.checked,
                             theme = _ref22.theme;
                         return {
-                          borderLeft: checked ? "3px solid " + (0, _colors.normalizeColor)('brand', theme) : '0'
+                          borderLeft: checked ? "3px solid " + (0, _colors.normalizeColor)('brand', theme) : '0',
+                          '&:hover': {
+                            background: (0, _colors.normalizeColor)('active', theme)
+                          }
                         };
                       }
                     },
