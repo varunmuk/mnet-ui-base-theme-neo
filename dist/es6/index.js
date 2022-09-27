@@ -2868,7 +2868,13 @@ export var generate = function generate(baseSpacing, scale) {
                 icons: {
                   prev: Left,
                   next: Right,
-                  color: 'dark-8'
+                  color: 'dark-8',
+                  hover: function hover(_ref24) {
+                    var theme = _ref24.theme;
+                    return {
+                      background: normalizeColor('active', theme)
+                    };
+                  }
                 }
               }
             }

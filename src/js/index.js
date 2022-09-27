@@ -2713,6 +2713,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                   prev: Left,
                   next: Right,
                   color: 'dark-8',
+                  hover: ({ theme }) => ({
+                    background: normalizeColor('active', theme),
+                  }),
                 },
               },
             },
