@@ -2531,6 +2531,11 @@ export var generate = function generate(baseSpacing, scale) {
             icon: Plus
           },
           item: {
+            disabled: {
+              extend: {
+                cursor: 'not-allowed'
+              }
+            },
             hover: {
               extend: function extend(_ref18) {
                 var theme = _ref18.theme;

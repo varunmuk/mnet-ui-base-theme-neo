@@ -2395,6 +2395,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             icon: Plus,
           },
           item: {
+            disabled: {
+              extend: {
+                cursor: 'not-allowed',
+              },
+            },
             hover: {
               extend: ({ theme }) => ({
                 color: normalizeColor('dark-7', theme),
