@@ -2594,16 +2594,16 @@ export var generate = function generate(baseSpacing, scale) {
           selected: {
             background: 'light-8',
             pad: {
-              horizontal: 'medium',
+              horizontal: 'large',
               vertical: '0'
             },
             border: {
               color: 'border'
             },
-            round: 'small',
-            width: {
-              min: baseSpacing * 11.25 + "px"
-            }
+            round: 'small' // width: {
+            //   min: `${baseSpacing * 11.25}px`,
+            // },
+
           },
           subOpt: {
             weight: 500,
@@ -2631,7 +2631,7 @@ export var generate = function generate(baseSpacing, scale) {
           },
           iconButtons: {
             margin: {
-              left: 'medium'
+              left: 'large'
             }
           },
           options: {

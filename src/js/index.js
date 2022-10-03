@@ -2455,16 +2455,16 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           selected: {
             background: 'light-8',
             pad: {
-              horizontal: 'medium',
+              horizontal: 'large',
               vertical: '0',
             },
             border: {
               color: 'border',
             },
             round: 'small',
-            width: {
-              min: `${baseSpacing * 11.25}px`,
-            },
+            // width: {
+            //   min: `${baseSpacing * 11.25}px`,
+            // },
           },
           subOpt: {
             weight: 500,
@@ -2492,7 +2492,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           iconButtons: {
             margin: {
-              left: 'medium',
+              left: 'large',
             },
           },
           options: {
