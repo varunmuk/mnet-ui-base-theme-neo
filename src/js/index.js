@@ -2739,7 +2739,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       dataTable: {
         icons: {
-          size: 'small',
+          size: 'medium',
           sort: {
             default: DefaultSort,
             asc: AscSort,

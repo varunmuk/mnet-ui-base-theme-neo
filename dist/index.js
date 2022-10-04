@@ -2930,7 +2930,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
-          size: 'small',
+          size: 'medium',
           sort: {
             "default": _DefaultSort.DefaultSort,
             asc: _AscSort.AscSort,
