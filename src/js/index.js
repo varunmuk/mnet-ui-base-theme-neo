@@ -16,7 +16,7 @@ import {
   DefaultSort,
   AscSort,
   DesSort,
-  Info,
+  Help,
   AlertTriangle,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
@@ -2739,12 +2739,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       dataTable: {
         icons: {
+          size: 'small',
           sort: {
             default: DefaultSort,
             asc: AscSort,
             desc: DesSort,
           },
-          tooltip: Info,
+          tooltip: Help,
         },
       },
     },

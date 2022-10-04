@@ -37,7 +37,7 @@ var _AscSort = require("mnet-icons/dist/es6/icons/neo/AscSort");
 
 var _DesSort = require("mnet-icons/dist/es6/icons/neo/DesSort");
 
-var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
+var _Help = require("mnet-icons/dist/es6/icons/neo/Help");
 
 var _AlertTriangle = require("mnet-icons/dist/es6/icons/neo/AlertTriangle");
 
@@ -2930,12 +2930,13 @@ var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
+          size: 'small',
           sort: {
             "default": _DefaultSort.DefaultSort,
             asc: _AscSort.AscSort,
             desc: _DesSort.DesSort
           },
-          tooltip: _Info.Info
+          tooltip: _Help.Help
         }
       }
     },
