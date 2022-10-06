@@ -2574,6 +2574,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 }),
               },
               item: {
+                direction: 'row',
+                gap: `${baseSpacing * 0.5}px`,
                 margin: '0',
                 pad: {
                   horizontal: 'medium',

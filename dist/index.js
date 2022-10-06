@@ -2749,6 +2749,8 @@ var generate = function generate(baseSpacing, scale) {
                 }
               },
               item: {
+                direction: 'row',
+                gap: baseSpacing * 0.5 + "px",
                 margin: '0',
                 pad: {
                   horizontal: 'medium',
