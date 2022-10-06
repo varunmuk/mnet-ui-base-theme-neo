@@ -22,6 +22,7 @@ import { DefaultSort } from "mnet-icons/dist/es6/icons/neo/DefaultSort";
 import { AscSort } from "mnet-icons/dist/es6/icons/neo/AscSort";
 import { DesSort } from "mnet-icons/dist/es6/icons/neo/DesSort";
 import { Help } from "mnet-icons/dist/es6/icons/neo/Help";
+import { Info } from "mnet-icons/dist/es6/icons/neo/Info";
 import { AlertTriangle } from "mnet-icons/dist/es6/icons/neo/AlertTriangle";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2730,6 +2731,11 @@ export var generate = function generate(baseSpacing, scale) {
                     }
                   };
                 }
+              },
+              icons: {
+                info: Info,
+                size: 'large',
+                color: 'accent-11'
               }
             },
             incExc: {
@@ -2898,7 +2904,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
-          size: 'medium',
+          size: 'large',
           sort: {
             "default": DefaultSort,
             asc: AscSort,

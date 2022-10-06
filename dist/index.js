@@ -39,6 +39,8 @@ var _DesSort = require("mnet-icons/dist/es6/icons/neo/DesSort");
 
 var _Help = require("mnet-icons/dist/es6/icons/neo/Help");
 
+var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
+
 var _AlertTriangle = require("mnet-icons/dist/es6/icons/neo/AlertTriangle");
 
 var _styledComponents = require("styled-components");
@@ -2762,6 +2764,11 @@ var generate = function generate(baseSpacing, scale) {
                     }
                   };
                 }
+              },
+              icons: {
+                info: _Info.Info,
+                size: 'large',
+                color: 'accent-11'
               }
             },
             incExc: {
@@ -2930,7 +2937,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
-          size: 'medium',
+          size: 'large',
           sort: {
             "default": _DefaultSort.DefaultSort,
             asc: _AscSort.AscSort,

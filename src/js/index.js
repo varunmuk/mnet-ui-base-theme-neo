@@ -17,6 +17,7 @@ import {
   AscSort,
   DesSort,
   Help,
+  Info,
   AlertTriangle,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
@@ -2586,6 +2587,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                   },
                 }),
               },
+              icons: {
+                info: Info,
+                size: 'large',
+                color: 'accent-11',
+              },
             },
             incExc: {
               wrapper: {
@@ -2739,7 +2745,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       dataTable: {
         icons: {
-          size: 'medium',
+          size: 'large',
           sort: {
             default: DefaultSort,
             asc: AscSort,
