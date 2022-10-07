@@ -2717,7 +2717,8 @@ export var generate = function generate(baseSpacing, scale) {
               },
               item: {
                 direction: 'row',
-                gap: baseSpacing / 3 + "px",
+                gap: baseSpacing * 0.5 + "px",
+                align: 'center',
                 margin: '0',
                 pad: {
                   horizontal: 'medium',
@@ -2736,7 +2737,7 @@ export var generate = function generate(baseSpacing, scale) {
               },
               icons: {
                 info: Info,
-                size: 'medium',
+                size: 'large',
                 color: 'accent-12'
               }
             },
