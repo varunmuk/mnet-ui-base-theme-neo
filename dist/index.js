@@ -2666,6 +2666,9 @@ var generate = function generate(baseSpacing, scale) {
           iconButtons: {
             margin: {
               left: 'large'
+            },
+            extend: {
+              paddingLeft: baseSpacing / 2 + "px"
             }
           },
           options: {

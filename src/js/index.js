@@ -2495,6 +2495,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             margin: {
               left: 'large',
             },
+            extend: {
+              paddingLeft: `${baseSpacing / 2}px`,
+            },
           },
           options: {
             time: {
