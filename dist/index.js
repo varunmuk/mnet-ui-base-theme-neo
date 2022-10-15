@@ -2764,6 +2764,9 @@ var generate = function generate(baseSpacing, scale) {
                   var theme = _ref20.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
+                    '> label': {
+                      width: '100%'
+                    },
                     '&:hover': {
                       cursor: 'pointer',
                       background: (0, _colors.normalizeColor)('active', theme)

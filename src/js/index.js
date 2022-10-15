@@ -2587,6 +2587,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 },
                 extend: ({ theme }) => ({
                   fontSize: `${baseSpacing * 0.875}px`,
+                  '> label': {
+                    width: '100%',
+                  },
                   '&:hover': {
                     cursor: 'pointer',
                     background: normalizeColor('active', theme),
