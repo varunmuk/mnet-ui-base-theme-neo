@@ -2493,7 +2493,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           iconButtons: {
             margin: {
-              left: 'large',
+              left: `${baseSpacing / 2}px`,
             },
             extend: {
               paddingLeft: `${baseSpacing / 2}px`,
@@ -2578,7 +2578,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
               item: {
                 direction: 'row',
-                gap: `${baseSpacing * 0.5}px`,
+                gap: `${baseSpacing / 2}px`,
                 align: 'center',
                 margin: '0',
                 pad: {

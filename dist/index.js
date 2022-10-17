@@ -2665,7 +2665,7 @@ var generate = function generate(baseSpacing, scale) {
           },
           iconButtons: {
             margin: {
-              left: 'large'
+              left: baseSpacing / 2 + "px"
             },
             extend: {
               paddingLeft: baseSpacing / 2 + "px"
@@ -2753,7 +2753,7 @@ var generate = function generate(baseSpacing, scale) {
               },
               item: {
                 direction: 'row',
-                gap: baseSpacing * 0.5 + "px",
+                gap: baseSpacing / 2 + "px",
                 align: 'center',
                 margin: '0',
                 pad: {
