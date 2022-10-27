@@ -12,6 +12,7 @@ import {
   Left,
   Right,
   Check,
+  Info,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2231,13 +2232,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
       },
+      notes: {
+        icons: {
+          size: 'medium',
+          info: Info,
+        },
+      },
       navIcon: {
         icon: {
           left: Left,
           right: Right,
         },
         color: 'dark-3',
-        size: 'large',
+        size: 'medium',
         weight: 'bold',
       },
       range: {

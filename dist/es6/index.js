@@ -17,6 +17,7 @@ import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
 import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
+import { Info } from "mnet-icons/dist/es6/icons/neo/Info";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -2366,13 +2367,19 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
+      notes: {
+        icons: {
+          size: 'medium',
+          info: Info
+        }
+      },
       navIcon: {
         icon: {
           left: Left,
           right: Right
         },
         color: 'dark-3',
-        size: 'large',
+        size: 'medium',
         weight: 'bold'
       },
       range: {

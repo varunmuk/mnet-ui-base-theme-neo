@@ -29,6 +29,8 @@ var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
 
 var _Check = require("mnet-icons/dist/es6/icons/neo/Check");
 
+var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
+
 var _styledComponents = require("styled-components");
 
 var _object = require("grommet/utils/object");
@@ -2391,13 +2393,19 @@ var generate = function generate(baseSpacing, scale) {
           }
         }
       },
+      notes: {
+        icons: {
+          size: 'medium',
+          info: _Info.Info
+        }
+      },
       navIcon: {
         icon: {
           left: _Left.Left,
           right: _Right.Right
         },
         color: 'dark-3',
-        size: 'large',
+        size: 'medium',
         weight: 'bold'
       },
       range: {
