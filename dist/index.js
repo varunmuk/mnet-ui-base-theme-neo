@@ -2207,7 +2207,7 @@ var generate = function generate(baseSpacing, scale) {
         close: {
           icon: {
             name: _Close.Close,
-            size: 'xlarge',
+            size: 'medium',
             color: 'inherit'
           },
           wrapper: {

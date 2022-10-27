@@ -2182,7 +2182,7 @@ export var generate = function generate(baseSpacing, scale) {
         close: {
           icon: {
             name: Close,
-            size: 'xlarge',
+            size: 'medium',
             color: 'inherit'
           },
           wrapper: {

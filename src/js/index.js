@@ -2063,7 +2063,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         close: {
           icon: {
             name: Close,
-            size: 'xlarge',
+            size: 'medium',
             color: 'inherit',
           },
           wrapper: {
