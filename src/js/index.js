@@ -12,12 +12,19 @@ import {
   Left,
   Right,
   Check,
+  Plus,
+  DefaultSort,
+  AscSort,
+  DesSort,
+  Help,
+  Info,
+  AlertTriangle,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
 import { parseMetricToNum } from 'grommet/utils/mixins';
-import { FormNext, FormPrevious } from 'grommet-icons';
+import { FormNext, FormPrevious, Clear } from 'grommet-icons';
 
 Tick.notSvg = true;
 
@@ -54,6 +61,7 @@ const statusColors = {
   notStarted: '#898FA2',
   errorText: '#FC564F',
   okText: '#38C18B',
+  'warning-background': '#fcf8e3',
 };
 
 const darkColors = [
@@ -115,9 +123,10 @@ const chartColors = [
   '#9F7D56',
 ];
 const focusColor = '#B1C2FE';
+const borderColor = '#DCDFE7';
 
 const colors = {
-  active: '#F8FAFE',
+  active: '#F4F6F8',
   'background-back': {
     dark: '#33333308',
     light: '#F8FAFE',
@@ -135,7 +144,7 @@ const colors = {
   black: '#000000',
   border: {
     dark: rgba(255, 255, 255, 0.33),
-    light: '#DCDFE7',
+    light: borderColor,
   },
   brand: brandColor,
   control: {
@@ -685,8 +694,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         slideDuration: '0.2s',
       },
       medium: {
-        fontSize: `${baseFontSize}px`,
-        lineHeight: 1.45,
+        fontSize: `${baseSpacing * 0.875}px`,
+        lineHeight: `${baseSpacing * 1.375}px`,
         daySize: `${(baseSpacing * 16) / 7}px`,
         slideDuration: '0.5s',
       },
@@ -697,6 +706,37 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         slideDuration: '0.8s',
       },
       heading: { level: '4' }, // level ranges from 1-6
+      day: {
+        extend: ({
+          isSelected, isInRange, children, theme,
+        }) => ({
+          backgroundColor: `${
+            // eslint-disable-next-line no-nested-ternary
+            isSelected
+              ? normalizeColor('brand', theme)
+              : isInRange
+                ? normalizeColor('active', theme)
+                : undefined
+          }`,
+          color: `${
+            // eslint-disable-next-line no-nested-ternary
+            isSelected
+              ? normalizeColor('white', theme)
+              : Number.isNaN(Number(children))
+                ? normalizeColor('dark-7', theme)
+                : undefined
+          }`,
+          fontWeight: isSelected || Number.isNaN(Number(children)) ? 600 : 400,
+          height: `${baseSpacing * 1.5}px`,
+          marginBottom: '2px',
+          opacity: Number.isNaN(Number(children)) ? 1 : undefined,
+        }),
+      },
+      extend: {
+        'button:disabled': {
+          opacity: 0.2,
+        },
+      },
     },
     carousel: {
       animation: {
@@ -1668,14 +1708,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           horizontal: `${baseSpacing}px`,
           vertical: `${baseSpacing * 0.5}px`,
         },
-        border: undefined,
-        background: 'light-3', // extend: undefined,
+        border: { color: colors.border.light, side: 'all' }, // extend: undefined,
+        background: 'light-8', // extend: undefined,
         font: {
           weight: 400,
         },
         verticalAlign: 'middle',
         extend: {
-          color: darkColors[7],
+          color: darkColors[6],
           fontWeight: 600,
           fontSize: fontSizing(-0.75).size,
           lineHeight: fontSizing(-0.75).height,
@@ -1707,24 +1747,28 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         align: 'start',
         pad: {
           horizontal: `${baseSpacing}px`,
-          vertical: `${baseSpacing}px`,
+          vertical: `${baseSpacing * 0.5}px`,
         },
-        border: { color: colors.border.light, side: 'top' }, // verticalAlign: undefined,
+        border: { color: colors.border.light, side: 'all' }, // verticalAlign: undefined,
         // background: undefined,
-        // extend: undefined,
-
+        extend: {
+          'font-weight': '600',
+          color: darkColors[6],
+          verticalAlign: 'middle',
+          fontSize: fontSizing(0).size,
+          lineHeight: fontSizing(0).height,
+        },
       },
       extend: ({ theme }) => ({
         position: 'relative',
         'border-spacing': 0,
         'border-collapse': 'separate',
         height: 'auto',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         tr: {
           'td, th': {
             'border-bottom': 0,
             'border-right': 0,
-            'border-left': 0,
             '&:first-child': {
               'border-left': `1px solid ${normalizeColor('border', theme)}`,
             },
@@ -1736,15 +1780,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         thead: {
           th: {
             'text-transform': 'uppercase',
-            border: 'none',
             '&:first-child': {
               'border-top-left-radius': `${baseSpacing / 2.6666}px`,
-              'border-left': 'none',
             },
             '&:last-child': {
               'border-top-right-radius': `${baseSpacing / 2.6666}px`,
-              'border-right': 'none',
             },
+            'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
           },
         },
         tbody: {
@@ -1754,6 +1796,25 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 borderTop: 'none',
               },
             },
+            // '&:last-child': {
+            //   th: {
+            //     'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+            //     'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
+            //   },
+            //   td: {
+            //     'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+            //     '&:last-child': {
+            //       'border-bottom-right-radius': `${baseSpacing / 2.6666}px`,
+            //     },
+            //     '&:first-child': {
+            //       'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
+            //     },
+            //   },
+            // },
+          },
+        },
+        tfoot: {
+          tr: {
             '&:last-child': {
               th: {
                 'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
@@ -1953,6 +2014,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           default: TickCircle,
           ok: TickCircle,
           error: Error,
+          warning: AlertTriangle,
         },
         text: {
           default: {
@@ -1965,6 +2027,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           error: {
             color: '#E9716C',
+            weight: 600,
+            margin: { horizontal: 'small' },
+          },
+          warning: {
+            color: 'status-warning',
             weight: 600,
             margin: { horizontal: 'small' },
           },
@@ -1995,7 +2062,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           // text: {},
         },
         warning: {
-          background: 'status-warning',
+          background: 'status-warning-background',
           // text: {},
         },
       },
@@ -2322,6 +2389,383 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           fontSize: `${baseFontSize * 1.166}px`,
           height: `${baseSpacing * 2.5}px`,
           width: 'auto !important',
+        },
+      },
+    },
+    reporting: {
+      filters: {
+        menu: {
+          icons: {
+            color: 'brand',
+            size: 'xlarge',
+            icon: Plus,
+          },
+          item: {
+            disabled: {
+              extend: {
+                cursor: 'not-allowed',
+              },
+            },
+            hover: {
+              extend: ({ theme }) => ({
+                color: normalizeColor('dark-7', theme),
+              }),
+            },
+            extend: {
+              minWidth: `${baseSpacing * 10}px`,
+              padding: `${baseSpacing / 4}px ${baseSpacing / 1.5}px`,
+              fontSize: `${baseSpacing * 0.875}px`,
+            },
+          },
+          list: {
+            extend: {
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
+            },
+          },
+          drop: {
+            maxHeight: `${baseSpacing * 12.5}px`,
+            '& ::-webkit-scrollbar': {
+              width: '14px',
+            },
+            '& ::-webkit-scrollbar-thumb': {
+              border: '4px solid transparent',
+              borderRadius: '7px',
+              boxShadow: 'inset 0 0 0 10px',
+              color: darkColors[3],
+            },
+            '& ::-webkit-scrollbar-button': {
+              width: 0,
+              height: 0,
+              display: 'none',
+            },
+            '& ::-webkit-scrollbar-corner': {
+              backgroundColor: 'transparent',
+            },
+          },
+        },
+        tag: {
+          label: {
+            size: 'large',
+            margin: {
+              vertical: 'small',
+            },
+          },
+          state: {
+            disabled: {
+              cursor: 'not-allowed',
+              opacity: 0.4,
+            },
+          },
+          selected: {
+            background: 'light-8',
+            pad: {
+              horizontal: 'large',
+              vertical: '0',
+            },
+            border: {
+              color: 'border',
+            },
+            round: 'small',
+            // width: {
+            //   min: `${baseSpacing * 11.25}px`,
+            // },
+          },
+          subOpt: {
+            weight: 500,
+            size: 'large',
+          },
+          subOptNumber: {
+            margin: {
+              horizontal: 'medium',
+            },
+            pad: {
+              horizontal: 'small',
+            },
+            round: 'small',
+            background: 'brand',
+            extend: {
+              color: 'white',
+              fontWeight: 600,
+            },
+          },
+          icons: {
+            delete: Close,
+            disable: Clear,
+            size: 'medium',
+            color: 'dark-3',
+          },
+          iconButtons: {
+            margin: {
+              left: `${baseSpacing / 2}px`,
+            },
+            extend: {
+              paddingLeft: `${baseSpacing / 2}px`,
+            },
+          },
+          options: {
+            time: {
+              wrapper: {
+                border: {
+                  side: 'vertical',
+                  color: 'border',
+                },
+                pad: {
+                  horizontal: 'medium',
+                },
+                background: 'white',
+              },
+              item: {
+                switch: {
+                  container: {
+                    pad: '0',
+                    gap: 'medium',
+                  },
+                  option: {
+                    pad: {
+                      horizontal: 'small',
+                    },
+                    round: 'small',
+                  },
+                  text: {
+                    weight: 500,
+                    size: 'large',
+                    active: 'white',
+                    inactive: 'dark-3',
+                  },
+                },
+              },
+            },
+          },
+          dropdown: {
+            width: 'medium',
+          },
+        },
+        drop: {
+          selection: {
+            search: {
+              margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: `${baseSpacing * 0.875}px`,
+                paddingLeft: `${baseSpacing * 2.25}px`,
+              },
+            },
+            list: {
+              wrapper: {
+                border: {
+                  side: 'horizontal',
+                  size: 'xsmall',
+                },
+                height: {
+                  max: `${baseSpacing * 12.5}px`,
+                },
+                extend: ({ theme }) => ({
+                  '::-webkit-scrollbar': {
+                    width: '14px',
+                  },
+                  '::-webkit-scrollbar-thumb': {
+                    border: '4px solid transparent',
+                    borderRadius: '7px',
+                    boxShadow: 'inset 0 0 0 10px',
+                    color: normalizeColor('dark-4', theme),
+                  },
+                  '::-webkit-scrollbar-button': {
+                    width: 0,
+                    height: 0,
+                    display: 'none',
+                  },
+                  '::-webkit-scrollbar-corner': {
+                    backgroundColor: 'transparent',
+                  },
+                }),
+              },
+              item: {
+                direction: 'row',
+                gap: `${baseSpacing / 2}px`,
+                align: 'center',
+                margin: '0',
+                pad: {
+                  horizontal: 'medium',
+                  vertical: `${baseSpacing / 2}px`,
+                },
+                extend: ({ theme }) => ({
+                  fontSize: `${baseSpacing * 0.875}px`,
+                  '> label': {
+                    width: '100%',
+                  },
+                  '&:hover': {
+                    cursor: 'pointer',
+                    background: normalizeColor('active', theme),
+                  },
+                }),
+              },
+              icons: {
+                info: Info,
+                size: 'large',
+                color: 'accent-12',
+              },
+            },
+            incExc: {
+              wrapper: {
+                border: {
+                  size: 'xsmall',
+                  side: 'bottom',
+                  color: 'border',
+                },
+                margin: '0',
+                round: 'none',
+                overflow: 'hidden',
+              },
+              item: {
+                align: 'center',
+                pad: 'medium',
+                extend: ({ isActive, theme }) => ({
+                  fontSize: `${baseSpacing * 0.875}px`,
+                  fontWeight: '600',
+                  color: normalizeColor(isActive ? 'brand' : 'dark-7', theme),
+                  borderBottom: `3px solid ${normalizeColor(isActive ? 'brand' : 'transparent', theme)}`,
+                }),
+              },
+            },
+            radioContainer: {
+              pad: 'medium',
+              item: {
+                gap: 'medium',
+              },
+            },
+          },
+          datepicker: {
+            container: {
+              border: {
+                side: 'bottom',
+                size: 'xsmall',
+              },
+            },
+            presets: {
+              wrapper: {
+                width: `${baseSpacing * 12.5}px`,
+                border: {
+                  side: 'right',
+                  size: 'xsmall',
+                },
+              },
+              date: {
+                item: {
+                  switch: {
+                    option: {
+                      width: '100%',
+                      pad: 'large',
+                      extend: ({ checked, theme }) => ({
+                        borderLeft: checked ? `3px solid ${normalizeColor('brand', theme)}` : '0',
+                        '&:hover': {
+                          background: normalizeColor('active', theme),
+                        },
+                      }),
+                    },
+                    container: {
+                      gap: 'none',
+                    },
+                    text: {
+                      weight: 600,
+                      size: 'large',
+                      active: 'brand',
+                      inactive: 'dark-7',
+                    },
+                    radioButton: {
+                      hover: {
+                        border: {
+                          color: {
+                            dark: 'brand',
+                            light: 'brand',
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+                wrapper: {
+                  extend: ({ theme }) => ({
+                    'label, label>div': {
+                      width: '100%',
+                      margin: '0',
+                    },
+                    label: {
+                      borderBottom: `1px solid ${normalizeColor('border', theme)}`,
+                    },
+                    input: {
+                      display: 'none',
+                    },
+                  }),
+                },
+              },
+            },
+            calendar: {
+              wrapper: {
+                pad: {
+                  horizontal: `${baseSpacing * 2}px`,
+                  vertical: 'small',
+                },
+              },
+              selection: {
+                container: {
+                  align: 'center',
+                  pad: 'large',
+                  border: {
+                    side: 'bottom',
+                    size: 'xsmall',
+                  },
+                },
+                label: {
+                  color: 'dark-7',
+                  size: 'large',
+                },
+              },
+              header: {
+                container: {
+                  width: `${baseSpacing * 10}px`,
+                  pad: {
+                    vertical: 'large',
+                  },
+                },
+                text: {
+                  size: 'large',
+                  color: 'dark-7',
+                  weight: 600,
+                },
+                icons: {
+                  prev: Left,
+                  next: Right,
+                  color: 'dark-8',
+                  hover: ({ theme }) => ({
+                    background: normalizeColor('active', theme),
+                  }),
+                },
+              },
+            },
+          },
+          buttonPanel: {
+            container: {
+              pad: 'medium',
+              justify: 'start',
+              gap: 'xsmall',
+            },
+            button: {
+              secondary: false,
+            },
+          },
+        },
+      },
+      dataTable: {
+        icons: {
+          size: 'large',
+          sort: {
+            default: DefaultSort,
+            asc: AscSort,
+            desc: DesSort,
+          },
+          tooltip: Help,
         },
       },
     },
