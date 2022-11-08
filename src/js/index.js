@@ -2105,6 +2105,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
       },
+      icon: {
+        error: {
+          color: 'accent-5',
+        }
+      }
     },
     card: {
       container: {
@@ -2762,6 +2767,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           tooltip: Help,
         },
+      },
+    },
+    stepWizard: {
+      extend: {
+        cursor: 'default',
       },
     },
     setupSteps: {

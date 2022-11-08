@@ -2220,6 +2220,11 @@ export var generate = function generate(baseSpacing, scale) {
             plain: true
           }
         }
+      },
+      icon: {
+        error: {
+          color: 'accent-5'
+        }
       }
     },
     card: {
@@ -2921,6 +2926,11 @@ export var generate = function generate(baseSpacing, scale) {
           },
           tooltip: Help
         }
+      }
+    },
+    stepWizard: {
+      extend: {
+        cursor: 'default'
       }
     },
     setupSteps: {
