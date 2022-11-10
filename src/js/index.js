@@ -12,12 +12,12 @@ import {
   Left,
   Right,
   Check,
+  Info,
   Plus,
   DefaultSort,
   AscSort,
   DesSort,
   Help,
-  Info,
   AlertTriangle,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
@@ -2130,7 +2130,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         close: {
           icon: {
             name: Close,
-            size: 'xlarge',
+            size: 'medium',
             color: 'inherit',
           },
           wrapper: {
@@ -2298,13 +2298,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
         },
       },
+      notes: {
+        icons: {
+          size: 'medium',
+          info: Info,
+        },
+      },
       navIcon: {
         icon: {
           left: Left,
           right: Right,
         },
         color: 'dark-3',
-        size: 'large',
+        size: 'medium',
         weight: 'bold',
       },
       range: {

@@ -29,6 +29,8 @@ var _Right = require("mnet-icons/dist/es6/icons/neo/Right");
 
 var _Check = require("mnet-icons/dist/es6/icons/neo/Check");
 
+var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
+
 var _Plus = require("mnet-icons/dist/es6/icons/neo/Plus");
 
 var _DefaultSort = require("mnet-icons/dist/es6/icons/neo/DefaultSort");
@@ -38,8 +40,6 @@ var _AscSort = require("mnet-icons/dist/es6/icons/neo/AscSort");
 var _DesSort = require("mnet-icons/dist/es6/icons/neo/DesSort");
 
 var _Help = require("mnet-icons/dist/es6/icons/neo/Help");
-
-var _Info = require("mnet-icons/dist/es6/icons/neo/Info");
 
 var _AlertTriangle = require("mnet-icons/dist/es6/icons/neo/AlertTriangle");
 
@@ -2282,7 +2282,7 @@ var generate = function generate(baseSpacing, scale) {
         close: {
           icon: {
             name: _Close.Close,
-            size: 'xlarge',
+            size: 'medium',
             color: 'inherit'
           },
           wrapper: {
@@ -2466,13 +2466,19 @@ var generate = function generate(baseSpacing, scale) {
           }
         }
       },
+      notes: {
+        icons: {
+          size: 'medium',
+          info: _Info.Info
+        }
+      },
       navIcon: {
         icon: {
           left: _Left.Left,
           right: _Right.Right
         },
         color: 'dark-3',
-        size: 'large',
+        size: 'medium',
         weight: 'bold'
       },
       range: {

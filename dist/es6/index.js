@@ -17,12 +17,12 @@ import { LongArrowRight } from "mnet-icons/dist/es6/icons/neo/LongArrowRight";
 import { Left } from "mnet-icons/dist/es6/icons/neo/Left";
 import { Right } from "mnet-icons/dist/es6/icons/neo/Right";
 import { Check } from "mnet-icons/dist/es6/icons/neo/Check";
+import { Info } from "mnet-icons/dist/es6/icons/neo/Info";
 import { Plus } from "mnet-icons/dist/es6/icons/neo/Plus";
 import { DefaultSort } from "mnet-icons/dist/es6/icons/neo/DefaultSort";
 import { AscSort } from "mnet-icons/dist/es6/icons/neo/AscSort";
 import { DesSort } from "mnet-icons/dist/es6/icons/neo/DesSort";
 import { Help } from "mnet-icons/dist/es6/icons/neo/Help";
-import { Info } from "mnet-icons/dist/es6/icons/neo/Info";
 import { AlertTriangle } from "mnet-icons/dist/es6/icons/neo/AlertTriangle";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2249,7 +2249,7 @@ export var generate = function generate(baseSpacing, scale) {
         close: {
           icon: {
             name: Close,
-            size: 'xlarge',
+            size: 'medium',
             color: 'inherit'
           },
           wrapper: {
@@ -2433,13 +2433,19 @@ export var generate = function generate(baseSpacing, scale) {
           }
         }
       },
+      notes: {
+        icons: {
+          size: 'medium',
+          info: Info
+        }
+      },
       navIcon: {
         icon: {
           left: Left,
           right: Right
         },
         color: 'dark-3',
-        size: 'large',
+        size: 'medium',
         weight: 'bold'
       },
       range: {
