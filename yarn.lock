@@ -2440,7 +2440,7 @@ mkdirp@^0.5.1:
 
 "mnet-icons@git+ssh://git@tree.mn:saumik.s/mnet-icons.git":
   version "0.0.1"
-  resolved "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#be04c0ad6668ec256e6a8e681f69a78782aeb6b2"
+  resolved "git+ssh://git@tree.mn:saumik.s/mnet-icons.git#9493facc569c7f863e3b5f465ad2b6e44bac7570"
   dependencies:
     prop-types "^15.7.2"
     raw-loader "^4.0.1"
