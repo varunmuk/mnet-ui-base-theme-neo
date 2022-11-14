@@ -1132,6 +1132,18 @@ export var generate = function generate(baseSpacing, scale) {
       // when we scale the font size down
       weight: 700
     },
+    icon: {
+      size: {
+        small: baseSpacing * 0.5 + "px",
+        // 8px
+        medium: baseSpacing * 1 + "px",
+        // 16px
+        large: baseSpacing * 1.5 + "px",
+        // 24px
+        xlarge: baseSpacing * 2 + "px" // 32px
+
+      }
+    },
     layer: {
       background: 'white',
       border: {
