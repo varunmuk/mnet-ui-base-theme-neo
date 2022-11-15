@@ -1804,21 +1804,21 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 borderTop: 'none',
               },
             },
-            // '&:last-child': {
-            //   th: {
-            //     'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
-            //     'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
-            //   },
-            //   td: {
-            //     'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
-            //     '&:last-child': {
-            //       'border-bottom-right-radius': `${baseSpacing / 2.6666}px`,
-            //     },
-            //     '&:first-child': {
-            //       'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
-            //     },
-            //   },
-            // },
+            '&:last-child': {
+              th: {
+                'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+                'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
+              },
+              td: {
+                'border-bottom': `1px solid ${normalizeColor('border', theme)}`,
+                '&:last-child': {
+                  'border-bottom-right-radius': `${baseSpacing / 2.6666}px`,
+                },
+                '&:first-child': {
+                  'border-bottom-left-radius': `${baseSpacing / 2.6666}px`,
+                },
+              },
+            },
           },
         },
         tfoot: {
