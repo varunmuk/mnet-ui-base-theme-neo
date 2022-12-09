@@ -1163,7 +1163,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       responsiveBreakpoint: 'small',
       // when we scale the font size down
-      weight: 700
+      weight: 600
     },
     icon: {
       size: {
@@ -2862,6 +2862,7 @@ var generate = function generate(baseSpacing, scale) {
                             theme = _ref22.theme;
                         return {
                           borderLeft: checked ? "3px solid " + (0, _colors.normalizeColor)('brand', theme) : '0',
+                          borderBottom: "1px solid " + (0, _colors.normalizeColor)('border', theme),
                           '&:hover': {
                             background: (0, _colors.normalizeColor)('active', theme)
                           }
@@ -2896,9 +2897,6 @@ var generate = function generate(baseSpacing, scale) {
                       'label, label>div': {
                         width: '100%',
                         margin: '0'
-                      },
-                      label: {
-                        borderBottom: "1px solid " + (0, _colors.normalizeColor)('border', theme)
                       },
                       input: {
                         display: 'none'
