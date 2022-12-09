@@ -1074,7 +1074,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       responsiveBreakpoint: 'small', // when we scale the font size down
-      weight: 700,
+      weight: 600,
     },
     icon: {
       size: {
@@ -2673,6 +2673,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                       pad: 'large',
                       extend: ({ checked, theme }) => ({
                         borderLeft: checked ? `3px solid ${normalizeColor('brand', theme)}` : '0',
+                        borderBottom: `1px solid ${normalizeColor('border', theme)}`,
                         '&:hover': {
                           background: normalizeColor('active', theme),
                         },
@@ -2704,9 +2705,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                     'label, label>div': {
                       width: '100%',
                       margin: '0',
-                    },
-                    label: {
-                      borderBottom: `1px solid ${normalizeColor('border', theme)}`,
                     },
                     input: {
                       display: 'none',
