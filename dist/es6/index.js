@@ -1597,21 +1597,21 @@ export var generate = function generate(baseSpacing, scale) {
           dark: 'dark-6',
           light: 'dark-6'
         },
-        width: '5px'
+        width: '2px'
       },
       check: {
         radius: '100%',
         color: {
-          dark: 'accent-3',
-          light: 'accent-3'
+          dark: 'accent-12',
+          light: 'accent-12'
         }
       },
       hover: {
         border: {
           width: '5px',
           color: {
-            dark: 'accent-3',
-            light: 'accent-3'
+            dark: 'accent-12',
+            light: 'accent-12'
           }
         }
       },
@@ -1626,8 +1626,7 @@ export var generate = function generate(baseSpacing, scale) {
       gap: 'small',
       size: baseSpacing + "px",
       extend: {
-        marginRight: baseSpacing / 2 + "px",
-        borderWidth: baseSpacing / 3.2 + "px"
+        marginRight: baseSpacing / 2 + "px"
       }
     },
     rangeInput: {
