@@ -99,6 +99,7 @@ const lightColors = [
   '#DCDFE7',
   '#F8FAFE',
   '#D5D7DB',
+  '#C9CCD5',
 ];
 const chartColors = [
   '#FC564F',
@@ -768,7 +769,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       // gap: undefined
       hover: {
         border: {
-          color: 'dark-7',
+          color: 'dark-8',
         },
       },
       icon: {
@@ -1074,7 +1075,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       responsiveBreakpoint: 'small', // when we scale the font size down
-      weight: 700,
+      weight: 600,
     },
     icon: {
       size: {
@@ -1507,32 +1508,37 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       border: {
         color: {
-          dark: 'dark-6',
-          light: 'dark-6',
+          dark: 'light-21',
+          light: 'light-21',
         },
-        width: '5px',
+        width: '1px',
       },
       check: {
         radius: '100%',
         color: {
-          dark: 'accent-3',
-          light: 'accent-3',
+          dark: 'accent-12',
+          light: 'accent-12',
         },
       },
       hover: {
         border: {
           width: '5px',
           color: {
-            dark: 'accent-3',
-            light: 'accent-3',
+            dark: 'dark-8',
+            light: 'dark-8',
           },
         },
       },
       icon: {
-        // size: undefined,
-        extend: {
-          display: 'none',
-        },
+        size: 'auto',
+        extend: ({ theme }) => ({
+          border: `4px solid ${normalizeColor('accent-12', theme)}`,
+          borderRadius: '100%',
+          margin: '-1px',
+          '> circle': {
+            display: 'none',
+          },
+        }),
       },
       icons: {
         // circle: undefined,
@@ -1541,7 +1547,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       size: `${baseSpacing}px`,
       extend: {
         marginRight: `${baseSpacing / 2}px`,
-        borderWidth: `${baseSpacing / 3.2}px`,
       },
     },
     rangeInput: {
@@ -1901,7 +1906,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     pagination: {
       control: {
         extend: props => css`
-            border: 1px solid ${normalizeColor('light-4', props.theme)};
+            border: 1px solid ${normalizeColor('border', props.theme)};
             border-right: none;
             button {
               display: flex;
@@ -1909,31 +1914,45 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               justify-content: center;
             }
             &:first-child {
+              border-radius: 4px;
+              border-right: 1px solid ${normalizeColor('border', props.theme)};
+              margin-right: ${baseSpacing / 2}px;
+            }
+            &:nth-child(2) {
               border-radius: 4px 0 0 4px;
-                        
+            }
+            &:nth-last-child(2) {
+              border-radius: 0 4px 4px 0;
+              border-right: 1px solid ${normalizeColor('border', props.theme)};
             }
             &:last-child {
-              border-radius: 0 4px 4px 0;
-              border-right: 1px solid ${normalizeColor('light-4', props.theme)};
+              border-radius: 4px;
+              border-right: 1px solid ${normalizeColor('border', props.theme)};
+              margin-left: ${baseSpacing / 2}px;
             }
-
         `,
       },
       button: {
         padding: 'none',
         active: {
-          background: 'light-3',
-          color: 'dark-3',
+          background: 'brand',
+          color: 'white',
           border: {
             width: '1px',
-            color: 'light-3',
+            color: 'brand',
             radius: '0px',
           },
+        },
+        hover: {
+          background: {
+            color: 'brand',
+          },
+          color: 'white',
         },
         disabled: {
           padding: 'none',
         },
-        color: 'text-strong',
+        color: 'dark-7',
         size: {
           small: {
             border: {
@@ -1951,7 +1970,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           medium: {
             border: {
               width: '2px',
-              color: 'light-3',
+              color: 'border',
               side: 'right',
             },
             pad: {
@@ -1986,7 +2005,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         gap: 'none',
       },
       icons: {
-        color: 'text-xweak',
+        color: 'dark-7',
         previous: FormPrevious,
         next: FormNext,
       },
@@ -1996,13 +2015,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         contentWrap: {
           align: 'center',
           justify: 'center',
+          extend: {
+            color: 'white',
+          },
         },
         content: {
-          background: 'dark-1',
+          background: 'dark-7',
           direction: 'row',
           pad: { horizontal: `${baseSpacing * 0.5}px`, vertical: `${baseSpacing * 0.5}px` },
-          round: 'small',
+          round: `${baseSpacing * 0.25}px`,
           width: 'medium',
+          extend: {
+            color: 'white',
+          },
         },
       },
       drop: {
@@ -2116,8 +2141,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       icon: {
         error: {
           color: 'accent-5',
-        }
-      }
+        },
+      },
     },
     card: {
       container: {
@@ -2418,6 +2443,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             disabled: {
               extend: {
                 cursor: 'not-allowed',
+                opacity: 0.4,
               },
             },
             hover: {
@@ -2465,6 +2491,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             margin: {
               vertical: 'small',
             },
+            extend: {
+              lineHeight: '20px',
+            },
           },
           state: {
             disabled: {
@@ -2485,6 +2514,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             // width: {
             //   min: `${baseSpacing * 11.25}px`,
             // },
+            extend: ({ hasTagHover, theme }) => ({
+              '&:hover': {
+                borderColor: hasTagHover && normalizeColor('light-24', theme),
+              },
+            }),
           },
           subOpt: {
             weight: 500,
@@ -2508,15 +2542,19 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             delete: Close,
             disable: Clear,
             size: 'medium',
-            color: 'dark-3',
+            color: 'dark-8',
           },
           iconButtons: {
             margin: {
               left: `${baseSpacing / 2}px`,
             },
-            extend: {
+            extend: ({ theme }) => ({
               paddingLeft: `${baseSpacing / 2}px`,
-            },
+              'svg:hover > g > path': {
+                fill: normalizeColor('dark-7', theme),
+                stroke: normalizeColor('dark-7', theme),
+              },
+            }),
           },
           options: {
             time: {
@@ -2600,14 +2638,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 gap: `${baseSpacing / 2}px`,
                 align: 'center',
                 margin: '0',
-                pad: {
-                  horizontal: 'medium',
-                  vertical: `${baseSpacing / 2}px`,
-                },
                 extend: ({ theme }) => ({
                   fontSize: `${baseSpacing * 0.875}px`,
                   '> label': {
                     width: '100%',
+                    padding: `${baseSpacing * 0.5}px ${baseSpacing * 0.75}px`,
                   },
                   '&:hover': {
                     cursor: 'pointer',
@@ -2647,6 +2682,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               pad: 'medium',
               item: {
                 gap: 'medium',
+                extend: ({ theme }) => ({
+                  '> label': {
+                    color: normalizeColor('dark-7', theme),
+                    fontSize: `${baseSpacing * 0.875}px`,
+                    fontWeight: '400',
+                  },
+                }),
               },
             },
           },
@@ -2673,6 +2715,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                       pad: 'large',
                       extend: ({ checked, theme }) => ({
                         borderLeft: checked ? `3px solid ${normalizeColor('brand', theme)}` : '0',
+                        borderBottom: `1px solid ${normalizeColor('border', theme)}`,
                         '&:hover': {
                           background: normalizeColor('active', theme),
                         },
@@ -2704,9 +2747,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                     'label, label>div': {
                       width: '100%',
                       margin: '0',
-                    },
-                    label: {
-                      borderBottom: `1px solid ${normalizeColor('border', theme)}`,
                     },
                     input: {
                       display: 'none',

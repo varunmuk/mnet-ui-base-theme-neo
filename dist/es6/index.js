@@ -55,7 +55,7 @@ var statusColors = {
 var darkColors = ['#29313D', '#2F3A4A', '#575F7D', '#898EA2', '#BABDCA', '#DEDEDE', '#333333', '#898FA2'];
 /* TODO: As per style guide only few colours to be used: need to remove unused colors */
 
-var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#898FA2', '#DCDFE7', '#F8FAFE', '#D5D7DB'];
+var lightColors = ['#fbfbfb', '#f5f6f8', '#E7EAF1', '#e1e3ef', '#dfdfdf', '#DADADA', '#F5F7FD', '#F4F6F8', '#D9DBE5', '#E8E7E7', '#F5F6FA', '#CCCCCC', '#E0E4ED', '#edfff2', '#EDF6FF', '#BED1FA', '#F2F6FF', '#F9F9F9', '#BDD1FA', '#898FA2', '#DCDFE7', '#F8FAFE', '#D5D7DB', '#C9CCD5'];
 var chartColors = ['#FC564F', '#719CF7', '#36C18B', '#FC90C9', '#F5B473', '#7371D9', '#98DB98', '#FC805A', '#3165B0', '#5DD8EB', '#FCD743', '#C94F78', '#AFA392', '#F5938C', '#6A3A27', '#DB2001', '#3C9678', '#575F7D', '#650B7C', '#9F7D56'];
 var focusColor = '#B1C2FE';
 var borderColor = '#DCDFE7';
@@ -780,7 +780,7 @@ export var generate = function generate(baseSpacing, scale) {
       // gap: undefined
       hover: {
         border: {
-          color: 'dark-7'
+          color: 'dark-8'
         }
       },
       icon: {
@@ -1130,7 +1130,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       responsiveBreakpoint: 'small',
       // when we scale the font size down
-      weight: 700
+      weight: 600
     },
     icon: {
       size: {
@@ -1594,31 +1594,39 @@ export var generate = function generate(baseSpacing, scale) {
       },
       border: {
         color: {
-          dark: 'dark-6',
-          light: 'dark-6'
+          dark: 'light-21',
+          light: 'light-21'
         },
-        width: '5px'
+        width: '1px'
       },
       check: {
         radius: '100%',
         color: {
-          dark: 'accent-3',
-          light: 'accent-3'
+          dark: 'accent-12',
+          light: 'accent-12'
         }
       },
       hover: {
         border: {
           width: '5px',
           color: {
-            dark: 'accent-3',
-            light: 'accent-3'
+            dark: 'dark-8',
+            light: 'dark-8'
           }
         }
       },
       icon: {
-        // size: undefined,
-        extend: {
-          display: 'none'
+        size: 'auto',
+        extend: function extend(_ref13) {
+          var theme = _ref13.theme;
+          return {
+            border: "4px solid " + normalizeColor('accent-12', theme),
+            borderRadius: '100%',
+            margin: '-1px',
+            '> circle': {
+              display: 'none'
+            }
+          };
         }
       },
       icons: {// circle: undefined,
@@ -1626,8 +1634,7 @@ export var generate = function generate(baseSpacing, scale) {
       gap: 'small',
       size: baseSpacing + "px",
       extend: {
-        marginRight: baseSpacing / 2 + "px",
-        borderWidth: baseSpacing / 3.2 + "px"
+        marginRight: baseSpacing / 2 + "px"
       }
     },
     rangeInput: {
@@ -1661,17 +1668,17 @@ export var generate = function generate(baseSpacing, scale) {
       },
       control: {
         color: 'dark-7',
-        open: function open(_ref13) {
-          var plain = _ref13.callerPlain;
+        open: function open(_ref14) {
+          var plain = _ref14.callerPlain;
           return !plain && {
             borderBottomColor: accentColors[11],
             backgroundColor: lightColors[21]
           };
         },
-        extend: function extend(_ref14) {
-          var theme = _ref14.theme,
-              disabled = _ref14.disabled,
-              plain = _ref14.callerPlain;
+        extend: function extend(_ref15) {
+          var theme = _ref15.theme,
+              disabled = _ref15.disabled,
+              plain = _ref15.callerPlain;
           return {
             border: !plain && "1px solid " + normalizeColor('dark-6', theme),
             input: {
@@ -1878,8 +1885,8 @@ export var generate = function generate(baseSpacing, scale) {
           lineHeight: fontSizing(0).height
         }
       },
-      extend: function extend(_ref15) {
-        var theme = _ref15.theme;
+      extend: function extend(_ref16) {
+        var theme = _ref16.theme;
         return {
           position: 'relative',
           'border-spacing': 0,
@@ -1969,8 +1976,8 @@ export var generate = function generate(baseSpacing, scale) {
       xxxxlarge: _extends({}, fontSizing(4.5))
     },
     textArea: {
-      extend: function extend(_ref16) {
-        var theme = _ref16.theme;
+      extend: function extend(_ref17) {
+        var theme = _ref17.theme;
         return {
           color: normalizeColor('dark-3', theme),
           fontWeight: 400
@@ -1991,14 +1998,14 @@ export var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
-      extend: function extend(_ref17) {
-        var plain = _ref17.plain,
-            focus = _ref17.focus,
-            reverse = _ref17.reverse,
-            icon = _ref17.icon,
-            theme = _ref17.theme,
-            readOnly = _ref17.readOnly,
-            error = _ref17.error;
+      extend: function extend(_ref18) {
+        var plain = _ref18.plain,
+            focus = _ref18.focus,
+            reverse = _ref18.reverse,
+            icon = _ref18.icon,
+            theme = _ref18.theme,
+            readOnly = _ref18.readOnly,
+            error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
           boxShadow: 'none',
@@ -2021,24 +2028,30 @@ export var generate = function generate(baseSpacing, scale) {
     pagination: {
       control: {
         extend: function extend(props) {
-          return css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px 0 0 4px;\n                        \n            }\n            &:last-child {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n\n        "])), normalizeColor('light-4', props.theme), normalizeColor('light-4', props.theme));
+          return css(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n            border: 1px solid ", ";\n            border-right: none;\n            button {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            &:first-child {\n              border-radius: 4px;\n              border-right: 1px solid ", ";\n              margin-right: ", "px;\n            }\n            &:nth-child(2) {\n              border-radius: 4px 0 0 4px;\n            }\n            &:nth-last-child(2) {\n              border-radius: 0 4px 4px 0;\n              border-right: 1px solid ", ";\n            }\n            &:last-child {\n              border-radius: 4px;\n              border-right: 1px solid ", ";\n              margin-left: ", "px;\n            }\n        "])), normalizeColor('border', props.theme), normalizeColor('border', props.theme), baseSpacing / 2, normalizeColor('border', props.theme), normalizeColor('border', props.theme), baseSpacing / 2);
         }
       },
       button: {
         padding: 'none',
         active: {
-          background: 'light-3',
-          color: 'dark-3',
+          background: 'brand',
+          color: 'white',
           border: {
             width: '1px',
-            color: 'light-3',
+            color: 'brand',
             radius: '0px'
           }
+        },
+        hover: {
+          background: {
+            color: 'brand'
+          },
+          color: 'white'
         },
         disabled: {
           padding: 'none'
         },
-        color: 'text-strong',
+        color: 'dark-7',
         size: {
           small: {
             border: {
@@ -2056,7 +2069,7 @@ export var generate = function generate(baseSpacing, scale) {
           medium: {
             border: {
               width: '2px',
-              color: 'light-3',
+              color: 'border',
               side: 'right'
             },
             pad: {
@@ -2091,7 +2104,7 @@ export var generate = function generate(baseSpacing, scale) {
         gap: 'none'
       },
       icons: {
-        color: 'text-xweak',
+        color: 'dark-7',
         previous: FormPrevious,
         next: FormNext
       }
@@ -2100,17 +2113,23 @@ export var generate = function generate(baseSpacing, scale) {
       wrapper: {
         contentWrap: {
           align: 'center',
-          justify: 'center'
+          justify: 'center',
+          extend: {
+            color: 'white'
+          }
         },
         content: {
-          background: 'dark-1',
+          background: 'dark-7',
           direction: 'row',
           pad: {
             horizontal: baseSpacing * 0.5 + "px",
             vertical: baseSpacing * 0.5 + "px"
           },
-          round: 'small',
-          width: 'medium'
+          round: baseSpacing * 0.25 + "px",
+          width: 'medium',
+          extend: {
+            color: 'white'
+          }
         }
       },
       drop: {
@@ -2557,12 +2576,13 @@ export var generate = function generate(baseSpacing, scale) {
           item: {
             disabled: {
               extend: {
-                cursor: 'not-allowed'
+                cursor: 'not-allowed',
+                opacity: 0.4
               }
             },
             hover: {
-              extend: function extend(_ref18) {
-                var theme = _ref18.theme;
+              extend: function extend(_ref19) {
+                var theme = _ref19.theme;
                 return {
                   color: normalizeColor('dark-7', theme)
                 };
@@ -2607,6 +2627,9 @@ export var generate = function generate(baseSpacing, scale) {
             size: 'large',
             margin: {
               vertical: 'small'
+            },
+            extend: {
+              lineHeight: '20px'
             }
           },
           state: {
@@ -2624,10 +2647,19 @@ export var generate = function generate(baseSpacing, scale) {
             border: {
               color: 'border'
             },
-            round: 'small' // width: {
+            round: 'small',
+            // width: {
             //   min: `${baseSpacing * 11.25}px`,
             // },
-
+            extend: function extend(_ref20) {
+              var hasTagHover = _ref20.hasTagHover,
+                  theme = _ref20.theme;
+              return {
+                '&:hover': {
+                  borderColor: hasTagHover && normalizeColor('light-24', theme)
+                }
+              };
+            }
           },
           subOpt: {
             weight: 500,
@@ -2651,14 +2683,21 @@ export var generate = function generate(baseSpacing, scale) {
             "delete": Close,
             disable: Clear,
             size: 'medium',
-            color: 'dark-3'
+            color: 'dark-8'
           },
           iconButtons: {
             margin: {
               left: baseSpacing / 2 + "px"
             },
-            extend: {
-              paddingLeft: baseSpacing / 2 + "px"
+            extend: function extend(_ref21) {
+              var theme = _ref21.theme;
+              return {
+                paddingLeft: baseSpacing / 2 + "px",
+                'svg:hover > g > path': {
+                  fill: normalizeColor('dark-7', theme),
+                  stroke: normalizeColor('dark-7', theme)
+                }
+              };
             }
           },
           options: {
@@ -2718,8 +2757,8 @@ export var generate = function generate(baseSpacing, scale) {
                 height: {
                   max: baseSpacing * 12.5 + "px"
                 },
-                extend: function extend(_ref19) {
-                  var theme = _ref19.theme;
+                extend: function extend(_ref22) {
+                  var theme = _ref22.theme;
                   return {
                     '::-webkit-scrollbar': {
                       width: '14px'
@@ -2746,16 +2785,13 @@ export var generate = function generate(baseSpacing, scale) {
                 gap: baseSpacing / 2 + "px",
                 align: 'center',
                 margin: '0',
-                pad: {
-                  horizontal: 'medium',
-                  vertical: baseSpacing / 2 + "px"
-                },
-                extend: function extend(_ref20) {
-                  var theme = _ref20.theme;
+                extend: function extend(_ref23) {
+                  var theme = _ref23.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
                     '> label': {
-                      width: '100%'
+                      width: '100%',
+                      padding: baseSpacing * 0.5 + "px " + baseSpacing * 0.75 + "px"
                     },
                     '&:hover': {
                       cursor: 'pointer',
@@ -2784,9 +2820,9 @@ export var generate = function generate(baseSpacing, scale) {
               item: {
                 align: 'center',
                 pad: 'medium',
-                extend: function extend(_ref21) {
-                  var isActive = _ref21.isActive,
-                      theme = _ref21.theme;
+                extend: function extend(_ref24) {
+                  var isActive = _ref24.isActive,
+                      theme = _ref24.theme;
                   return {
                     fontSize: baseSpacing * 0.875 + "px",
                     fontWeight: '600',
@@ -2799,7 +2835,17 @@ export var generate = function generate(baseSpacing, scale) {
             radioContainer: {
               pad: 'medium',
               item: {
-                gap: 'medium'
+                gap: 'medium',
+                extend: function extend(_ref25) {
+                  var theme = _ref25.theme;
+                  return {
+                    '> label': {
+                      color: normalizeColor('dark-7', theme),
+                      fontSize: baseSpacing * 0.875 + "px",
+                      fontWeight: '400'
+                    }
+                  };
+                }
               }
             }
           },
@@ -2824,11 +2870,12 @@ export var generate = function generate(baseSpacing, scale) {
                     option: {
                       width: '100%',
                       pad: 'large',
-                      extend: function extend(_ref22) {
-                        var checked = _ref22.checked,
-                            theme = _ref22.theme;
+                      extend: function extend(_ref26) {
+                        var checked = _ref26.checked,
+                            theme = _ref26.theme;
                         return {
                           borderLeft: checked ? "3px solid " + normalizeColor('brand', theme) : '0',
+                          borderBottom: "1px solid " + normalizeColor('border', theme),
                           '&:hover': {
                             background: normalizeColor('active', theme)
                           }
@@ -2857,15 +2904,12 @@ export var generate = function generate(baseSpacing, scale) {
                   }
                 },
                 wrapper: {
-                  extend: function extend(_ref23) {
-                    var theme = _ref23.theme;
+                  extend: function extend(_ref27) {
+                    var theme = _ref27.theme;
                     return {
                       'label, label>div': {
                         width: '100%',
                         margin: '0'
-                      },
-                      label: {
-                        borderBottom: "1px solid " + normalizeColor('border', theme)
                       },
                       input: {
                         display: 'none'
@@ -2912,8 +2956,8 @@ export var generate = function generate(baseSpacing, scale) {
                   prev: Left,
                   next: Right,
                   color: 'dark-8',
-                  hover: function hover(_ref24) {
-                    var theme = _ref24.theme;
+                  hover: function hover(_ref28) {
+                    var theme = _ref28.theme;
                     return {
                       background: normalizeColor('active', theme)
                     };
