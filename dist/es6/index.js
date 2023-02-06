@@ -316,7 +316,7 @@ export var generate = function generate(baseSpacing, scale) {
         // shadow or outline are required for accessibility
         border: {
           // remove to only have shadow
-          color: 'transparent'
+          color: 'border'
         },
         // outline: { color: undefined, size: undefined },
         shadow: 'none'
@@ -960,7 +960,7 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       border: {
-        color: 'white',
+        color: 'dark-6',
         error: {
           color: statusColors.critical
         },
@@ -1693,7 +1693,7 @@ export var generate = function generate(baseSpacing, scale) {
             },
             lineHeight: baseSpacing * 1.5 + "px",
             padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px",
-            background: normalizeColor(disabled ? 'light-1' : 'white', theme),
+            background: disabled ? normalizeColor('light-1', theme) : null,
             borderBottomWidth: !plain && theme.global.borderSize.small,
             '&:hover': {
               borderBottomColor: accentColors[11]
