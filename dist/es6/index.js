@@ -2875,6 +2875,20 @@ export var generate = function generate(baseSpacing, scale) {
                   };
                 }
               },
+              tip: {
+                align: 'center',
+                background: 'dark-7',
+                direction: 'row',
+                pad: {
+                  horizontal: baseSpacing * 0.5 + "px",
+                  vertical: baseSpacing * 0.5 + "px"
+                },
+                round: baseSpacing * 0.25 + "px",
+                width: 'medium',
+                extend: {
+                  color: 'white'
+                }
+              },
               icons: {
                 info: Info,
                 size: 'large',
