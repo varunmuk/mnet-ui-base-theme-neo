@@ -1134,13 +1134,13 @@ export var generate = function generate(baseSpacing, scale) {
     },
     icon: {
       size: {
-        small: baseSpacing * 0.5 + "px",
-        // 8px
-        medium: baseSpacing * 1 + "px",
+        small: baseSpacing * 0.75 + "px",
+        // 12px
+        medium: baseSpacing * 0.875 + "px",
+        // 14px
+        large: baseSpacing * 1 + "px",
         // 16px
-        large: baseSpacing * 1.5 + "px",
-        // 24px
-        xlarge: baseSpacing * 2 + "px" // 32px
+        xlarge: baseSpacing * 1.125 + "px" // 18px
 
       }
     },
