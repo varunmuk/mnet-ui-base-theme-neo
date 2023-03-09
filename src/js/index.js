@@ -1639,7 +1639,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           right: 'none',
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'large',
         up: Up,
         down: Down,
         // extend: undefined,
@@ -2436,7 +2436,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         menu: {
           icons: {
             color: 'brand',
-            size: 'xlarge',
+            size: 'large',
             icon: Plus,
           },
           item: {
@@ -2541,7 +2541,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icons: {
             delete: Close,
             disable: Clear,
-            size: 'medium',
+            size: 'small',
             color: 'dark-8',
           },
           iconButtons: {
@@ -2813,7 +2813,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       dataTable: {
         icons: {
-          size: 'large',
+          size: 'medium',
           sort: {
             default: DefaultSort,
             asc: AscSort,
