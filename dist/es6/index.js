@@ -1738,7 +1738,7 @@ export var generate = function generate(baseSpacing, scale) {
           right: 'none'
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'large',
         up: Up,
         down: Down // extend: undefined,
 
@@ -2570,7 +2570,7 @@ export var generate = function generate(baseSpacing, scale) {
         menu: {
           icons: {
             color: 'brand',
-            size: 'xlarge',
+            size: 'large',
             icon: Plus
           },
           item: {
@@ -2682,7 +2682,7 @@ export var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": Close,
             disable: Clear,
-            size: 'medium',
+            size: 'small',
             color: 'dark-8'
           },
           iconButtons: {
@@ -2980,7 +2980,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
-          size: 'large',
+          size: 'medium',
           sort: {
             "default": DefaultSort,
             asc: AscSort,
