@@ -2603,7 +2603,7 @@ var generate = function generate(baseSpacing, scale) {
         menu: {
           icons: {
             color: 'brand',
-            size: 'large',
+            size: 'medium',
             icon: _Plus.Plus
           },
           item: {
@@ -2715,7 +2715,7 @@ var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": _Close.Close,
             disable: _Clear.Clear,
-            size: 'small',
+            size: 'xsmall',
             color: 'dark-8'
           },
           iconButtons: {
@@ -3013,7 +3013,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
-          size: 'medium',
+          size: 'small',
           sort: {
             "default": _DefaultSort.DefaultSort,
             asc: _AscSort.AscSort,
