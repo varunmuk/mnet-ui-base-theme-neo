@@ -2116,8 +2116,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         up: Up,
         down: Down,
         changeArrow: LongArrowDown,
-        close: Close,
+        close: Close,        
       },
+      iconsSize: {
+        up: 'small',
+        down: 'small',
+        changeArrow: 'small',
+        close: 'small',
+      }
     },
     upload: {
       loader: {

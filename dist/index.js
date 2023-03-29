@@ -2264,6 +2264,12 @@ var generate = function generate(baseSpacing, scale) {
         down: _Down.Down,
         changeArrow: _LongArrowDown.LongArrowDown,
         close: _Close.Close
+      },
+      iconsSize: {
+        up: 'small',
+        down: 'small',
+        changeArrow: 'small',
+        close: 'small'
       }
     },
     upload: {

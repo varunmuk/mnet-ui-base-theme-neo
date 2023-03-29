@@ -2231,6 +2231,12 @@ export var generate = function generate(baseSpacing, scale) {
         down: Down,
         changeArrow: LongArrowDown,
         close: Close
+      },
+      iconsSize: {
+        up: 'small',
+        down: 'small',
+        changeArrow: 'small',
+        close: 'small'
       }
     },
     upload: {
