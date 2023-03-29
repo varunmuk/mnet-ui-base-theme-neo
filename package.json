@@ -14,7 +14,7 @@
   },
   "peerDependencies": {
     "grommet": "^2.19.1",
-    "mnet-icons": "git+ssh://git@tree.mn:react-ui/mnet-icons.git",
+    "mnet-icons": "git+ssh://git@tree.mn:react-ui/mnet-icons.git#menu-redesign-icons",
     "polished": "^3.4.1",
     "styled-components": "^4.0.0"
   },

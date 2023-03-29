@@ -2440,7 +2440,7 @@ mkdirp@^0.5.1:
 
 "mnet-icons@git+ssh://git@tree.mn:react-ui/mnet-icons.git#menu-redesign-icons":
   version "0.0.1"
-  resolved "git+ssh://git@tree.mn:react-ui/mnet-icons.git#4bfe343b7085270cdd1c1243bfd6cedeb589d0d6"
+  resolved "git+ssh://git@tree.mn:react-ui/mnet-icons.git#37013c3071a1863be05f0aa90b834525e1d22cdf"
   dependencies:
     prop-types "^15.7.2"
     raw-loader "^4.0.1"
