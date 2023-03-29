@@ -1462,14 +1462,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icon: TickCircle,
           extend: {
             color: 'accent-1',
-            size: 'large',
+            size: 'medium',
           },
         },
         exclude: {
           icon: TickCircle,
           extend: {
             color: 'error',
-            size: 'large',
+            size: 'medium',
           },
         },
       },
