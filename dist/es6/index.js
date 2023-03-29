@@ -1249,7 +1249,15 @@ export var generate = function generate(baseSpacing, scale) {
         },
         checkmark: {
           size: baseSpacing * 1.2 + "px",
-          color: 'white'
+          color: 'white',
+          icons: {
+            add: {
+              size: 'small'
+            },
+            formSubtract: {
+              size: 'small'
+            }
+          }
         },
         check: {
           height: baseSpacing * 1.2 + "px",
@@ -1346,7 +1354,7 @@ export var generate = function generate(baseSpacing, scale) {
 
         },
         icon: {
-          size: baseSpacing / 1.78 + "px",
+          size: 'small',
           color: 'dark-3'
         },
         clear: {
@@ -1420,7 +1428,7 @@ export var generate = function generate(baseSpacing, scale) {
           size: 'medium'
         },
         icon: {
-          size: 'small',
+          size: 'medium',
           color: 'dark-3'
         },
         textWrapper: {
@@ -2682,7 +2690,7 @@ export var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": Close,
             disable: Clear,
-            size: 'xsmall',
+            size: 'small',
             color: 'dark-8'
           },
           iconButtons: {
