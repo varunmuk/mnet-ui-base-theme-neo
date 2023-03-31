@@ -960,7 +960,7 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       border: {
-        color: 'dark-6',
+        color: 'transparent',
         error: {
           color: statusColors.critical
         },

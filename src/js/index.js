@@ -908,7 +908,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       border: {
-        color: 'dark-6',
+        color: 'transparent',
         error: {
           color: statusColors.critical,
         },
