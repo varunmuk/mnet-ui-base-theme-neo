@@ -1766,7 +1766,7 @@ var generate = function generate(baseSpacing, scale) {
           },
           icon: {
             name: _Check.Check,
-            size: 'xlarge',
+            size: 'small',
             color: darkColors[6] // TODO: check dark-7 works ?
 
           }
