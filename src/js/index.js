@@ -1956,6 +1956,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             color: 'brand',
           },
           color: 'white',
+          extend: {
+            borderRadius: '0px',
+          },
         },
         disabled: {
           padding: 'none',
@@ -2844,6 +2847,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       dataTable: {
+        tableRow: {
+          hover: {
+            color: 'light-8',
+          },
+        },
         icons: {
           size: 'small',
           sort: {

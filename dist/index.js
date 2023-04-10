@@ -2087,7 +2087,10 @@ var generate = function generate(baseSpacing, scale) {
           background: {
             color: 'brand'
           },
-          color: 'white'
+          color: 'white',
+          extend: {
+            borderRadius: '0px'
+          }
         },
         disabled: {
           padding: 'none'
@@ -3048,6 +3051,11 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       dataTable: {
+        tableRow: {
+          hover: {
+            color: 'light-8'
+          }
+        },
         icons: {
           size: 'small',
           sort: {
