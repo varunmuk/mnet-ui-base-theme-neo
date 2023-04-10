@@ -2440,7 +2440,7 @@ mkdirp@^0.5.1:
 
 "mnet-icons@git+ssh://git@tree.mn:react-ui/mnet-icons.git":
   version "0.0.1"
-  resolved "git+ssh://git@tree.mn:react-ui/mnet-icons.git#f100f2cb1c306bf499cdce8d0c18b7fd7dd2bdf8"
+  resolved "git+ssh://git@tree.mn:react-ui/mnet-icons.git#2baec749c553d3087624d60869da13860819160e"
   dependencies:
     prop-types "^15.7.2"
     raw-loader "^4.0.1"

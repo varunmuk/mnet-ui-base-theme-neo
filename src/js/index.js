@@ -1079,10 +1079,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     icon: {
       size: {
-        small: `${baseSpacing * 0.5}px`, // 8px
-        medium: `${baseSpacing * 1}px`, // 16px
-        large: `${baseSpacing * 1.5}px`, // 24px
-        xlarge: `${baseSpacing * 2}px`, // 32px
+        small: `${baseSpacing * 0.75}px`, // 12px
+        medium: `${baseSpacing * 0.875}px`, // 14px
+        large: `${baseSpacing * 1}px`, // 16px
+        xlarge: `${baseSpacing * 1.125}px`, // 18px
       },
     },
     layer: {
@@ -1189,6 +1189,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         checkmark: {
           size: `${baseSpacing * 1.2}px`,
           color: 'white',
+          icons: {
+            add: {
+              size: 'small'
+            },
+            formSubtract: {
+              size: 'small'
+            }
+          }
         },
         check: {
           height: `${baseSpacing * 1.2}px`,
@@ -1272,7 +1280,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           // extend: undefined,
         },
         icon: {
-          size: `${baseSpacing / 1.78}px`,
+          size: 'small',
           color: 'dark-3',
         },
         clear: {
@@ -1344,7 +1352,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           size: 'medium',
         },
         icon: {
-          size: 'small',
+          size: 'medium',
           color: 'dark-3',
         },
         textWrapper: {
@@ -1454,14 +1462,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icon: TickCircle,
           extend: {
             color: 'accent-1',
-            size: 'large',
+            size: 'medium',
           },
         },
         exclude: {
           icon: TickCircle,
           extend: {
             color: 'error',
-            size: 'large',
+            size: 'medium',
           },
         },
       },
@@ -1627,7 +1635,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           icon: {
             name: Check,
-            size: 'xlarge',
+            size: 'small',
             color: darkColors[6], // TODO: check dark-7 works ?
           },
         },
@@ -1639,7 +1647,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           right: 'none',
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'large',
         up: Up,
         down: Down,
         // extend: undefined,
@@ -2108,8 +2116,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         up: Up,
         down: Down,
         changeArrow: LongArrowDown,
-        close: Close,
+        close: Close,        
       },
+      iconsSize: {
+        up: 'small',
+        down: 'small',
+        changeArrow: 'small',
+        close: 'small',
+      }
     },
     upload: {
       loader: {
@@ -2436,7 +2450,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         menu: {
           icons: {
             color: 'brand',
-            size: 'xlarge',
+            size: 'medium',
             icon: Plus,
           },
           item: {
@@ -2541,7 +2555,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icons: {
             delete: Close,
             disable: Clear,
-            size: 'medium',
+            size: 'small',
             color: 'dark-8',
           },
           iconButtons: {
@@ -2813,7 +2827,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       dataTable: {
         icons: {
-          size: 'large',
+          size: 'small',
           sort: {
             default: DefaultSort,
             asc: AscSort,

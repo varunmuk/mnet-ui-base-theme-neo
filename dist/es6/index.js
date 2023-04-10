@@ -1134,13 +1134,13 @@ export var generate = function generate(baseSpacing, scale) {
     },
     icon: {
       size: {
-        small: baseSpacing * 0.5 + "px",
-        // 8px
-        medium: baseSpacing * 1 + "px",
+        small: baseSpacing * 0.75 + "px",
+        // 12px
+        medium: baseSpacing * 0.875 + "px",
+        // 14px
+        large: baseSpacing * 1 + "px",
         // 16px
-        large: baseSpacing * 1.5 + "px",
-        // 24px
-        xlarge: baseSpacing * 2 + "px" // 32px
+        xlarge: baseSpacing * 1.125 + "px" // 18px
 
       }
     },
@@ -1249,7 +1249,15 @@ export var generate = function generate(baseSpacing, scale) {
         },
         checkmark: {
           size: baseSpacing * 1.2 + "px",
-          color: 'white'
+          color: 'white',
+          icons: {
+            add: {
+              size: 'small'
+            },
+            formSubtract: {
+              size: 'small'
+            }
+          }
         },
         check: {
           height: baseSpacing * 1.2 + "px",
@@ -1346,7 +1354,7 @@ export var generate = function generate(baseSpacing, scale) {
 
         },
         icon: {
-          size: baseSpacing / 1.78 + "px",
+          size: 'small',
           color: 'dark-3'
         },
         clear: {
@@ -1420,7 +1428,7 @@ export var generate = function generate(baseSpacing, scale) {
           size: 'medium'
         },
         icon: {
-          size: 'small',
+          size: 'medium',
           color: 'dark-3'
         },
         textWrapper: {
@@ -1537,14 +1545,14 @@ export var generate = function generate(baseSpacing, scale) {
           icon: TickCircle,
           extend: {
             color: 'accent-1',
-            size: 'large'
+            size: 'medium'
           }
         },
         exclude: {
           icon: TickCircle,
           extend: {
             color: 'error',
-            size: 'large'
+            size: 'medium'
           }
         }
       },
@@ -1725,7 +1733,7 @@ export var generate = function generate(baseSpacing, scale) {
           },
           icon: {
             name: Check,
-            size: 'xlarge',
+            size: 'small',
             color: darkColors[6] // TODO: check dark-7 works ?
 
           }
@@ -1738,7 +1746,7 @@ export var generate = function generate(baseSpacing, scale) {
           right: 'none'
         },
         background: 'transparent',
-        size: 'xxlarge',
+        size: 'large',
         up: Up,
         down: Down // extend: undefined,
 
@@ -2223,6 +2231,12 @@ export var generate = function generate(baseSpacing, scale) {
         down: Down,
         changeArrow: LongArrowDown,
         close: Close
+      },
+      iconsSize: {
+        up: 'small',
+        down: 'small',
+        changeArrow: 'small',
+        close: 'small'
       }
     },
     upload: {
@@ -2570,7 +2584,7 @@ export var generate = function generate(baseSpacing, scale) {
         menu: {
           icons: {
             color: 'brand',
-            size: 'xlarge',
+            size: 'medium',
             icon: Plus
           },
           item: {
@@ -2682,7 +2696,7 @@ export var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": Close,
             disable: Clear,
-            size: 'medium',
+            size: 'small',
             color: 'dark-8'
           },
           iconButtons: {
@@ -2980,7 +2994,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       dataTable: {
         icons: {
-          size: 'large',
+          size: 'small',
           sort: {
             "default": DefaultSort,
             asc: AscSort,
