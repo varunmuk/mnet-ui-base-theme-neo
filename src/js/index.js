@@ -1191,12 +1191,12 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'white',
           icons: {
             add: {
-              size: 'small'
+              size: 'small',
             },
             formSubtract: {
-              size: 'small'
-            }
-          }
+              size: 'small',
+            },
+          },
         },
         check: {
           height: `${baseSpacing * 1.2}px`,
@@ -2042,6 +2042,23 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         isTooltip: true,
         shadow: 'none',
       },
+      size: {
+        large: {
+          wrapper: {
+            contentWrap: {
+              extend: {
+                color: 'inherit',
+              },
+            },
+            content: {
+              background: 'dark-1',
+              extend: {
+                color: 'inherit',
+              },
+            },
+          },
+        },
+      },
     },
     notification: {
       toast: {
@@ -2116,14 +2133,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         up: Up,
         down: Down,
         changeArrow: LongArrowDown,
-        close: Close,        
+        close: Close,
       },
       iconsSize: {
         up: 'small',
         down: 'small',
         changeArrow: 'small',
         close: 'small',
-      }
+      },
     },
     upload: {
       loader: {

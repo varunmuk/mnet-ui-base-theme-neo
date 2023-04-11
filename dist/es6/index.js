@@ -2143,6 +2143,23 @@ export var generate = function generate(baseSpacing, scale) {
       drop: {
         isTooltip: true,
         shadow: 'none'
+      },
+      size: {
+        large: {
+          wrapper: {
+            contentWrap: {
+              extend: {
+                color: 'inherit'
+              }
+            },
+            content: {
+              background: 'dark-1',
+              extend: {
+                color: 'inherit'
+              }
+            }
+          }
+        }
       }
     },
     notification: {
