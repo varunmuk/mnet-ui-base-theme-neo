@@ -2051,7 +2051,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
             },
             content: {
-              background: 'dark-1',
+              background: 'white',
               extend: {
                 color: 'inherit',
               },

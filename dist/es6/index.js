@@ -2153,7 +2153,7 @@ export var generate = function generate(baseSpacing, scale) {
               }
             },
             content: {
-              background: 'dark-1',
+              background: 'white',
               extend: {
                 color: 'inherit'
               }
