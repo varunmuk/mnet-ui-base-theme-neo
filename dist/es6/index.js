@@ -2607,6 +2607,14 @@ export var generate = function generate(baseSpacing, scale) {
     reporting: {
       filters: {
         menu: {
+          search: {
+            margin: '0',
+            extend: {
+              borderRadius: 0,
+              fontSize: baseSpacing * 0.875 + "px",
+              paddingLeft: baseSpacing * 2.25 + "px"
+            }
+          },
           icons: {
             color: 'brand',
             size: 'medium',
