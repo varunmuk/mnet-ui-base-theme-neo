@@ -2675,6 +2675,9 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           list: {
+            height: {
+              max: baseSpacing * 12.5 + "px"
+            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent'
@@ -2682,7 +2685,7 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           drop: {
-            maxHeight: baseSpacing * 12.5 + "px",
+            maxHeight: baseSpacing * 15 + "px",
             '& ::-webkit-scrollbar': {
               width: '14px'
             },

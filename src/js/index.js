@@ -2501,6 +2501,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           list: {
+            height: {
+              max: `${baseSpacing * 12.5}px`,
+            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent',
@@ -2508,7 +2511,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           drop: {
-            maxHeight: `${baseSpacing * 12.5}px`,
+            maxHeight: `${baseSpacing * 15}px`,
             '& ::-webkit-scrollbar': {
               width: '14px',
             },
