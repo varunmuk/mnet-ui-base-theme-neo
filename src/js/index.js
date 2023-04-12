@@ -2030,6 +2030,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         content: {
           background: 'dark-7',
           direction: 'row',
+          width: { max: 'medium' },
           pad: { horizontal: `${baseSpacing * 0.5}px`, vertical: `${baseSpacing * 0.5}px` },
           round: `${baseSpacing * 0.25}px`,
           extend: {
@@ -2051,7 +2052,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
             content: {
               background: 'white',
-              width: 'medium',
+              width: { max: 'medium' },
               extend: {
                 color: 'inherit',
               },

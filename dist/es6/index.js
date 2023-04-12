@@ -2129,6 +2129,9 @@ export var generate = function generate(baseSpacing, scale) {
         content: {
           background: 'dark-7',
           direction: 'row',
+          width: {
+            max: 'medium'
+          },
           pad: {
             horizontal: baseSpacing * 0.5 + "px",
             vertical: baseSpacing * 0.5 + "px"
@@ -2153,7 +2156,9 @@ export var generate = function generate(baseSpacing, scale) {
             },
             content: {
               background: 'white',
-              width: 'medium',
+              width: {
+                max: 'medium'
+              },
               extend: {
                 color: 'inherit'
               }
