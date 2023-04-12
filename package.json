@@ -12,6 +12,9 @@
     "type": "git",
     "url": "https://github.com/sabarnix/mnet-ui-base-theme-neo.git"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "peerDependencies": {
     "grommet": "^2.19.1",
     "mnet-icons": "git+ssh://git@tree.mn:react-ui/mnet-icons.git",

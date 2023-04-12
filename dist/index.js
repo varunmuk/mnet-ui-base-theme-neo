@@ -2162,12 +2162,14 @@ var generate = function generate(baseSpacing, scale) {
         content: {
           background: 'dark-7',
           direction: 'row',
+          width: {
+            max: 'medium'
+          },
           pad: {
             horizontal: baseSpacing * 0.5 + "px",
             vertical: baseSpacing * 0.5 + "px"
           },
           round: baseSpacing * 0.25 + "px",
-          width: 'medium',
           extend: {
             color: 'white'
           }
@@ -2176,6 +2178,26 @@ var generate = function generate(baseSpacing, scale) {
       drop: {
         isTooltip: true,
         shadow: 'none'
+      },
+      size: {
+        large: {
+          wrapper: {
+            contentWrap: {
+              extend: {
+                color: 'inherit'
+              }
+            },
+            content: {
+              background: 'white',
+              width: {
+                max: 'medium'
+              },
+              extend: {
+                color: 'inherit'
+              }
+            }
+          }
+        }
       }
     },
     notification: {
