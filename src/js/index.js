@@ -2025,7 +2025,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       wrapper: {
         contentWrap: {
           align: 'center',
-          justify: 'center',
+          justify: 'left',
           extend: {
             color: 'white',
           },

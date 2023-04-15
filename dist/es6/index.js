@@ -2124,7 +2124,7 @@ export var generate = function generate(baseSpacing, scale) {
       wrapper: {
         contentWrap: {
           align: 'center',
-          justify: 'center',
+          justify: 'left',
           extend: {
             color: 'white'
           }
