@@ -2732,7 +2732,7 @@ export var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": Close,
             disable: Clear,
-            size: 'small',
+            size: 'xsmall',
             color: 'dark-8'
           },
           iconButtons: {

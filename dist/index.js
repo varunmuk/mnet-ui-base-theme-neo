@@ -2765,7 +2765,7 @@ var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": _Close.Close,
             disable: _Clear.Clear,
-            size: 'small',
+            size: 'xsmall',
             color: 'dark-8'
           },
           iconButtons: {
