@@ -1492,6 +1492,7 @@ var generate = function generate(baseSpacing, scale) {
             margin: {
               left: 'small'
             },
+            color: 'dark-7',
             background: 'light-4',
             round: 'small',
             pad: {

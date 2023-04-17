@@ -1381,6 +1381,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           count: {
             margin: { left: 'small' },
+            color: 'dark-7',
             background: 'light-4',
             round: 'small',
             pad: {
