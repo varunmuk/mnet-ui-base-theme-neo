@@ -1350,6 +1350,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'dark-4',
           weight: 400,
           size: 'medium',
+          margin: 'none',
         },
         icon: {
           size: 'medium',
@@ -1383,9 +1384,6 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             margin: { left: 'small' },
             background: 'light-4',
             round: 'small',
-            text: {
-              color: 'dark-7',
-            },
             pad: {
               horizontal: 'small',
             },

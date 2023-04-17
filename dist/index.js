@@ -1458,7 +1458,8 @@ var generate = function generate(baseSpacing, scale) {
         placeholder: {
           color: 'dark-4',
           weight: 400,
-          size: 'medium'
+          size: 'medium',
+          margin: 'none'
         },
         icon: {
           size: 'medium',
@@ -1494,9 +1495,6 @@ var generate = function generate(baseSpacing, scale) {
             },
             background: 'light-4',
             round: 'small',
-            text: {
-              color: 'dark-7'
-            },
             pad: {
               horizontal: 'small'
             },
