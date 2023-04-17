@@ -1459,9 +1459,11 @@ export var generate = function generate(baseSpacing, scale) {
             margin: {
               left: 'small'
             },
-            color: 'dark-7',
             background: 'light-4',
             round: 'small',
+            text: {
+              color: 'dark-7'
+            },
             pad: {
               horizontal: 'small'
             },
