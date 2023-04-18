@@ -1388,6 +1388,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               horizontal: 'small',
             },
             justify: 'center',
+            text: {
+              color: 'none',
+            },
           },
           text: {
             color: 'dark-3',

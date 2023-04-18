@@ -1498,7 +1498,10 @@ var generate = function generate(baseSpacing, scale) {
             pad: {
               horizontal: 'small'
             },
-            justify: 'center'
+            justify: 'center',
+            text: {
+              color: 'none'
+            }
           },
           text: {
             color: 'dark-3',
