@@ -735,7 +735,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       extend: {
         'button:disabled': {
-          opacity: 0.2,
+          opacity: 0.6,
         },
       },
     },

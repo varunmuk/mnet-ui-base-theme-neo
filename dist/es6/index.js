@@ -740,7 +740,7 @@ export var generate = function generate(baseSpacing, scale) {
       },
       extend: {
         'button:disabled': {
-          opacity: 0.2
+          opacity: 0.6
         }
       }
     },
