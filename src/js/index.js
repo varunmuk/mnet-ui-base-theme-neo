@@ -1890,8 +1890,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           paddingLeft: `${baseSpacing * 1.125}px`,
         },
       },
+      disabled: {
+        opacity: 'medium',
+      },
       extend: ({
-        plain, focus, reverse, icon, theme, readOnly, disabled, error,
+        plain, focus, reverse, icon, theme, readOnly, error,
       }) => ({
         padding: `${baseSpacing * 0.5}px ${baseSpacing}px`,
         boxShadow: 'none',
@@ -1899,7 +1902,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         fontSize: theme.global.font.size,
         borderBottomWidth: theme.global.borderSize.small,
         fontWeight: 400,
-        color: normalizeColor('dark-3', theme),
+        color: normalizeColor('dark-7', theme),
         paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
         borderColor: error ? 'transparent' : !plain && normalizeColor('border', theme),
         ...(!plain && { minHeight: `${baseSpacing * 2.5}px` }),
@@ -1914,6 +1917,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             }`,
           }
           : {}),
+        ...(readOnly ? { backgroundColor: normalizeColor('background-contrast', theme) } : {}),
       }),
     },
     pagination: {

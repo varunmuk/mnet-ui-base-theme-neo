@@ -2011,6 +2011,9 @@ export var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
+      disabled: {
+        opacity: 'medium'
+      },
       extend: function extend(_ref18) {
         var plain = _ref18.plain,
             focus = _ref18.focus,
@@ -2018,7 +2021,6 @@ export var generate = function generate(baseSpacing, scale) {
             icon = _ref18.icon,
             theme = _ref18.theme,
             readOnly = _ref18.readOnly,
-            disabled = _ref18.disabled,
             error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
@@ -2027,7 +2029,7 @@ export var generate = function generate(baseSpacing, scale) {
           fontSize: theme.global.font.size,
           borderBottomWidth: theme.global.borderSize.small,
           fontWeight: 400,
-          color: normalizeColor('dark-3', theme),
+          color: normalizeColor('dark-7', theme),
           paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
           borderColor: error ? 'transparent' : !plain && normalizeColor('border', theme)
         }, !plain && {
@@ -2036,6 +2038,8 @@ export var generate = function generate(baseSpacing, scale) {
           borderColor: !readOnly && normalizeColor('border', theme),
           borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && normalizeColor('accent-12', theme)),
           background: "" + (!readOnly && normalizeColor('background-back', theme))
+        } : {}, readOnly ? {
+          backgroundColor: normalizeColor('background-contrast', theme)
         } : {});
       }
     },
