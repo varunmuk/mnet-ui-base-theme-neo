@@ -1515,7 +1515,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     radioButton: {
       container: {
         extend: ({ theme }) => ({
-          color: normalizeColor('dark-3', theme),
+          color: normalizeColor('dark-7', theme),
+          fontWeight: 400,
         }),
       },
       border: {
@@ -1609,7 +1610,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           lineHeight: `${baseSpacing * 1.5}px`,
-          padding: `${baseSpacing * 0.5 - 1.5}px ${baseSpacing}px`,
+          padding: `${baseSpacing * 0.5 - 1.5}px ${baseSpacing}px ${baseSpacing * 0.5 - 1.5}px ${baseSpacing / 2}px`,
           background: disabled ? normalizeColor('light-1', theme) : null,
           borderBottomWidth: !plain && theme.global.borderSize.small,
           '&:hover': {
@@ -1890,7 +1891,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       extend: ({
-        plain, focus, reverse, icon, theme, readOnly, error,
+        plain, focus, reverse, icon, theme, readOnly, disabled, error,
       }) => ({
         padding: `${baseSpacing * 0.5}px ${baseSpacing}px`,
         boxShadow: 'none',

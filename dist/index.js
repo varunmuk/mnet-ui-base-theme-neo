@@ -1633,7 +1633,8 @@ var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref12) {
           var theme = _ref12.theme;
           return {
-            color: (0, _colors.normalizeColor)('dark-3', theme)
+            color: (0, _colors.normalizeColor)('dark-7', theme),
+            fontWeight: 400
           };
         }
       },
@@ -1737,7 +1738,7 @@ var generate = function generate(baseSpacing, scale) {
               }
             },
             lineHeight: baseSpacing * 1.5 + "px",
-            padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px",
+            padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px " + (baseSpacing * 0.5 - 1.5) + "px " + baseSpacing / 2 + "px",
             background: disabled ? (0, _colors.normalizeColor)('light-1', theme) : null,
             borderBottomWidth: !plain && theme.global.borderSize.small,
             '&:hover': {
@@ -2050,6 +2051,7 @@ var generate = function generate(baseSpacing, scale) {
             icon = _ref18.icon,
             theme = _ref18.theme,
             readOnly = _ref18.readOnly,
+            disabled = _ref18.disabled,
             error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
