@@ -1871,9 +1871,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       xxxxlarge: { ...fontSizing(4.5) },
     },
     textArea: {
-      extend: ({ theme }) => ({
+      extend: ({ theme, disabled }) => ({
         color: normalizeColor('dark-3', theme),
         fontWeight: 400,
+        borderBottomWidth: '2px',
+        '&:hover': {
+          borderBottomColor: !disabled && normalizeColor('accent-12', theme),
+        },
       }),
     },
     textInput: {
@@ -1918,6 +1922,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           }
           : {}),
         ...(readOnly ? { backgroundColor: normalizeColor('background-contrast', theme) } : {}),
+        ...((!readOnly && !error) && {
+          '&:hover': {
+            borderBottomColor: normalizeColor('accent-12', theme),
+          },
+        }),
       }),
     },
     pagination: {

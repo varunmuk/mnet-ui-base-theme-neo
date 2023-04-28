@@ -2023,10 +2023,15 @@ var generate = function generate(baseSpacing, scale) {
     },
     textArea: {
       extend: function extend(_ref17) {
-        var theme = _ref17.theme;
+        var theme = _ref17.theme,
+            disabled = _ref17.disabled;
         return {
           color: (0, _colors.normalizeColor)('dark-3', theme),
-          fontWeight: 400
+          fontWeight: 400,
+          borderBottomWidth: '2px',
+          '&:hover': {
+            borderBottomColor: !disabled && (0, _colors.normalizeColor)('accent-12', theme)
+          }
         };
       }
     },
@@ -2073,7 +2078,11 @@ var generate = function generate(baseSpacing, scale) {
           background: "" + (!readOnly && (0, _colors.normalizeColor)('background-back', theme))
         } : {}, readOnly ? {
           backgroundColor: (0, _colors.normalizeColor)('background-contrast', theme)
-        } : {});
+        } : {}, !readOnly && !error && {
+          '&:hover': {
+            borderBottomColor: (0, _colors.normalizeColor)('accent-12', theme)
+          }
+        });
       }
     },
     pagination: {

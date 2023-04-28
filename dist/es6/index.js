@@ -1990,10 +1990,15 @@ export var generate = function generate(baseSpacing, scale) {
     },
     textArea: {
       extend: function extend(_ref17) {
-        var theme = _ref17.theme;
+        var theme = _ref17.theme,
+            disabled = _ref17.disabled;
         return {
           color: normalizeColor('dark-3', theme),
-          fontWeight: 400
+          fontWeight: 400,
+          borderBottomWidth: '2px',
+          '&:hover': {
+            borderBottomColor: !disabled && normalizeColor('accent-12', theme)
+          }
         };
       }
     },
@@ -2040,7 +2045,11 @@ export var generate = function generate(baseSpacing, scale) {
           background: "" + (!readOnly && normalizeColor('background-back', theme))
         } : {}, readOnly ? {
           backgroundColor: normalizeColor('background-contrast', theme)
-        } : {});
+        } : {}, !readOnly && !error && {
+          '&:hover': {
+            borderBottomColor: normalizeColor('accent-12', theme)
+          }
+        });
       }
     },
     pagination: {
