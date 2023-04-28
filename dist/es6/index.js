@@ -1692,13 +1692,14 @@ export var generate = function generate(baseSpacing, scale) {
           var theme = _ref15.theme,
               disabled = _ref15.disabled,
               plain = _ref15.callerPlain;
-          return {
+          return _extends({
             border: !plain && "1px solid " + normalizeColor('dark-6', theme),
             input: {
               color: normalizeColor('dark-7', theme),
               fontWeight: 400,
               padding: '0px',
               textOverflow: 'ellipsis',
+              background: 'transparent',
               '&::placeholder': {
                 color: normalizeColor('dark-7', theme),
                 opacity: 1
@@ -1707,11 +1708,12 @@ export var generate = function generate(baseSpacing, scale) {
             lineHeight: baseSpacing * 1.5 + "px",
             padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px " + (baseSpacing * 0.5 - 1.5) + "px " + baseSpacing / 2 + "px",
             background: disabled ? normalizeColor('light-1', theme) : null,
-            borderBottomWidth: !plain && theme.global.borderSize.small,
+            borderBottomWidth: !plain && theme.global.borderSize.small
+          }, !disabled ? {
             '&:hover': {
               borderBottomColor: accentColors[11]
             }
-          };
+          } : {});
         }
       },
       options: {
@@ -2025,7 +2027,8 @@ export var generate = function generate(baseSpacing, scale) {
             reverse = _ref18.reverse,
             icon = _ref18.icon,
             theme = _ref18.theme,
-            readOnly = _ref18.readOnly,
+            _ref18$readOnly = _ref18.readOnly,
+            readOnly = _ref18$readOnly === void 0 ? false : _ref18$readOnly,
             error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
@@ -2039,17 +2042,17 @@ export var generate = function generate(baseSpacing, scale) {
           borderColor: error ? 'transparent' : !plain && normalizeColor('border', theme)
         }, !plain && {
           minHeight: baseSpacing * 2.5 + "px"
-        }, focus ? {
-          borderColor: !readOnly && normalizeColor('border', theme),
-          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && normalizeColor('accent-12', theme)),
-          background: "" + (!readOnly && normalizeColor('background-back', theme))
+        }, focus && !readOnly ? {
+          borderColor: normalizeColor('border', theme),
+          borderBottom: theme.global.borderSize.small + " solid " + normalizeColor('accent-12', theme),
+          background: "" + normalizeColor('background-back', theme)
         } : {}, readOnly ? {
           backgroundColor: normalizeColor('background-contrast', theme)
-        } : {}, !readOnly && !error && {
+        } : {}, !readOnly && !error ? {
           '&:hover': {
             borderBottomColor: normalizeColor('accent-12', theme)
           }
-        });
+        } : {});
       }
     },
     pagination: {

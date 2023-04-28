@@ -1604,6 +1604,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             fontWeight: 400,
             padding: '0px',
             textOverflow: 'ellipsis',
+            background: 'transparent',
             '&::placeholder': {
               color: normalizeColor('dark-7', theme),
               opacity: 1,
@@ -1613,9 +1614,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           padding: `${baseSpacing * 0.5 - 1.5}px ${baseSpacing}px ${baseSpacing * 0.5 - 1.5}px ${baseSpacing / 2}px`,
           background: disabled ? normalizeColor('light-1', theme) : null,
           borderBottomWidth: !plain && theme.global.borderSize.small,
-          '&:hover': {
-            borderBottomColor: accentColors[11],
-          },
+          ...(!disabled ? {
+            '&:hover': {
+              borderBottomColor: accentColors[11],
+            },
+          } : {}),
         }),
       },
       options: {
@@ -1898,7 +1901,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         opacity: 'medium',
       },
       extend: ({
-        plain, focus, reverse, icon, theme, readOnly, error,
+        plain, focus, reverse, icon, theme, readOnly = false, error,
       }) => ({
         padding: `${baseSpacing * 0.5}px ${baseSpacing}px`,
         boxShadow: 'none',
@@ -1910,23 +1913,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
         borderColor: error ? 'transparent' : !plain && normalizeColor('border', theme),
         ...(!plain && { minHeight: `${baseSpacing * 2.5}px` }),
-        ...(focus
-          ? {
-            borderColor: !readOnly && normalizeColor('border', theme),
-            borderBottom: `${theme.global.borderSize.small} solid ${
-              !readOnly && normalizeColor('accent-12', theme)
-            }`,
-            background: `${
-              !readOnly && normalizeColor('background-back', theme)
-            }`,
-          }
-          : {}),
+        ...(focus && !readOnly ? {
+          borderColor: normalizeColor('border', theme),
+          borderBottom: `${theme.global.borderSize.small} solid ${normalizeColor('accent-12', theme)}`,
+          background: `${normalizeColor('background-back', theme)}`,
+        } : {}),
         ...(readOnly ? { backgroundColor: normalizeColor('background-contrast', theme) } : {}),
-        ...((!readOnly && !error) && {
+        ...((!readOnly && !error) ? {
           '&:hover': {
             borderBottomColor: normalizeColor('accent-12', theme),
           },
-        }),
+        } : {}),
       }),
     },
     pagination: {
