@@ -1957,7 +1957,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           border: {
             width: '1px',
             color: 'brand',
-            radius: '0px',
+            radius: 'inherit',
           },
         },
         hover: {
@@ -1966,7 +1966,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           color: 'white',
           extend: {
-            borderRadius: '0px',
+            borderRadius: 'inherit',
           },
         },
         disabled: {

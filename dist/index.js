@@ -2090,7 +2090,7 @@ var generate = function generate(baseSpacing, scale) {
           border: {
             width: '1px',
             color: 'brand',
-            radius: '0px'
+            radius: 'inherit'
           }
         },
         hover: {
@@ -2099,7 +2099,7 @@ var generate = function generate(baseSpacing, scale) {
           },
           color: 'white',
           extend: {
-            borderRadius: '0px'
+            borderRadius: 'inherit'
           }
         },
         disabled: {
