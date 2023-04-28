@@ -2052,7 +2052,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       disabled: {
-        opacity: 'medium'
+        opacity: 0.4
       },
       extend: function extend(_ref18) {
         var plain = _ref18.plain,
@@ -2062,6 +2062,7 @@ var generate = function generate(baseSpacing, scale) {
             theme = _ref18.theme,
             _ref18$readOnly = _ref18.readOnly,
             readOnly = _ref18$readOnly === void 0 ? false : _ref18$readOnly,
+            disabled = _ref18.disabled,
             error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
@@ -2081,7 +2082,7 @@ var generate = function generate(baseSpacing, scale) {
           background: "" + (0, _colors.normalizeColor)('background-back', theme)
         } : {}, readOnly ? {
           backgroundColor: (0, _colors.normalizeColor)('background-contrast', theme)
-        } : {}, !readOnly && !error ? {
+        } : {}, !readOnly && !error && !disabled ? {
           '&:hover': {
             borderBottomColor: (0, _colors.normalizeColor)('accent-12', theme)
           }

@@ -1898,10 +1898,10 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       disabled: {
-        opacity: 'medium',
+        opacity: 0.4,
       },
       extend: ({
-        plain, focus, reverse, icon, theme, readOnly = false, error,
+        plain, focus, reverse, icon, theme, readOnly = false, disabled, error,
       }) => ({
         padding: `${baseSpacing * 0.5}px ${baseSpacing}px`,
         boxShadow: 'none',
@@ -1919,7 +1919,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           background: `${normalizeColor('background-back', theme)}`,
         } : {}),
         ...(readOnly ? { backgroundColor: normalizeColor('background-contrast', theme) } : {}),
-        ...((!readOnly && !error) ? {
+        ...((!readOnly && !error && !disabled) ? {
           '&:hover': {
             borderBottomColor: normalizeColor('accent-12', theme),
           },

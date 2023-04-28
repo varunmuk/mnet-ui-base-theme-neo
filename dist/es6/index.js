@@ -2019,7 +2019,7 @@ export var generate = function generate(baseSpacing, scale) {
         }
       },
       disabled: {
-        opacity: 'medium'
+        opacity: 0.4
       },
       extend: function extend(_ref18) {
         var plain = _ref18.plain,
@@ -2029,6 +2029,7 @@ export var generate = function generate(baseSpacing, scale) {
             theme = _ref18.theme,
             _ref18$readOnly = _ref18.readOnly,
             readOnly = _ref18$readOnly === void 0 ? false : _ref18$readOnly,
+            disabled = _ref18.disabled,
             error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
@@ -2048,7 +2049,7 @@ export var generate = function generate(baseSpacing, scale) {
           background: "" + normalizeColor('background-back', theme)
         } : {}, readOnly ? {
           backgroundColor: normalizeColor('background-contrast', theme)
-        } : {}, !readOnly && !error ? {
+        } : {}, !readOnly && !error && !disabled ? {
           '&:hover': {
             borderBottomColor: normalizeColor('accent-12', theme)
           }
