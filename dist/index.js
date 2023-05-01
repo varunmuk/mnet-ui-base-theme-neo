@@ -773,7 +773,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       extend: {
         'button:disabled': {
-          opacity: 0.2
+          opacity: 0.6
         }
       }
     },
@@ -1458,7 +1458,8 @@ var generate = function generate(baseSpacing, scale) {
         placeholder: {
           color: 'dark-4',
           weight: 400,
-          size: 'medium'
+          size: 'medium',
+          margin: 'none'
         },
         icon: {
           size: 'medium',
@@ -1497,7 +1498,10 @@ var generate = function generate(baseSpacing, scale) {
             pad: {
               horizontal: 'small'
             },
-            justify: 'center'
+            justify: 'center',
+            text: {
+              color: 'none'
+            }
           },
           text: {
             color: 'dark-3',
@@ -1629,7 +1633,8 @@ var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref12) {
           var theme = _ref12.theme;
           return {
-            color: (0, _colors.normalizeColor)('dark-3', theme)
+            color: (0, _colors.normalizeColor)('dark-7', theme),
+            fontWeight: 400
           };
         }
       },
@@ -1720,26 +1725,28 @@ var generate = function generate(baseSpacing, scale) {
           var theme = _ref15.theme,
               disabled = _ref15.disabled,
               plain = _ref15.callerPlain;
-          return {
+          return _extends({
             border: !plain && "1px solid " + (0, _colors.normalizeColor)('dark-6', theme),
             input: {
               color: (0, _colors.normalizeColor)('dark-7', theme),
               fontWeight: 400,
               padding: '0px',
               textOverflow: 'ellipsis',
+              background: 'transparent',
               '&::placeholder': {
                 color: (0, _colors.normalizeColor)('dark-7', theme),
                 opacity: 1
               }
             },
             lineHeight: baseSpacing * 1.5 + "px",
-            padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px",
+            padding: baseSpacing * 0.5 - 1.5 + "px " + baseSpacing + "px " + (baseSpacing * 0.5 - 1.5) + "px " + baseSpacing / 2 + "px",
             background: disabled ? (0, _colors.normalizeColor)('light-1', theme) : null,
-            borderBottomWidth: !plain && theme.global.borderSize.small,
+            borderBottomWidth: !plain && theme.global.borderSize.small
+          }, !disabled ? {
             '&:hover': {
               borderBottomColor: accentColors[11]
             }
-          };
+          } : {});
         }
       },
       options: {
@@ -2018,10 +2025,15 @@ var generate = function generate(baseSpacing, scale) {
     },
     textArea: {
       extend: function extend(_ref17) {
-        var theme = _ref17.theme;
+        var theme = _ref17.theme,
+            disabled = _ref17.disabled;
         return {
           color: (0, _colors.normalizeColor)('dark-3', theme),
-          fontWeight: 400
+          fontWeight: 400,
+          borderBottomWidth: '2px',
+          '&:hover': {
+            borderBottomColor: !disabled && (0, _colors.normalizeColor)('accent-12', theme)
+          }
         };
       }
     },
@@ -2039,13 +2051,18 @@ var generate = function generate(baseSpacing, scale) {
           paddingLeft: baseSpacing * 1.125 + "px"
         }
       },
+      disabled: {
+        opacity: 0.4
+      },
       extend: function extend(_ref18) {
         var plain = _ref18.plain,
             focus = _ref18.focus,
             reverse = _ref18.reverse,
             icon = _ref18.icon,
             theme = _ref18.theme,
-            readOnly = _ref18.readOnly,
+            _ref18$readOnly = _ref18.readOnly,
+            readOnly = _ref18$readOnly === void 0 ? false : _ref18$readOnly,
+            disabled = _ref18.disabled,
             error = _ref18.error;
         return _extends({
           padding: baseSpacing * 0.5 + "px " + baseSpacing + "px",
@@ -2054,15 +2071,21 @@ var generate = function generate(baseSpacing, scale) {
           fontSize: theme.global.font.size,
           borderBottomWidth: theme.global.borderSize.small,
           fontWeight: 400,
-          color: (0, _colors.normalizeColor)('dark-3', theme),
+          color: (0, _colors.normalizeColor)('dark-7', theme),
           paddingLeft: !reverse && icon && baseSpacing / 0.64 + "px",
           borderColor: error ? 'transparent' : !plain && (0, _colors.normalizeColor)('border', theme)
         }, !plain && {
           minHeight: baseSpacing * 2.5 + "px"
-        }, focus ? {
-          borderColor: !readOnly && (0, _colors.normalizeColor)('border', theme),
-          borderBottom: theme.global.borderSize.small + " solid " + (!readOnly && (0, _colors.normalizeColor)('accent-12', theme)),
-          background: "" + (!readOnly && (0, _colors.normalizeColor)('background-back', theme))
+        }, focus && !readOnly ? {
+          borderColor: (0, _colors.normalizeColor)('border', theme),
+          borderBottom: theme.global.borderSize.small + " solid " + (0, _colors.normalizeColor)('accent-12', theme),
+          background: "" + (0, _colors.normalizeColor)('background-back', theme)
+        } : {}, readOnly ? {
+          backgroundColor: (0, _colors.normalizeColor)('background-contrast', theme)
+        } : {}, !readOnly && !error && !disabled ? {
+          '&:hover': {
+            borderBottomColor: (0, _colors.normalizeColor)('accent-12', theme)
+          }
         } : {});
       }
     },
@@ -2080,14 +2103,17 @@ var generate = function generate(baseSpacing, scale) {
           border: {
             width: '1px',
             color: 'brand',
-            radius: '0px'
+            radius: 'inherit'
           }
         },
         hover: {
           background: {
             color: 'brand'
           },
-          color: 'white'
+          color: 'white',
+          extend: {
+            borderRadius: 'inherit'
+          }
         },
         disabled: {
           padding: 'none'
@@ -2154,7 +2180,7 @@ var generate = function generate(baseSpacing, scale) {
       wrapper: {
         contentWrap: {
           align: 'center',
-          justify: 'center',
+          justify: 'left',
           extend: {
             color: 'white'
           }
@@ -2637,6 +2663,14 @@ var generate = function generate(baseSpacing, scale) {
     reporting: {
       filters: {
         menu: {
+          search: {
+            margin: '0',
+            extend: {
+              borderRadius: 0,
+              fontSize: baseSpacing * 0.875 + "px",
+              paddingLeft: baseSpacing * 2.25 + "px"
+            }
+          },
           icons: {
             color: 'brand',
             size: 'medium',
@@ -2664,6 +2698,9 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           list: {
+            height: {
+              max: baseSpacing * 12.5 + "px"
+            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent'
@@ -2671,7 +2708,7 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           drop: {
-            maxHeight: baseSpacing * 12.5 + "px",
+            maxHeight: baseSpacing * 15 + "px",
             '& ::-webkit-scrollbar': {
               width: '14px'
             },
@@ -2751,7 +2788,7 @@ var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": _Close.Close,
             disable: _Clear.Clear,
-            size: 'small',
+            size: 'xsmall',
             color: 'dark-8'
           },
           iconButtons: {
@@ -3048,6 +3085,11 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       dataTable: {
+        tableRow: {
+          hover: {
+            color: 'light-8'
+          }
+        },
         icons: {
           size: 'small',
           sort: {

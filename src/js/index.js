@@ -735,7 +735,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       },
       extend: {
         'button:disabled': {
-          opacity: 0.2,
+          opacity: 0.6,
         },
       },
     },
@@ -1350,6 +1350,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'dark-4',
           weight: 400,
           size: 'medium',
+          margin: 'none',
         },
         icon: {
           size: 'medium',
@@ -1387,6 +1388,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               horizontal: 'small',
             },
             justify: 'center',
+            text: {
+              color: 'none',
+            },
           },
           text: {
             color: 'dark-3',
@@ -1511,7 +1515,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     radioButton: {
       container: {
         extend: ({ theme }) => ({
-          color: normalizeColor('dark-3', theme),
+          color: normalizeColor('dark-7', theme),
+          fontWeight: 400,
         }),
       },
       border: {
@@ -1599,18 +1604,21 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             fontWeight: 400,
             padding: '0px',
             textOverflow: 'ellipsis',
+            background: 'transparent',
             '&::placeholder': {
               color: normalizeColor('dark-7', theme),
               opacity: 1,
             },
           },
           lineHeight: `${baseSpacing * 1.5}px`,
-          padding: `${baseSpacing * 0.5 - 1.5}px ${baseSpacing}px`,
+          padding: `${baseSpacing * 0.5 - 1.5}px ${baseSpacing}px ${baseSpacing * 0.5 - 1.5}px ${baseSpacing / 2}px`,
           background: disabled ? normalizeColor('light-1', theme) : null,
           borderBottomWidth: !plain && theme.global.borderSize.small,
-          '&:hover': {
-            borderBottomColor: accentColors[11],
-          },
+          ...(!disabled ? {
+            '&:hover': {
+              borderBottomColor: accentColors[11],
+            },
+          } : {}),
         }),
       },
       options: {
@@ -1866,9 +1874,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       xxxxlarge: { ...fontSizing(4.5) },
     },
     textArea: {
-      extend: ({ theme }) => ({
+      extend: ({ theme, disabled }) => ({
         color: normalizeColor('dark-3', theme),
         fontWeight: 400,
+        borderBottomWidth: '2px',
+        '&:hover': {
+          borderBottomColor: !disabled && normalizeColor('accent-12', theme),
+        },
       }),
     },
     textInput: {
@@ -1885,8 +1897,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           paddingLeft: `${baseSpacing * 1.125}px`,
         },
       },
+      disabled: {
+        opacity: 0.4,
+      },
       extend: ({
-        plain, focus, reverse, icon, theme, readOnly, error,
+        plain, focus, reverse, icon, theme, readOnly = false, disabled, error,
       }) => ({
         padding: `${baseSpacing * 0.5}px ${baseSpacing}px`,
         boxShadow: 'none',
@@ -1894,21 +1909,21 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         fontSize: theme.global.font.size,
         borderBottomWidth: theme.global.borderSize.small,
         fontWeight: 400,
-        color: normalizeColor('dark-3', theme),
+        color: normalizeColor('dark-7', theme),
         paddingLeft: !reverse && icon && `${baseSpacing / 0.64}px`,
         borderColor: error ? 'transparent' : !plain && normalizeColor('border', theme),
         ...(!plain && { minHeight: `${baseSpacing * 2.5}px` }),
-        ...(focus
-          ? {
-            borderColor: !readOnly && normalizeColor('border', theme),
-            borderBottom: `${theme.global.borderSize.small} solid ${
-              !readOnly && normalizeColor('accent-12', theme)
-            }`,
-            background: `${
-              !readOnly && normalizeColor('background-back', theme)
-            }`,
-          }
-          : {}),
+        ...(focus && !readOnly ? {
+          borderColor: normalizeColor('border', theme),
+          borderBottom: `${theme.global.borderSize.small} solid ${normalizeColor('accent-12', theme)}`,
+          background: `${normalizeColor('background-back', theme)}`,
+        } : {}),
+        ...(readOnly ? { backgroundColor: normalizeColor('background-contrast', theme) } : {}),
+        ...((!readOnly && !error && !disabled) ? {
+          '&:hover': {
+            borderBottomColor: normalizeColor('accent-12', theme),
+          },
+        } : {}),
       }),
     },
     pagination: {
@@ -1948,7 +1963,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           border: {
             width: '1px',
             color: 'brand',
-            radius: '0px',
+            radius: 'inherit',
           },
         },
         hover: {
@@ -1956,6 +1971,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             color: 'brand',
           },
           color: 'white',
+          extend: {
+            borderRadius: 'inherit',
+          },
         },
         disabled: {
           padding: 'none',
@@ -2022,7 +2040,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       wrapper: {
         contentWrap: {
           align: 'center',
-          justify: 'center',
+          justify: 'left',
           extend: {
             color: 'white',
           },
@@ -2466,6 +2484,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     reporting: {
       filters: {
         menu: {
+          search: {
+            margin: '0',
+            extend: {
+              borderRadius: 0,
+              fontSize: `${baseSpacing * 0.875}px`,
+              paddingLeft: `${baseSpacing * 2.25}px`,
+            },
+          },
           icons: {
             color: 'brand',
             size: 'medium',
@@ -2490,6 +2516,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           list: {
+            height: {
+              max: `${baseSpacing * 12.5}px`,
+            },
             extend: {
               '&:hover': {
                 backgroundColor: 'transparent',
@@ -2497,7 +2526,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           drop: {
-            maxHeight: `${baseSpacing * 12.5}px`,
+            maxHeight: `${baseSpacing * 15}px`,
             '& ::-webkit-scrollbar': {
               width: '14px',
             },
@@ -2573,7 +2602,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icons: {
             delete: Close,
             disable: Clear,
-            size: 'small',
+            size: 'xsmall',
             color: 'dark-8',
           },
           iconButtons: {
@@ -2844,6 +2873,11 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       dataTable: {
+        tableRow: {
+          hover: {
+            color: 'light-8',
+          },
+        },
         icons: {
           size: 'small',
           sort: {
