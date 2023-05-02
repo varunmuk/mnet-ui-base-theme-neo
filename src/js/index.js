@@ -1271,7 +1271,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           }),
         },
         label: {
-          color: 'dark-3',
+          color: 'dark-7',
           size: 'medium',
           weight: 400,
           margin: {
@@ -1281,7 +1281,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         icon: {
           size: 'small',
-          color: 'dark-3',
+          color: 'dark-7',
         },
         clear: {
           margin: 'medium',
@@ -1289,7 +1289,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             side: 'top',
             color: 'dark-6',
           },
-          color: 'dark-3',
+          color: 'dark-7',
           size: 'medium',
           alignSelf: 'end',
           weight: '600',
@@ -1354,7 +1354,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         icon: {
           size: 'medium',
-          color: 'dark-3',
+          color: 'dark-7',
         },
         textWrapper: {
           flex: 'grow',
@@ -1393,7 +1393,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             },
           },
           text: {
-            color: 'dark-3',
+            color: 'dark-7',
             size: 'medium',
             weight: 400,
           },
@@ -1635,7 +1635,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
         text: {
           margin: `${baseSpacing * 0.31}px`,
-          color: 'dark-3',
+          color: 'dark-7',
         },
         check: {
           box: {
@@ -1649,7 +1649,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         },
       },
       icons: {
-        color: 'dark-4',
+        color: 'dark-7',
         margin: {
           vertical: 'none',
           right: 'none',

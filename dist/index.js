@@ -1378,7 +1378,7 @@ var generate = function generate(baseSpacing, scale) {
           }
         },
         label: {
-          color: 'dark-3',
+          color: 'dark-7',
           size: 'medium',
           weight: 400,
           margin: {
@@ -1388,7 +1388,7 @@ var generate = function generate(baseSpacing, scale) {
         },
         icon: {
           size: 'small',
-          color: 'dark-3'
+          color: 'dark-7'
         },
         clear: {
           margin: 'medium',
@@ -1396,7 +1396,7 @@ var generate = function generate(baseSpacing, scale) {
             side: 'top',
             color: 'dark-6'
           },
-          color: 'dark-3',
+          color: 'dark-7',
           size: 'medium',
           alignSelf: 'end',
           weight: '600',
@@ -1463,7 +1463,7 @@ var generate = function generate(baseSpacing, scale) {
         },
         icon: {
           size: 'medium',
-          color: 'dark-3'
+          color: 'dark-7'
         },
         textWrapper: {
           flex: 'grow'
@@ -1504,7 +1504,7 @@ var generate = function generate(baseSpacing, scale) {
             }
           },
           text: {
-            color: 'dark-3',
+            color: 'dark-7',
             size: 'medium',
             weight: 400
           }
@@ -1763,7 +1763,7 @@ var generate = function generate(baseSpacing, scale) {
         },
         text: {
           margin: baseSpacing * 0.31 + "px",
-          color: 'dark-3'
+          color: 'dark-7'
         },
         check: {
           box: {
@@ -1780,7 +1780,7 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       icons: {
-        color: 'dark-4',
+        color: 'dark-7',
         margin: {
           vertical: 'none',
           right: 'none'
