@@ -306,6 +306,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
         marginTop: '4px',
         extend: ({ isTooltip = false }) => ({
           'box-shadow': !isTooltip && '0 2px 4px 0 rgba(0,0,0,0.26)',
+          ...(!isTooltip ? { left: '-100%' } : {}),
         }),
       },
       edgeSize: {
@@ -2834,7 +2835,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                   },
                 },
                 wrapper: {
-                  extend: ({ theme }) => ({
+                  extend: () => ({
                     'label, label>div': {
                       width: '100%',
                       margin: '0',

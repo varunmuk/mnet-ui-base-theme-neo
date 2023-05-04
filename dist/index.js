@@ -306,9 +306,11 @@ var generate = function generate(baseSpacing, scale) {
         extend: function extend(_ref) {
           var _ref$isTooltip = _ref.isTooltip,
               isTooltip = _ref$isTooltip === void 0 ? false : _ref$isTooltip;
-          return {
+          return _extends({
             'box-shadow': !isTooltip && '0 2px 4px 0 rgba(0,0,0,0.26)'
-          };
+          }, !isTooltip ? {
+            left: '-100%'
+          } : {});
         }
       },
       edgeSize: {
@@ -3049,8 +3051,7 @@ var generate = function generate(baseSpacing, scale) {
                   }
                 },
                 wrapper: {
-                  extend: function extend(_ref27) {
-                    var theme = _ref27.theme;
+                  extend: function extend() {
                     return {
                       'label, label>div': {
                         width: '100%',
@@ -3101,8 +3102,8 @@ var generate = function generate(baseSpacing, scale) {
                   prev: _Left.Left,
                   next: _Right.Right,
                   color: 'dark-8',
-                  hover: function hover(_ref28) {
-                    var theme = _ref28.theme;
+                  hover: function hover(_ref27) {
+                    var theme = _ref27.theme;
                     return {
                       background: (0, _colors.normalizeColor)('active', theme)
                     };
