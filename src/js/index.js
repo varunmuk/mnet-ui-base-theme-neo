@@ -1350,7 +1350,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           color: 'dark-4',
           weight: 400,
           size: 'medium',
-          margin: 'none',
+          margin: { left: 'small' },
         },
         icon: {
           size: 'medium',
@@ -1382,14 +1382,14 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           },
           count: {
             margin: { left: 'small' },
-            background: 'light-4',
+            background: 'accent-12',
             round: 'small',
             pad: {
               horizontal: 'small',
             },
             justify: 'center',
             text: {
-              color: 'none',
+              color: 'white',
             },
           },
           text: {
@@ -1583,7 +1583,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
     },
     select: {
       background: 'transparent',
-      activeColor: lightColors[4],
+      activeColor: 'light-8',
       container: {
         extend: props => ({
           borderColor: normalizeColor('border', props.theme),
