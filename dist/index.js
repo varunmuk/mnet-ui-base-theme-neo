@@ -1459,7 +1459,9 @@ var generate = function generate(baseSpacing, scale) {
           color: 'dark-4',
           weight: 400,
           size: 'medium',
-          margin: 'none'
+          margin: {
+            left: 'small'
+          }
         },
         icon: {
           size: 'medium',
@@ -1493,14 +1495,14 @@ var generate = function generate(baseSpacing, scale) {
             margin: {
               left: 'small'
             },
-            background: 'light-4',
+            background: 'accent-12',
             round: 'small',
             pad: {
               horizontal: 'small'
             },
             justify: 'center',
             text: {
-              color: 'none'
+              color: 'white'
             }
           },
           text: {
@@ -1704,7 +1706,7 @@ var generate = function generate(baseSpacing, scale) {
     },
     select: {
       background: 'transparent',
-      activeColor: lightColors[4],
+      activeColor: 'light-8',
       container: {
         extend: function extend(props) {
           return {
