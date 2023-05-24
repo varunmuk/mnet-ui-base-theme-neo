@@ -2224,6 +2224,9 @@ var generate = function generate(baseSpacing, scale) {
                 color: 'inherit'
               }
             }
+          },
+          drop: {
+            elevation: 'small'
           }
         }
       }
