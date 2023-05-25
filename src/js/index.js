@@ -19,6 +19,7 @@ import {
   DesSort,
   Help,
   AlertTriangle,
+  Search,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2488,12 +2489,20 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       filters: {
         menu: {
           search: {
-            margin: '0',
-            extend: {
-              borderRadius: 0,
-              fontSize: `${baseSpacing * 0.875}px`,
-              paddingLeft: `${baseSpacing * 2.25}px`,
+            wrapper: {
+              margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: `${baseSpacing * 0.875}px`,
+                paddingLeft: `${baseSpacing * 2.25}px`,
+              },
             },
+            icons: {
+              icon: Search,
+              color: 'dark-7',
+              size: 'small',
+            },
+            // extend: undefined
           },
           icons: {
             color: 'brand',
@@ -2578,9 +2587,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             // width: {
             //   min: `${baseSpacing * 11.25}px`,
             // },
-            extend: ({ hasTagHover, theme }) => ({
+            extend: ({ disabled, hasTagHover, theme }) => ({
               '&:hover': {
-                borderColor: hasTagHover && normalizeColor('light-24', theme),
+                ...(!disabled && hasTagHover ? { 'border-color' : normalizeColor('light-24', theme) } : {}),
               },
             }),
           },
