@@ -2722,6 +2722,15 @@ var generate = function generate(baseSpacing, scale) {
               }
             }
           },
+          emptyListLabel: {
+            color: 'dark-7',
+            size: 'medium',
+            textAlign: 'center',
+            margin: {
+              vertical: 'large'
+            } // extend: undefined
+
+          },
           drop: {
             maxHeight: baseSpacing * 15 + "px",
             '& ::-webkit-scrollbar': {

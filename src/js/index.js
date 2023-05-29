@@ -2537,6 +2537,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
             },
           },
+          emptyListLabel: {
+            color: 'dark-7',
+            size: 'medium',
+            textAlign: 'center',
+            margin: { vertical: 'large' },
+            // extend: undefined
+          },
           drop: {
             maxHeight: `${baseSpacing * 15}px`,
             '& ::-webkit-scrollbar': {
@@ -2589,7 +2596,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             // },
             extend: ({ disabled, hasTagHover, theme }) => ({
               '&:hover': {
-                ...(!disabled && hasTagHover ? { 'border-color' : normalizeColor('light-24', theme) } : {}),
+                ...(!disabled && hasTagHover ? { 'border-color': normalizeColor('light-24', theme) } : {}),
               },
             }),
           },
