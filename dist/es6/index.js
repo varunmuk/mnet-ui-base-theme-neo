@@ -2693,7 +2693,7 @@ export var generate = function generate(baseSpacing, scale) {
             size: 'medium',
             textAlign: 'center',
             margin: {
-              vertical: 'large'
+              vertical: 'xlarge'
             } // extend: undefined
 
           },

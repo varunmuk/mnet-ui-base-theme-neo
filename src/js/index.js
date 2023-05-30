@@ -2541,7 +2541,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             color: 'dark-7',
             size: 'medium',
             textAlign: 'center',
-            margin: { vertical: 'large' },
+            margin: { vertical: 'xlarge' },
             // extend: undefined
           },
           drop: {
