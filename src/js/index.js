@@ -2621,7 +2621,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icons: {
             delete: Close,
             disable: Clear,
-            size: 'xsmall',
+            size: 'small',
             color: 'dark-8',
           },
           iconButtons: {

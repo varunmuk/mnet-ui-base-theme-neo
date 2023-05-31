@@ -2813,7 +2813,7 @@ var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": _Close.Close,
             disable: _Clear.Clear,
-            size: 'xsmall',
+            size: 'small',
             color: 'dark-8'
           },
           iconButtons: {
