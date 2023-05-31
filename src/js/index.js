@@ -19,6 +19,7 @@ import {
   DesSort,
   Help,
   AlertTriangle,
+  Search,
 } from 'mnet-icons/neo';
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
@@ -2076,6 +2077,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
               },
             },
           },
+          drop: {
+            elevation: 'small',
+          },
         },
       },
     },
@@ -2485,12 +2489,20 @@ export const generate = (baseSpacing = 24, scale = 6) => {
       filters: {
         menu: {
           search: {
-            margin: '0',
-            extend: {
-              borderRadius: 0,
-              fontSize: `${baseSpacing * 0.875}px`,
-              paddingLeft: `${baseSpacing * 2.25}px`,
+            wrapper: {
+              margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: `${baseSpacing * 0.875}px`,
+                paddingLeft: `${baseSpacing * 2.25}px`,
+              },
             },
+            icons: {
+              icon: Search,
+              color: 'dark-7',
+              size: 'small',
+            },
+            // extend: undefined
           },
           icons: {
             color: 'brand',
@@ -2524,6 +2536,13 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                 backgroundColor: 'transparent',
               },
             },
+          },
+          emptyListLabel: {
+            color: 'dark-7',
+            size: 'medium',
+            textAlign: 'center',
+            margin: { vertical: 'xlarge' },
+            // extend: undefined
           },
           drop: {
             maxHeight: `${baseSpacing * 15}px`,
@@ -2575,9 +2594,9 @@ export const generate = (baseSpacing = 24, scale = 6) => {
             // width: {
             //   min: `${baseSpacing * 11.25}px`,
             // },
-            extend: ({ hasTagHover, theme }) => ({
+            extend: ({ disabled, hasTagHover, theme }) => ({
               '&:hover': {
-                borderColor: hasTagHover && normalizeColor('light-24', theme),
+                ...(!disabled && hasTagHover ? { 'border-color': normalizeColor('light-24', theme) } : {}),
               },
             }),
           },
@@ -2602,7 +2621,7 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           icons: {
             delete: Close,
             disable: Clear,
-            size: 'xsmall',
+            size: 'small',
             color: 'dark-8',
           },
           iconButtons: {
@@ -2710,6 +2729,17 @@ export const generate = (baseSpacing = 24, scale = 6) => {
                     background: normalizeColor('active', theme),
                   },
                 }),
+              },
+              tip: {
+                align: 'center',
+                background: 'dark-7',
+                direction: 'row',
+                pad: { horizontal: `${baseSpacing * 0.5}px`, vertical: `${baseSpacing * 0.5}px` },
+                round: `${baseSpacing * 0.25}px`,
+                width: 'medium',
+                extend: {
+                  color: 'white',
+                },
               },
               icons: {
                 info: Info,

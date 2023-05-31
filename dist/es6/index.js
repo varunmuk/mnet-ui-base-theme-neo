@@ -24,6 +24,7 @@ import { AscSort } from "mnet-icons/dist/es6/icons/neo/AscSort";
 import { DesSort } from "mnet-icons/dist/es6/icons/neo/DesSort";
 import { Help } from "mnet-icons/dist/es6/icons/neo/Help";
 import { AlertTriangle } from "mnet-icons/dist/es6/icons/neo/AlertTriangle";
+import { Search } from "mnet-icons/dist/es6/icons/neo/Search";
 import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils/object';
 import { normalizeColor } from 'grommet/utils/colors';
@@ -2191,6 +2192,9 @@ export var generate = function generate(baseSpacing, scale) {
                 color: 'inherit'
               }
             }
+          },
+          drop: {
+            elevation: 'small'
           }
         }
       }
@@ -2633,12 +2637,20 @@ export var generate = function generate(baseSpacing, scale) {
       filters: {
         menu: {
           search: {
-            margin: '0',
-            extend: {
-              borderRadius: 0,
-              fontSize: baseSpacing * 0.875 + "px",
-              paddingLeft: baseSpacing * 2.25 + "px"
-            }
+            wrapper: {
+              margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: baseSpacing * 0.875 + "px",
+                paddingLeft: baseSpacing * 2.25 + "px"
+              }
+            },
+            icons: {
+              icon: Search,
+              color: 'dark-7',
+              size: 'small'
+            } // extend: undefined
+
           },
           icons: {
             color: 'brand',
@@ -2675,6 +2687,15 @@ export var generate = function generate(baseSpacing, scale) {
                 backgroundColor: 'transparent'
               }
             }
+          },
+          emptyListLabel: {
+            color: 'dark-7',
+            size: 'medium',
+            textAlign: 'center',
+            margin: {
+              vertical: 'xlarge'
+            } // extend: undefined
+
           },
           drop: {
             maxHeight: baseSpacing * 15 + "px",
@@ -2727,12 +2748,13 @@ export var generate = function generate(baseSpacing, scale) {
             //   min: `${baseSpacing * 11.25}px`,
             // },
             extend: function extend(_ref20) {
-              var hasTagHover = _ref20.hasTagHover,
+              var disabled = _ref20.disabled,
+                  hasTagHover = _ref20.hasTagHover,
                   theme = _ref20.theme;
               return {
-                '&:hover': {
-                  borderColor: hasTagHover && normalizeColor('light-24', theme)
-                }
+                '&:hover': _extends({}, !disabled && hasTagHover ? {
+                  'border-color': normalizeColor('light-24', theme)
+                } : {})
               };
             }
           },
@@ -2757,7 +2779,7 @@ export var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": Close,
             disable: Clear,
-            size: 'xsmall',
+            size: 'small',
             color: 'dark-8'
           },
           iconButtons: {
@@ -2873,6 +2895,20 @@ export var generate = function generate(baseSpacing, scale) {
                       background: normalizeColor('active', theme)
                     }
                   };
+                }
+              },
+              tip: {
+                align: 'center',
+                background: 'dark-7',
+                direction: 'row',
+                pad: {
+                  horizontal: baseSpacing * 0.5 + "px",
+                  vertical: baseSpacing * 0.5 + "px"
+                },
+                round: baseSpacing * 0.25 + "px",
+                width: 'medium',
+                extend: {
+                  color: 'white'
                 }
               },
               icons: {

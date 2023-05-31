@@ -43,6 +43,8 @@ var _Help = require("mnet-icons/dist/es6/icons/neo/Help");
 
 var _AlertTriangle = require("mnet-icons/dist/es6/icons/neo/AlertTriangle");
 
+var _Search = require("mnet-icons/dist/es6/icons/neo/Search");
+
 var _styledComponents = require("styled-components");
 
 var _object = require("grommet/utils/object");
@@ -2224,6 +2226,9 @@ var generate = function generate(baseSpacing, scale) {
                 color: 'inherit'
               }
             }
+          },
+          drop: {
+            elevation: 'small'
           }
         }
       }
@@ -2666,12 +2671,20 @@ var generate = function generate(baseSpacing, scale) {
       filters: {
         menu: {
           search: {
-            margin: '0',
-            extend: {
-              borderRadius: 0,
-              fontSize: baseSpacing * 0.875 + "px",
-              paddingLeft: baseSpacing * 2.25 + "px"
-            }
+            wrapper: {
+              margin: '0',
+              extend: {
+                borderRadius: 0,
+                fontSize: baseSpacing * 0.875 + "px",
+                paddingLeft: baseSpacing * 2.25 + "px"
+              }
+            },
+            icons: {
+              icon: _Search.Search,
+              color: 'dark-7',
+              size: 'small'
+            } // extend: undefined
+
           },
           icons: {
             color: 'brand',
@@ -2708,6 +2721,15 @@ var generate = function generate(baseSpacing, scale) {
                 backgroundColor: 'transparent'
               }
             }
+          },
+          emptyListLabel: {
+            color: 'dark-7',
+            size: 'medium',
+            textAlign: 'center',
+            margin: {
+              vertical: 'xlarge'
+            } // extend: undefined
+
           },
           drop: {
             maxHeight: baseSpacing * 15 + "px",
@@ -2760,12 +2782,13 @@ var generate = function generate(baseSpacing, scale) {
             //   min: `${baseSpacing * 11.25}px`,
             // },
             extend: function extend(_ref20) {
-              var hasTagHover = _ref20.hasTagHover,
+              var disabled = _ref20.disabled,
+                  hasTagHover = _ref20.hasTagHover,
                   theme = _ref20.theme;
               return {
-                '&:hover': {
-                  borderColor: hasTagHover && (0, _colors.normalizeColor)('light-24', theme)
-                }
+                '&:hover': _extends({}, !disabled && hasTagHover ? {
+                  'border-color': (0, _colors.normalizeColor)('light-24', theme)
+                } : {})
               };
             }
           },
@@ -2790,7 +2813,7 @@ var generate = function generate(baseSpacing, scale) {
           icons: {
             "delete": _Close.Close,
             disable: _Clear.Clear,
-            size: 'xsmall',
+            size: 'small',
             color: 'dark-8'
           },
           iconButtons: {
@@ -2906,6 +2929,20 @@ var generate = function generate(baseSpacing, scale) {
                       background: (0, _colors.normalizeColor)('active', theme)
                     }
                   };
+                }
+              },
+              tip: {
+                align: 'center',
+                background: 'dark-7',
+                direction: 'row',
+                pad: {
+                  horizontal: baseSpacing * 0.5 + "px",
+                  vertical: baseSpacing * 0.5 + "px"
+                },
+                round: baseSpacing * 0.25 + "px",
+                width: 'medium',
+                extend: {
+                  color: 'white'
                 }
               },
               icons: {
