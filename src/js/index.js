@@ -2058,6 +2058,8 @@ export const generate = (baseSpacing = 24, scale = 6) => {
           width: { max: 'medium' },
           pad: { horizontal: `${baseSpacing * 0.5}px`, vertical: `${baseSpacing * 0.5}px` },
           round: `${baseSpacing * 0.25}px`,
+          height: { max: 'medium' },
+          overflow: 'hidden',
           extend: {
             color: 'white',
           },
