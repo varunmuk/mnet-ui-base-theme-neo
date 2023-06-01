@@ -2173,6 +2173,10 @@ export var generate = function generate(baseSpacing, scale) {
             vertical: baseSpacing * 0.5 + "px"
           },
           round: baseSpacing * 0.25 + "px",
+          height: {
+            max: 'medium'
+          },
+          overflow: 'hidden',
           extend: {
             color: 'white'
           }
